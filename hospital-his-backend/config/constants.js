@@ -1,0 +1,178 @@
+/**
+ * System Constants
+ * Centralized constants used throughout the application
+ */
+
+// User Roles
+const USER_ROLES = {
+    ADMIN: 'admin',
+    DOCTOR: 'doctor',
+    NURSE: 'nurse',
+    RECEPTIONIST: 'receptionist',
+    LAB_TECH: 'lab_tech',
+    RADIOLOGIST: 'radiologist',
+    PHARMACIST: 'pharmacist',
+    BILLING: 'billing',
+    INSURANCE: 'insurance',
+    COMPLIANCE: 'compliance',
+};
+
+// Appointment Status
+const APPOINTMENT_STATUS = {
+    SCHEDULED: 'scheduled',
+    CHECKED_IN: 'checked-in',
+    IN_CONSULTATION: 'in-consultation',
+    COMPLETED: 'completed',
+    CANCELLED: 'cancelled',
+    NO_SHOW: 'no-show',
+};
+
+// Admission Status
+const ADMISSION_STATUS = {
+    ADMITTED: 'admitted',
+    DISCHARGED: 'discharged',
+    TRANSFERRED: 'transferred',
+};
+
+// Lab Test Status
+const LAB_TEST_STATUS = {
+    ORDERED: 'ordered',
+    SAMPLE_COLLECTED: 'sample-collected',
+    IN_PROGRESS: 'in-progress',
+    COMPLETED: 'completed',
+    CANCELLED: 'cancelled',
+};
+
+// Radiology Test Status
+const RADIOLOGY_STATUS = {
+    ORDERED: 'ordered',
+    SCHEDULED: 'scheduled',
+    IN_PROGRESS: 'in-progress',
+    COMPLETED: 'completed',
+    CANCELLED: 'cancelled',
+};
+
+// Surgery Status
+const SURGERY_STATUS = {
+    SCHEDULED: 'scheduled',
+    IN_PROGRESS: 'in-progress',
+    COMPLETED: 'completed',
+    CANCELLED: 'cancelled',
+};
+
+// Billing/Payment Status
+const PAYMENT_STATUS = {
+    PENDING: 'pending',
+    PARTIAL: 'partial',
+    PAID: 'paid',
+    REFUNDED: 'refunded',
+};
+
+// Payment Modes
+const PAYMENT_MODES = {
+    CASH: 'cash',
+    CARD: 'card',
+    UPI: 'upi',
+    CHEQUE: 'cheque',
+    INSURANCE: 'insurance',
+    ONLINE: 'online',
+};
+
+// Insurance Claim Status
+const INSURANCE_CLAIM_STATUS = {
+    PENDING: 'pending',
+    PRE_AUTHORIZED: 'pre-authorized',
+    APPROVED: 'approved',
+    REJECTED: 'rejected',
+    SETTLED: 'settled',
+};
+
+// Bed Status
+const BED_STATUS = {
+    AVAILABLE: 'available',
+    OCCUPIED: 'occupied',
+    UNDER_MAINTENANCE: 'under-maintenance',
+    RESERVED: 'reserved',
+};
+
+// Bed Types
+const BED_TYPES = {
+    GENERAL: 'general',
+    SEMI_PRIVATE: 'semi-private',
+    PRIVATE: 'private',
+    ICU: 'icu',
+    NICU: 'nicu',
+};
+
+// Inventory Status
+const INVENTORY_STATUS = {
+    AVAILABLE: 'available',
+    LOW_STOCK: 'low-stock',
+    OUT_OF_STOCK: 'out-of-stock',
+    EXPIRED: 'expired',
+};
+
+// AI Anomaly Types
+const AI_ANOMALY_TYPES = {
+    UNBILLED_SERVICE: 'unbilled-service',
+    UNBILLED_MEDICINE: 'unbilled-medicine',
+    UNUSUAL_PATTERN: 'unusual-pattern',
+};
+
+// AI Anomaly Status
+const AI_ANOMALY_STATUS = {
+    DETECTED: 'detected',
+    UNDER_REVIEW: 'under-review',
+    RESOLVED: 'resolved',
+    FALSE_POSITIVE: 'false-positive',
+};
+
+// AI Prediction Types
+const AI_PREDICTION_TYPES = {
+    OPD_RUSH: 'opd-rush',
+    BED_OCCUPANCY: 'bed-occupancy',
+    LAB_WORKLOAD: 'lab-workload',
+};
+
+// Notification Types
+const NOTIFICATION_TYPES = {
+    INFO: 'info',
+    WARNING: 'warning',
+    CRITICAL: 'critical',
+    ALERT: 'alert',
+};
+
+// Visit Types
+const VISIT_TYPES = {
+    OPD: 'opd',
+    IPD: 'ipd',
+    EMERGENCY: 'emergency',
+};
+
+// Blood Groups
+const BLOOD_GROUPS = ['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-'];
+
+// Gender Options
+const GENDERS = ['Male', 'Female', 'Other'];
+
+module.exports = {
+    USER_ROLES,
+    APPOINTMENT_STATUS,
+    ADMISSION_STATUS,
+    LAB_TEST_STATUS,
+    RADIOLOGY_STATUS,
+    SURGERY_STATUS,
+    PAYMENT_STATUS,
+    PAYMENT_MODES,
+    INSURANCE_CLAIM_STATUS,
+    BED_STATUS,
+    BED_TYPES,
+    INVENTORY_STATUS,
+    AI_ANOMALY_TYPES,
+    AI_ANOMALY_STATUS,
+    AI_PREDICTION_TYPES,
+    NOTIFICATION_TYPES,
+    VISIT_TYPES,
+    BLOOD_GROUPS,
+    GENDERS,
+};

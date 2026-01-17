@@ -1,0 +1,97 @@
+const mongoose = require('mongoose');
+const { APPOINTMENT_STATUS } = require('../config/constants');
+
+/**
+ * Appointment Model
+ * Represents OPD appointments and follow-ups
+ */
+
+const appointmentSchema = new mongoose.Schema(
+    {
+        appointmentNumber: {
+            type: String,
+            unique: true,
+            required: true,
+        },
+        patient: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Patient',
+            required: [true, 'Patient is required'],
+        },
+        doctor: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'User',
+            required: [true, 'Doctor is required'],
+        },
+        department: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Department',
+            required: [true, 'Department is required'],
+        },
+        type: {
+            type: String,
+            enum: ['opd', 'followup'],
+            default: 'opd',
+        },
+        scheduledDate: {
+            type: Date,
+            required: [true, 'Scheduled date is required'],
+        },
+        scheduledTime: {
+            type: String,
+            required: [true, 'Scheduled time is required'],
+        },
+        status: {
+            type: String,
+            enum: Object.values(APPOINTMENT_STATUS),
+            default: APPOINTMENT_STATUS.SCHEDULED,
+        },
+        tokenNumber: {
+            type: Number,
+        },
+        chiefComplaint: {
+            type: String,
+            trim: true,
+        },
+        notes: {
+            type: String,
+            trim: true,
+        },
+        createdBy: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'User',
+            required: true,
+        },
+    },
+    {
+        timestamps: true,
+    }
+);
+
+// Indexes
+appointmentSchema.index({ appointmentNumber: 1 });
+appointmentSchema.index({ patient: 1 });
+appointmentSchema.index({ doctor: 1 });
+appointmentSchema.index({ scheduledDate: 1 });
+appointmentSchema.index({ status: 1 });
+appointmentSchema.index({ department: 1, scheduledDate: 1 });
+
+// Auto-generate appointmentNumber before saving
+appointmentSchema.pre('save', async function (next) {
+    if (this.isNew) {
+        const today = new Date();
+        const dateStr = today.toISOString().slice(0, 10).replace(/-/g, '');
+        const count = await mongoose.model('Appointment').countDocuments({
+            createdAt: {
+                $gte: new Date(today.setHours(0, 0, 0, 0)),
+                $lt: new Date(today.setHours(23, 59, 59, 999)),
+            },
+        });
+        this.appointmentNumber = `APT${dateStr}${String(count + 1).padStart(4, '0')}`;
+    }
+    next();
+});
+
+const Appointment = mongoose.model('Appointment', appointmentSchema);
+
+module.exports = Appointment;
