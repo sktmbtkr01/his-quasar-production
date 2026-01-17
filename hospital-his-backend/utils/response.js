@@ -1,12 +1,16 @@
 /**
- * Standard API Response Utilities
- * Consistent response formatting across the application
+ * Response Utility
+ * Standardized API response helpers
  */
 
 /**
  * Success response
+ * @param {Object} res - Express response object
+ * @param {Object} data - Response data
+ * @param {String} message - Success message
+ * @param {Number} statusCode - HTTP status code
  */
-exports.success = (res, data, message = 'Success', statusCode = 200) => {
+exports.successResponse = (res, data = null, message = 'Success', statusCode = 200) => {
     return res.status(statusCode).json({
         success: true,
         message,
@@ -15,23 +19,16 @@ exports.success = (res, data, message = 'Success', statusCode = 200) => {
 };
 
 /**
- * Created response (201)
- */
-exports.created = (res, data, message = 'Resource created successfully') => {
-    return res.status(201).json({
-        success: true,
-        message,
-        data,
-    });
-};
-
-/**
  * Error response
+ * @param {Object} res - Express response object
+ * @param {String} message - Error message
+ * @param {Number} statusCode - HTTP status code
+ * @param {Object} errors - Additional error details
  */
-exports.error = (res, message = 'An error occurred', statusCode = 500, errors = null) => {
+exports.errorResponse = (res, message = 'Error', statusCode = 500, errors = null) => {
     const response = {
         success: false,
-        message,
+        error: message,
     };
 
     if (errors) {
@@ -42,22 +39,89 @@ exports.error = (res, message = 'An error occurred', statusCode = 500, errors = 
 };
 
 /**
- * Not found response (404)
+ * Paginated response
+ * @param {Object} res - Express response object
+ * @param {Array} data - Array of data
+ * @param {Object} pagination - Pagination info
+ * @param {String} message - Success message
  */
-exports.notFound = (res, message = 'Resource not found') => {
+exports.paginatedResponse = (res, data, pagination, message = 'Success') => {
+    return res.status(200).json({
+        success: true,
+        message,
+        data,
+        pagination,
+    });
+};
+
+/**
+ * Created response (201)
+ * @param {Object} res - Express response object
+ * @param {Object} data - Created resource
+ * @param {String} message - Success message
+ */
+exports.createdResponse = (res, data, message = 'Resource created successfully') => {
+    return res.status(201).json({
+        success: true,
+        message,
+        data,
+    });
+};
+
+/**
+ * No content response (204)
+ * @param {Object} res - Express response object
+ */
+exports.noContentResponse = (res) => {
+    return res.status(204).send();
+};
+
+/**
+ * Not found response (404)
+ * @param {Object} res - Express response object
+ * @param {String} resource - Resource name
+ */
+exports.notFoundResponse = (res, resource = 'Resource') => {
     return res.status(404).json({
         success: false,
-        message,
+        error: `${resource} not found`,
+    });
+};
+
+/**
+ * Unauthorized response (401)
+ * @param {Object} res - Express response object
+ * @param {String} message - Error message
+ */
+exports.unauthorizedResponse = (res, message = 'Unauthorized access') => {
+    return res.status(401).json({
+        success: false,
+        error: message,
+    });
+};
+
+/**
+ * Forbidden response (403)
+ * @param {Object} res - Express response object
+ * @param {String} message - Error message
+ */
+exports.forbiddenResponse = (res, message = 'Access forbidden') => {
+    return res.status(403).json({
+        success: false,
+        error: message,
     });
 };
 
 /**
  * Bad request response (400)
+ * @param {Object} res - Express response object
+ * @param {String} message - Error message
+ * @param {Object} errors - Validation errors
  */
-exports.badRequest = (res, message = 'Bad request', errors = null) => {
+exports.badRequestResponse = (res, message = 'Bad request', errors = null) => {
     const response = {
         success: false,
-        message,
+        error: message,
     };
 
     if (errors) {
@@ -68,91 +132,13 @@ exports.badRequest = (res, message = 'Bad request', errors = null) => {
 };
 
 /**
- * Unauthorized response (401)
+ * Conflict response (409)
+ * @param {Object} res - Express response object
+ * @param {String} message - Error message
  */
-exports.unauthorized = (res, message = 'Unauthorized access') => {
-    return res.status(401).json({
+exports.conflictResponse = (res, message = 'Resource already exists') => {
+    return res.status(409).json({
         success: false,
-        message,
-    });
-};
-
-/**
- * Forbidden response (403)
- */
-exports.forbidden = (res, message = 'Access forbidden') => {
-    return res.status(403).json({
-        success: false,
-        message,
-    });
-};
-
-/**
- * Validation error response (422)
- */
-exports.validationError = (res, errors, message = 'Validation failed') => {
-    return res.status(422).json({
-        success: false,
-        message,
-        errors,
-    });
-};
-
-/**
- * Paginated response
- */
-exports.paginated = (res, data, pagination, message = 'Success') => {
-    return res.status(200).json({
-        success: true,
-        message,
-        data,
-        pagination: {
-            page: pagination.page,
-            limit: pagination.limit,
-            total: pagination.total,
-            pages: pagination.pages,
-            hasNextPage: pagination.page < pagination.pages,
-            hasPrevPage: pagination.page > 1,
-        },
-    });
-};
-
-/**
- * List response with count
- */
-exports.list = (res, data, total, message = 'Success') => {
-    return res.status(200).json({
-        success: true,
-        message,
-        count: data.length,
-        total,
-        data,
-    });
-};
-
-/**
- * No content response (204)
- */
-exports.noContent = (res) => {
-    return res.status(204).send();
-};
-
-/**
- * Server error response (500)
- */
-exports.serverError = (res, message = 'Internal server error') => {
-    return res.status(500).json({
-        success: false,
-        message,
-    });
-};
-
-/**
- * Service unavailable response (503)
- */
-exports.serviceUnavailable = (res, message = 'Service temporarily unavailable') => {
-    return res.status(503).json({
-        success: false,
-        message,
+        error: message,
     });
 };

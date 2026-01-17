@@ -1,159 +1,49 @@
 /**
- * Helper Functions
- * Common utility functions used across the application
+ * Helper Utility Functions
+ * Common utility functions used throughout the application
  */
 
 /**
- * Generate random alphanumeric string
+ * Generate a unique code with prefix
+ * @param {String} prefix - Prefix for the code (e.g., 'PAT', 'BIL')
+ * @param {Number} length - Length of the numeric part
  */
-exports.generateRandomString = (length = 8) => {
-    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    let result = '';
-    for (let i = 0; i < length; i++) {
-        result += chars.charAt(Math.floor(Math.random() * chars.length));
+exports.generateCode = (prefix, length = 6) => {
+    const timestamp = Date.now().toString(36).toUpperCase();
+    const random = Math.random().toString(36).substring(2, 2 + length).toUpperCase();
+    return `${prefix}${timestamp}${random}`.substring(0, prefix.length + length);
+};
+
+/**
+ * Generate sequential code based on count
+ * @param {String} prefix - Prefix for the code
+ * @param {Number} count - Current count
+ * @param {Number} padding - Number of digits to pad
+ */
+exports.generateSequentialCode = (prefix, count, padding = 6) => {
+    return `${prefix}${String(count + 1).padStart(padding, '0')}`;
+};
+
+/**
+ * Calculate age from date of birth
+ * @param {Date} dateOfBirth - Date of birth
+ */
+exports.calculateAge = (dateOfBirth) => {
+    if (!dateOfBirth) return null;
+    const today = new Date();
+    const birthDate = new Date(dateOfBirth);
+    let age = today.getFullYear() - birthDate.getFullYear();
+    const monthDiff = today.getMonth() - birthDate.getMonth();
+    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+        age--;
     }
-    return result;
+    return age;
 };
 
 /**
- * Generate numeric OTP
- */
-exports.generateOTP = (length = 6) => {
-    let otp = '';
-    for (let i = 0; i < length; i++) {
-        otp += Math.floor(Math.random() * 10);
-    }
-    return otp;
-};
-
-/**
- * Capitalize first letter
- */
-exports.capitalize = (str) => {
-    if (!str) return '';
-    return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
-};
-
-/**
- * Convert to title case
- */
-exports.toTitleCase = (str) => {
-    if (!str) return '';
-    return str
-        .toLowerCase()
-        .split(' ')
-        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-        .join(' ');
-};
-
-/**
- * Slugify string
- */
-exports.slugify = (str) => {
-    return str
-        .toLowerCase()
-        .trim()
-        .replace(/[^\w\s-]/g, '')
-        .replace(/[\s_-]+/g, '-')
-        .replace(/^-+|-+$/g, '');
-};
-
-/**
- * Deep clone object
- */
-exports.deepClone = (obj) => {
-    return JSON.parse(JSON.stringify(obj));
-};
-
-/**
- * Check if object is empty
- */
-exports.isEmpty = (obj) => {
-    if (!obj) return true;
-    if (Array.isArray(obj)) return obj.length === 0;
-    if (typeof obj === 'object') return Object.keys(obj).length === 0;
-    return false;
-};
-
-/**
- * Pick specific keys from object
- */
-exports.pick = (obj, keys) => {
-    return keys.reduce((acc, key) => {
-        if (obj.hasOwnProperty(key)) {
-            acc[key] = obj[key];
-        }
-        return acc;
-    }, {});
-};
-
-/**
- * Omit specific keys from object
- */
-exports.omit = (obj, keys) => {
-    const result = { ...obj };
-    keys.forEach((key) => delete result[key]);
-    return result;
-};
-
-/**
- * Group array by key
- */
-exports.groupBy = (array, key) => {
-    return array.reduce((acc, item) => {
-        const group = item[key];
-        if (!acc[group]) {
-            acc[group] = [];
-        }
-        acc[group].push(item);
-        return acc;
-    }, {});
-};
-
-/**
- * Remove duplicates from array
- */
-exports.uniqueArray = (array, key = null) => {
-    if (key) {
-        const seen = new Set();
-        return array.filter((item) => {
-            const value = item[key];
-            if (seen.has(value)) return false;
-            seen.add(value);
-            return true;
-        });
-    }
-    return [...new Set(array)];
-};
-
-/**
- * Paginate array
- */
-exports.paginate = (array, page = 1, limit = 10) => {
-    const startIndex = (page - 1) * limit;
-    const endIndex = page * limit;
-    const results = {
-        data: array.slice(startIndex, endIndex),
-        pagination: {
-            total: array.length,
-            page,
-            limit,
-            pages: Math.ceil(array.length / limit),
-        },
-    };
-
-    if (endIndex < array.length) {
-        results.pagination.next = page + 1;
-    }
-    if (startIndex > 0) {
-        results.pagination.prev = page - 1;
-    }
-
-    return results;
-};
-
-/**
- * Format currency (INR)
+ * Format currency amount
+ * @param {Number} amount - Amount to format
+ * @param {String} currency - Currency code (default: INR)
  */
 exports.formatCurrency = (amount, currency = 'INR') => {
     return new Intl.NumberFormat('en-IN', {
@@ -163,63 +53,160 @@ exports.formatCurrency = (amount, currency = 'INR') => {
 };
 
 /**
- * Calculate percentage
+ * Format date to Indian format
+ * @param {Date} date - Date to format
  */
-exports.calculatePercentage = (value, total) => {
-    if (total === 0) return 0;
-    return Math.round((value / total) * 100 * 100) / 100;
+exports.formatDate = (date) => {
+    if (!date) return '';
+    return new Date(date).toLocaleDateString('en-IN', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric',
+    });
 };
 
 /**
- * Round to decimal places
+ * Format date and time
+ * @param {Date} date - Date to format
  */
-exports.roundTo = (num, decimals = 2) => {
-    return Math.round(num * Math.pow(10, decimals)) / Math.pow(10, decimals);
+exports.formatDateTime = (date) => {
+    if (!date) return '';
+    return new Date(date).toLocaleString('en-IN', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+    });
 };
 
 /**
- * Sleep/delay function
+ * Parse query string for pagination
+ * @param {Object} query - Express request query object
  */
-exports.sleep = (ms) => {
-    return new Promise((resolve) => setTimeout(resolve, ms));
+exports.parsePagination = (query) => {
+    const page = parseInt(query.page, 10) || 1;
+    const limit = parseInt(query.limit, 10) || 10;
+    const skip = (page - 1) * limit;
+    const sort = query.sort || '-createdAt';
+
+    return { page, limit, skip, sort };
 };
 
 /**
- * Retry function with exponential backoff
+ * Build pagination response
+ * @param {Number} total - Total number of documents
+ * @param {Number} page - Current page
+ * @param {Number} limit - Items per page
  */
-exports.retry = async (fn, maxRetries = 3, delay = 1000) => {
-    for (let i = 0; i < maxRetries; i++) {
-        try {
-            return await fn();
-        } catch (error) {
-            if (i === maxRetries - 1) throw error;
-            await exports.sleep(delay * Math.pow(2, i));
+exports.buildPaginationResponse = (total, page, limit) => {
+    return {
+        total,
+        page,
+        limit,
+        totalPages: Math.ceil(total / limit),
+        hasNextPage: page * limit < total,
+        hasPrevPage: page > 1,
+    };
+};
+
+/**
+ * Sanitize object - remove undefined and null values
+ * @param {Object} obj - Object to sanitize
+ */
+exports.sanitizeObject = (obj) => {
+    const sanitized = {};
+    Object.keys(obj).forEach((key) => {
+        if (obj[key] !== undefined && obj[key] !== null && obj[key] !== '') {
+            sanitized[key] = obj[key];
         }
+    });
+    return sanitized;
+};
+
+/**
+ * Deep clone an object
+ * @param {Object} obj - Object to clone
+ */
+exports.deepClone = (obj) => {
+    return JSON.parse(JSON.stringify(obj));
+};
+
+/**
+ * Check if string is valid MongoDB ObjectId
+ * @param {String} id - String to check
+ */
+exports.isValidObjectId = (id) => {
+    return /^[0-9a-fA-F]{24}$/.test(id);
+};
+
+/**
+ * Generate random alphanumeric string
+ * @param {Number} length - Length of the string
+ */
+exports.generateRandomString = (length = 10) => {
+    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    let result = '';
+    for (let i = 0; i < length; i++) {
+        result += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    return result;
+};
+
+/**
+ * Mask sensitive data (e.g., phone, email)
+ * @param {String} data - Data to mask
+ * @param {String} type - Type of data ('phone', 'email')
+ */
+exports.maskSensitiveData = (data, type) => {
+    if (!data) return '';
+
+    switch (type) {
+        case 'phone':
+            return data.replace(/(\d{2})\d{6}(\d{2})/, '$1******$2');
+        case 'email':
+            const [local, domain] = data.split('@');
+            return `${local.substring(0, 2)}****@${domain}`;
+        default:
+            return data;
     }
 };
 
 /**
- * Mask sensitive data
+ * Calculate percentage
+ * @param {Number} value - Current value
+ * @param {Number} total - Total value
+ * @param {Number} decimals - Decimal places
  */
-exports.maskData = (str, visibleChars = 4) => {
-    if (!str || str.length <= visibleChars) return str;
-    const masked = '*'.repeat(str.length - visibleChars);
-    return masked + str.slice(-visibleChars);
+exports.calculatePercentage = (value, total, decimals = 2) => {
+    if (total === 0) return 0;
+    return Number(((value / total) * 100).toFixed(decimals));
 };
 
 /**
- * Parse query string params
+ * Get date range for common periods
+ * @param {String} period - 'today', 'week', 'month', 'year'
  */
-exports.parseQueryParams = (query) => {
-    const params = {};
-    Object.keys(query).forEach((key) => {
-        const value = query[key];
-        // Parse boolean strings
-        if (value === 'true') params[key] = true;
-        else if (value === 'false') params[key] = false;
-        // Parse numbers
-        else if (!isNaN(value) && value !== '') params[key] = Number(value);
-        else params[key] = value;
-    });
-    return params;
+exports.getDateRange = (period) => {
+    const now = new Date();
+    let startDate;
+
+    switch (period) {
+        case 'today':
+            startDate = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+            break;
+        case 'week':
+            startDate = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
+            break;
+        case 'month':
+            startDate = new Date(now.getFullYear(), now.getMonth(), 1);
+            break;
+        case 'year':
+            startDate = new Date(now.getFullYear(), 0, 1);
+            break;
+        default:
+            startDate = new Date(now.getTime() - 30 * 24 * 60 * 60 * 1000);
+    }
+
+    return { startDate, endDate: now };
 };

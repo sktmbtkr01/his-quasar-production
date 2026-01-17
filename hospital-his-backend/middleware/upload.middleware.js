@@ -1,36 +1,31 @@
+/**
+ * File Upload Middleware
+ * Handles file uploads using Multer
+ */
+
 const multer = require('multer');
 const path = require('path');
 const fs = require('fs');
 const ErrorResponse = require('../utils/errorResponse');
 
-/**
- * File Upload Middleware
- * Handles file uploads using multer
- */
+// Ensure uploads directory exists
+const uploadsDir = path.join(process.cwd(), 'uploads');
+if (!fs.existsSync(uploadsDir)) {
+    fs.mkdirSync(uploadsDir, { recursive: true });
+}
 
-// Ensure upload directories exist
-const uploadDirs = ['./uploads', './uploads/documents', './uploads/images', './uploads/reports'];
-uploadDirs.forEach((dir) => {
-    if (!fs.existsSync(dir)) {
-        fs.mkdirSync(dir, { recursive: true });
-    }
-});
-
-/**
- * Storage configuration
- */
+// Storage configuration
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        let folder = './uploads';
+        // Create subdirectory based on resource type
+        const resourceType = req.baseUrl.split('/').pop() || 'general';
+        const uploadPath = path.join(uploadsDir, resourceType);
 
-        // Determine folder based on file type
-        if (file.mimetype.startsWith('image/')) {
-            folder = './uploads/images';
-        } else if (file.mimetype === 'application/pdf') {
-            folder = './uploads/documents';
+        if (!fs.existsSync(uploadPath)) {
+            fs.mkdirSync(uploadPath, { recursive: true });
         }
 
-        cb(null, folder);
+        cb(null, uploadPath);
     },
     filename: (req, file, cb) => {
         // Generate unique filename
@@ -40,108 +35,115 @@ const storage = multer.diskStorage({
     },
 });
 
-/**
- * Memory storage for temporary file processing
- */
-const memoryStorage = multer.memoryStorage();
-
-/**
- * File filter
- */
+// File filter
 const fileFilter = (allowedTypes) => {
     return (req, file, cb) => {
         if (allowedTypes.includes(file.mimetype)) {
             cb(null, true);
         } else {
-            cb(new ErrorResponse(`File type ${file.mimetype} is not allowed`, 400), false);
+            cb(
+                new ErrorResponse(
+                    `Invalid file type. Allowed types: ${allowedTypes.join(', ')}`,
+                    400
+                ),
+                false
+            );
         }
     };
 };
 
-/**
- * Pre-configured upload middleware
- */
-
-// General document upload
-exports.uploadDocument = multer({
-    storage,
-    limits: { fileSize: 10 * 1024 * 1024 }, // 10MB
-    fileFilter: fileFilter([
+// Common file type configurations
+const fileTypes = {
+    images: ['image/jpeg', 'image/png', 'image/gif', 'image/webp'],
+    documents: [
         'application/pdf',
         'application/msword',
         'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+        'application/vnd.ms-excel',
+        'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+    ],
+    medical: [
+        'application/pdf',
         'image/jpeg',
         'image/png',
-    ]),
-});
+        'application/dicom',
+        'image/dicom-rle',
+    ],
+    all: [
+        'image/jpeg',
+        'image/png',
+        'image/gif',
+        'application/pdf',
+        'application/msword',
+        'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+    ],
+};
 
-// Image upload
+/**
+ * Upload single image
+ */
 exports.uploadImage = multer({
     storage,
-    limits: { fileSize: 5 * 1024 * 1024 }, // 5MB
-    fileFilter: fileFilter(['image/jpeg', 'image/png', 'image/webp']),
-});
-
-// Report upload (PDF only)
-exports.uploadReport = multer({
-    storage,
-    limits: { fileSize: 20 * 1024 * 1024 }, // 20MB
-    fileFilter: fileFilter(['application/pdf']),
-});
-
-// Profile picture upload
-exports.uploadProfilePic = multer({
-    storage,
-    limits: { fileSize: 2 * 1024 * 1024 }, // 2MB
-    fileFilter: fileFilter(['image/jpeg', 'image/png']),
-}).single('profilePicture');
-
-// Multiple images upload
-exports.uploadMultipleImages = multer({
-    storage,
-    limits: { fileSize: 5 * 1024 * 1024 },
-    fileFilter: fileFilter(['image/jpeg', 'image/png', 'image/webp']),
-}).array('images', 10);
-
-// Lab/Radiology images
-exports.uploadMedicalImages = multer({
-    storage,
-    limits: { fileSize: 50 * 1024 * 1024 }, // 50MB for medical images
-    fileFilter: fileFilter(['image/jpeg', 'image/png', 'image/dicom', 'application/dicom']),
-}).array('medicalImages', 20);
-
-// Memory storage for processing before S3 upload
-exports.uploadToMemory = multer({
-    storage: memoryStorage,
-    limits: { fileSize: 10 * 1024 * 1024 },
+    fileFilter: fileFilter(fileTypes.images),
+    limits: {
+        fileSize: 5 * 1024 * 1024, // 5MB
+    },
 });
 
 /**
- * Error handler for multer errors
+ * Upload single document
  */
-exports.handleUploadError = (err, req, res, next) => {
-    if (err instanceof multer.MulterError) {
-        if (err.code === 'LIMIT_FILE_SIZE') {
-            return next(new ErrorResponse('File too large', 400));
-        }
-        if (err.code === 'LIMIT_FILE_COUNT') {
-            return next(new ErrorResponse('Too many files', 400));
-        }
-        if (err.code === 'LIMIT_UNEXPECTED_FILE') {
-            return next(new ErrorResponse('Unexpected file field', 400));
-        }
-        return next(new ErrorResponse(err.message, 400));
-    }
-    next(err);
-};
+exports.uploadDocument = multer({
+    storage,
+    fileFilter: fileFilter(fileTypes.documents),
+    limits: {
+        fileSize: 10 * 1024 * 1024, // 10MB
+    },
+});
+
+/**
+ * Upload medical files (DICOM, PDFs, images)
+ */
+exports.uploadMedical = multer({
+    storage,
+    fileFilter: fileFilter(fileTypes.medical),
+    limits: {
+        fileSize: 50 * 1024 * 1024, // 50MB for medical images
+    },
+});
+
+/**
+ * Upload any allowed file
+ */
+exports.uploadAny = multer({
+    storage,
+    fileFilter: fileFilter(fileTypes.all),
+    limits: {
+        fileSize: 10 * 1024 * 1024, // 10MB
+    },
+});
+
+/**
+ * Memory storage for processing files without saving
+ */
+exports.uploadToMemory = multer({
+    storage: multer.memoryStorage(),
+    limits: {
+        fileSize: 10 * 1024 * 1024, // 10MB
+    },
+});
 
 /**
  * Delete uploaded file
  */
 exports.deleteFile = (filePath) => {
-    fs.unlink(filePath, (err) => {
-        if (err) {
-            console.error('Error deleting file:', err.message);
-        }
+    return new Promise((resolve, reject) => {
+        fs.unlink(filePath, (err) => {
+            if (err) {
+                reject(err);
+            } else {
+                resolve();
+            }
+        });
     });
 };

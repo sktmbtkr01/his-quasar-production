@@ -1,119 +1,120 @@
-const { validationResult, body, param, query } = require('express-validator');
+/**
+ * Validation Middleware
+ * Uses Joi for request validation
+ */
+
+const Joi = require('joi');
 const ErrorResponse = require('../utils/errorResponse');
 
 /**
- * Validation Middleware
- * Handles request validation using express-validator
+ * Validate request body, query, or params
+ * @param {Object} schema - Joi validation schema object with body, query, params keys
  */
+exports.validate = (schema) => {
+    return (req, res, next) => {
+        const validationOptions = {
+            abortEarly: false, // Include all errors
+            allowUnknown: true, // Ignore unknown props
+            stripUnknown: true, // Remove unknown props
+        };
 
-/**
- * Validate request and return errors if any
- */
-exports.validate = (req, res, next) => {
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-        const errorMessages = errors.array().map((err) => err.msg);
-        return next(new ErrorResponse(errorMessages.join(', '), 400));
-    }
-    next();
-};
+        const errors = [];
 
-/**
- * Common validation rules
- */
-exports.rules = {
-    // Patient validation
-    createPatient: [
-        body('firstName').trim().notEmpty().withMessage('First name is required'),
-        body('lastName').trim().notEmpty().withMessage('Last name is required'),
-        body('dateOfBirth').isISO8601().withMessage('Valid date of birth is required'),
-        body('gender').isIn(['male', 'female', 'other']).withMessage('Valid gender is required'),
-        body('phone').matches(/^[0-9]{10}$/).withMessage('Valid 10-digit phone number is required'),
-        body('email').optional().isEmail().withMessage('Valid email is required'),
-    ],
-
-    // Appointment validation
-    createAppointment: [
-        body('patient').isMongoId().withMessage('Valid patient ID is required'),
-        body('doctor').isMongoId().withMessage('Valid doctor ID is required'),
-        body('department').isMongoId().withMessage('Valid department ID is required'),
-        body('scheduledDate').isISO8601().withMessage('Valid date is required'),
-        body('scheduledTime').matches(/^([01]?[0-9]|2[0-3]):[0-5][0-9]$/).withMessage('Valid time (HH:MM) is required'),
-    ],
-
-    // Admission validation
-    createAdmission: [
-        body('patient').isMongoId().withMessage('Valid patient ID is required'),
-        body('doctor').isMongoId().withMessage('Valid doctor ID is required'),
-        body('department').isMongoId().withMessage('Valid department ID is required'),
-        body('ward').isMongoId().withMessage('Valid ward ID is required'),
-        body('bed').isMongoId().withMessage('Valid bed ID is required'),
-        body('reasonForAdmission').trim().notEmpty().withMessage('Reason for admission is required'),
-    ],
-
-    // Billing validation
-    createBill: [
-        body('patient').isMongoId().withMessage('Valid patient ID is required'),
-        body('items').isArray({ min: 1 }).withMessage('At least one billing item is required'),
-        body('items.*.description').notEmpty().withMessage('Item description is required'),
-        body('items.*.quantity').isInt({ min: 1 }).withMessage('Valid quantity is required'),
-        body('items.*.rate').isFloat({ min: 0 }).withMessage('Valid rate is required'),
-    ],
-
-    // Payment validation
-    createPayment: [
-        body('bill').isMongoId().withMessage('Valid bill ID is required'),
-        body('amount').isFloat({ min: 0.01 }).withMessage('Valid amount is required'),
-        body('paymentMode').isIn(['cash', 'card', 'upi', 'cheque', 'online', 'insurance']).withMessage('Valid payment mode is required'),
-    ],
-
-    // Login validation
-    login: [
-        body('email').isEmail().withMessage('Valid email is required'),
-        body('password').notEmpty().withMessage('Password is required'),
-    ],
-
-    // Password change validation
-    changePassword: [
-        body('currentPassword').notEmpty().withMessage('Current password is required'),
-        body('newPassword')
-            .isLength({ min: 8 })
-            .withMessage('Password must be at least 8 characters')
-            .matches(/[A-Z]/)
-            .withMessage('Password must contain at least one uppercase letter')
-            .matches(/[0-9]/)
-            .withMessage('Password must contain at least one number'),
-    ],
-
-    // Common param validation
-    mongoId: [
-        param('id').isMongoId().withMessage('Invalid ID format'),
-    ],
-
-    // Pagination validation
-    pagination: [
-        query('page').optional().isInt({ min: 1 }).withMessage('Page must be a positive integer'),
-        query('limit').optional().isInt({ min: 1, max: 100 }).withMessage('Limit must be between 1 and 100'),
-    ],
-
-    // Date range validation
-    dateRange: [
-        query('startDate').optional().isISO8601().withMessage('Valid start date is required'),
-        query('endDate').optional().isISO8601().withMessage('Valid end date is required'),
-    ],
-};
-
-/**
- * Sanitize request body
- */
-exports.sanitize = (req, res, next) => {
-    // Trim all string fields
-    if (req.body && typeof req.body === 'object') {
-        Object.keys(req.body).forEach((key) => {
-            if (typeof req.body[key] === 'string') {
-                req.body[key] = req.body[key].trim();
+        // Validate body
+        if (schema.body) {
+            const { error, value } = schema.body.validate(req.body, validationOptions);
+            if (error) {
+                errors.push(...error.details.map((d) => d.message));
+            } else {
+                req.body = value;
             }
-        });
-    }
-    next();
+        }
+
+        // Validate query
+        if (schema.query) {
+            const { error, value } = schema.query.validate(req.query, validationOptions);
+            if (error) {
+                errors.push(...error.details.map((d) => d.message));
+            } else {
+                req.query = value;
+            }
+        }
+
+        // Validate params
+        if (schema.params) {
+            const { error, value } = schema.params.validate(req.params, validationOptions);
+            if (error) {
+                errors.push(...error.details.map((d) => d.message));
+            } else {
+                req.params = value;
+            }
+        }
+
+        if (errors.length > 0) {
+            return next(new ErrorResponse(errors.join(', '), 400));
+        }
+
+        next();
+    };
+};
+
+// Common validation schemas
+exports.schemas = {
+    // MongoDB ObjectId
+    objectId: Joi.string().regex(/^[0-9a-fA-F]{24}$/),
+
+    // Pagination
+    pagination: Joi.object({
+        page: Joi.number().integer().min(1).default(1),
+        limit: Joi.number().integer().min(1).max(100).default(10),
+        sort: Joi.string(),
+        order: Joi.string().valid('asc', 'desc').default('desc'),
+    }),
+
+    // Date range
+    dateRange: Joi.object({
+        startDate: Joi.date().iso(),
+        endDate: Joi.date().iso().greater(Joi.ref('startDate')),
+    }),
+
+    // Patient creation
+    createPatient: Joi.object({
+        firstName: Joi.string().required().min(2).max(50),
+        lastName: Joi.string().required().min(2).max(50),
+        dateOfBirth: Joi.date().required().max('now'),
+        gender: Joi.string().required().valid('Male', 'Female', 'Other'),
+        phone: Joi.string().required().pattern(/^[0-9+\-\s]+$/),
+        email: Joi.string().email(),
+        address: Joi.object({
+            street: Joi.string(),
+            city: Joi.string(),
+            state: Joi.string(),
+            pincode: Joi.string(),
+        }),
+        bloodGroup: Joi.string().valid('A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-'),
+        allergies: Joi.array().items(Joi.string()),
+    }),
+
+    // User login
+    login: Joi.object({
+        email: Joi.string().email().required(),
+        password: Joi.string().required().min(6),
+    }),
+
+    // Create user
+    createUser: Joi.object({
+        username: Joi.string().required().min(3).max(50),
+        email: Joi.string().email().required(),
+        password: Joi.string().required().min(6),
+        role: Joi.string().required(),
+        department: Joi.string().regex(/^[0-9a-fA-F]{24}$/),
+        profile: Joi.object({
+            firstName: Joi.string().required(),
+            lastName: Joi.string().required(),
+            phone: Joi.string(),
+            qualification: Joi.string(),
+            specialization: Joi.string(),
+            registrationNumber: Joi.string(),
+        }).required(),
+    }),
 };

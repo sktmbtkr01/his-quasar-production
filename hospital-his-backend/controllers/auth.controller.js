@@ -71,7 +71,7 @@ exports.refreshToken = asyncHandler(async (req, res, next) => {
     }
 
     // Verify refresh token
-    const decoded = jwt.verify(refreshToken, config.jwt.secret);
+    const decoded = jwt.verify(refreshToken, config.jwtSecret);
 
     // Find user with matching refresh token
     const user = await User.findOne({
@@ -160,13 +160,13 @@ exports.getMe = asyncHandler(async (req, res, next) => {
 // Helper function to get token and send response
 const sendTokenResponse = async (user, statusCode, res) => {
     // Create access token
-    const accessToken = jwt.sign({ id: user._id }, config.jwt.secret, {
-        expiresIn: config.jwt.expire,
+    const accessToken = jwt.sign({ id: user._id }, config.jwtSecret, {
+        expiresIn: config.jwtExpire,
     });
 
     // Create refresh token
-    const refreshToken = jwt.sign({ id: user._id }, config.jwt.secret, {
-        expiresIn: config.jwt.refreshExpire,
+    const refreshToken = jwt.sign({ id: user._id }, config.jwtSecret, {
+        expiresIn: config.jwtRefreshExpire,
     });
 
     // Save refresh token to database

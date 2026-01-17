@@ -1,19 +1,19 @@
-const { USER_ROLES } = require('../config/constants');
-const ErrorResponse = require('../utils/errorResponse');
-
 /**
- * RBAC (Role-Based Access Control) Middleware
- * Controls access based on user roles
+ * Role-Based Access Control (RBAC) Middleware
+ * Handles authorization based on user roles
  */
 
+const ErrorResponse = require('../utils/errorResponse');
+const { USER_ROLES } = require('../config/constants');
+
 /**
- * Authorize specific roles
- * @param  {...string} roles - Allowed roles
+ * Authorize specific roles to access a route
+ * @param  {...String} roles - Allowed roles
  */
 exports.authorize = (...roles) => {
     return (req, res, next) => {
         if (!req.user) {
-            return next(new ErrorResponse('Not authenticated', 401));
+            return next(new ErrorResponse('User not authenticated', 401));
         }
 
         if (!roles.includes(req.user.role)) {
@@ -24,112 +24,148 @@ exports.authorize = (...roles) => {
                 )
             );
         }
-
         next();
     };
 };
 
 /**
- * Check if user has any of the specified permissions
- * @param  {...string} permissions - Required permissions
+ * Check if user has specific permission
+ * @param {String} permission - Required permission
  */
-exports.hasPermission = (...permissions) => {
+exports.hasPermission = (permission) => {
     return (req, res, next) => {
         if (!req.user) {
-            return next(new ErrorResponse('Not authenticated', 401));
+            return next(new ErrorResponse('User not authenticated', 401));
         }
 
-        // Define role-permission mapping
-        const rolePermissions = {
-            [USER_ROLES.ADMIN]: ['*'], // Admin has all permissions
-            [USER_ROLES.DOCTOR]: [
-                'view:patients',
-                'edit:patients',
-                'view:appointments',
-                'edit:appointments',
-                'view:emr',
-                'edit:emr',
-                'create:prescription',
-                'view:lab',
-                'create:lab',
-                'view:radiology',
-                'create:radiology',
-            ],
-            [USER_ROLES.NURSE]: [
-                'view:patients',
-                'view:appointments',
-                'edit:appointments',
-                'view:emr',
-                'edit:vitals',
-                'view:lab',
-            ],
-            [USER_ROLES.RECEPTIONIST]: [
-                'view:patients',
-                'create:patients',
-                'edit:patients',
-                'view:appointments',
-                'create:appointments',
-                'edit:appointments',
-            ],
-            [USER_ROLES.LAB_TECH]: ['view:lab', 'edit:lab', 'create:lab-results'],
-            [USER_ROLES.PHARMACIST]: ['view:prescriptions', 'dispense:medicines', 'edit:pharmacy-inventory'],
-            [USER_ROLES.BILLING]: ['view:billing', 'create:billing', 'edit:billing', 'view:payments', 'create:payments'],
-            [USER_ROLES.RADIOLOGIST]: ['view:radiology', 'edit:radiology', 'create:radiology-report'],
-        };
-
-        const userPermissions = rolePermissions[req.user.role] || [];
-
-        // Check if user has any of the required permissions
-        const hasPermission =
-            userPermissions.includes('*') ||
-            permissions.some((permission) => userPermissions.includes(permission));
-
-        if (!hasPermission) {
-            return next(new ErrorResponse('Insufficient permissions', 403));
-        }
-
-        next();
-    };
-};
-
-/**
- * Restrict access to resource owner or admin
- */
-exports.ownerOrAdmin = (resourceField = 'user') => {
-    return (req, res, next) => {
-        if (!req.user) {
-            return next(new ErrorResponse('Not authenticated', 401));
-        }
-
-        // Admin can access everything
+        // Admin has all permissions
         if (req.user.role === USER_ROLES.ADMIN) {
             return next();
         }
 
-        // Check if user owns the resource
-        const resourceId = req.params.id;
-        const userId = req.user._id.toString();
+        // Define role-permission mappings
+        const rolePermissions = {
+            [USER_ROLES.DOCTOR]: [
+                'view_patient',
+                'edit_patient',
+                'view_emr',
+                'create_emr',
+                'edit_emr',
+                'view_prescription',
+                'create_prescription',
+                'view_lab',
+                'order_lab',
+                'view_radiology',
+                'order_radiology',
+                'view_appointment',
+                'create_appointment',
+            ],
+            [USER_ROLES.NURSE]: [
+                'view_patient',
+                'view_emr',
+                'edit_emr',
+                'view_prescription',
+                'view_lab',
+                'collect_sample',
+                'view_vitals',
+                'edit_vitals',
+                'view_bed',
+            ],
+            [USER_ROLES.RECEPTIONIST]: [
+                'view_patient',
+                'create_patient',
+                'edit_patient',
+                'view_appointment',
+                'create_appointment',
+                'edit_appointment',
+                'view_billing',
+                'create_billing',
+            ],
+            [USER_ROLES.LAB_TECH]: [
+                'view_lab',
+                'edit_lab',
+                'enter_lab_results',
+                'view_patient',
+            ],
+            [USER_ROLES.RADIOLOGIST]: [
+                'view_radiology',
+                'edit_radiology',
+                'enter_radiology_results',
+                'view_patient',
+            ],
+            [USER_ROLES.PHARMACIST]: [
+                'view_prescription',
+                'dispense_medicine',
+                'view_pharmacy_inventory',
+                'edit_pharmacy_inventory',
+                'view_patient',
+            ],
+            [USER_ROLES.BILLING]: [
+                'view_billing',
+                'create_billing',
+                'edit_billing',
+                'view_payment',
+                'create_payment',
+                'view_patient',
+            ],
+            [USER_ROLES.INSURANCE]: [
+                'view_insurance',
+                'create_insurance_claim',
+                'edit_insurance_claim',
+                'view_patient',
+                'view_billing',
+            ],
+            [USER_ROLES.COMPLIANCE]: [
+                'view_audit',
+                'view_reports',
+                'view_patient',
+                'view_billing',
+            ],
+        };
 
-        // For routes where the resource has a user field
-        if (req.resource && req.resource[resourceField]?.toString() === userId) {
-            return next();
+        const userPermissions = rolePermissions[req.user.role] || [];
+
+        if (!userPermissions.includes(permission)) {
+            return next(
+                new ErrorResponse(
+                    `User does not have permission: ${permission}`,
+                    403
+                )
+            );
         }
 
-        // For self-access routes (like /users/:id)
-        if (resourceId === userId) {
-            return next();
-        }
-
-        return next(new ErrorResponse('Not authorized to access this resource', 403));
+        next();
     };
 };
 
 /**
- * Department-based access control
+ * Check if user is accessing their own resource or is admin
+ */
+exports.isOwnerOrAdmin = (req, res, next) => {
+    if (!req.user) {
+        return next(new ErrorResponse('User not authenticated', 401));
+    }
+
+    const resourceUserId = req.params.userId || req.body.userId;
+
+    if (
+        req.user.role === USER_ROLES.ADMIN ||
+        req.user._id.toString() === resourceUserId
+    ) {
+        return next();
+    }
+
+    return next(
+        new ErrorResponse('Not authorized to access this resource', 403)
+    );
+};
+
+/**
+ * Check if user belongs to the same department
  */
 exports.sameDepartment = (req, res, next) => {
     if (!req.user) {
-        return next(new ErrorResponse('Not authenticated', 401));
+        return next(new ErrorResponse('User not authenticated', 401));
     }
 
     // Admin can access all departments
@@ -137,11 +173,13 @@ exports.sameDepartment = (req, res, next) => {
         return next();
     }
 
-    const departmentId = req.params.departmentId || req.query.department || req.body.department;
+    const departmentId = req.params.departmentId || req.body.departmentId;
 
-    if (departmentId && req.user.department?.toString() !== departmentId) {
-        return next(new ErrorResponse('Not authorized to access this department', 403));
+    if (req.user.department && req.user.department.toString() === departmentId) {
+        return next();
     }
 
-    next();
+    return next(
+        new ErrorResponse('Not authorized to access this department', 403)
+    );
 };

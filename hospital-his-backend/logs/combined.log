@@ -1,0 +1,55 @@
+2026-01-17 17:08:00 [INFO]: MongoDB Connected: ac-3nlnfep-shard-00-01.fs2fnzl.mongodb.net
+2026-01-17 17:08:00 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-17 17:08:00 [INFO]:        HOSPITAL INFORMATION SYSTEM (HIS) BACKEND SERVER        
+2026-01-17 17:08:00 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-17 17:08:00 [INFO]: 🚀 Server running in development mode on port 5000
+2026-01-17 17:08:00 [INFO]: 📡 API Base URL: http://localhost:5000/api/v1
+2026-01-17 17:08:00 [INFO]: 🔌 WebSocket enabled
+2026-01-17 17:08:00 [INFO]: 📋 Health check: http://localhost:5000/api/health
+2026-01-17 17:08:00 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-17 17:08:43 [INFO]: MongoDB Connected: ac-3nlnfep-shard-00-02.fs2fnzl.mongodb.net
+2026-01-17 17:08:43 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-17 17:08:43 [INFO]:        HOSPITAL INFORMATION SYSTEM (HIS) BACKEND SERVER        
+2026-01-17 17:08:43 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-17 17:08:43 [INFO]: 🚀 Server running in development mode on port 5000
+2026-01-17 17:08:43 [INFO]: 📡 API Base URL: http://localhost:5000/api/v1
+2026-01-17 17:08:43 [INFO]: 🔌 WebSocket enabled
+2026-01-17 17:08:43 [INFO]: 📋 Health check: http://localhost:5000/api/health
+2026-01-17 17:08:43 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-17 17:09:03 [INFO]: MongoDB Connected: ac-3nlnfep-shard-00-00.fs2fnzl.mongodb.net
+2026-01-17 17:09:03 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-17 17:09:03 [INFO]:        HOSPITAL INFORMATION SYSTEM (HIS) BACKEND SERVER        
+2026-01-17 17:09:03 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-17 17:09:03 [INFO]: 🚀 Server running in development mode on port 5000
+2026-01-17 17:09:03 [INFO]: 📡 API Base URL: http://localhost:5000/api/v1
+2026-01-17 17:09:03 [INFO]: 🔌 WebSocket enabled
+2026-01-17 17:09:03 [INFO]: 📋 Health check: http://localhost:5000/api/health
+2026-01-17 17:09:03 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-17 17:09:51 [INFO]: MongoDB Connected: ac-3nlnfep-shard-00-00.fs2fnzl.mongodb.net
+2026-01-17 17:09:51 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-17 17:09:51 [INFO]:        HOSPITAL INFORMATION SYSTEM (HIS) BACKEND SERVER        
+2026-01-17 17:09:51 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-17 17:09:51 [INFO]: 🚀 Server running in development mode on port 5000
+2026-01-17 17:09:51 [INFO]: 📡 API Base URL: http://localhost:5000/api/v1
+2026-01-17 17:09:51 [INFO]: 🔌 WebSocket enabled
+2026-01-17 17:09:51 [INFO]: 📋 Health check: http://localhost:5000/api/health
+2026-01-17 17:09:51 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-17 17:09:54 [INFO]: MongoDB Connected: ac-3nlnfep-shard-00-02.fs2fnzl.mongodb.net
+2026-01-17 17:09:54 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-17 17:09:54 [INFO]:        HOSPITAL INFORMATION SYSTEM (HIS) BACKEND SERVER        
+2026-01-17 17:09:54 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-17 17:09:54 [INFO]: 🚀 Server running in development mode on port 5000
+2026-01-17 17:09:54 [INFO]: 📡 API Base URL: http://localhost:5000/api/v1
+2026-01-17 17:09:54 [INFO]: 🔌 WebSocket enabled
+2026-01-17 17:09:54 [INFO]: 📋 Health check: http://localhost:5000/api/health
+2026-01-17 17:09:54 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-17 17:10:08 [INFO]: MongoDB Connected: ac-3nlnfep-shard-00-00.fs2fnzl.mongodb.net
+2026-01-17 17:10:41 [INFO]: MongoDB Connected: ac-3nlnfep-shard-00-00.fs2fnzl.mongodb.net
+2026-01-17 17:10:41 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-17 17:10:41 [INFO]:        HOSPITAL INFORMATION SYSTEM (HIS) BACKEND SERVER        
+2026-01-17 17:10:41 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-17 17:10:41 [INFO]: 🚀 Server running in development mode on port 5000
+2026-01-17 17:10:41 [INFO]: 📡 API Base URL: http://localhost:5000/api/v1
+2026-01-17 17:10:41 [INFO]: 🔌 WebSocket enabled
+2026-01-17 17:10:41 [INFO]: 📋 Health check: http://localhost:5000/api/health
+2026-01-17 17:10:41 [INFO]: ═══════════════════════════════════════════════════════════════

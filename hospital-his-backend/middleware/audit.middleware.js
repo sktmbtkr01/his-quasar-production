@@ -1,161 +1,114 @@
+/**
+ * Audit Middleware
+ * Logs user actions for compliance and auditing
+ */
+
 const AuditLog = require('../models/AuditLog');
+const asyncHandler = require('../utils/asyncHandler');
 
 /**
- * Audit Logging Middleware
- * Records user actions for compliance and security
+ * Log action to audit trail
  */
+exports.auditLog = (action, resourceType) => {
+    return asyncHandler(async (req, res, next) => {
+        // Store original send function
+        const originalSend = res.send;
+
+        // Override send to capture response
+        res.send = function (body) {
+            res.body = body;
+            return originalSend.call(this, body);
+        };
+
+        // Continue with request
+        next();
+
+        // After response is sent, log the action
+        res.on('finish', async () => {
+            try {
+                // Only log if user is authenticated
+                if (req.user) {
+                    const logData = {
+                        user: req.user._id,
+                        action: action,
+                        resourceType: resourceType,
+                        resourceId: req.params.id || null,
+                        details: {
+                            method: req.method,
+                            path: req.originalUrl,
+                            statusCode: res.statusCode,
+                            ip: req.ip || req.connection.remoteAddress,
+                            userAgent: req.get('User-Agent'),
+                        },
+                    };
+
+                    // Don't log request body for sensitive routes
+                    const sensitiveRoutes = ['/auth/login', '/auth/change-password'];
+                    if (!sensitiveRoutes.some((route) => req.originalUrl.includes(route))) {
+                        logData.details.requestBody = req.body;
+                    }
+
+                    await AuditLog.create(logData);
+                }
+            } catch (error) {
+                // Don't fail the request if audit logging fails
+                console.error('Audit log error:', error.message);
+            }
+        });
+    });
+};
 
 /**
- * Create audit log entry
+ * Simple audit logger for critical actions
  */
-const createAuditLog = async (logData) => {
+exports.logCriticalAction = async (userId, action, resourceType, resourceId, details = {}) => {
     try {
-        await AuditLog.create(logData);
+        await AuditLog.create({
+            user: userId,
+            action,
+            resourceType,
+            resourceId,
+            details,
+        });
     } catch (error) {
-        console.error('Audit logging failed:', error.message);
+        console.error('Failed to log critical action:', error.message);
     }
 };
 
 /**
- * Audit middleware - logs all modifying requests
+ * Audit action types
  */
-exports.auditLog = (entity) => {
-    return async (req, res, next) => {
-        // Store original json method
-        const originalJson = res.json.bind(res);
-
-        // Override json method to capture response
-        res.json = (body) => {
-            // Log after response is prepared
-            const logData = {
-                user: req.user?._id,
-                action: getActionFromMethod(req.method),
-                entity,
-                entityId: req.params.id || body?.data?._id,
-                description: `${req.method} ${req.originalUrl}`,
-                ipAddress: req.ip || req.connection?.remoteAddress,
-                userAgent: req.get('User-Agent'),
-                timestamp: new Date(),
-                metadata: {
-                    statusCode: res.statusCode,
-                    method: req.method,
-                    url: req.originalUrl,
-                    query: req.query,
-                },
-            };
-
-            // For update operations, try to capture changes
-            if (req.method === 'PUT' || req.method === 'PATCH') {
-                logData.changes = {
-                    after: sanitizeBody(req.body),
-                };
-            }
-
-            // Only log modifying operations or if explicitly requested
-            if (['POST', 'PUT', 'PATCH', 'DELETE'].includes(req.method)) {
-                createAuditLog(logData);
-            }
-
-            return originalJson(body);
-        };
-
-        next();
-    };
+exports.AUDIT_ACTIONS = {
+    CREATE: 'create',
+    READ: 'read',
+    UPDATE: 'update',
+    DELETE: 'delete',
+    LOGIN: 'login',
+    LOGOUT: 'logout',
+    EXPORT: 'export',
+    PRINT: 'print',
+    APPROVE: 'approve',
+    REJECT: 'reject',
+    DISPENSE: 'dispense',
+    BILL: 'bill',
+    PAYMENT: 'payment',
 };
 
 /**
- * Explicit audit log for sensitive operations
+ * Resource types for auditing
  */
-exports.logAction = (action, entity, description) => {
-    return async (req, res, next) => {
-        const originalJson = res.json.bind(res);
-
-        res.json = (body) => {
-            createAuditLog({
-                user: req.user?._id,
-                action,
-                entity,
-                entityId: req.params.id || body?.data?._id,
-                description: description || `${action} on ${entity}`,
-                ipAddress: req.ip,
-                userAgent: req.get('User-Agent'),
-                timestamp: new Date(),
-            });
-
-            return originalJson(body);
-        };
-
-        next();
-    };
-};
-
-/**
- * Log login attempts
- */
-exports.logLogin = async (req, user, success) => {
-    await createAuditLog({
-        user: user?._id,
-        action: success ? 'login' : 'login_failed',
-        entity: 'User',
-        entityId: user?._id,
-        description: success ? 'User logged in successfully' : 'Login attempt failed',
-        ipAddress: req.ip,
-        userAgent: req.get('User-Agent'),
-        timestamp: new Date(),
-        metadata: {
-            email: req.body.email,
-            success,
-        },
-    });
-};
-
-/**
- * Log data export
- */
-exports.logExport = async (req, entity, recordCount) => {
-    await createAuditLog({
-        user: req.user?._id,
-        action: 'export',
-        entity,
-        description: `Exported ${recordCount} ${entity} records`,
-        ipAddress: req.ip,
-        userAgent: req.get('User-Agent'),
-        timestamp: new Date(),
-        metadata: {
-            recordCount,
-            exportType: req.query.format || 'unknown',
-        },
-    });
-};
-
-/**
- * Helper: Get action from HTTP method
- */
-const getActionFromMethod = (method) => {
-    const actionMap = {
-        GET: 'read',
-        POST: 'create',
-        PUT: 'update',
-        PATCH: 'update',
-        DELETE: 'delete',
-    };
-    return actionMap[method] || 'other';
-};
-
-/**
- * Helper: Sanitize request body to remove sensitive data
- */
-const sanitizeBody = (body) => {
-    if (!body) return null;
-
-    const sanitized = { ...body };
-    const sensitiveFields = ['password', 'token', 'secret', 'creditCard', 'cvv'];
-
-    sensitiveFields.forEach((field) => {
-        if (sanitized[field]) {
-            sanitized[field] = '[REDACTED]';
-        }
-    });
-
-    return sanitized;
+exports.RESOURCE_TYPES = {
+    PATIENT: 'patient',
+    USER: 'user',
+    APPOINTMENT: 'appointment',
+    ADMISSION: 'admission',
+    EMR: 'emr',
+    PRESCRIPTION: 'prescription',
+    LAB_TEST: 'lab_test',
+    RADIOLOGY: 'radiology',
+    BILLING: 'billing',
+    PAYMENT: 'payment',
+    INSURANCE: 'insurance',
+    INVENTORY: 'inventory',
+    MEDICINE: 'medicine',
 };
