@@ -3859,3 +3859,84 @@ Error: User not found
 2026-01-21 20:27:31 [INFO]: 📋 Health check: http://localhost:5001/api/health
 2026-01-21 20:27:31 [INFO]: ═══════════════════════════════════════════════════════════════
 2026-01-21 20:29:50 [WARN]: MongoDB disconnected. Attempting to reconnect...
+2026-01-21 20:47:32 [INFO]: MongoDB Connected: ac-3nlnfep-shard-00-02.fs2fnzl.mongodb.net
+2026-01-21 20:47:32 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-21 20:47:32 [INFO]:        HOSPITAL INFORMATION SYSTEM (HIS) BACKEND SERVER        
+2026-01-21 20:47:32 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-21 20:47:32 [INFO]: 🚀 Server running in development mode on port 5001
+2026-01-21 20:47:32 [INFO]: 📡 API Base URL: http://localhost:5001/api/v1
+2026-01-21 20:47:32 [INFO]: 🔌 WebSocket enabled
+2026-01-21 20:47:32 [INFO]: 📋 Health check: http://localhost:5001/api/health
+2026-01-21 20:47:32 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-21 20:47:53 [ERROR]: Invalid credentials
+Error: Invalid credentials
+    at /Users/khush/Desktop/Hackathons/Quasar/HIS_Quasar_2/HIS_Quasar/hospital-his-backend/controllers/auth.controller.js:36:21
+2026-01-21 20:47:55 [ERROR]: Invalid credentials
+Error: Invalid credentials
+    at /Users/khush/Desktop/Hackathons/Quasar/HIS_Quasar_2/HIS_Quasar/hospital-his-backend/controllers/auth.controller.js:36:21
+2026-01-21 20:55:25 [WARN]: MongoDB disconnected. Attempting to reconnect...
+2026-01-21 21:43:49 [INFO]: MongoDB Connected: ac-3nlnfep-shard-00-02.fs2fnzl.mongodb.net
+2026-01-21 21:43:49 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-21 21:43:49 [INFO]:        HOSPITAL INFORMATION SYSTEM (HIS) BACKEND SERVER        
+2026-01-21 21:43:49 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-21 21:43:49 [INFO]: 🚀 Server running in development mode on port 5001
+2026-01-21 21:43:49 [INFO]: 📡 API Base URL: http://localhost:5001/api/v1
+2026-01-21 21:43:49 [INFO]: 🔌 WebSocket enabled
+2026-01-21 21:43:49 [INFO]: 📋 Health check: http://localhost:5001/api/health
+2026-01-21 21:43:49 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-21 21:46:48 [ERROR]: Invalid credentials
+Error: Invalid credentials
+    at /Users/khush/Desktop/Hackathons/Quasar/HIS_Quasar_2/HIS_Quasar/hospital-his-backend/controllers/auth.controller.js:36:21
+2026-01-21 21:59:47 [ERROR]: Payment amount exceeds outstanding balance. Balance: 500, Attempted: 600
+Error: Payment amount exceeds outstanding balance. Balance: 500, Attempted: 600
+    at BillingService.recordPayment (/Users/khush/Desktop/Hackathons/Quasar/HIS_Quasar_2/HIS_Quasar/hospital-his-backend/services/billing.service.js:427:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async /Users/khush/Desktop/Hackathons/Quasar/HIS_Quasar_2/HIS_Quasar/hospital-his-backend/controllers/billing.controller.js:335:18
+2026-01-21 21:59:48 [ERROR]: Payment amount exceeds outstanding balance. Balance: 500, Attempted: 600
+Error: Payment amount exceeds outstanding balance. Balance: 500, Attempted: 600
+    at BillingService.recordPayment (/Users/khush/Desktop/Hackathons/Quasar/HIS_Quasar_2/HIS_Quasar/hospital-his-backend/services/billing.service.js:427:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async /Users/khush/Desktop/Hackathons/Quasar/HIS_Quasar_2/HIS_Quasar/hospital-his-backend/controllers/billing.controller.js:335:18
+2026-01-21 21:59:49 [ERROR]: Payment amount exceeds outstanding balance. Balance: 500, Attempted: 600
+Error: Payment amount exceeds outstanding balance. Balance: 500, Attempted: 600
+    at BillingService.recordPayment (/Users/khush/Desktop/Hackathons/Quasar/HIS_Quasar_2/HIS_Quasar/hospital-his-backend/services/billing.service.js:427:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async /Users/khush/Desktop/Hackathons/Quasar/HIS_Quasar_2/HIS_Quasar/hospital-his-backend/controllers/billing.controller.js:335:18
+2026-01-21 22:26:57 [ERROR]: Please provide email and password
+Error: Please provide email and password
+    at /Users/khush/Desktop/Hackathons/Quasar/HIS_Quasar_2/HIS_Quasar/hospital-his-backend/controllers/auth.controller.js:17:21
+    at /Users/khush/Desktop/Hackathons/Quasar/HIS_Quasar_2/HIS_Quasar/hospital-his-backend/utils/asyncHandler.js:7:21
+    at Layer.handle [as handle_request] (/Users/khush/Desktop/Hackathons/Quasar/HIS_Quasar_2/HIS_Quasar/hospital-his-backend/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/khush/Desktop/Hackathons/Quasar/HIS_Quasar_2/HIS_Quasar/hospital-his-backend/node_modules/express/lib/router/route.js:149:13)
+    at Route.dispatch (/Users/khush/Desktop/Hackathons/Quasar/HIS_Quasar_2/HIS_Quasar/hospital-his-backend/node_modules/express/lib/router/route.js:119:3)
+    at Layer.handle [as handle_request] (/Users/khush/Desktop/Hackathons/Quasar/HIS_Quasar_2/HIS_Quasar/hospital-his-backend/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/khush/Desktop/Hackathons/Quasar/HIS_Quasar_2/HIS_Quasar/hospital-his-backend/node_modules/express/lib/router/index.js:284:15
+    at router.process_params (/Users/khush/Desktop/Hackathons/Quasar/HIS_Quasar_2/HIS_Quasar/hospital-his-backend/node_modules/express/lib/router/index.js:346:12)
+    at next (/Users/khush/Desktop/Hackathons/Quasar/HIS_Quasar_2/HIS_Quasar/hospital-his-backend/node_modules/express/lib/router/index.js:280:10)
+    at router.handle (/Users/khush/Desktop/Hackathons/Quasar/HIS_Quasar_2/HIS_Quasar/hospital-his-backend/node_modules/express/lib/router/index.js:175:3)
+2026-01-21 22:26:58 [ERROR]: Please provide email and password
+Error: Please provide email and password
+    at /Users/khush/Desktop/Hackathons/Quasar/HIS_Quasar_2/HIS_Quasar/hospital-his-backend/controllers/auth.controller.js:17:21
+    at /Users/khush/Desktop/Hackathons/Quasar/HIS_Quasar_2/HIS_Quasar/hospital-his-backend/utils/asyncHandler.js:7:21
+    at Layer.handle [as handle_request] (/Users/khush/Desktop/Hackathons/Quasar/HIS_Quasar_2/HIS_Quasar/hospital-his-backend/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/khush/Desktop/Hackathons/Quasar/HIS_Quasar_2/HIS_Quasar/hospital-his-backend/node_modules/express/lib/router/route.js:149:13)
+    at Route.dispatch (/Users/khush/Desktop/Hackathons/Quasar/HIS_Quasar_2/HIS_Quasar/hospital-his-backend/node_modules/express/lib/router/route.js:119:3)
+    at Layer.handle [as handle_request] (/Users/khush/Desktop/Hackathons/Quasar/HIS_Quasar_2/HIS_Quasar/hospital-his-backend/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/khush/Desktop/Hackathons/Quasar/HIS_Quasar_2/HIS_Quasar/hospital-his-backend/node_modules/express/lib/router/index.js:284:15
+    at router.process_params (/Users/khush/Desktop/Hackathons/Quasar/HIS_Quasar_2/HIS_Quasar/hospital-his-backend/node_modules/express/lib/router/index.js:346:12)
+    at next (/Users/khush/Desktop/Hackathons/Quasar/HIS_Quasar_2/HIS_Quasar/hospital-his-backend/node_modules/express/lib/router/index.js:280:10)
+    at router.handle (/Users/khush/Desktop/Hackathons/Quasar/HIS_Quasar_2/HIS_Quasar/hospital-his-backend/node_modules/express/lib/router/index.js:175:3)
+2026-01-21 22:30:46 [WARN]: MongoDB disconnected. Attempting to reconnect...
+2026-01-21 22:30:50 [INFO]: MongoDB Connected: ac-3nlnfep-shard-00-02.fs2fnzl.mongodb.net
+2026-01-21 22:30:50 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-21 22:30:50 [INFO]:        HOSPITAL INFORMATION SYSTEM (HIS) BACKEND SERVER        
+2026-01-21 22:30:50 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-21 22:30:50 [INFO]: 🚀 Server running in development mode on port 5001
+2026-01-21 22:30:50 [INFO]: 📡 API Base URL: http://localhost:5001/api/v1
+2026-01-21 22:30:50 [INFO]: 🔌 WebSocket enabled
+2026-01-21 22:30:50 [INFO]: 📋 Health check: http://localhost:5001/api/health
+2026-01-21 22:30:50 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-21 22:32:33 [ERROR]: Invalid credentials
+Error: Invalid credentials
+    at /Users/khush/Desktop/Hackathons/Quasar/HIS_Quasar_2/HIS_Quasar/hospital-his-backend/controllers/auth.controller.js:36:21
+2026-01-21 23:04:20 [WARN]: MongoDB disconnected. Attempting to reconnect...
