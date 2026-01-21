@@ -37,6 +37,11 @@ const billingSchema = new mongoose.Schema(
             type: Date,
             default: Date.now,
         },
+        status: {
+            type: String,
+            enum: ['draft', 'finalized', 'cancelled'],
+            default: 'draft',
+        },
         items: [
             {
                 itemType: {
@@ -85,6 +90,10 @@ const billingSchema = new mongoose.Schema(
                 billedAt: {
                     type: Date,
                     default: Date.now,
+                },
+                isSystemGenerated: {
+                    type: Boolean,
+                    default: false,
                 },
             },
         ],

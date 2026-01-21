@@ -66,6 +66,41 @@ const admissionSchema = new mongoose.Schema(
             ref: 'User',
             required: true,
         },
+        // Clinical Data
+        vitals: [{
+            temperature: String,
+            bpSystolic: Number,
+            bpDiastolic: Number,
+            pulse: Number,
+            spo2: Number,
+            respiratoryRate: Number,
+            recordedAt: { type: Date, default: Date.now },
+            recordedBy: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
+        }],
+        clinicalNotes: [{
+            note: { type: String, required: true },
+            type: { type: String, enum: ['doctor_round', 'nursing_note', 'procedure_note'], required: true },
+            recordedAt: { type: Date, default: Date.now },
+            recordedBy: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
+        }],
+        // Billing & Discharge Control
+        billing: {
+            status: { type: String, enum: ['pending', 'cleared'], default: 'pending' },
+            lastChargeGeneration: Date,
+            advances: [{
+                amount: Number,
+                date: Date,
+                receiptNumber: String,
+                collectedBy: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
+            }]
+        },
+        discharge: {
+            initiatedAt: Date,
+            isApprovedByDoctor: { type: Boolean, default: false },
+            approvedBy: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+            billingCleared: { type: Boolean, default: false },
+            summary: String
+        }
     },
     {
         timestamps: true,

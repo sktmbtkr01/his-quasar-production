@@ -11,7 +11,6 @@ const appointmentSchema = new mongoose.Schema(
         appointmentNumber: {
             type: String,
             unique: true,
-            required: true,
         },
         patient: {
             type: mongoose.Schema.Types.ObjectId,
@@ -30,8 +29,7 @@ const appointmentSchema = new mongoose.Schema(
         },
         type: {
             type: String,
-            enum: ['opd', 'followup'],
-            default: 'opd',
+            default: 'General',
         },
         scheduledDate: {
             type: Date,
@@ -39,7 +37,6 @@ const appointmentSchema = new mongoose.Schema(
         },
         scheduledTime: {
             type: String,
-            required: [true, 'Scheduled time is required'],
         },
         status: {
             type: String,
@@ -57,6 +54,16 @@ const appointmentSchema = new mongoose.Schema(
             type: String,
             trim: true,
         },
+        diagnosis: {
+            type: String,
+            trim: true,
+        },
+        prescription: [{
+            name: String,
+            dosage: String,
+            frequency: String,
+            duration: String,
+        }],
         createdBy: {
             type: mongoose.Schema.Types.ObjectId,
             ref: 'User',

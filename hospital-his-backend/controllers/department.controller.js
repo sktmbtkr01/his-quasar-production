@@ -9,11 +9,17 @@ const ErrorResponse = require('../utils/errorResponse');
  * @route   GET /api/departments
  */
 exports.getAllDepartments = asyncHandler(async (req, res, next) => {
-    const { type, isActive = true } = req.query;
+    const { type, isActive } = req.query;
 
     const query = {};
     if (type) query.type = type;
-    if (isActive !== undefined) query.isActive = isActive === 'true';
+
+    // Default to active departments if not specified
+    if (isActive === undefined) {
+        query.isActive = true;
+    } else {
+        query.isActive = isActive === 'true';
+    }
 
     const departments = await Department.find(query)
         .populate('head', 'profile.firstName profile.lastName')

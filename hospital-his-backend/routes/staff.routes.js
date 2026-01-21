@@ -3,14 +3,28 @@ const router = express.Router();
 const staffController = require('../controllers/staff.controller');
 const { authenticate } = require('../middleware/auth.middleware');
 const { authorize } = require('../middleware/rbac.middleware');
+const User = require('../models/User');
 
 router.use(authenticate);
+
+/**
+ * @route   GET /api/staff/doctors
+ * @desc    Get all doctors (users with role 'doctor') for dropdowns
+ */
+router.get('/doctors', authorize('admin', 'doctor', 'nurse', 'receptionist'), async (req, res) => {
+    try {
+        const doctors = await User.find({ role: 'doctor', isActive: true }).select('_id username email profile role');
+        res.status(200).json({ success: true, data: doctors });
+    } catch (error) {
+        res.status(500).json({ success: false, error: error.message });
+    }
+});
 
 /**
  * @route   GET /api/staff
  * @desc    Get all staff
  */
-router.get('/', authorize('admin'), staffController.getAllStaff);
+router.get('/', authorize('admin', 'doctor', 'nurse', 'receptionist'), staffController.getAllStaff);
 
 /**
  * @route   POST /api/staff

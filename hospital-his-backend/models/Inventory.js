@@ -1,69 +1,49 @@
 const mongoose = require('mongoose');
-
-/**
- * Inventory Model
- * Represents hospital inventory items (non-pharmacy)
- */
+const { INVENTORY_STATUS } = require('../config/constants');
 
 const inventorySchema = new mongoose.Schema(
     {
-        itemCode: {
+        name: {
             type: String,
-            unique: true,
-            required: [true, 'Item code is required'],
+            required: [true, 'Medicine name is required'],
             trim: true,
+            unique: true,
         },
-        itemName: {
+        genericName: {
             type: String,
-            required: [true, 'Item name is required'],
             trim: true,
         },
         category: {
-            type: String,
-            required: [true, 'Category is required'],
-            enum: ['consumables', 'equipment', 'instruments', 'linen', 'stationery', 'housekeeping', 'other'],
+            type: String, // e.g., Tablet, Syrup, Injection
+            required: true,
         },
-        unit: {
-            type: String,
-            required: [true, 'Unit is required'],
-            trim: true,
-        },
-        quantity: {
+        stock: {
             type: Number,
             required: true,
             default: 0,
-            min: [0, 'Quantity cannot be negative'],
+            min: 0,
         },
-        reorderLevel: {
+        unitPrice: {
             type: Number,
-            default: 10,
+            required: true,
+            default: 0,
         },
-        location: {
+        batchNumber: {
             type: String,
             trim: true,
         },
-        department: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'Department',
-        },
-        supplier: {
-            type: String,
-            trim: true,
-        },
-        lastPurchaseDate: {
+        expiryDate: {
             type: Date,
+            required: true,
         },
-        lastPurchaseRate: {
-            type: Number,
-            min: [0, 'Rate cannot be negative'],
+        manufacturer: {
+            type: String,
+            trim: true,
         },
-        averageRate: {
-            type: Number,
-            min: [0, 'Rate cannot be negative'],
-        },
-        isActive: {
-            type: Boolean,
-            default: true,
+        status: {
+            type: String,
+            enum: Object.values(INVENTORY_STATUS),
+            default: INVENTORY_STATUS.AVAILABLE,
         },
     },
     {
@@ -72,20 +52,9 @@ const inventorySchema = new mongoose.Schema(
 );
 
 // Indexes
-inventorySchema.index({ itemCode: 1 });
-inventorySchema.index({ itemName: 'text' });
-inventorySchema.index({ category: 1 });
-inventorySchema.index({ department: 1 });
-
-// Virtual for stock status
-inventorySchema.virtual('stockStatus').get(function () {
-    if (this.quantity <= 0) return 'out-of-stock';
-    if (this.quantity <= this.reorderLevel) return 'low-stock';
-    return 'available';
-});
-
-inventorySchema.set('toJSON', { virtuals: true });
-inventorySchema.set('toObject', { virtuals: true });
+inventorySchema.index({ name: 1 });
+inventorySchema.index({ genericName: 1 });
+inventorySchema.index({ stock: 1 });
 
 const Inventory = mongoose.model('Inventory', inventorySchema);
 

@@ -23,6 +23,7 @@ const APPOINTMENT_STATUS = {
     CHECKED_IN: 'checked-in',
     IN_CONSULTATION: 'in-consultation',
     COMPLETED: 'completed',
+    PHARMACY_CLEARED: 'pharmacy-cleared',
     CANCELLED: 'cancelled',
     NO_SHOW: 'no-show',
 };

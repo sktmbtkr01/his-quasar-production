@@ -89,6 +89,28 @@ exports.updateAppointment = asyncHandler(async (req, res, next) => {
         return next(new ErrorResponse('Appointment not found', 404));
     }
 
+    // Automated Billing: If status changed to 'completed', add Consultation Fee
+    if (req.body.status === 'completed') {
+        try {
+            const { addItemToBill } = require('../services/billing.internal.service');
+            await addItemToBill({
+                patientId: appointment.patient._id,
+                visitId: appointment._id,
+                visitType: 'opd',
+                itemType: 'consultation',
+                itemReference: appointment._id,
+                description: `OPD Consultation - Dr. ${appointment.doctor.profile.firstName} ${appointment.doctor.profile.lastName}`,
+                quantity: 1,
+                rate: undefined, // Will fetch default tariff in service
+                generatedBy: req.user.id
+            });
+            console.log(`[OPD] Billing trigger sent for visit ${appointment._id}`);
+        } catch (err) {
+            console.error('[OPD] Failed to trigger automated billing:', err);
+            console.error(err.stack); // Log stack trace
+        }
+    }
+
     res.status(200).json({
         success: true,
         data: appointment,

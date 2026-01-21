@@ -7,22 +7,23 @@ const { authorize } = require('../middleware/rbac.middleware');
 router.use(authenticate);
 
 /**
+ * @desc Specific routes (Must be before /:id)
+ */
+router.get('/wards', bedController.getWards);
+router.get('/availability', bedController.getAvailability);
+router.get('/occupancy', bedController.getOccupancy);
+
+/**
  * @route   GET /api/beds
  * @desc    Get all beds
  */
 router.get('/', bedController.getAllBeds);
 
 /**
- * @route   GET /api/beds/:id
- * @desc    Get bed by ID
+ * @route   POST /api/beds
+ * @desc    Add new bed
  */
-router.get('/:id', bedController.getBedById);
-
-/**
- * @route   PUT /api/beds/:id
- * @desc    Update bed
- */
-router.put('/:id', authorize('admin', 'nurse'), bedController.updateBed);
+router.post('/', authorize('admin'), bedController.addBed);
 
 /**
  * @route   POST /api/beds/allocate
@@ -37,27 +38,15 @@ router.post('/allocate', authorize('receptionist', 'nurse', 'admin'), bedControl
 router.post('/transfer', authorize('nurse', 'admin'), bedController.transferBed);
 
 /**
- * @route   GET /api/beds/availability
- * @desc    Get available beds
+ * @route   GET /api/beds/:id
+ * @desc    Get bed by ID
  */
-router.get('/availability', bedController.getAvailability);
+router.get('/:id', bedController.getBedById);
 
 /**
- * @route   GET /api/beds/occupancy
- * @desc    Get bed occupancy stats
+ * @route   PUT /api/beds/:id
+ * @desc    Update bed
  */
-router.get('/occupancy', bedController.getOccupancy);
-
-/**
- * @route   POST /api/beds
- * @desc    Add new bed
- */
-router.post('/', authorize('admin'), bedController.addBed);
-
-/**
- * @route   GET /api/beds/wards
- * @desc    Get all wards
- */
-router.get('/wards', bedController.getWards);
+router.put('/:id', authorize('admin', 'nurse'), bedController.updateBed);
 
 module.exports = router;

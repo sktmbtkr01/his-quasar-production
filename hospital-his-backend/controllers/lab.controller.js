@@ -25,10 +25,11 @@ exports.createLabOrder = asyncHandler(async (req, res, next) => {
  * @route   GET /api/lab/orders
  */
 exports.getAllLabOrders = asyncHandler(async (req, res, next) => {
-    const { status, page = 1, limit = 20 } = req.query;
+    const { status, patient, page = 1, limit = 20 } = req.query;
 
     const query = {};
     if (status) query.status = status;
+    if (patient) query.patient = patient;
 
     const skip = (page - 1) * limit;
 
@@ -119,7 +120,7 @@ exports.collectSample = asyncHandler(async (req, res, next) => {
  * @route   POST /api/lab/orders/:id/enter-results
  */
 exports.enterResults = asyncHandler(async (req, res, next) => {
-    const order = await LabTest.findById(req.params.id);
+    const order = await LabTest.findById(req.params.id).populate('test');
 
     if (!order) {
         return next(new ErrorResponse('Lab order not found', 404));
@@ -130,6 +131,28 @@ exports.enterResults = asyncHandler(async (req, res, next) => {
     order.status = LAB_TEST_STATUS.COMPLETED;
     order.performedBy = req.user.id;
     order.completedAt = new Date();
+
+    // Billing Integration
+    if (!order.isBilled) {
+        try {
+            const { addItemToBill } = require('../services/billing.internal.service');
+            await addItemToBill({
+                patientId: order.patient,
+                visitId: order.visit,
+                visitType: 'opd', // Need to handle IPD dynamically if needed, or assume opd/ipd based on visitModel
+                itemType: 'lab',
+                itemReference: order._id,
+                description: `Lab: ${order.test.testName}`,
+                quantity: 1,
+                rate: order.test.price,
+                generatedBy: req.user.id
+            });
+            order.isBilled = true;
+        } catch (err) {
+            console.error('Failed to trigger lab billing:', err);
+        }
+    }
+
     await order.save();
 
     res.status(200).json({
@@ -220,5 +243,110 @@ exports.getLabTests = asyncHandler(async (req, res, next) => {
         success: true,
         count: tests.length,
         data: tests,
+    });
+});
+
+/**
+ * @desc    Upload PDF report and generate AI summary
+ * @route   POST /api/lab/orders/:id/upload-report
+ */
+exports.uploadReport = asyncHandler(async (req, res, next) => {
+    const { extractTextFromPdf, generateLabSummary } = require('../services/ai.service');
+
+    const order = await LabTest.findById(req.params.id).populate('test');
+
+    if (!order) {
+        return next(new ErrorResponse('Lab order not found', 404));
+    }
+
+    if (!req.file) {
+        return next(new ErrorResponse('Please upload a PDF file', 400));
+    }
+
+    // Save relative file path (URL-friendly)
+    const relativePath = req.file.path.split('uploads')[1];
+    order.reportPdf = 'uploads' + relativePath.replace(/\\/g, '/');
+    order.isReportGenerated = true;
+
+    try {
+        // Extract text from PDF
+        const extractedText = await extractTextFromPdf(req.file.path);
+        order.extractedText = extractedText;
+
+        // AI Summary disabled temporarily (enable later when rate limits are resolved)
+        // const aiSummary = await generateLabSummary(extractedText);
+        // order.aiSummary = aiSummary;
+        order.aiSummary = null;  // Disabled for now
+        order.summaryGeneratedAt = null;
+    } catch (error) {
+        console.error('PDF processing error:', error.message);
+        // Still save the file even if extraction fails
+        order.extractedText = null;
+        order.aiSummary = null;
+    }
+
+    // Mark as completed and bill
+    order.status = require('../config/constants').LAB_TEST_STATUS.COMPLETED;
+    order.completedAt = new Date();
+
+    if (!order.isBilled) {
+        try {
+            const { addItemToBill } = require('../services/billing.internal.service');
+            await addItemToBill({
+                patientId: order.patient,
+                visitId: order.visit,
+                visitType: 'opd', // Need to handle IPD dynamically if needed
+                itemType: 'lab',
+                itemReference: order._id,
+                description: `Lab: ${order.test.testName} (Report Uploaded)`,
+                quantity: 1,
+                rate: order.test.price,
+                generatedBy: req.user.id
+            });
+            order.isBilled = true;
+        } catch (err) {
+            console.error('Failed to trigger lab billing (upload):', err);
+        }
+    }
+
+    await order.save();
+
+    res.status(200).json({
+        success: true,
+        message: 'Report uploaded successfully',
+        data: {
+            reportPdf: order.reportPdf,
+            hasSummary: !!order.aiSummary,
+            summaryGeneratedAt: order.summaryGeneratedAt
+        },
+    });
+});
+
+/**
+ * @desc    Get lab report (PDF path and AI summary)
+ * @route   GET /api/lab/orders/:id/report
+ */
+exports.getReport = asyncHandler(async (req, res, next) => {
+    const order = await LabTest.findById(req.params.id)
+        .select('reportPdf extractedText aiSummary summaryGeneratedAt testNumber')
+        .populate('test', 'testName');
+
+    if (!order) {
+        return next(new ErrorResponse('Lab order not found', 404));
+    }
+
+    if (!order.reportPdf) {
+        return next(new ErrorResponse('No report uploaded for this order', 404));
+    }
+
+    res.status(200).json({
+        success: true,
+        data: {
+            testNumber: order.testNumber,
+            testName: order.test?.testName,
+            reportPdf: order.reportPdf,
+            aiSummary: order.aiSummary,
+            summaryGeneratedAt: order.summaryGeneratedAt
+        },
     });
 });

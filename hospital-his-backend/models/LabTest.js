@@ -77,6 +77,23 @@ const labTestSchema = new mongoose.Schema(
         reportUrl: {
             type: String,
         },
+        // PDF Report Fields
+        reportPdf: {
+            type: String,  // File path to uploaded PDF
+        },
+        extractedText: {
+            type: String,  // Raw text extracted from PDF
+        },
+        aiSummary: {
+            type: String,  // Cached AI-generated summary
+        },
+        summaryGeneratedAt: {
+            type: Date,    // When summary was generated
+        },
+        isBilled: {
+            type: Boolean,
+            default: false,
+        },
     },
     {
         timestamps: true,
@@ -90,9 +107,9 @@ labTestSchema.index({ status: 1 });
 labTestSchema.index({ orderedBy: 1 });
 labTestSchema.index({ createdAt: -1 });
 
-// Auto-generate testNumber before saving
-labTestSchema.pre('save', async function (next) {
-    if (this.isNew) {
+// Auto-generate testNumber before validation (so required check passes)
+labTestSchema.pre('validate', async function (next) {
+    if (this.isNew && !this.testNumber) {
         const today = new Date();
         const dateStr = today.toISOString().slice(0, 10).replace(/-/g, '');
         const count = await mongoose.model('LabTest').countDocuments();

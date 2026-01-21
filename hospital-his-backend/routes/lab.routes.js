@@ -3,6 +3,7 @@ const router = express.Router();
 const labController = require('../controllers/lab.controller');
 const { authenticate } = require('../middleware/auth.middleware');
 const { authorize } = require('../middleware/rbac.middleware');
+const { uploadLabReport } = require('../middleware/upload.middleware');
 
 router.use(authenticate);
 
@@ -49,6 +50,18 @@ router.post('/orders/:id/enter-results', authorize('lab_tech'), labController.en
 router.post('/orders/:id/generate-report', authorize('lab_tech'), labController.generateReport);
 
 /**
+ * @route   POST /api/lab/orders/:id/upload-report
+ * @desc    Upload PDF report and generate AI summary
+ */
+router.post('/orders/:id/upload-report', authorize('lab_tech'), uploadLabReport.single('report'), labController.uploadReport);
+
+/**
+ * @route   GET /api/lab/orders/:id/report
+ * @desc    Get PDF report and AI summary
+ */
+router.get('/orders/:id/report', labController.getReport);
+
+/**
  * @route   GET /api/lab/queue
  * @desc    Get lab work queue
  */
@@ -67,3 +80,4 @@ router.get('/dashboard', authorize('lab_tech', 'admin'), labController.getDashbo
 router.get('/tests', labController.getLabTests);
 
 module.exports = router;
+

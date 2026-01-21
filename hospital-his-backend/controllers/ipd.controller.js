@@ -1,4 +1,5 @@
 const Admission = require('../models/Admission');
+const AdmissionRequest = require('../models/AdmissionRequest');
 const Bed = require('../models/Bed');
 const { ADMISSION_STATUS, BED_STATUS } = require('../config/constants');
 const asyncHandler = require('../utils/asyncHandler');
@@ -11,6 +12,11 @@ const ErrorResponse = require('../utils/errorResponse');
 exports.createAdmission = asyncHandler(async (req, res, next) => {
     req.body.createdBy = req.user.id;
 
+    // Generate Admission Number automatically
+    const dateStr = new Date().toISOString().slice(0, 10).replace(/-/g, '');
+    const count = await Admission.countDocuments();
+    req.body.admissionNumber = `ADM${dateStr}${(count + 1).toString().padStart(4, '0')}`;
+
     const admission = await Admission.create(req.body);
 
     // Update bed status if bed is assigned
@@ -20,6 +26,11 @@ exports.createAdmission = asyncHandler(async (req, res, next) => {
             currentPatient: req.body.patient,
             currentAdmission: admission._id,
         });
+    }
+
+    // Update Admission Request status if linked
+    if (req.body.requestId) {
+        await AdmissionRequest.findByIdAndUpdate(req.body.requestId, { status: 'admitted' });
     }
 
     await admission.populate(['patient', 'doctor', 'department', 'ward', 'bed']);
@@ -144,6 +155,49 @@ exports.dischargePatient = asyncHandler(async (req, res, next) => {
  * @route   GET /api/ipd/patients
  */
 exports.getAdmittedPatients = asyncHandler(async (req, res, next) => {
+    // --- Auto-generate Daily Charges (Lazy Execution) ---
+    try {
+        const { addItemToBill } = require('../services/billing.internal.service');
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+
+        // Find active admissions that haven't been charged today
+        const pendingCharges = await Admission.find({
+            status: ADMISSION_STATUS.ADMITTED,
+            $or: [
+                { 'billing.lastChargeGeneration': { $lt: today } },
+                { 'billing.lastChargeGeneration': { $exists: false } }
+            ]
+        }).populate('bed');
+
+        for (const adm of pendingCharges) {
+            if (adm.bed && adm.bed.tariff) {
+                console.log(`[Billing] Generating bed charge for ${adm.admissionNumber}`);
+                await addItemToBill({
+                    patientId: adm.patient,
+                    visitId: adm._id,
+                    visitType: 'ipd',
+                    visitModel: 'Admission',
+                    itemType: 'bed',
+                    description: `Daily Bed Charge - ${adm.bed.bedNumber} (${new Date().toLocaleDateString()})`,
+                    quantity: 1,
+                    rate: adm.bed.tariff,
+                    amount: adm.bed.tariff,
+                    netAmount: adm.bed.tariff,
+                    generatedBy: req.user.id,
+                    isSystemGenerated: true
+                });
+                // Update last generation time
+                if (!adm.billing) adm.billing = {};
+                adm.billing.lastChargeGeneration = new Date();
+                await adm.save();
+            }
+        }
+    } catch (err) {
+        console.error('[IPD] Error auto-generating charges:', err);
+    }
+    // ----------------------------------------------------
+
     const admissions = await Admission.find({ status: ADMISSION_STATUS.ADMITTED })
         .populate('patient', 'patientId firstName lastName phone')
         .populate('doctor', 'profile.firstName profile.lastName')
@@ -181,4 +235,92 @@ exports.getDashboard = asyncHandler(async (req, res, next) => {
             todayDischarges,
         },
     });
+});
+
+/**
+ * @desc    Add Vitals
+ * @route   POST /api/ipd/admissions/:id/vitals
+ */
+exports.addVitals = asyncHandler(async (req, res, next) => {
+    const admission = await Admission.findById(req.params.id);
+    if (!admission) return next(new ErrorResponse('Admission not found', 404));
+
+    admission.vitals.push({
+        ...req.body,
+        recordedBy: req.user.id,
+        recordedAt: new Date()
+    });
+    await admission.save();
+
+    res.status(200).json({ success: true, data: admission });
+});
+
+/**
+ * @desc    Add Clinical Note
+ * @route   POST /api/ipd/admissions/:id/notes
+ */
+exports.addClinicalNote = asyncHandler(async (req, res, next) => {
+    const admission = await Admission.findById(req.params.id);
+    if (!admission) return next(new ErrorResponse('Admission not found', 404));
+
+    admission.clinicalNotes.push({
+        ...req.body, // note, type
+        recordedBy: req.user.id,
+        recordedAt: new Date()
+    });
+    await admission.save();
+
+    res.status(200).json({ success: true, data: admission });
+});
+
+/**
+ * @desc    Approve Discharge
+ * @route   POST /api/ipd/admissions/:id/approve-discharge
+ */
+exports.approveDischarge = asyncHandler(async (req, res, next) => {
+    const admission = await Admission.findById(req.params.id);
+    if (!admission) return next(new ErrorResponse('Admission not found', 404));
+
+    if (!req.user.role === 'doctor' && req.user.role !== 'admin') {
+        return next(new ErrorResponse('Only doctors can approve discharge', 403));
+    }
+
+    admission.discharge.isApprovedByDoctor = true;
+    admission.discharge.approvedBy = req.user.id;
+    admission.discharge.initiatedAt = new Date();
+
+    await admission.save();
+
+    res.status(200).json({ success: true, message: 'Discharge approved', data: admission });
+});
+
+/**
+ * @desc    Create Admission Request (Doctor)
+ * @route   POST /api/ipd/requests
+ */
+exports.createAdmissionRequest = asyncHandler(async (req, res, next) => {
+    const { patient, reason, recommendedWardType, priority } = req.body;
+
+    const request = await AdmissionRequest.create({
+        patient,
+        doctor: req.user.id,
+        reason,
+        recommendedWardType,
+        priority
+    });
+
+    res.status(201).json({ success: true, data: request });
+});
+
+/**
+ * @desc    Get Admission Requests (Receptionist)
+ * @route   GET /api/ipd/requests
+ */
+exports.getAdmissionRequests = asyncHandler(async (req, res, next) => {
+    const requests = await AdmissionRequest.find({ status: 'pending' })
+        .populate('patient', 'firstName lastName patientId phone gender age dob')
+        .populate('doctor', 'profile username')
+        .sort('-createdAt');
+
+    res.status(200).json({ success: true, count: requests.length, data: requests });
 });

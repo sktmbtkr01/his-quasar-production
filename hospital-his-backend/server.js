@@ -1,7 +1,4 @@
-/**
- * Hospital Information System (HIS) Backend Server
- * Main entry point for the Express application
- */
+// No changes needed.
 
 require('dotenv').config();
 const express = require('express');
@@ -90,6 +87,10 @@ app.use('/api/', limiter);
 // Body parser
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
+
+// Static file serving for uploads (lab reports, etc.)
+const path = require('path');
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // HTTP request logging
 if (config.nodeEnv === 'development') {

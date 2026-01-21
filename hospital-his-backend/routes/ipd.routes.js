@@ -10,7 +10,7 @@ router.use(authenticate);
  * @route   POST /api/ipd/admissions
  * @desc    Create a new admission
  */
-router.post('/admissions', authorize('receptionist', 'admin', 'doctor', 'nurse'), ipdController.createAdmission);
+router.post('/admissions', authorize('receptionist', 'admin'), ipdController.createAdmission);
 
 /**
  * @route   GET /api/ipd/admissions
@@ -47,5 +47,13 @@ router.get('/patients', ipdController.getAdmittedPatients);
  * @desc    Get IPD dashboard stats
  */
 router.get('/dashboard', ipdController.getDashboard);
+
+router.post('/admissions/:id/vitals', authorize('doctor', 'nurse', 'admin'), ipdController.addVitals);
+router.post('/admissions/:id/notes', authorize('doctor', 'nurse', 'admin'), ipdController.addClinicalNote);
+router.post('/admissions/:id/approve-discharge', authorize('doctor', 'admin'), ipdController.approveDischarge); // Only Doctor/Admin
+
+
+router.post('/requests', authorize('doctor', 'admin'), ipdController.createAdmissionRequest);
+router.get('/requests', authorize('receptionist', 'admin'), ipdController.getAdmissionRequests);
 
 module.exports = router;
