@@ -17,6 +17,7 @@ import Insurance from './pages/dashboard/Insurance';
 import OperationTheatre from './pages/dashboard/OperationTheatre';
 import Nursing from './pages/dashboard/Nursing';
 import BedManagement from './pages/dashboard/BedManagement';
+import Emergency from './pages/dashboard/Emergency';
 import DoctorRounds from './pages/doctor/DoctorRounds';
 import NurseDutyRoster from './pages/nursing/NurseDutyRoster';
 import Admin from './pages/dashboard/Admin';
@@ -71,6 +72,7 @@ function App() {
             <Route path="admin" element={<Admin />} />
             <Route path="nursing" element={<Nursing />} />
             <Route path="bed-management" element={<BedManagement />} />
+            <Route path="emergency" element={<Emergency />} />
             <Route path="doctor-rounds" element={<DoctorRounds />} />
             <Route path="duty-roster" element={<NurseDutyRoster />} />
           </Route>
