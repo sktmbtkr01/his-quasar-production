@@ -326,15 +326,23 @@ exports.approveDischarge = asyncHandler(async (req, res, next) => {
     const admission = await Admission.findById(req.params.id);
     if (!admission) return next(new ErrorResponse('Admission not found', 404));
 
-    if (!req.user.role === 'doctor' && req.user.role !== 'admin') {
+    if (req.user.role !== 'doctor' && req.user.role !== 'admin') {
         return next(new ErrorResponse('Only doctors can approve discharge', 403));
     }
+
+    // Ensure discharge subdocument exists (for older records)
+    if (!admission.discharge) admission.discharge = {};
 
     admission.discharge.isApprovedByDoctor = true;
     admission.discharge.approvedBy = req.user.id;
     admission.discharge.initiatedAt = new Date();
 
-    await admission.save();
+    try {
+        await admission.save();
+    } catch (err) {
+        console.error('[IPD] approveDischarge save error:', err);
+        return next(new ErrorResponse('Failed to approve discharge', 500));
+    }
 
     res.status(200).json({ success: true, message: 'Discharge approved', data: admission });
 });

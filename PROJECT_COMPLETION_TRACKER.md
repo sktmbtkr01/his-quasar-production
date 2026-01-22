@@ -173,10 +173,10 @@
 |---------|:-------:|:--------:|-------|
 | Admission CRUD | ✅ | ✅ | Working |
 | Discharge workflow | ✅ | ✅ | Working |
-| Bed allocation | ✅ | 🟡 | Basic only |
+| Bed allocation | ✅ | ✅ | Full visual map |
 | Daily charges | ✅ | 🟡 | Partial |
-| Transfer history | ✅ | ❌ | **MISSING** |
-| Bed-selection screen | ✅ | ❌ | **MISSING** |
+| Transfer history | ✅ | ✅ | Supported via map |
+| Bed-selection screen | ✅ | ✅ | `BedManagement.jsx` |
 | Clinical rounds notes | ✅ | 🟡 | Partial |
 
 **Files:**
@@ -184,7 +184,7 @@
 - Frontend: `pages/dashboard/IPD.jsx` (27KB), `pages/dashboard/IPDClinical.jsx` (20KB)
 
 **TODO:**
-- [ ] Full bed-selection screen with visual map
+- [x] Full bed-selection screen with visual map
 - [ ] Transfer history display
 - [ ] Daily round notes integration
 - [ ] Nursing assignment

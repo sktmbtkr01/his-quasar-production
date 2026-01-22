@@ -4788,3 +4788,195 @@ MongooseError: The `uri` parameter to `openUri()` must be a string, got "undefin
     at Module.load (node:internal/modules/cjs/loader:1289:32)
     at Function._load (node:internal/modules/cjs/loader:1108:12)
     at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+2026-01-22 12:26:07 [ERROR]: User role 'receptionist' is not authorized to access this route
+Error: User role 'receptionist' is not authorized to access this route
+    at C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\middleware\rbac.middleware.js:22:17
+    at Layer.handle [as handle_request] (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:284:15
+    at router.process_params (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:280:10)
+    at C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\middleware\auth.middleware.js:46:9
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-22 12:26:08 [ERROR]: User role 'receptionist' is not authorized to access this route
+Error: User role 'receptionist' is not authorized to access this route
+    at C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\middleware\rbac.middleware.js:22:17
+    at Layer.handle [as handle_request] (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:284:15
+    at router.process_params (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:280:10)
+    at C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\middleware\auth.middleware.js:46:9
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-22 12:26:10 [ERROR]: User role 'receptionist' is not authorized to access this route
+Error: User role 'receptionist' is not authorized to access this route
+    at C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\middleware\rbac.middleware.js:22:17
+    at Layer.handle [as handle_request] (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:284:15
+    at router.process_params (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:280:10)
+    at C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\middleware\auth.middleware.js:46:9
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-22 12:26:11 [ERROR]: User role 'receptionist' is not authorized to access this route
+Error: User role 'receptionist' is not authorized to access this route
+    at C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\middleware\rbac.middleware.js:22:17
+    at Layer.handle [as handle_request] (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:284:15
+    at router.process_params (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:280:10)
+    at C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\middleware\auth.middleware.js:46:9
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-22 12:30:47 [ERROR]: User role 'receptionist' is not authorized to access this route
+Error: User role 'receptionist' is not authorized to access this route
+    at C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\middleware\rbac.middleware.js:22:17
+    at Layer.handle [as handle_request] (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:284:15
+    at router.process_params (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:280:10)
+    at C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\middleware\auth.middleware.js:46:9
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-22 12:30:59 [ERROR]: User role 'receptionist' is not authorized to access this route
+Error: User role 'receptionist' is not authorized to access this route
+    at C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\middleware\rbac.middleware.js:22:17
+    at Layer.handle [as handle_request] (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:284:15
+    at router.process_params (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:280:10)
+    at C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\middleware\auth.middleware.js:46:9
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-22 12:32:50 [ERROR]: User role 'nurse' is not authorized to access this route
+Error: User role 'nurse' is not authorized to access this route
+    at C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\middleware\rbac.middleware.js:22:17
+    at Layer.handle [as handle_request] (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:284:15
+    at router.process_params (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:280:10)
+    at C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\middleware\auth.middleware.js:46:9
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-22 12:32:50 [ERROR]: User role 'nurse' is not authorized to access this route
+Error: User role 'nurse' is not authorized to access this route
+    at C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\middleware\rbac.middleware.js:22:17
+    at Layer.handle [as handle_request] (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:284:15
+    at router.process_params (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:280:10)
+    at C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\middleware\auth.middleware.js:46:9
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-22 12:36:33 [ERROR]: User role 'doctor' is not authorized to access this route
+Error: User role 'doctor' is not authorized to access this route
+    at C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\middleware\rbac.middleware.js:22:17
+    at Layer.handle [as handle_request] (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:284:15
+    at router.process_params (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:280:10)
+    at C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\middleware\auth.middleware.js:46:9
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-22 12:36:33 [ERROR]: User role 'doctor' is not authorized to access this route
+Error: User role 'doctor' is not authorized to access this route
+    at C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\middleware\rbac.middleware.js:22:17
+    at Layer.handle [as handle_request] (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:284:15
+    at router.process_params (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:280:10)
+    at C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\middleware\auth.middleware.js:46:9
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-22 12:36:33 [ERROR]: User role 'doctor' is not authorized to access this route
+Error: User role 'doctor' is not authorized to access this route
+    at C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\middleware\rbac.middleware.js:22:17
+    at Layer.handle [as handle_request] (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:284:15
+    at router.process_params (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:280:10)
+    at C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\middleware\auth.middleware.js:46:9
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-22 12:36:33 [ERROR]: User role 'doctor' is not authorized to access this route
+Error: User role 'doctor' is not authorized to access this route
+    at C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\middleware\rbac.middleware.js:22:17
+    at Layer.handle [as handle_request] (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:284:15
+    at router.process_params (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:280:10)
+    at C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\middleware\auth.middleware.js:46:9
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-22 13:00:29 [ERROR]: User role 'doctor' is not authorized to access this route
+Error: User role 'doctor' is not authorized to access this route
+    at C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\middleware\rbac.middleware.js:22:17
+    at Layer.handle [as handle_request] (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:284:15
+    at router.process_params (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:280:10)
+    at C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\middleware\auth.middleware.js:46:9
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-22 13:00:29 [ERROR]: User role 'doctor' is not authorized to access this route
+Error: User role 'doctor' is not authorized to access this route
+    at C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\middleware\rbac.middleware.js:22:17
+    at Layer.handle [as handle_request] (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:284:15
+    at router.process_params (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:280:10)
+    at C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\middleware\auth.middleware.js:46:9
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-22 13:00:30 [ERROR]: User role 'doctor' is not authorized to access this route
+Error: User role 'doctor' is not authorized to access this route
+    at C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\middleware\rbac.middleware.js:22:17
+    at Layer.handle [as handle_request] (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:284:15
+    at router.process_params (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:280:10)
+    at C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\middleware\auth.middleware.js:46:9
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-22 13:00:30 [ERROR]: User role 'doctor' is not authorized to access this route
+Error: User role 'doctor' is not authorized to access this route
+    at C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\middleware\rbac.middleware.js:22:17
+    at Layer.handle [as handle_request] (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:284:15
+    at router.process_params (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:280:10)
+    at C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\middleware\auth.middleware.js:46:9
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)

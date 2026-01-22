@@ -15,6 +15,7 @@ import Pharmacy from './pages/dashboard/Pharmacy';
 import Billing from './pages/dashboard/Billing';
 import OperationTheatre from './pages/dashboard/OperationTheatre';
 import Nursing from './pages/dashboard/Nursing';
+import BedManagement from './pages/dashboard/BedManagement';
 import DoctorRounds from './pages/doctor/DoctorRounds';
 import NurseDutyRoster from './pages/nursing/NurseDutyRoster';
 import DashboardLayout from './layouts/DashboardLayout';
@@ -65,6 +66,7 @@ function App() {
             <Route path="billing" element={<Billing />} />
             <Route path="ot" element={<OperationTheatre />} />
             <Route path="nursing" element={<Nursing />} />
+            <Route path="bed-management" element={<BedManagement />} />
             <Route path="doctor-rounds" element={<DoctorRounds />} />
             <Route path="duty-roster" element={<NurseDutyRoster />} />
           </Route>

@@ -5,7 +5,7 @@ import {
     LayoutDashboard, Users, Calendar, Stethoscope,
     FlaskConical, Pill, FileText, Settings,
     Menu, X, Activity, ShieldCheck, Database,
-    Banknote, ScanLine, Siren, Scissors, ClipboardList
+    Banknote, ScanLine, Siren, Scissors, ClipboardList, BedDouble
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -48,6 +48,12 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
             path: '/dashboard/ipd',
             icon: <Activity size={20} />,
             roles: ['doctor', 'nurse', 'receptionist', 'head_nurse']
+        },
+        {
+            title: 'Bed Management',
+            path: '/dashboard/bed-management',
+            icon: <BedDouble size={20} />,
+            roles: ['doctor', 'nurse', 'receptionist', 'head_nurse', 'admin']
         },
         {
             title: 'Laboratory',

@@ -6427,3 +6427,312 @@ MongooseError: The `uri` parameter to `openUri()` must be a string, got "undefin
 2026-01-22 02:17:40 [INFO]: 🔌 WebSocket enabled
 2026-01-22 02:17:40 [INFO]: 📋 Health check: http://localhost:5000/api/health
 2026-01-22 02:17:40 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-22 12:07:10 [INFO]: MongoDB Connected: ac-3nlnfep-shard-00-02.fs2fnzl.mongodb.net
+2026-01-22 12:07:10 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-22 12:07:10 [INFO]:        HOSPITAL INFORMATION SYSTEM (HIS) BACKEND SERVER        
+2026-01-22 12:07:10 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-22 12:07:10 [INFO]: 🚀 Server running in development mode on port 5000
+2026-01-22 12:07:10 [INFO]: 📡 API Base URL: http://localhost:5000/api/v1
+2026-01-22 12:07:10 [INFO]: 🔌 WebSocket enabled
+2026-01-22 12:07:10 [INFO]: 📋 Health check: http://localhost:5000/api/health
+2026-01-22 12:07:10 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-22 12:26:07 [ERROR]: User role 'receptionist' is not authorized to access this route
+Error: User role 'receptionist' is not authorized to access this route
+    at C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\middleware\rbac.middleware.js:22:17
+    at Layer.handle [as handle_request] (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:284:15
+    at router.process_params (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:280:10)
+    at C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\middleware\auth.middleware.js:46:9
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-22 12:26:08 [ERROR]: User role 'receptionist' is not authorized to access this route
+Error: User role 'receptionist' is not authorized to access this route
+    at C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\middleware\rbac.middleware.js:22:17
+    at Layer.handle [as handle_request] (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:284:15
+    at router.process_params (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:280:10)
+    at C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\middleware\auth.middleware.js:46:9
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-22 12:26:10 [ERROR]: User role 'receptionist' is not authorized to access this route
+Error: User role 'receptionist' is not authorized to access this route
+    at C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\middleware\rbac.middleware.js:22:17
+    at Layer.handle [as handle_request] (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:284:15
+    at router.process_params (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:280:10)
+    at C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\middleware\auth.middleware.js:46:9
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-22 12:26:11 [ERROR]: User role 'receptionist' is not authorized to access this route
+Error: User role 'receptionist' is not authorized to access this route
+    at C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\middleware\rbac.middleware.js:22:17
+    at Layer.handle [as handle_request] (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:284:15
+    at router.process_params (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:280:10)
+    at C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\middleware\auth.middleware.js:46:9
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-22 12:30:37 [INFO]: MongoDB Connected: ac-3nlnfep-shard-00-00.fs2fnzl.mongodb.net
+2026-01-22 12:30:37 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-22 12:30:37 [INFO]:        HOSPITAL INFORMATION SYSTEM (HIS) BACKEND SERVER        
+2026-01-22 12:30:37 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-22 12:30:37 [INFO]: 🚀 Server running in development mode on port 5000
+2026-01-22 12:30:37 [INFO]: 📡 API Base URL: http://localhost:5000/api/v1
+2026-01-22 12:30:37 [INFO]: 🔌 WebSocket enabled
+2026-01-22 12:30:37 [INFO]: 📋 Health check: http://localhost:5000/api/health
+2026-01-22 12:30:37 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-22 12:30:47 [ERROR]: User role 'receptionist' is not authorized to access this route
+Error: User role 'receptionist' is not authorized to access this route
+    at C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\middleware\rbac.middleware.js:22:17
+    at Layer.handle [as handle_request] (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:284:15
+    at router.process_params (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:280:10)
+    at C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\middleware\auth.middleware.js:46:9
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-22 12:30:59 [ERROR]: User role 'receptionist' is not authorized to access this route
+Error: User role 'receptionist' is not authorized to access this route
+    at C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\middleware\rbac.middleware.js:22:17
+    at Layer.handle [as handle_request] (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:284:15
+    at router.process_params (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:280:10)
+    at C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\middleware\auth.middleware.js:46:9
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-22 12:31:38 [INFO]: MongoDB Connected: ac-3nlnfep-shard-00-01.fs2fnzl.mongodb.net
+2026-01-22 12:31:38 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-22 12:31:38 [INFO]:        HOSPITAL INFORMATION SYSTEM (HIS) BACKEND SERVER        
+2026-01-22 12:31:38 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-22 12:31:38 [INFO]: 🚀 Server running in development mode on port 5000
+2026-01-22 12:31:38 [INFO]: 📡 API Base URL: http://localhost:5000/api/v1
+2026-01-22 12:31:38 [INFO]: 🔌 WebSocket enabled
+2026-01-22 12:31:38 [INFO]: 📋 Health check: http://localhost:5000/api/health
+2026-01-22 12:31:38 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-22 12:32:50 [ERROR]: User role 'nurse' is not authorized to access this route
+Error: User role 'nurse' is not authorized to access this route
+    at C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\middleware\rbac.middleware.js:22:17
+    at Layer.handle [as handle_request] (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:284:15
+    at router.process_params (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:280:10)
+    at C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\middleware\auth.middleware.js:46:9
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-22 12:32:50 [ERROR]: User role 'nurse' is not authorized to access this route
+Error: User role 'nurse' is not authorized to access this route
+    at C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\middleware\rbac.middleware.js:22:17
+    at Layer.handle [as handle_request] (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:284:15
+    at router.process_params (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:280:10)
+    at C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\middleware\auth.middleware.js:46:9
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-22 12:36:33 [ERROR]: User role 'doctor' is not authorized to access this route
+Error: User role 'doctor' is not authorized to access this route
+    at C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\middleware\rbac.middleware.js:22:17
+    at Layer.handle [as handle_request] (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:284:15
+    at router.process_params (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:280:10)
+    at C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\middleware\auth.middleware.js:46:9
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-22 12:36:33 [ERROR]: User role 'doctor' is not authorized to access this route
+Error: User role 'doctor' is not authorized to access this route
+    at C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\middleware\rbac.middleware.js:22:17
+    at Layer.handle [as handle_request] (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:284:15
+    at router.process_params (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:280:10)
+    at C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\middleware\auth.middleware.js:46:9
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-22 12:36:33 [ERROR]: User role 'doctor' is not authorized to access this route
+Error: User role 'doctor' is not authorized to access this route
+    at C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\middleware\rbac.middleware.js:22:17
+    at Layer.handle [as handle_request] (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:284:15
+    at router.process_params (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:280:10)
+    at C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\middleware\auth.middleware.js:46:9
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-22 12:36:33 [ERROR]: User role 'doctor' is not authorized to access this route
+Error: User role 'doctor' is not authorized to access this route
+    at C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\middleware\rbac.middleware.js:22:17
+    at Layer.handle [as handle_request] (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:284:15
+    at router.process_params (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:280:10)
+    at C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\middleware\auth.middleware.js:46:9
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-22 12:41:31 [INFO]: MongoDB Connected: ac-3nlnfep-shard-00-01.fs2fnzl.mongodb.net
+2026-01-22 12:41:31 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-22 12:41:31 [INFO]:        HOSPITAL INFORMATION SYSTEM (HIS) BACKEND SERVER        
+2026-01-22 12:41:31 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-22 12:41:31 [INFO]: 🚀 Server running in development mode on port 5000
+2026-01-22 12:41:31 [INFO]: 📡 API Base URL: http://localhost:5000/api/v1
+2026-01-22 12:41:31 [INFO]: 🔌 WebSocket enabled
+2026-01-22 12:41:31 [INFO]: 📋 Health check: http://localhost:5000/api/health
+2026-01-22 12:41:31 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-22 12:55:25 [INFO]: MongoDB Connected: ac-3nlnfep-shard-00-00.fs2fnzl.mongodb.net
+2026-01-22 12:55:25 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-22 12:55:25 [INFO]:        HOSPITAL INFORMATION SYSTEM (HIS) BACKEND SERVER        
+2026-01-22 12:55:25 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-22 12:55:25 [INFO]: 🚀 Server running in development mode on port 5000
+2026-01-22 12:55:25 [INFO]: 📡 API Base URL: http://localhost:5000/api/v1
+2026-01-22 12:55:25 [INFO]: 🔌 WebSocket enabled
+2026-01-22 12:55:25 [INFO]: 📋 Health check: http://localhost:5000/api/health
+2026-01-22 12:55:25 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-22 12:58:17 [INFO]: MongoDB Connected: ac-3nlnfep-shard-00-02.fs2fnzl.mongodb.net
+2026-01-22 12:58:17 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-22 12:58:17 [INFO]:        HOSPITAL INFORMATION SYSTEM (HIS) BACKEND SERVER        
+2026-01-22 12:58:17 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-22 12:58:17 [INFO]: 🚀 Server running in development mode on port 5000
+2026-01-22 12:58:17 [INFO]: 📡 API Base URL: http://localhost:5000/api/v1
+2026-01-22 12:58:17 [INFO]: 🔌 WebSocket enabled
+2026-01-22 12:58:17 [INFO]: 📋 Health check: http://localhost:5000/api/health
+2026-01-22 12:58:17 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-22 12:58:34 [INFO]: MongoDB Connected: ac-3nlnfep-shard-00-00.fs2fnzl.mongodb.net
+2026-01-22 12:58:34 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-22 12:58:34 [INFO]:        HOSPITAL INFORMATION SYSTEM (HIS) BACKEND SERVER        
+2026-01-22 12:58:34 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-22 12:58:34 [INFO]: 🚀 Server running in development mode on port 5000
+2026-01-22 12:58:34 [INFO]: 📡 API Base URL: http://localhost:5000/api/v1
+2026-01-22 12:58:34 [INFO]: 🔌 WebSocket enabled
+2026-01-22 12:58:34 [INFO]: 📋 Health check: http://localhost:5000/api/health
+2026-01-22 12:58:34 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-22 13:00:29 [ERROR]: User role 'doctor' is not authorized to access this route
+Error: User role 'doctor' is not authorized to access this route
+    at C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\middleware\rbac.middleware.js:22:17
+    at Layer.handle [as handle_request] (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:284:15
+    at router.process_params (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:280:10)
+    at C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\middleware\auth.middleware.js:46:9
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-22 13:00:29 [ERROR]: User role 'doctor' is not authorized to access this route
+Error: User role 'doctor' is not authorized to access this route
+    at C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\middleware\rbac.middleware.js:22:17
+    at Layer.handle [as handle_request] (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:284:15
+    at router.process_params (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:280:10)
+    at C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\middleware\auth.middleware.js:46:9
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-22 13:00:30 [ERROR]: User role 'doctor' is not authorized to access this route
+Error: User role 'doctor' is not authorized to access this route
+    at C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\middleware\rbac.middleware.js:22:17
+    at Layer.handle [as handle_request] (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:284:15
+    at router.process_params (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:280:10)
+    at C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\middleware\auth.middleware.js:46:9
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-22 13:00:30 [ERROR]: User role 'doctor' is not authorized to access this route
+Error: User role 'doctor' is not authorized to access this route
+    at C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\middleware\rbac.middleware.js:22:17
+    at Layer.handle [as handle_request] (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:284:15
+    at router.process_params (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:280:10)
+    at C:\Users\shrav\OneDrive\Desktop\HIS Quasar\HIS_Quasar\hospital-his-backend\middleware\auth.middleware.js:46:9
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-22 13:01:20 [INFO]: MongoDB Connected: ac-3nlnfep-shard-00-00.fs2fnzl.mongodb.net
+2026-01-22 13:01:20 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-22 13:01:20 [INFO]:        HOSPITAL INFORMATION SYSTEM (HIS) BACKEND SERVER        
+2026-01-22 13:01:20 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-22 13:01:20 [INFO]: 🚀 Server running in development mode on port 5000
+2026-01-22 13:01:20 [INFO]: 📡 API Base URL: http://localhost:5000/api/v1
+2026-01-22 13:01:20 [INFO]: 🔌 WebSocket enabled
+2026-01-22 13:01:20 [INFO]: 📋 Health check: http://localhost:5000/api/health
+2026-01-22 13:01:20 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-22 13:01:22 [INFO]: MongoDB Connected: ac-3nlnfep-shard-00-02.fs2fnzl.mongodb.net
+2026-01-22 13:01:22 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-22 13:01:22 [INFO]:        HOSPITAL INFORMATION SYSTEM (HIS) BACKEND SERVER        
+2026-01-22 13:01:22 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-22 13:01:22 [INFO]: 🚀 Server running in development mode on port 5000
+2026-01-22 13:01:22 [INFO]: 📡 API Base URL: http://localhost:5000/api/v1
+2026-01-22 13:01:22 [INFO]: 🔌 WebSocket enabled
+2026-01-22 13:01:22 [INFO]: 📋 Health check: http://localhost:5000/api/health
+2026-01-22 13:01:22 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-22 13:02:27 [INFO]: MongoDB Connected: ac-3nlnfep-shard-00-01.fs2fnzl.mongodb.net
+2026-01-22 13:02:27 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-22 13:02:27 [INFO]:        HOSPITAL INFORMATION SYSTEM (HIS) BACKEND SERVER        
+2026-01-22 13:02:27 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-22 13:02:27 [INFO]: 🚀 Server running in development mode on port 5000
+2026-01-22 13:02:27 [INFO]: 📡 API Base URL: http://localhost:5000/api/v1
+2026-01-22 13:02:27 [INFO]: 🔌 WebSocket enabled
+2026-01-22 13:02:27 [INFO]: 📋 Health check: http://localhost:5000/api/health
+2026-01-22 13:02:27 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-22 13:02:37 [INFO]: MongoDB Connected: ac-3nlnfep-shard-00-02.fs2fnzl.mongodb.net
+2026-01-22 13:02:37 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-22 13:02:37 [INFO]:        HOSPITAL INFORMATION SYSTEM (HIS) BACKEND SERVER        
+2026-01-22 13:02:37 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-22 13:02:37 [INFO]: 🚀 Server running in development mode on port 5000
+2026-01-22 13:02:37 [INFO]: 📡 API Base URL: http://localhost:5000/api/v1
+2026-01-22 13:02:37 [INFO]: 🔌 WebSocket enabled
+2026-01-22 13:02:37 [INFO]: 📋 Health check: http://localhost:5000/api/health
+2026-01-22 13:02:37 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-22 13:07:22 [INFO]: MongoDB Connected: ac-3nlnfep-shard-00-01.fs2fnzl.mongodb.net
+2026-01-22 13:07:22 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-22 13:07:22 [INFO]:        HOSPITAL INFORMATION SYSTEM (HIS) BACKEND SERVER        
+2026-01-22 13:07:22 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-22 13:07:22 [INFO]: 🚀 Server running in development mode on port 5000
+2026-01-22 13:07:22 [INFO]: 📡 API Base URL: http://localhost:5000/api/v1
+2026-01-22 13:07:22 [INFO]: 🔌 WebSocket enabled
+2026-01-22 13:07:22 [INFO]: 📋 Health check: http://localhost:5000/api/health
+2026-01-22 13:07:22 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-22 13:07:52 [INFO]: MongoDB Connected: ac-3nlnfep-shard-00-02.fs2fnzl.mongodb.net
+2026-01-22 13:07:52 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-22 13:07:52 [INFO]:        HOSPITAL INFORMATION SYSTEM (HIS) BACKEND SERVER        
+2026-01-22 13:07:52 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-22 13:07:52 [INFO]: 🚀 Server running in development mode on port 5000
+2026-01-22 13:07:52 [INFO]: 📡 API Base URL: http://localhost:5000/api/v1
+2026-01-22 13:07:52 [INFO]: 🔌 WebSocket enabled
+2026-01-22 13:07:52 [INFO]: 📋 Health check: http://localhost:5000/api/health
+2026-01-22 13:07:52 [INFO]: ═══════════════════════════════════════════════════════════════
