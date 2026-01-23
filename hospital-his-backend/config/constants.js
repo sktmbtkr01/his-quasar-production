@@ -272,6 +272,13 @@ const MAR_HOLD_REASONS = {
     OTHER: 'other',
 };
 
+// Incident Report Status
+const INCIDENT_REPORT_STATUS = {
+    SUBMITTED: 'submitted',
+    IN_REVIEW: 'in_review',
+    CLOSED: 'closed',
+};
+
 // Clinical Coding Status (Workflow-driven)
 const CLINICAL_CODING_STATUS = {
     AWAITING_CODING: 'awaiting-coding',      // Initial state after encounter finalized
@@ -316,4 +323,6 @@ module.exports = {
     MAR_HOLD_REASONS,
     // Clinical Coding constants
     CLINICAL_CODING_STATUS,
+    // Incident Report constants
+    INCIDENT_REPORT_STATUS,
 };

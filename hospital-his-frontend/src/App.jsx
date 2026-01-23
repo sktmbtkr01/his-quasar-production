@@ -21,6 +21,10 @@ import Emergency from './pages/dashboard/Emergency';
 import DoctorRounds from './pages/doctor/DoctorRounds';
 import NurseDutyRoster from './pages/nursing/NurseDutyRoster';
 import Admin from './pages/dashboard/Admin';
+import ReportIncident from './pages/dashboard/ReportIncident';
+import MyIncidents from './pages/dashboard/MyIncidents';
+import DepartmentIncidents from './pages/dashboard/DepartmentIncidents';
+import IncidentDetail from './pages/dashboard/IncidentDetail';
 import DashboardLayout from './layouts/DashboardLayout';
 import { Provider } from 'react-redux';
 import { store } from './store/store';
@@ -100,6 +104,10 @@ function App() {
             <Route path="emergency" element={<Emergency />} />
             <Route path="doctor-rounds" element={<DoctorRounds />} />
             <Route path="duty-roster" element={<NurseDutyRoster />} />
+            <Route path="report-incident" element={<ReportIncident />} />
+            <Route path="my-incidents" element={<MyIncidents />} />
+            <Route path="department-incidents" element={<DepartmentIncidents />} />
+            <Route path="incidents/:id" element={<IncidentDetail />} />
 
             {/* Clinical Coding Routes */}
             <Route path="coding" element={<CodingDashboard />} />

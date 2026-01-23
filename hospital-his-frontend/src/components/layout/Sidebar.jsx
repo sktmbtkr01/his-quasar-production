@@ -6,7 +6,7 @@ import {
     FlaskConical, Pill, FileText, Settings,
     Menu, X, Activity, ShieldCheck, Database,
     Banknote, ScanLine, Siren, Scissors, ClipboardList, BedDouble, Ambulance,
-    FileCode, CheckSquare
+    FileCode, CheckSquare, AlertCircle
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -116,6 +116,24 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
             path: '/dashboard/insurance',
             icon: <ShieldCheck size={20} />,
             roles: ['insurance', 'billing']
+        },
+        {
+            title: 'Report Incident',
+            path: '/dashboard/report-incident',
+            icon: <AlertCircle size={20} />,
+            roles: ['doctor', 'nurse', 'receptionist', 'pharmacist', 'lab_tech', 'radiologist', 'billing', 'head_nurse', 'insurance', 'coder', 'senior_coder']
+        },
+        {
+            title: 'My Reports',
+            path: '/dashboard/my-incidents',
+            icon: <FileText size={20} />,
+            roles: ['doctor', 'nurse', 'receptionist', 'pharmacist', 'lab_tech', 'radiologist', 'billing', 'head_nurse', 'insurance', 'coder', 'senior_coder']
+        },
+        {
+            title: 'Department Reports',
+            path: '/dashboard/department-incidents',
+            icon: <Database size={20} />,
+            roles: ['doctor', 'nurse', 'receptionist', 'pharmacist', 'lab_tech', 'radiologist', 'billing', 'head_nurse', 'insurance', 'coder', 'senior_coder']
         },
 
         // -------------------------------------------------------------------------

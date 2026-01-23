@@ -52,6 +52,7 @@ const breakGlassRoutes = require('./routes/breakGlass.routes');
 const adminBreakGlassRoutes = require('./routes/adminBreakGlass.routes');
 const inventoryManagerRoutes = require('./routes/inventoryManager.routes');
 const clinicalCodingRoutes = require('./routes/clinicalCoding.routes');
+const incidentRoutes = require('./routes/incident.routes');
 
 // Initialize Express app
 const app = express();
@@ -169,6 +170,7 @@ app.use(`${API_PREFIX}/break-glass`, breakGlassRoutes);
 app.use(`${API_PREFIX}/admin/break-glass`, adminBreakGlassRoutes);
 app.use(`${API_PREFIX}/inventory-manager`, inventoryManagerRoutes);
 app.use(`${API_PREFIX}/clinical-coding`, clinicalCodingRoutes);
+app.use(`${API_PREFIX}/incidents`, incidentRoutes);
 app.use(`${API_PREFIX}/nursing`, nursingRoutes);
 
 // 404 handler for undefined routes

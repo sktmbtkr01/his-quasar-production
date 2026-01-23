@@ -16,7 +16,7 @@ router.get('/executive-dashboard', authorize('admin'), analyticsController.getEx
  * @route   GET /api/analytics/clinical
  * @desc    Get clinical analytics
  */
-router.get('/clinical', authorize('doctor', 'admin'), analyticsController.getClinicalAnalytics);
+router.get('/clinical', authorize('doctor', 'nurse', 'head_nurse', 'admin'), analyticsController.getClinicalAnalytics);
 
 /**
  * @route   GET /api/analytics/financial
