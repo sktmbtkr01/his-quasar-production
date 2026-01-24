@@ -437,8 +437,13 @@ class BillingService {
         if (!bill) throw new Error('Bill not found');
         if (bill.isLocked) throw new Error('Bill is already finalized');
 
-        // Check for Clinical Coding Status
-        if (bill.visit) {
+        // Check if Clinical Coding is enabled in system settings
+        const SystemSettings = require('../models/SystemSettings');
+        const settings = await SystemSettings.getSettings();
+        const clinicalCodingEnabled = settings.clinicalCoding?.enabled || false;
+
+        // Only check Clinical Coding Status if coding is enabled
+        if (clinicalCodingEnabled && bill.visit) {
             const ClinicalCodingRecord = require('../models/ClinicalCodingRecord');
             const codingRecord = await ClinicalCodingRecord.findOne({
                 encounter: bill.visit

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import {
@@ -9,10 +9,28 @@ import {
     FileCode, CheckSquare, AlertCircle
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import systemSettingsService from '../../services/systemSettings.service';
 
 const Sidebar = ({ isOpen, toggleSidebar }) => {
     const { user } = useSelector((state) => state.auth);
     const role = user?.role || 'guest';
+    const [clinicalCodingEnabled, setClinicalCodingEnabled] = useState(true);
+
+    // Check if clinical coding is enabled
+    useEffect(() => {
+        const checkCodingStatus = async () => {
+            try {
+                const status = await systemSettingsService.getClinicalCodingStatus();
+                setClinicalCodingEnabled(status.enabled);
+            } catch (error) {
+                console.log('Could not fetch coding status');
+                setClinicalCodingEnabled(true); // Default to show if error
+            }
+        };
+        if (user) {
+            checkCodingStatus();
+        }
+    }, [user]);
 
     // Navigation Config based on Roles
     // Navigation Config based on Roles
@@ -137,31 +155,35 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
         },
 
         // -------------------------------------------------------------------------
-        // CLINICAL CODING (Coder Roles)
+        // CLINICAL CODING (Coder Roles) - Only shown when clinical coding is enabled
         // -------------------------------------------------------------------------
         {
             title: 'Coding Dashboard',
             path: '/dashboard/coding',
             icon: <LayoutDashboard size={20} />,
-            roles: ['coder', 'senior_coder']
+            roles: ['coder', 'senior_coder'],
+            isCodingItem: true
         },
         {
             title: 'Coding Queue',
             path: '/dashboard/coding/queue',
             icon: <FileCode size={20} />,
-            roles: ['coder', 'senior_coder']
+            roles: ['coder', 'senior_coder'],
+            isCodingItem: true
         },
         {
             title: 'Pending Review',
             path: '/dashboard/coding/review',
             icon: <CheckSquare size={20} />,
-            roles: ['senior_coder']
+            roles: ['senior_coder'],
+            isCodingItem: true
         },
         {
             title: 'Procedure Codes',
             path: '/dashboard/coding/procedure-codes',
             icon: <Database size={20} />,
-            roles: ['coder', 'senior_coder', 'admin']
+            roles: ['coder', 'senior_coder', 'admin'],
+            isCodingItem: true
         },
 
         // -------------------------------------------------------------------------
@@ -227,10 +249,24 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
             icon: <Activity size={20} />,
             roles: ['admin']
         },
+        {
+            title: 'System Settings',
+            path: '/admin/settings',
+            icon: <Settings size={20} />,
+            roles: ['admin']
+        },
     ];
 
-    // Filter links
-    const filteredNav = allNavItems.filter(item => item.roles.includes(role));
+    // Filter links based on role and clinical coding status
+    const filteredNav = allNavItems.filter(item => {
+        // Check role access
+        if (!item.roles.includes(role)) return false;
+
+        // Hide coding items if clinical coding is disabled
+        if (item.isCodingItem && !clinicalCodingEnabled) return false;
+
+        return true;
+    });
 
     return (
         <>

@@ -1,12 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Check } from 'lucide-react';
+import { X, Check, Camera, Upload, RefreshCw, CheckCircle, AlertCircle, Image as ImageIcon } from 'lucide-react';
 import { useDispatch } from 'react-redux';
 import { createPatient } from '../../features/patients/patientsSlice';
 
 const AddPatientModal = ({ isOpen, onClose }) => {
     const dispatch = useDispatch();
     const [step, setStep] = useState('form'); // 'form' or 'success'
+    const videoRef = useRef(null);
+    const canvasRef = useRef(null);
+    const fileInputRef = useRef(null);
+    const [stream, setStream] = useState(null);
+    const [isCameraActive, setIsCameraActive] = useState(false);
 
     // Initial State
     const initialFormData = {
@@ -17,14 +22,20 @@ const AddPatientModal = ({ isOpen, onClose }) => {
         phone: '',
         email: '',
         bloodGroup: '',
+        identificationMark: '',
         address: {
             street: '',
             city: '',
             state: '',
             pincode: ''
+        },
+        idDocument: {
+            hasOptedIn: false,
+            imageData: null, // Base64 for preview
         }
     };
     const [formData, setFormData] = useState(initialFormData);
+    const [idCaptureStatus, setIdCaptureStatus] = useState('idle'); // 'idle', 'captured', 'uploading'
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -39,20 +50,134 @@ const AddPatientModal = ({ isOpen, onClose }) => {
         }
     };
 
+    // Camera handling
+    const startCamera = async () => {
+        try {
+            const mediaStream = await navigator.mediaDevices.getUserMedia({
+                video: { facingMode: 'environment', width: { ideal: 1280 }, height: { ideal: 720 } }
+            });
+            if (videoRef.current) {
+                videoRef.current.srcObject = mediaStream;
+            }
+            setStream(mediaStream);
+            setIsCameraActive(true);
+            setFormData(prev => ({
+                ...prev,
+                idDocument: { ...prev.idDocument, hasOptedIn: true }
+            }));
+        } catch (error) {
+            console.error('Camera access denied:', error);
+            alert('Could not access camera. Please check permissions or use file upload instead.');
+        }
+    };
+
+    const stopCamera = useCallback(() => {
+        if (stream) {
+            stream.getTracks().forEach(track => track.stop());
+            setStream(null);
+        }
+        setIsCameraActive(false);
+    }, [stream]);
+
+    const captureImage = () => {
+        if (!videoRef.current || !canvasRef.current) return;
+
+        const video = videoRef.current;
+        const canvas = canvasRef.current;
+        canvas.width = video.videoWidth;
+        canvas.height = video.videoHeight;
+
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(video, 0, 0);
+
+        const imageData = canvas.toDataURL('image/jpeg', 0.8);
+
+        setFormData(prev => ({
+            ...prev,
+            idDocument: {
+                ...prev.idDocument,
+                hasOptedIn: true,
+                imageData
+            }
+        }));
+        setIdCaptureStatus('captured');
+        stopCamera();
+    };
+
+    const handleFileUpload = (e) => {
+        const file = e.target.files?.[0];
+        if (!file) return;
+
+        if (!file.type.startsWith('image/')) {
+            alert('Please upload an image file');
+            return;
+        }
+
+        const reader = new FileReader();
+        reader.onload = (event) => {
+            setFormData(prev => ({
+                ...prev,
+                idDocument: {
+                    ...prev.idDocument,
+                    hasOptedIn: true,
+                    imageData: event.target?.result
+                }
+            }));
+            setIdCaptureStatus('captured');
+        };
+        reader.readAsDataURL(file);
+    };
+
+    const resetIdCapture = () => {
+        setFormData(prev => ({
+            ...prev,
+            idDocument: { hasOptedIn: false, imageData: null }
+        }));
+        setIdCaptureStatus('idle');
+        stopCamera();
+    };
+
+    const handleOptOut = () => {
+        setFormData(prev => ({
+            ...prev,
+            idDocument: { hasOptedIn: false, imageData: null }
+        }));
+        setIdCaptureStatus('idle');
+        stopCamera();
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await dispatch(createPatient(formData)).unwrap();
-            setStep('success'); // Show success animation
+            // Prepare data for submission
+            const submitData = { ...formData };
+
+            // If ID image was captured, we'll send it as base64
+            // Backend will handle saving and return the path
+            if (formData.idDocument.imageData) {
+                submitData.idDocumentImage = formData.idDocument.imageData;
+            }
+            delete submitData.idDocument.imageData; // Don't store raw base64 in schema
+
+            await dispatch(createPatient(submitData)).unwrap();
+            setStep('success');
             setTimeout(() => {
                 setStep('form');
                 setFormData(initialFormData);
+                setIdCaptureStatus('idle');
+                stopCamera();
                 onClose();
-            }, 2500); // Close after 2.5 seconds
+            }, 2500);
         } catch (error) {
             console.error(error);
-            alert('Failed to create patient: ' + error); // Simple error handling for now
+            alert('Failed to create patient: ' + error);
         }
+    };
+
+    // Cleanup on close
+    const handleClose = () => {
+        stopCamera();
+        onClose();
     };
 
     if (!isOpen) return null;
@@ -65,81 +190,218 @@ const AddPatientModal = ({ isOpen, onClose }) => {
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                     className="absolute inset-0 bg-black/40 backdrop-blur-sm"
-                    onClick={onClose}
+                    onClick={handleClose}
                 />
 
                 <motion.div
                     initial={{ scale: 0.95, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
                     exit={{ scale: 0.95, opacity: 0 }}
-                    className="relative bg-white rounded-2xl shadow-xl w-full max-w-2xl overflow-hidden"
+                    className="relative bg-white rounded-2xl shadow-xl w-full max-w-3xl overflow-hidden"
                 >
                     {step === 'form' ? (
                         <>
                             <div className="flex items-center justify-between p-6 border-b border-gray-100">
                                 <h2 className="text-xl font-bold text-slate-800">New Patient Registration</h2>
-                                <button onClick={onClose} className="p-2 hover:bg-slate-50 rounded-full text-gray-500">
+                                <button onClick={handleClose} className="p-2 hover:bg-slate-50 rounded-full text-gray-500">
                                     <X size={20} />
                                 </button>
                             </div>
 
-                            <form onSubmit={handleSubmit} className="p-6 space-y-4 max-h-[80vh] overflow-y-auto">
-                                <div className="grid grid-cols-2 gap-4">
-                                    <div>
-                                        <label className="block text-sm font-medium text-slate-700 mb-1">First Name</label>
-                                        <input required name="firstName" value={formData.firstName} onChange={handleChange} className="w-full p-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary/20 outline-none" placeholder="John" />
-                                    </div>
-                                    <div>
-                                        <label className="block text-sm font-medium text-slate-700 mb-1">Last Name</label>
-                                        <input required name="lastName" value={formData.lastName} onChange={handleChange} className="w-full p-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary/20 outline-none" placeholder="Doe" />
-                                    </div>
-                                </div>
-
-                                <div className="grid grid-cols-2 gap-4">
-                                    <div>
-                                        <label className="block text-sm font-medium text-slate-700 mb-1">Date of Birth</label>
-                                        <input required type="date" name="dateOfBirth" value={formData.dateOfBirth} onChange={handleChange} className="w-full p-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary/20 outline-none" />
-                                    </div>
-                                    <div>
-                                        <label className="block text-sm font-medium text-slate-700 mb-1">Gender</label>
-                                        <select required name="gender" value={formData.gender} onChange={handleChange} className="w-full p-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary/20 outline-none">
-                                            <option value="">Select</option>
-                                            <option value="Male">Male</option>
-                                            <option value="Female">Female</option>
-                                            <option value="Other">Other</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div className="grid grid-cols-2 gap-4">
-                                    <div>
-                                        <label className="block text-sm font-medium text-slate-700 mb-1">Phone Number</label>
-                                        <input required type="tel" name="phone" value={formData.phone} onChange={handleChange} className="w-full p-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary/20 outline-none" placeholder="+91 98765 43210" />
-                                    </div>
-                                    <div>
-                                        <label className="block text-sm font-medium text-slate-700 mb-1">Blood Group</label>
-                                        <select name="bloodGroup" value={formData.bloodGroup} onChange={handleChange} className="w-full p-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary/20 outline-none">
-                                            <option value="">Select</option>
-                                            <option value="A+">A+</option>
-                                            <option value="A-">A-</option>
-                                            <option value="B+">B+</option>
-                                            <option value="B-">B-</option>
-                                            <option value="O+">O+</option>
-                                            <option value="O-">O-</option>
-                                            <option value="AB+">AB+</option>
-                                            <option value="AB-">AB-</option>
-                                        </select>
-                                    </div>
-                                </div>
-
+                            <form onSubmit={handleSubmit} className="p-6 space-y-6 max-h-[80vh] overflow-y-auto">
+                                {/* Basic Info Section */}
                                 <div>
-                                    <label className="block text-sm font-medium text-slate-700 mb-1">Address</label>
-                                    <input name="address.city" value={formData.address.city} onChange={handleChange} className="w-full p-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary/20 outline-none" placeholder="City" />
+                                    <h3 className="text-sm font-bold text-slate-600 uppercase tracking-wider mb-3">Basic Information</h3>
+                                    <div className="grid grid-cols-2 gap-4">
+                                        <div>
+                                            <label className="block text-sm font-medium text-slate-700 mb-1">First Name *</label>
+                                            <input required name="firstName" value={formData.firstName} onChange={handleChange} className="w-full p-2.5 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all" placeholder="John" />
+                                        </div>
+                                        <div>
+                                            <label className="block text-sm font-medium text-slate-700 mb-1">Last Name *</label>
+                                            <input required name="lastName" value={formData.lastName} onChange={handleChange} className="w-full p-2.5 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all" placeholder="Doe" />
+                                        </div>
+                                    </div>
+
+                                    <div className="grid grid-cols-2 gap-4 mt-4">
+                                        <div>
+                                            <label className="block text-sm font-medium text-slate-700 mb-1">Date of Birth *</label>
+                                            <input required type="date" name="dateOfBirth" value={formData.dateOfBirth} onChange={handleChange} className="w-full p-2.5 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all" />
+                                        </div>
+                                        <div>
+                                            <label className="block text-sm font-medium text-slate-700 mb-1">Gender *</label>
+                                            <select required name="gender" value={formData.gender} onChange={handleChange} className="w-full p-2.5 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all">
+                                                <option value="">Select</option>
+                                                <option value="Male">Male</option>
+                                                <option value="Female">Female</option>
+                                                <option value="Other">Other</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div className="grid grid-cols-2 gap-4 mt-4">
+                                        <div>
+                                            <label className="block text-sm font-medium text-slate-700 mb-1">Phone Number *</label>
+                                            <input required type="tel" name="phone" value={formData.phone} onChange={handleChange} className="w-full p-2.5 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all" placeholder="+91 98765 43210" />
+                                        </div>
+                                        <div>
+                                            <label className="block text-sm font-medium text-slate-700 mb-1">Blood Group</label>
+                                            <select name="bloodGroup" value={formData.bloodGroup} onChange={handleChange} className="w-full p-2.5 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all">
+                                                <option value="">Select</option>
+                                                <option value="A+">A+</option>
+                                                <option value="A-">A-</option>
+                                                <option value="B+">B+</option>
+                                                <option value="B-">B-</option>
+                                                <option value="O+">O+</option>
+                                                <option value="O-">O-</option>
+                                                <option value="AB+">AB+</option>
+                                                <option value="AB-">AB-</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div className="mt-4">
+                                        <label className="block text-sm font-medium text-slate-700 mb-1">City</label>
+                                        <input name="address.city" value={formData.address.city} onChange={handleChange} className="w-full p-2.5 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all" placeholder="City" />
+                                    </div>
                                 </div>
 
-                                <div className="pt-4 flex justify-end gap-3">
-                                    <button type="button" onClick={onClose} className="px-4 py-2 text-slate-600 hover:bg-slate-50 rounded-lg">Cancel</button>
-                                    <button type="submit" className="px-6 py-2 bg-primary text-white rounded-lg hover:bg-primary-dark shadow-md">Register Patient</button>
+                                {/* Identification Section */}
+                                <div className="border-t border-gray-100 pt-6">
+                                    <h3 className="text-sm font-bold text-slate-600 uppercase tracking-wider mb-3">Identification</h3>
+
+                                    {/* Birth Mark / Identification Mark */}
+                                    <div className="mb-4">
+                                        <label className="block text-sm font-medium text-slate-700 mb-1">
+                                            Birth Mark / Identification Mark
+                                            <span className="text-gray-400 font-normal ml-1">(Optional)</span>
+                                        </label>
+                                        <input
+                                            name="identificationMark"
+                                            value={formData.identificationMark}
+                                            onChange={handleChange}
+                                            maxLength={100}
+                                            className="w-full p-2.5 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all"
+                                            placeholder="e.g. Mole on left cheek"
+                                        />
+                                        <p className="text-xs text-gray-400 mt-1">Max 100 characters. Helps in patient identification.</p>
+                                    </div>
+
+                                    {/* ID Verification Section */}
+                                    <div className="bg-slate-50 border border-slate-200 rounded-xl p-4">
+                                        <div className="flex items-start justify-between mb-3">
+                                            <div>
+                                                <h4 className="font-semibold text-slate-700">ID Verification</h4>
+                                                <p className="text-xs text-gray-500 mt-0.5">
+                                                    📋 For identification assistance only. Not government authentication.
+                                                </p>
+                                            </div>
+                                            {idCaptureStatus === 'captured' && (
+                                                <span className="flex items-center gap-1 text-xs font-semibold text-emerald-600 bg-emerald-50 px-2 py-1 rounded-full">
+                                                    <CheckCircle size={12} /> Captured
+                                                </span>
+                                            )}
+                                        </div>
+
+                                        {/* Camera / Upload Area */}
+                                        {idCaptureStatus === 'idle' && !isCameraActive && (
+                                            <div className="flex gap-3">
+                                                <button
+                                                    type="button"
+                                                    onClick={startCamera}
+                                                    className="flex-1 flex items-center justify-center gap-2 p-4 bg-white border-2 border-dashed border-gray-200 rounded-xl hover:border-primary hover:bg-primary/5 transition-all text-gray-600 hover:text-primary"
+                                                >
+                                                    <Camera size={20} />
+                                                    <span className="font-medium">Use Camera</span>
+                                                </button>
+                                                <button
+                                                    type="button"
+                                                    onClick={() => fileInputRef.current?.click()}
+                                                    className="flex-1 flex items-center justify-center gap-2 p-4 bg-white border-2 border-dashed border-gray-200 rounded-xl hover:border-primary hover:bg-primary/5 transition-all text-gray-600 hover:text-primary"
+                                                >
+                                                    <Upload size={20} />
+                                                    <span className="font-medium">Upload Image</span>
+                                                </button>
+                                                <input
+                                                    ref={fileInputRef}
+                                                    type="file"
+                                                    accept="image/*"
+                                                    onChange={handleFileUpload}
+                                                    className="hidden"
+                                                />
+                                            </div>
+                                        )}
+
+                                        {/* Camera View */}
+                                        {isCameraActive && (
+                                            <div className="relative">
+                                                <video
+                                                    ref={videoRef}
+                                                    autoPlay
+                                                    playsInline
+                                                    className="w-full rounded-lg bg-black"
+                                                />
+                                                <div className="flex gap-2 mt-3">
+                                                    <button
+                                                        type="button"
+                                                        onClick={captureImage}
+                                                        className="flex-1 py-2.5 bg-primary text-white rounded-lg font-medium hover:bg-primary-dark flex items-center justify-center gap-2"
+                                                    >
+                                                        <Camera size={18} /> Capture ID
+                                                    </button>
+                                                    <button
+                                                        type="button"
+                                                        onClick={stopCamera}
+                                                        className="px-4 py-2.5 bg-gray-100 text-gray-600 rounded-lg hover:bg-gray-200"
+                                                    >
+                                                        Cancel
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        )}
+
+                                        {/* Preview Captured Image */}
+                                        {idCaptureStatus === 'captured' && formData.idDocument.imageData && (
+                                            <div className="relative">
+                                                <img
+                                                    src={formData.idDocument.imageData}
+                                                    alt="Captured ID"
+                                                    className="w-full max-h-48 object-contain rounded-lg border border-gray-200 bg-white"
+                                                />
+                                                <div className="flex gap-2 mt-3">
+                                                    <button
+                                                        type="button"
+                                                        onClick={resetIdCapture}
+                                                        className="flex-1 py-2 bg-amber-50 text-amber-600 rounded-lg font-medium hover:bg-amber-100 flex items-center justify-center gap-2"
+                                                    >
+                                                        <RefreshCw size={16} /> Retake / Re-upload
+                                                    </button>
+                                                    <button
+                                                        type="button"
+                                                        onClick={handleOptOut}
+                                                        className="px-4 py-2 bg-red-50 text-red-500 rounded-lg hover:bg-red-100 text-sm"
+                                                    >
+                                                        Remove
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        )}
+
+                                        {/* Opt-out option */}
+                                        <div className="mt-3 flex items-center gap-2 text-xs text-gray-500">
+                                            <AlertCircle size={12} />
+                                            <span>Patient can opt out of ID capture at any time.</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <canvas ref={canvasRef} className="hidden" />
+
+                                <div className="pt-4 flex justify-end gap-3 border-t border-gray-100">
+                                    <button type="button" onClick={handleClose} className="px-5 py-2.5 text-slate-600 hover:bg-slate-50 rounded-lg font-medium">Cancel</button>
+                                    <button type="submit" className="px-6 py-2.5 bg-primary text-white rounded-lg hover:bg-primary-dark shadow-md font-medium">
+                                        Register Patient
+                                    </button>
                                 </div>
                             </form>
                         </>

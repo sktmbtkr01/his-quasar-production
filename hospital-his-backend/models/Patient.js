@@ -67,6 +67,26 @@ const patientSchema = new mongoose.Schema(
             policyNumber: { type: String, trim: true },
             validTill: { type: Date },
         },
+        // Identification Mark (Birth Mark)
+        identificationMark: {
+            type: String,
+            trim: true,
+            maxlength: [100, 'Identification mark cannot exceed 100 characters'],
+        },
+        // ID Document Capture (for identification assistance)
+        idDocument: {
+            hasOptedIn: { type: Boolean, default: false },
+            imagePath: { type: String }, // Stored file path (not the actual image)
+            capturedAt: { type: Date },
+            capturedBy: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: 'User',
+            },
+            disclaimer: {
+                type: String,
+                default: 'For identification assistance only. Not government authentication.',
+            },
+        },
     },
     {
         timestamps: true,

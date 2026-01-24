@@ -41,6 +41,22 @@ export const getClinicalStats = createAsyncThunk(
     }
 );
 
+// Fetch Receptionist Stats
+export const getReceptionistStats = createAsyncThunk(
+    'analytics/getReceptionist',
+    async (_, thunkAPI) => {
+        try {
+            return await analyticsService.getReceptionistStats();
+        } catch (error) {
+            const message =
+                (error.response && error.response.data && error.response.data.message) ||
+                error.message ||
+                error.toString();
+            return thunkAPI.rejectWithValue(message);
+        }
+    }
+);
+
 export const analyticsSlice = createSlice({
     name: 'analytics',
     initialState,
@@ -60,7 +76,7 @@ export const analyticsSlice = createSlice({
             .addCase(getExecutiveStats.fulfilled, (state, action) => {
                 state.isLoading = false;
                 state.isSuccess = true;
-                state.data = action.payload; // { opdToday, ipdCurrent, revenueToday, revenueMonth }
+                state.data = action.payload;
             })
             .addCase(getExecutiveStats.rejected, (state, action) => {
                 state.isLoading = false;
@@ -73,9 +89,22 @@ export const analyticsSlice = createSlice({
             .addCase(getClinicalStats.fulfilled, (state, action) => {
                 state.isLoading = false;
                 state.isSuccess = true;
-                state.data = action.payload; // { opd: [], ipd: [], lab: [] }
+                state.data = action.payload;
             })
             .addCase(getClinicalStats.rejected, (state, action) => {
+                state.isLoading = false;
+                state.isError = true;
+                state.message = action.payload;
+            })
+            .addCase(getReceptionistStats.pending, (state) => {
+                state.isLoading = true;
+            })
+            .addCase(getReceptionistStats.fulfilled, (state, action) => {
+                state.isLoading = false;
+                state.isSuccess = true;
+                state.data = action.payload;
+            })
+            .addCase(getReceptionistStats.rejected, (state, action) => {
                 state.isLoading = false;
                 state.isError = true;
                 state.message = action.payload;
@@ -85,3 +114,4 @@ export const analyticsSlice = createSlice({
 
 export const { resetAnalytics } = analyticsSlice.actions;
 export default analyticsSlice.reducer;
+

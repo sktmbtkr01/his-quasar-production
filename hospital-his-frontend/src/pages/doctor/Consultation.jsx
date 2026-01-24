@@ -5,6 +5,7 @@ import { ArrowLeft, User, Calendar, Activity, Save, Plus, Trash, Pill, FileText,
 import axios from 'axios'; // We'll use axios directly for this complex form for now, or move to service later
 import CarePlanCreator from '../../components/doctor/CarePlanCreator';
 import ClinicalCodingTab from '../../components/clinical/ClinicalCodingTab';
+import systemSettingsService from '../../services/systemSettings.service';
 
 const API_RES_URL = 'http://localhost:5001/api/v1/';
 const getConfig = () => {
@@ -17,6 +18,7 @@ const Consultation = () => {
     const navigate = useNavigate();
     const [appointment, setAppointment] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [clinicalCodingEnabled, setClinicalCodingEnabled] = useState(false);
 
     // Clinical Notes State
     const [diagnosis, setDiagnosis] = useState('');
@@ -48,6 +50,15 @@ const Consultation = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
+                // Check clinical coding status
+                try {
+                    const codingStatus = await systemSettingsService.getClinicalCodingStatus();
+                    setClinicalCodingEnabled(codingStatus.enabled);
+                } catch (e) {
+                    console.log('Could not fetch coding status, defaulting to disabled');
+                    setClinicalCodingEnabled(false);
+                }
+
                 const [appointmentRes, testsRes, radiologyRes] = await Promise.all([
                     axios.get(`${API_RES_URL}opd/appointments/${appointmentId}`, getConfig()),
                     axios.get(`${API_RES_URL}lab/tests`, getConfig()),
@@ -158,7 +169,8 @@ const Consultation = () => {
             if (labTests.length > 0) ordersSummary.push(`${labTests.length} Lab Test(s)`);
             if (radiologyTests.length > 0) ordersSummary.push(`${radiologyTests.length} Radiology Scan(s)`);
 
-            alert(`Consultation Completed! Prescription${ordersSummary.length > 0 ? ' & ' + ordersSummary.join(', ') : ''} Saved.\n\nClinical Coding tab is now available below.`);
+            const codingMessage = clinicalCodingEnabled ? '\n\nClinical Coding tab is now available below.' : '';
+            alert(`Consultation Completed! Prescription${ordersSummary.length > 0 ? ' & ' + ordersSummary.join(', ') : ''} Saved.${codingMessage}`);
 
             // Refresh appointment state to show Clinical Coding tab
             setAppointment(response.data.data);
@@ -658,8 +670,8 @@ const Consultation = () => {
                         </motion.div>
                     )}
 
-                    {/* Clinical Coding Section - Displays for completed encounters */}
-                    {appointment.status === 'completed' && (
+                    {/* Clinical Coding Section - Displays for completed encounters when coding is enabled */}
+                    {appointment.status === 'completed' && clinicalCodingEnabled && (
                         <motion.div
                             initial={{ opacity: 0, scale: 0.95, y: 20 }}
                             animate={{ opacity: 1, scale: 1, y: 0 }}

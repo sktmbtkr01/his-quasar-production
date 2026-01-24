@@ -121,10 +121,19 @@ const pharmacyDispenseSchema = new mongoose.Schema(
             type: Boolean,
             default: false,
         },
-        // Billing link
+        // Billing link (legacy)
         billingRef: {
             type: mongoose.Schema.Types.ObjectId,
             ref: 'Billing',
+        },
+        // Department billing link
+        isBilled: {
+            type: Boolean,
+            default: false,
+        },
+        departmentBill: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'DepartmentBill',
         },
     },
     {

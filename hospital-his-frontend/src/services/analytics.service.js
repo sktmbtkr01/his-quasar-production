@@ -30,10 +30,17 @@ const getFinancialStats = async () => {
     return response.data.data;
 };
 
+const getReceptionistStats = async () => {
+    const response = await axios.get(API_URL + 'reception', getConfig());
+    return response.data.data;
+};
+
 const analyticsService = {
     getExecutiveStats,
     getClinicalStats,
-    getFinancialStats
+    getFinancialStats,
+    getReceptionistStats
 };
 
 export default analyticsService;
+

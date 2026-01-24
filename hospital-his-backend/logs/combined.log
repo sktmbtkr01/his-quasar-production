@@ -11342,3 +11342,1092 @@ Error: Invalid credentials
 2026-01-24 10:51:37 [INFO]: 📋 Health check: http://localhost:5001/api/health
 2026-01-24 10:51:37 [INFO]: ═══════════════════════════════════════════════════════════════
 2026-01-24 11:10:39 [WARN]: MongoDB disconnected. Attempting to reconnect...
+2026-01-24 14:49:15 [INFO]: MongoDB Connected: ac-3nlnfep-shard-00-01.fs2fnzl.mongodb.net
+2026-01-24 14:49:16 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 14:49:16 [INFO]:        HOSPITAL INFORMATION SYSTEM (HIS) BACKEND SERVER        
+2026-01-24 14:49:16 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 14:49:16 [INFO]: 🚀 Server running in development mode on port 5001
+2026-01-24 14:49:16 [INFO]: 📡 API Base URL: http://localhost:5001/api/v1
+2026-01-24 14:49:16 [INFO]: 🔌 WebSocket enabled
+2026-01-24 14:49:16 [INFO]: 📋 Health check: http://localhost:5001/api/health
+2026-01-24 14:49:16 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 15:01:22 [INFO]: MongoDB Connected: ac-3nlnfep-shard-00-01.fs2fnzl.mongodb.net
+2026-01-24 15:01:22 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 15:01:22 [INFO]:        HOSPITAL INFORMATION SYSTEM (HIS) BACKEND SERVER        
+2026-01-24 15:01:22 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 15:01:22 [INFO]: 🚀 Server running in development mode on port 5001
+2026-01-24 15:01:22 [INFO]: 📡 API Base URL: http://localhost:5001/api/v1
+2026-01-24 15:01:22 [INFO]: 🔌 WebSocket enabled
+2026-01-24 15:01:22 [INFO]: 📋 Health check: http://localhost:5001/api/health
+2026-01-24 15:01:22 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 15:01:30 [INFO]: MongoDB Connected: ac-3nlnfep-shard-00-01.fs2fnzl.mongodb.net
+2026-01-24 15:01:30 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 15:01:30 [INFO]:        HOSPITAL INFORMATION SYSTEM (HIS) BACKEND SERVER        
+2026-01-24 15:01:30 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 15:01:30 [INFO]: 🚀 Server running in development mode on port 5001
+2026-01-24 15:01:30 [INFO]: 📡 API Base URL: http://localhost:5001/api/v1
+2026-01-24 15:01:30 [INFO]: 🔌 WebSocket enabled
+2026-01-24 15:01:30 [INFO]: 📋 Health check: http://localhost:5001/api/health
+2026-01-24 15:01:30 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 15:02:32 [INFO]: MongoDB Connected: ac-3nlnfep-shard-00-00.fs2fnzl.mongodb.net
+2026-01-24 15:02:32 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 15:02:32 [INFO]:        HOSPITAL INFORMATION SYSTEM (HIS) BACKEND SERVER        
+2026-01-24 15:02:32 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 15:02:32 [INFO]: 🚀 Server running in development mode on port 5001
+2026-01-24 15:02:32 [INFO]: 📡 API Base URL: http://localhost:5001/api/v1
+2026-01-24 15:02:32 [INFO]: 🔌 WebSocket enabled
+2026-01-24 15:02:32 [INFO]: 📋 Health check: http://localhost:5001/api/health
+2026-01-24 15:02:32 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 15:07:33 [INFO]: Client connected: MsrPxTGJhkX-GXUbAAAC
+2026-01-24 15:07:33 [INFO]: User 6970e6e6ae32f124038cc0aa joined personal room
+2026-01-24 15:07:42 [INFO]: Client disconnected: MsrPxTGJhkX-GXUbAAAC
+2026-01-24 15:07:45 [INFO]: Client connected: LWy5oIHcNGhLmyzNAAAF
+2026-01-24 15:07:45 [INFO]: User 6970e6e6ae32f124038cc0aa joined personal room
+2026-01-24 15:11:28 [INFO]: MongoDB Connected: ac-3nlnfep-shard-00-00.fs2fnzl.mongodb.net
+2026-01-24 15:11:28 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 15:11:28 [INFO]:        HOSPITAL INFORMATION SYSTEM (HIS) BACKEND SERVER        
+2026-01-24 15:11:28 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 15:11:28 [INFO]: 🚀 Server running in development mode on port 5001
+2026-01-24 15:11:28 [INFO]: 📡 API Base URL: http://localhost:5001/api/v1
+2026-01-24 15:11:28 [INFO]: 🔌 WebSocket enabled
+2026-01-24 15:11:28 [INFO]: 📋 Health check: http://localhost:5001/api/health
+2026-01-24 15:11:28 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 15:11:32 [INFO]: Client connected: -F4CiJ0hZEh_8k-bAAAB
+2026-01-24 15:11:32 [INFO]: User 6970e6e6ae32f124038cc0aa joined personal room
+2026-01-24 15:11:49 [INFO]: Client disconnected: -F4CiJ0hZEh_8k-bAAAB
+2026-01-24 15:11:49 [INFO]: Client connected: e4d8E58YcVpImOI1AAAE
+2026-01-24 15:11:49 [INFO]: User 6970e6e6ae32f124038cc0aa joined personal room
+2026-01-24 15:11:49 [INFO]: [ReceptionistDashboard] Fetching stats for date range: 2026-01-24T00:00:00.000Z to 2026-01-25T00:00:00.000Z
+2026-01-24 15:11:49 [INFO]: [ReceptionistDashboard] Registrations today: 1, Total patients: 28
+2026-01-24 15:11:49 [INFO]: [ReceptionistDashboard] Raw appointments today: 0
+2026-01-24 15:11:49 [INFO]: [ReceptionistDashboard] Appointment stats by status: []
+2026-01-24 15:11:49 [INFO]: [ReceptionistDashboard] Formatted stats: {"scheduled":0,"checkedIn":0,"completed":0,"cancelled":0,"total":0}
+2026-01-24 15:11:49 [INFO]: [ReceptionistDashboard] Hourly registrations: [{"_id":9,"count":1}]
+2026-01-24 15:11:49 [INFO]: [ReceptionistDashboard] Hourly appointments: []
+2026-01-24 15:11:49 [INFO]: [ReceptionistDashboard] Final response: {"newRegistrations":1,"totalPatients":28,"appointments":{"scheduled":0,"checkedIn":0,"completed":0,"cancelled":0,"total":0},"trafficData":[{"name":"8:00","patients":0,"registrations":0,"appointments":0},{"name":"9:00","patients":1,"registrations":1,"appointments":0},{"name":"10:00","patients":0,"registrations":0,"appointments":0},{"name":"11:00","patients":0,"registrations":0,"appointments":0},{"name":"12:00","patients":0,"registrations":0,"appointments":0},{"name":"13:00","patients":0,"registrations":0,"appointments":0},{"name":"14:00","patients":0,"registrations":0,"appointments":0},{"name":"15:00","patients":0,"registrations":0,"appointments":0},{"name":"16:00","patients":0,"registrations":0,"appointments":0},{"name":"17:00","patients":0,"registrations":0,"appointments":0},{"name":"18:00","patients":0,"registrations":0,"appointments":0},{"name":"19:00","patients":0,"registrations":0,"appointments":0},{"name":"20:00","patients":0,"registrations":0,"appointments":0}],"doctorAvailability":0,"_debug":{"dateRange":{"from":"2026-01-24T00:00:00.000Z","to":"2026-01-25T00:00:00.000Z"},"rawAppointmentCount":0}}
+2026-01-24 15:11:49 [INFO]: [ReceptionistDashboard] Fetching stats for date range: 2026-01-24T00:00:00.000Z to 2026-01-25T00:00:00.000Z
+2026-01-24 15:11:49 [INFO]: [ReceptionistDashboard] Registrations today: 1, Total patients: 28
+2026-01-24 15:11:49 [INFO]: [ReceptionistDashboard] Raw appointments today: 0
+2026-01-24 15:11:49 [INFO]: [ReceptionistDashboard] Appointment stats by status: []
+2026-01-24 15:11:49 [INFO]: [ReceptionistDashboard] Formatted stats: {"scheduled":0,"checkedIn":0,"completed":0,"cancelled":0,"total":0}
+2026-01-24 15:11:50 [INFO]: [ReceptionistDashboard] Hourly registrations: [{"_id":9,"count":1}]
+2026-01-24 15:11:50 [INFO]: [ReceptionistDashboard] Hourly appointments: []
+2026-01-24 15:11:50 [INFO]: [ReceptionistDashboard] Final response: {"newRegistrations":1,"totalPatients":28,"appointments":{"scheduled":0,"checkedIn":0,"completed":0,"cancelled":0,"total":0},"trafficData":[{"name":"8:00","patients":0,"registrations":0,"appointments":0},{"name":"9:00","patients":1,"registrations":1,"appointments":0},{"name":"10:00","patients":0,"registrations":0,"appointments":0},{"name":"11:00","patients":0,"registrations":0,"appointments":0},{"name":"12:00","patients":0,"registrations":0,"appointments":0},{"name":"13:00","patients":0,"registrations":0,"appointments":0},{"name":"14:00","patients":0,"registrations":0,"appointments":0},{"name":"15:00","patients":0,"registrations":0,"appointments":0},{"name":"16:00","patients":0,"registrations":0,"appointments":0},{"name":"17:00","patients":0,"registrations":0,"appointments":0},{"name":"18:00","patients":0,"registrations":0,"appointments":0},{"name":"19:00","patients":0,"registrations":0,"appointments":0},{"name":"20:00","patients":0,"registrations":0,"appointments":0}],"doctorAvailability":0,"_debug":{"dateRange":{"from":"2026-01-24T00:00:00.000Z","to":"2026-01-25T00:00:00.000Z"},"rawAppointmentCount":0}}
+2026-01-24 15:12:18 [INFO]: MongoDB Connected: ac-3nlnfep-shard-00-00.fs2fnzl.mongodb.net
+2026-01-24 15:12:18 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 15:12:18 [INFO]:        HOSPITAL INFORMATION SYSTEM (HIS) BACKEND SERVER        
+2026-01-24 15:12:18 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 15:12:18 [INFO]: 🚀 Server running in development mode on port 5001
+2026-01-24 15:12:18 [INFO]: 📡 API Base URL: http://localhost:5001/api/v1
+2026-01-24 15:12:18 [INFO]: 🔌 WebSocket enabled
+2026-01-24 15:12:18 [INFO]: 📋 Health check: http://localhost:5001/api/health
+2026-01-24 15:12:18 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 15:12:18 [INFO]: Client connected: AORjTDKn6cgWqXkeAAAB
+2026-01-24 15:12:18 [INFO]: User 6970e6e6ae32f124038cc0aa joined personal room
+2026-01-24 15:12:21 [INFO]: [ReceptionistDashboard] Fetching stats for date range: 2026-01-24T00:00:00.000Z to 2026-01-25T00:00:00.000Z
+2026-01-24 15:12:21 [INFO]: [ReceptionistDashboard] Registrations today: 1, Total patients: 28
+2026-01-24 15:12:22 [INFO]: [ReceptionistDashboard] Raw appointments today: 0
+2026-01-24 15:12:22 [INFO]: [ReceptionistDashboard] Appointment stats by status: []
+2026-01-24 15:12:22 [INFO]: [ReceptionistDashboard] Formatted stats: {"scheduled":0,"checkedIn":0,"completed":0,"cancelled":0,"total":0}
+2026-01-24 15:12:22 [INFO]: [ReceptionistDashboard] Hourly registrations: [{"_id":9,"count":1}]
+2026-01-24 15:12:22 [INFO]: [ReceptionistDashboard] Hourly appointments: []
+2026-01-24 15:12:22 [INFO]: [ReceptionistDashboard] Final response: {"newRegistrations":1,"totalPatients":28,"appointments":{"scheduled":0,"checkedIn":0,"completed":0,"cancelled":0,"total":0},"trafficData":[{"name":"8:00","patients":0,"registrations":0,"appointments":0},{"name":"9:00","patients":1,"registrations":1,"appointments":0},{"name":"10:00","patients":0,"registrations":0,"appointments":0},{"name":"11:00","patients":0,"registrations":0,"appointments":0},{"name":"12:00","patients":0,"registrations":0,"appointments":0},{"name":"13:00","patients":0,"registrations":0,"appointments":0},{"name":"14:00","patients":0,"registrations":0,"appointments":0},{"name":"15:00","patients":0,"registrations":0,"appointments":0},{"name":"16:00","patients":0,"registrations":0,"appointments":0},{"name":"17:00","patients":0,"registrations":0,"appointments":0},{"name":"18:00","patients":0,"registrations":0,"appointments":0},{"name":"19:00","patients":0,"registrations":0,"appointments":0},{"name":"20:00","patients":0,"registrations":0,"appointments":0}],"doctorAvailability":0,"_debug":{"dateRange":{"from":"2026-01-24T00:00:00.000Z","to":"2026-01-25T00:00:00.000Z"},"rawAppointmentCount":0}}
+2026-01-24 15:12:28 [INFO]: MongoDB Connected: ac-3nlnfep-shard-00-02.fs2fnzl.mongodb.net
+2026-01-24 15:12:28 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 15:12:28 [INFO]:        HOSPITAL INFORMATION SYSTEM (HIS) BACKEND SERVER        
+2026-01-24 15:12:28 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 15:12:28 [INFO]: 🚀 Server running in development mode on port 5001
+2026-01-24 15:12:28 [INFO]: 📡 API Base URL: http://localhost:5001/api/v1
+2026-01-24 15:12:28 [INFO]: 🔌 WebSocket enabled
+2026-01-24 15:12:28 [INFO]: 📋 Health check: http://localhost:5001/api/health
+2026-01-24 15:12:28 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 15:12:28 [INFO]: Client connected: 0r54CZdB1YctG1scAAAB
+2026-01-24 15:12:28 [INFO]: User 6970e6e6ae32f124038cc0aa joined personal room
+2026-01-24 15:12:38 [INFO]: MongoDB Connected: ac-3nlnfep-shard-00-00.fs2fnzl.mongodb.net
+2026-01-24 15:12:38 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 15:12:38 [INFO]:        HOSPITAL INFORMATION SYSTEM (HIS) BACKEND SERVER        
+2026-01-24 15:12:38 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 15:12:38 [INFO]: 🚀 Server running in development mode on port 5001
+2026-01-24 15:12:38 [INFO]: 📡 API Base URL: http://localhost:5001/api/v1
+2026-01-24 15:12:38 [INFO]: 🔌 WebSocket enabled
+2026-01-24 15:12:38 [INFO]: 📋 Health check: http://localhost:5001/api/health
+2026-01-24 15:12:38 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 15:12:38 [INFO]: Client connected: 7izZ9oQfUGZ_gZocAAAB
+2026-01-24 15:12:38 [INFO]: User 6970e6e6ae32f124038cc0aa joined personal room
+2026-01-24 15:12:50 [INFO]: [ReceptionistDashboard] Fetching stats for date range: 2026-01-24T00:00:00.000Z to 2026-01-25T00:00:00.000Z
+2026-01-24 15:12:50 [INFO]: [ReceptionistDashboard] Registrations today: 1, Total patients: 28
+2026-01-24 15:12:50 [INFO]: [ReceptionistDashboard] Raw appointments today: 0
+2026-01-24 15:12:50 [INFO]: [ReceptionistDashboard] Appointment stats by status: []
+2026-01-24 15:12:50 [INFO]: [ReceptionistDashboard] Formatted stats: {"scheduled":0,"checkedIn":0,"completed":0,"cancelled":0,"total":0}
+2026-01-24 15:12:50 [INFO]: [ReceptionistDashboard] Hourly registrations: [{"_id":9,"count":1}]
+2026-01-24 15:12:50 [INFO]: [ReceptionistDashboard] Hourly appointments: []
+2026-01-24 15:12:50 [INFO]: [ReceptionistDashboard] Final response: {"newRegistrations":1,"totalPatients":28,"appointments":{"scheduled":0,"checkedIn":0,"completed":0,"cancelled":0,"total":0},"trafficData":[{"name":"8:00","patients":0,"registrations":0,"appointments":0},{"name":"9:00","patients":1,"registrations":1,"appointments":0},{"name":"10:00","patients":0,"registrations":0,"appointments":0},{"name":"11:00","patients":0,"registrations":0,"appointments":0},{"name":"12:00","patients":0,"registrations":0,"appointments":0},{"name":"13:00","patients":0,"registrations":0,"appointments":0},{"name":"14:00","patients":0,"registrations":0,"appointments":0},{"name":"15:00","patients":0,"registrations":0,"appointments":0},{"name":"16:00","patients":0,"registrations":0,"appointments":0},{"name":"17:00","patients":0,"registrations":0,"appointments":0},{"name":"18:00","patients":0,"registrations":0,"appointments":0},{"name":"19:00","patients":0,"registrations":0,"appointments":0},{"name":"20:00","patients":0,"registrations":0,"appointments":0}],"doctorAvailability":0,"_debug":{"dateRange":{"from":"2026-01-24T00:00:00.000Z","to":"2026-01-25T00:00:00.000Z"},"rawAppointmentCount":0}}
+2026-01-24 15:12:52 [INFO]: [ReceptionistDashboard] Fetching stats for date range: 2026-01-24T00:00:00.000Z to 2026-01-25T00:00:00.000Z
+2026-01-24 15:12:52 [INFO]: [ReceptionistDashboard] Registrations today: 1, Total patients: 28
+2026-01-24 15:12:52 [INFO]: [ReceptionistDashboard] Raw appointments today: 0
+2026-01-24 15:12:52 [INFO]: [ReceptionistDashboard] Appointment stats by status: []
+2026-01-24 15:12:52 [INFO]: [ReceptionistDashboard] Formatted stats: {"scheduled":0,"checkedIn":0,"completed":0,"cancelled":0,"total":0}
+2026-01-24 15:12:52 [INFO]: [ReceptionistDashboard] Hourly registrations: [{"_id":9,"count":1}]
+2026-01-24 15:12:52 [INFO]: [ReceptionistDashboard] Hourly appointments: []
+2026-01-24 15:12:52 [INFO]: [ReceptionistDashboard] Final response: {"newRegistrations":1,"totalPatients":28,"appointments":{"scheduled":0,"checkedIn":0,"completed":0,"cancelled":0,"total":0},"trafficData":[{"name":"8:00","patients":0,"registrations":0,"appointments":0},{"name":"9:00","patients":1,"registrations":1,"appointments":0},{"name":"10:00","patients":0,"registrations":0,"appointments":0},{"name":"11:00","patients":0,"registrations":0,"appointments":0},{"name":"12:00","patients":0,"registrations":0,"appointments":0},{"name":"13:00","patients":0,"registrations":0,"appointments":0},{"name":"14:00","patients":0,"registrations":0,"appointments":0},{"name":"15:00","patients":0,"registrations":0,"appointments":0},{"name":"16:00","patients":0,"registrations":0,"appointments":0},{"name":"17:00","patients":0,"registrations":0,"appointments":0},{"name":"18:00","patients":0,"registrations":0,"appointments":0},{"name":"19:00","patients":0,"registrations":0,"appointments":0},{"name":"20:00","patients":0,"registrations":0,"appointments":0}],"doctorAvailability":0,"_debug":{"dateRange":{"from":"2026-01-24T00:00:00.000Z","to":"2026-01-25T00:00:00.000Z"},"rawAppointmentCount":0}}
+2026-01-24 15:12:53 [INFO]: [ReceptionistDashboard] Fetching stats for date range: 2026-01-24T00:00:00.000Z to 2026-01-25T00:00:00.000Z
+2026-01-24 15:12:53 [INFO]: [ReceptionistDashboard] Registrations today: 1, Total patients: 28
+2026-01-24 15:12:53 [INFO]: [ReceptionistDashboard] Raw appointments today: 0
+2026-01-24 15:12:53 [INFO]: [ReceptionistDashboard] Appointment stats by status: []
+2026-01-24 15:12:53 [INFO]: [ReceptionistDashboard] Formatted stats: {"scheduled":0,"checkedIn":0,"completed":0,"cancelled":0,"total":0}
+2026-01-24 15:12:54 [INFO]: [ReceptionistDashboard] Hourly registrations: [{"_id":9,"count":1}]
+2026-01-24 15:12:54 [INFO]: [ReceptionistDashboard] Hourly appointments: []
+2026-01-24 15:12:54 [INFO]: [ReceptionistDashboard] Final response: {"newRegistrations":1,"totalPatients":28,"appointments":{"scheduled":0,"checkedIn":0,"completed":0,"cancelled":0,"total":0},"trafficData":[{"name":"8:00","patients":0,"registrations":0,"appointments":0},{"name":"9:00","patients":1,"registrations":1,"appointments":0},{"name":"10:00","patients":0,"registrations":0,"appointments":0},{"name":"11:00","patients":0,"registrations":0,"appointments":0},{"name":"12:00","patients":0,"registrations":0,"appointments":0},{"name":"13:00","patients":0,"registrations":0,"appointments":0},{"name":"14:00","patients":0,"registrations":0,"appointments":0},{"name":"15:00","patients":0,"registrations":0,"appointments":0},{"name":"16:00","patients":0,"registrations":0,"appointments":0},{"name":"17:00","patients":0,"registrations":0,"appointments":0},{"name":"18:00","patients":0,"registrations":0,"appointments":0},{"name":"19:00","patients":0,"registrations":0,"appointments":0},{"name":"20:00","patients":0,"registrations":0,"appointments":0}],"doctorAvailability":0,"_debug":{"dateRange":{"from":"2026-01-24T00:00:00.000Z","to":"2026-01-25T00:00:00.000Z"},"rawAppointmentCount":0}}
+2026-01-24 15:12:54 [INFO]: [ReceptionistDashboard] Fetching stats for date range: 2026-01-24T00:00:00.000Z to 2026-01-25T00:00:00.000Z
+2026-01-24 15:12:54 [INFO]: [ReceptionistDashboard] Registrations today: 1, Total patients: 28
+2026-01-24 15:12:54 [INFO]: [ReceptionistDashboard] Raw appointments today: 0
+2026-01-24 15:12:54 [INFO]: [ReceptionistDashboard] Appointment stats by status: []
+2026-01-24 15:12:54 [INFO]: [ReceptionistDashboard] Formatted stats: {"scheduled":0,"checkedIn":0,"completed":0,"cancelled":0,"total":0}
+2026-01-24 15:12:54 [INFO]: [ReceptionistDashboard] Hourly registrations: [{"_id":9,"count":1}]
+2026-01-24 15:12:54 [INFO]: [ReceptionistDashboard] Hourly appointments: []
+2026-01-24 15:12:54 [INFO]: [ReceptionistDashboard] Final response: {"newRegistrations":1,"totalPatients":28,"appointments":{"scheduled":0,"checkedIn":0,"completed":0,"cancelled":0,"total":0},"trafficData":[{"name":"8:00","patients":0,"registrations":0,"appointments":0},{"name":"9:00","patients":1,"registrations":1,"appointments":0},{"name":"10:00","patients":0,"registrations":0,"appointments":0},{"name":"11:00","patients":0,"registrations":0,"appointments":0},{"name":"12:00","patients":0,"registrations":0,"appointments":0},{"name":"13:00","patients":0,"registrations":0,"appointments":0},{"name":"14:00","patients":0,"registrations":0,"appointments":0},{"name":"15:00","patients":0,"registrations":0,"appointments":0},{"name":"16:00","patients":0,"registrations":0,"appointments":0},{"name":"17:00","patients":0,"registrations":0,"appointments":0},{"name":"18:00","patients":0,"registrations":0,"appointments":0},{"name":"19:00","patients":0,"registrations":0,"appointments":0},{"name":"20:00","patients":0,"registrations":0,"appointments":0}],"doctorAvailability":0,"_debug":{"dateRange":{"from":"2026-01-24T00:00:00.000Z","to":"2026-01-25T00:00:00.000Z"},"rawAppointmentCount":0}}
+2026-01-24 15:13:06 [INFO]: [ReceptionistDashboard] Fetching stats for date range: 2026-01-24T00:00:00.000Z to 2026-01-25T00:00:00.000Z
+2026-01-24 15:13:06 [INFO]: [ReceptionistDashboard] Registrations today: 1, Total patients: 28
+2026-01-24 15:13:06 [INFO]: [ReceptionistDashboard] Raw appointments today: 0
+2026-01-24 15:13:06 [INFO]: [ReceptionistDashboard] Appointment stats by status: []
+2026-01-24 15:13:06 [INFO]: [ReceptionistDashboard] Formatted stats: {"scheduled":0,"checkedIn":0,"completed":0,"cancelled":0,"total":0}
+2026-01-24 15:13:06 [INFO]: [ReceptionistDashboard] Hourly registrations: [{"_id":9,"count":1}]
+2026-01-24 15:13:06 [INFO]: [ReceptionistDashboard] Hourly appointments: []
+2026-01-24 15:13:06 [INFO]: [ReceptionistDashboard] Final response: {"newRegistrations":1,"totalPatients":28,"appointments":{"scheduled":0,"checkedIn":0,"completed":0,"cancelled":0,"total":0},"trafficData":[{"name":"8:00","patients":0,"registrations":0,"appointments":0},{"name":"9:00","patients":1,"registrations":1,"appointments":0},{"name":"10:00","patients":0,"registrations":0,"appointments":0},{"name":"11:00","patients":0,"registrations":0,"appointments":0},{"name":"12:00","patients":0,"registrations":0,"appointments":0},{"name":"13:00","patients":0,"registrations":0,"appointments":0},{"name":"14:00","patients":0,"registrations":0,"appointments":0},{"name":"15:00","patients":0,"registrations":0,"appointments":0},{"name":"16:00","patients":0,"registrations":0,"appointments":0},{"name":"17:00","patients":0,"registrations":0,"appointments":0},{"name":"18:00","patients":0,"registrations":0,"appointments":0},{"name":"19:00","patients":0,"registrations":0,"appointments":0},{"name":"20:00","patients":0,"registrations":0,"appointments":0}],"doctorAvailability":0,"_debug":{"dateRange":{"from":"2026-01-24T00:00:00.000Z","to":"2026-01-25T00:00:00.000Z"},"rawAppointmentCount":0}}
+2026-01-24 15:13:07 [INFO]: [ReceptionistDashboard] Fetching stats for date range: 2026-01-24T00:00:00.000Z to 2026-01-25T00:00:00.000Z
+2026-01-24 15:13:07 [INFO]: [ReceptionistDashboard] Registrations today: 1, Total patients: 28
+2026-01-24 15:13:07 [INFO]: [ReceptionistDashboard] Raw appointments today: 0
+2026-01-24 15:13:07 [INFO]: [ReceptionistDashboard] Appointment stats by status: []
+2026-01-24 15:13:07 [INFO]: [ReceptionistDashboard] Formatted stats: {"scheduled":0,"checkedIn":0,"completed":0,"cancelled":0,"total":0}
+2026-01-24 15:13:07 [INFO]: [ReceptionistDashboard] Hourly registrations: [{"_id":9,"count":1}]
+2026-01-24 15:13:07 [INFO]: [ReceptionistDashboard] Hourly appointments: []
+2026-01-24 15:13:07 [INFO]: [ReceptionistDashboard] Final response: {"newRegistrations":1,"totalPatients":28,"appointments":{"scheduled":0,"checkedIn":0,"completed":0,"cancelled":0,"total":0},"trafficData":[{"name":"8:00","patients":0,"registrations":0,"appointments":0},{"name":"9:00","patients":1,"registrations":1,"appointments":0},{"name":"10:00","patients":0,"registrations":0,"appointments":0},{"name":"11:00","patients":0,"registrations":0,"appointments":0},{"name":"12:00","patients":0,"registrations":0,"appointments":0},{"name":"13:00","patients":0,"registrations":0,"appointments":0},{"name":"14:00","patients":0,"registrations":0,"appointments":0},{"name":"15:00","patients":0,"registrations":0,"appointments":0},{"name":"16:00","patients":0,"registrations":0,"appointments":0},{"name":"17:00","patients":0,"registrations":0,"appointments":0},{"name":"18:00","patients":0,"registrations":0,"appointments":0},{"name":"19:00","patients":0,"registrations":0,"appointments":0},{"name":"20:00","patients":0,"registrations":0,"appointments":0}],"doctorAvailability":0,"_debug":{"dateRange":{"from":"2026-01-24T00:00:00.000Z","to":"2026-01-25T00:00:00.000Z"},"rawAppointmentCount":0}}
+2026-01-24 15:13:08 [INFO]: Client disconnected: 7izZ9oQfUGZ_gZocAAAB
+2026-01-24 15:13:09 [INFO]: [ReceptionistDashboard] Fetching stats for date range: 2026-01-24T00:00:00.000Z to 2026-01-25T00:00:00.000Z
+2026-01-24 15:13:09 [INFO]: Client connected: jTTTG7T50OM9L87bAAAE
+2026-01-24 15:13:09 [INFO]: User 6970e6e6ae32f124038cc0aa joined personal room
+2026-01-24 15:13:09 [INFO]: [ReceptionistDashboard] Registrations today: 1, Total patients: 28
+2026-01-24 15:13:09 [INFO]: [ReceptionistDashboard] Raw appointments today: 0
+2026-01-24 15:13:09 [INFO]: [ReceptionistDashboard] Appointment stats by status: []
+2026-01-24 15:13:09 [INFO]: [ReceptionistDashboard] Formatted stats: {"scheduled":0,"checkedIn":0,"completed":0,"cancelled":0,"total":0}
+2026-01-24 15:13:09 [INFO]: [ReceptionistDashboard] Hourly registrations: [{"_id":9,"count":1}]
+2026-01-24 15:13:09 [INFO]: [ReceptionistDashboard] Hourly appointments: []
+2026-01-24 15:13:09 [INFO]: [ReceptionistDashboard] Final response: {"newRegistrations":1,"totalPatients":28,"appointments":{"scheduled":0,"checkedIn":0,"completed":0,"cancelled":0,"total":0},"trafficData":[{"name":"8:00","patients":0,"registrations":0,"appointments":0},{"name":"9:00","patients":1,"registrations":1,"appointments":0},{"name":"10:00","patients":0,"registrations":0,"appointments":0},{"name":"11:00","patients":0,"registrations":0,"appointments":0},{"name":"12:00","patients":0,"registrations":0,"appointments":0},{"name":"13:00","patients":0,"registrations":0,"appointments":0},{"name":"14:00","patients":0,"registrations":0,"appointments":0},{"name":"15:00","patients":0,"registrations":0,"appointments":0},{"name":"16:00","patients":0,"registrations":0,"appointments":0},{"name":"17:00","patients":0,"registrations":0,"appointments":0},{"name":"18:00","patients":0,"registrations":0,"appointments":0},{"name":"19:00","patients":0,"registrations":0,"appointments":0},{"name":"20:00","patients":0,"registrations":0,"appointments":0}],"doctorAvailability":0,"_debug":{"dateRange":{"from":"2026-01-24T00:00:00.000Z","to":"2026-01-25T00:00:00.000Z"},"rawAppointmentCount":0}}
+2026-01-24 15:13:09 [INFO]: [ReceptionistDashboard] Fetching stats for date range: 2026-01-24T00:00:00.000Z to 2026-01-25T00:00:00.000Z
+2026-01-24 15:13:09 [INFO]: [ReceptionistDashboard] Registrations today: 1, Total patients: 28
+2026-01-24 15:13:09 [INFO]: [ReceptionistDashboard] Raw appointments today: 0
+2026-01-24 15:13:09 [INFO]: [ReceptionistDashboard] Appointment stats by status: []
+2026-01-24 15:13:09 [INFO]: [ReceptionistDashboard] Formatted stats: {"scheduled":0,"checkedIn":0,"completed":0,"cancelled":0,"total":0}
+2026-01-24 15:13:09 [INFO]: [ReceptionistDashboard] Hourly registrations: [{"_id":9,"count":1}]
+2026-01-24 15:13:09 [INFO]: [ReceptionistDashboard] Hourly appointments: []
+2026-01-24 15:13:09 [INFO]: [ReceptionistDashboard] Final response: {"newRegistrations":1,"totalPatients":28,"appointments":{"scheduled":0,"checkedIn":0,"completed":0,"cancelled":0,"total":0},"trafficData":[{"name":"8:00","patients":0,"registrations":0,"appointments":0},{"name":"9:00","patients":1,"registrations":1,"appointments":0},{"name":"10:00","patients":0,"registrations":0,"appointments":0},{"name":"11:00","patients":0,"registrations":0,"appointments":0},{"name":"12:00","patients":0,"registrations":0,"appointments":0},{"name":"13:00","patients":0,"registrations":0,"appointments":0},{"name":"14:00","patients":0,"registrations":0,"appointments":0},{"name":"15:00","patients":0,"registrations":0,"appointments":0},{"name":"16:00","patients":0,"registrations":0,"appointments":0},{"name":"17:00","patients":0,"registrations":0,"appointments":0},{"name":"18:00","patients":0,"registrations":0,"appointments":0},{"name":"19:00","patients":0,"registrations":0,"appointments":0},{"name":"20:00","patients":0,"registrations":0,"appointments":0}],"doctorAvailability":0,"_debug":{"dateRange":{"from":"2026-01-24T00:00:00.000Z","to":"2026-01-25T00:00:00.000Z"},"rawAppointmentCount":0}}
+2026-01-24 15:13:39 [INFO]: Client disconnected: jTTTG7T50OM9L87bAAAE
+2026-01-24 15:14:27 [INFO]: Client connected: WDx1_z9J3eaNIgJcAAAH
+2026-01-24 15:14:27 [INFO]: [ReceptionistDashboard] Fetching stats for date range: 2026-01-24T00:00:00.000Z to 2026-01-25T00:00:00.000Z
+2026-01-24 15:14:27 [INFO]: [ReceptionistDashboard] Registrations today: 2, Total patients: 29
+2026-01-24 15:14:27 [INFO]: [ReceptionistDashboard] Raw appointments today: 0
+2026-01-24 15:14:27 [INFO]: User 6970e6e6ae32f124038cc0aa joined personal room
+2026-01-24 15:14:27 [INFO]: [ReceptionistDashboard] Appointment stats by status: []
+2026-01-24 15:14:27 [INFO]: [ReceptionistDashboard] Formatted stats: {"scheduled":0,"checkedIn":0,"completed":0,"cancelled":0,"total":0}
+2026-01-24 15:14:27 [INFO]: [ReceptionistDashboard] Hourly registrations: [{"_id":9,"count":2}]
+2026-01-24 15:14:27 [INFO]: [ReceptionistDashboard] Hourly appointments: []
+2026-01-24 15:14:27 [INFO]: [ReceptionistDashboard] Final response: {"newRegistrations":2,"totalPatients":29,"appointments":{"scheduled":0,"checkedIn":0,"completed":0,"cancelled":0,"total":0},"trafficData":[{"name":"8:00","patients":0,"registrations":0,"appointments":0},{"name":"9:00","patients":2,"registrations":2,"appointments":0},{"name":"10:00","patients":0,"registrations":0,"appointments":0},{"name":"11:00","patients":0,"registrations":0,"appointments":0},{"name":"12:00","patients":0,"registrations":0,"appointments":0},{"name":"13:00","patients":0,"registrations":0,"appointments":0},{"name":"14:00","patients":0,"registrations":0,"appointments":0},{"name":"15:00","patients":0,"registrations":0,"appointments":0},{"name":"16:00","patients":0,"registrations":0,"appointments":0},{"name":"17:00","patients":0,"registrations":0,"appointments":0},{"name":"18:00","patients":0,"registrations":0,"appointments":0},{"name":"19:00","patients":0,"registrations":0,"appointments":0},{"name":"20:00","patients":0,"registrations":0,"appointments":0}],"doctorAvailability":0,"_debug":{"dateRange":{"from":"2026-01-24T00:00:00.000Z","to":"2026-01-25T00:00:00.000Z"},"rawAppointmentCount":0}}
+2026-01-24 15:14:27 [INFO]: [ReceptionistDashboard] Fetching stats for date range: 2026-01-24T00:00:00.000Z to 2026-01-25T00:00:00.000Z
+2026-01-24 15:14:27 [INFO]: [ReceptionistDashboard] Registrations today: 2, Total patients: 29
+2026-01-24 15:14:27 [INFO]: [ReceptionistDashboard] Raw appointments today: 0
+2026-01-24 15:14:27 [INFO]: [ReceptionistDashboard] Appointment stats by status: []
+2026-01-24 15:14:27 [INFO]: [ReceptionistDashboard] Formatted stats: {"scheduled":0,"checkedIn":0,"completed":0,"cancelled":0,"total":0}
+2026-01-24 15:14:27 [INFO]: [ReceptionistDashboard] Hourly registrations: [{"_id":9,"count":2}]
+2026-01-24 15:14:27 [INFO]: [ReceptionistDashboard] Hourly appointments: []
+2026-01-24 15:14:27 [INFO]: [ReceptionistDashboard] Final response: {"newRegistrations":2,"totalPatients":29,"appointments":{"scheduled":0,"checkedIn":0,"completed":0,"cancelled":0,"total":0},"trafficData":[{"name":"8:00","patients":0,"registrations":0,"appointments":0},{"name":"9:00","patients":2,"registrations":2,"appointments":0},{"name":"10:00","patients":0,"registrations":0,"appointments":0},{"name":"11:00","patients":0,"registrations":0,"appointments":0},{"name":"12:00","patients":0,"registrations":0,"appointments":0},{"name":"13:00","patients":0,"registrations":0,"appointments":0},{"name":"14:00","patients":0,"registrations":0,"appointments":0},{"name":"15:00","patients":0,"registrations":0,"appointments":0},{"name":"16:00","patients":0,"registrations":0,"appointments":0},{"name":"17:00","patients":0,"registrations":0,"appointments":0},{"name":"18:00","patients":0,"registrations":0,"appointments":0},{"name":"19:00","patients":0,"registrations":0,"appointments":0},{"name":"20:00","patients":0,"registrations":0,"appointments":0}],"doctorAvailability":0,"_debug":{"dateRange":{"from":"2026-01-24T00:00:00.000Z","to":"2026-01-25T00:00:00.000Z"},"rawAppointmentCount":0}}
+2026-01-24 15:14:58 [INFO]: [ReceptionistDashboard] Fetching stats for date range: 2026-01-24T00:00:00.000Z to 2026-01-25T00:00:00.000Z
+2026-01-24 15:14:58 [INFO]: [ReceptionistDashboard] Registrations today: 2, Total patients: 29
+2026-01-24 15:14:58 [INFO]: [ReceptionistDashboard] Raw appointments today: 0
+2026-01-24 15:14:58 [INFO]: [ReceptionistDashboard] Appointment stats by status: []
+2026-01-24 15:14:58 [INFO]: [ReceptionistDashboard] Formatted stats: {"scheduled":0,"checkedIn":0,"completed":0,"cancelled":0,"total":0}
+2026-01-24 15:14:58 [INFO]: [ReceptionistDashboard] Hourly registrations: [{"_id":9,"count":2}]
+2026-01-24 15:14:58 [INFO]: [ReceptionistDashboard] Hourly appointments: []
+2026-01-24 15:14:58 [INFO]: [ReceptionistDashboard] Final response: {"newRegistrations":2,"totalPatients":29,"appointments":{"scheduled":0,"checkedIn":0,"completed":0,"cancelled":0,"total":0},"trafficData":[{"name":"8:00","patients":0,"registrations":0,"appointments":0},{"name":"9:00","patients":2,"registrations":2,"appointments":0},{"name":"10:00","patients":0,"registrations":0,"appointments":0},{"name":"11:00","patients":0,"registrations":0,"appointments":0},{"name":"12:00","patients":0,"registrations":0,"appointments":0},{"name":"13:00","patients":0,"registrations":0,"appointments":0},{"name":"14:00","patients":0,"registrations":0,"appointments":0},{"name":"15:00","patients":0,"registrations":0,"appointments":0},{"name":"16:00","patients":0,"registrations":0,"appointments":0},{"name":"17:00","patients":0,"registrations":0,"appointments":0},{"name":"18:00","patients":0,"registrations":0,"appointments":0},{"name":"19:00","patients":0,"registrations":0,"appointments":0},{"name":"20:00","patients":0,"registrations":0,"appointments":0}],"doctorAvailability":0,"_debug":{"dateRange":{"from":"2026-01-24T00:00:00.000Z","to":"2026-01-25T00:00:00.000Z"},"rawAppointmentCount":0}}
+2026-01-24 15:15:28 [INFO]: [ReceptionistDashboard] Fetching stats for date range: 2026-01-24T00:00:00.000Z to 2026-01-25T00:00:00.000Z
+2026-01-24 15:15:28 [INFO]: [ReceptionistDashboard] Registrations today: 2, Total patients: 29
+2026-01-24 15:15:28 [INFO]: [ReceptionistDashboard] Raw appointments today: 0
+2026-01-24 15:15:28 [INFO]: [ReceptionistDashboard] Appointment stats by status: []
+2026-01-24 15:15:28 [INFO]: [ReceptionistDashboard] Formatted stats: {"scheduled":0,"checkedIn":0,"completed":0,"cancelled":0,"total":0}
+2026-01-24 15:15:28 [INFO]: [ReceptionistDashboard] Hourly registrations: [{"_id":9,"count":2}]
+2026-01-24 15:15:28 [INFO]: [ReceptionistDashboard] Hourly appointments: []
+2026-01-24 15:15:28 [INFO]: [ReceptionistDashboard] Final response: {"newRegistrations":2,"totalPatients":29,"appointments":{"scheduled":0,"checkedIn":0,"completed":0,"cancelled":0,"total":0},"trafficData":[{"name":"8:00","patients":0,"registrations":0,"appointments":0},{"name":"9:00","patients":2,"registrations":2,"appointments":0},{"name":"10:00","patients":0,"registrations":0,"appointments":0},{"name":"11:00","patients":0,"registrations":0,"appointments":0},{"name":"12:00","patients":0,"registrations":0,"appointments":0},{"name":"13:00","patients":0,"registrations":0,"appointments":0},{"name":"14:00","patients":0,"registrations":0,"appointments":0},{"name":"15:00","patients":0,"registrations":0,"appointments":0},{"name":"16:00","patients":0,"registrations":0,"appointments":0},{"name":"17:00","patients":0,"registrations":0,"appointments":0},{"name":"18:00","patients":0,"registrations":0,"appointments":0},{"name":"19:00","patients":0,"registrations":0,"appointments":0},{"name":"20:00","patients":0,"registrations":0,"appointments":0}],"doctorAvailability":0,"_debug":{"dateRange":{"from":"2026-01-24T00:00:00.000Z","to":"2026-01-25T00:00:00.000Z"},"rawAppointmentCount":0}}
+2026-01-24 15:15:58 [INFO]: [ReceptionistDashboard] Fetching stats for date range: 2026-01-24T00:00:00.000Z to 2026-01-25T00:00:00.000Z
+2026-01-24 15:15:58 [INFO]: [ReceptionistDashboard] Registrations today: 2, Total patients: 29
+2026-01-24 15:15:58 [INFO]: [ReceptionistDashboard] Raw appointments today: 0
+2026-01-24 15:15:58 [INFO]: [ReceptionistDashboard] Appointment stats by status: []
+2026-01-24 15:15:58 [INFO]: [ReceptionistDashboard] Formatted stats: {"scheduled":0,"checkedIn":0,"completed":0,"cancelled":0,"total":0}
+2026-01-24 15:15:58 [INFO]: [ReceptionistDashboard] Hourly registrations: [{"_id":9,"count":2}]
+2026-01-24 15:15:58 [INFO]: [ReceptionistDashboard] Hourly appointments: []
+2026-01-24 15:15:58 [INFO]: [ReceptionistDashboard] Final response: {"newRegistrations":2,"totalPatients":29,"appointments":{"scheduled":0,"checkedIn":0,"completed":0,"cancelled":0,"total":0},"trafficData":[{"name":"8:00","patients":0,"registrations":0,"appointments":0},{"name":"9:00","patients":2,"registrations":2,"appointments":0},{"name":"10:00","patients":0,"registrations":0,"appointments":0},{"name":"11:00","patients":0,"registrations":0,"appointments":0},{"name":"12:00","patients":0,"registrations":0,"appointments":0},{"name":"13:00","patients":0,"registrations":0,"appointments":0},{"name":"14:00","patients":0,"registrations":0,"appointments":0},{"name":"15:00","patients":0,"registrations":0,"appointments":0},{"name":"16:00","patients":0,"registrations":0,"appointments":0},{"name":"17:00","patients":0,"registrations":0,"appointments":0},{"name":"18:00","patients":0,"registrations":0,"appointments":0},{"name":"19:00","patients":0,"registrations":0,"appointments":0},{"name":"20:00","patients":0,"registrations":0,"appointments":0}],"doctorAvailability":0,"_debug":{"dateRange":{"from":"2026-01-24T00:00:00.000Z","to":"2026-01-25T00:00:00.000Z"},"rawAppointmentCount":0}}
+2026-01-24 15:16:28 [INFO]: [ReceptionistDashboard] Fetching stats for date range: 2026-01-24T00:00:00.000Z to 2026-01-25T00:00:00.000Z
+2026-01-24 15:16:28 [INFO]: Client disconnected: WDx1_z9J3eaNIgJcAAAH
+2026-01-24 15:16:28 [INFO]: Client connected: NOKh0W3lKUTBUN5FAAAK
+2026-01-24 15:16:28 [INFO]: [ReceptionistDashboard] Registrations today: 2, Total patients: 29
+2026-01-24 15:16:28 [INFO]: [ReceptionistDashboard] Raw appointments today: 0
+2026-01-24 15:16:28 [INFO]: [ReceptionistDashboard] Appointment stats by status: []
+2026-01-24 15:16:28 [INFO]: [ReceptionistDashboard] Formatted stats: {"scheduled":0,"checkedIn":0,"completed":0,"cancelled":0,"total":0}
+2026-01-24 15:16:28 [INFO]: User 6970e6e6ae32f124038cc0aa joined personal room
+2026-01-24 15:16:28 [INFO]: [ReceptionistDashboard] Hourly registrations: [{"_id":9,"count":2}]
+2026-01-24 15:16:28 [INFO]: [ReceptionistDashboard] Hourly appointments: []
+2026-01-24 15:16:28 [INFO]: [ReceptionistDashboard] Final response: {"newRegistrations":2,"totalPatients":29,"appointments":{"scheduled":0,"checkedIn":0,"completed":0,"cancelled":0,"total":0},"trafficData":[{"name":"8:00","patients":0,"registrations":0,"appointments":0},{"name":"9:00","patients":2,"registrations":2,"appointments":0},{"name":"10:00","patients":0,"registrations":0,"appointments":0},{"name":"11:00","patients":0,"registrations":0,"appointments":0},{"name":"12:00","patients":0,"registrations":0,"appointments":0},{"name":"13:00","patients":0,"registrations":0,"appointments":0},{"name":"14:00","patients":0,"registrations":0,"appointments":0},{"name":"15:00","patients":0,"registrations":0,"appointments":0},{"name":"16:00","patients":0,"registrations":0,"appointments":0},{"name":"17:00","patients":0,"registrations":0,"appointments":0},{"name":"18:00","patients":0,"registrations":0,"appointments":0},{"name":"19:00","patients":0,"registrations":0,"appointments":0},{"name":"20:00","patients":0,"registrations":0,"appointments":0}],"doctorAvailability":0,"_debug":{"dateRange":{"from":"2026-01-24T00:00:00.000Z","to":"2026-01-25T00:00:00.000Z"},"rawAppointmentCount":0}}
+2026-01-24 15:16:28 [INFO]: [ReceptionistDashboard] Fetching stats for date range: 2026-01-24T00:00:00.000Z to 2026-01-25T00:00:00.000Z
+2026-01-24 15:16:28 [INFO]: [ReceptionistDashboard] Registrations today: 2, Total patients: 29
+2026-01-24 15:16:28 [INFO]: [ReceptionistDashboard] Raw appointments today: 0
+2026-01-24 15:16:28 [INFO]: [ReceptionistDashboard] Appointment stats by status: []
+2026-01-24 15:16:28 [INFO]: [ReceptionistDashboard] Formatted stats: {"scheduled":0,"checkedIn":0,"completed":0,"cancelled":0,"total":0}
+2026-01-24 15:16:28 [INFO]: [ReceptionistDashboard] Hourly registrations: [{"_id":9,"count":2}]
+2026-01-24 15:16:28 [INFO]: [ReceptionistDashboard] Hourly appointments: []
+2026-01-24 15:16:28 [INFO]: [ReceptionistDashboard] Final response: {"newRegistrations":2,"totalPatients":29,"appointments":{"scheduled":0,"checkedIn":0,"completed":0,"cancelled":0,"total":0},"trafficData":[{"name":"8:00","patients":0,"registrations":0,"appointments":0},{"name":"9:00","patients":2,"registrations":2,"appointments":0},{"name":"10:00","patients":0,"registrations":0,"appointments":0},{"name":"11:00","patients":0,"registrations":0,"appointments":0},{"name":"12:00","patients":0,"registrations":0,"appointments":0},{"name":"13:00","patients":0,"registrations":0,"appointments":0},{"name":"14:00","patients":0,"registrations":0,"appointments":0},{"name":"15:00","patients":0,"registrations":0,"appointments":0},{"name":"16:00","patients":0,"registrations":0,"appointments":0},{"name":"17:00","patients":0,"registrations":0,"appointments":0},{"name":"18:00","patients":0,"registrations":0,"appointments":0},{"name":"19:00","patients":0,"registrations":0,"appointments":0},{"name":"20:00","patients":0,"registrations":0,"appointments":0}],"doctorAvailability":0,"_debug":{"dateRange":{"from":"2026-01-24T00:00:00.000Z","to":"2026-01-25T00:00:00.000Z"},"rawAppointmentCount":0}}
+2026-01-24 15:16:28 [INFO]: [ReceptionistDashboard] Fetching stats for date range: 2026-01-24T00:00:00.000Z to 2026-01-25T00:00:00.000Z
+2026-01-24 15:16:28 [INFO]: [ReceptionistDashboard] Registrations today: 2, Total patients: 29
+2026-01-24 15:16:28 [INFO]: [ReceptionistDashboard] Raw appointments today: 0
+2026-01-24 15:16:28 [INFO]: [ReceptionistDashboard] Appointment stats by status: []
+2026-01-24 15:16:28 [INFO]: [ReceptionistDashboard] Formatted stats: {"scheduled":0,"checkedIn":0,"completed":0,"cancelled":0,"total":0}
+2026-01-24 15:16:28 [INFO]: [ReceptionistDashboard] Hourly registrations: [{"_id":9,"count":2}]
+2026-01-24 15:16:28 [INFO]: [ReceptionistDashboard] Hourly appointments: []
+2026-01-24 15:16:28 [INFO]: [ReceptionistDashboard] Final response: {"newRegistrations":2,"totalPatients":29,"appointments":{"scheduled":0,"checkedIn":0,"completed":0,"cancelled":0,"total":0},"trafficData":[{"name":"8:00","patients":0,"registrations":0,"appointments":0},{"name":"9:00","patients":2,"registrations":2,"appointments":0},{"name":"10:00","patients":0,"registrations":0,"appointments":0},{"name":"11:00","patients":0,"registrations":0,"appointments":0},{"name":"12:00","patients":0,"registrations":0,"appointments":0},{"name":"13:00","patients":0,"registrations":0,"appointments":0},{"name":"14:00","patients":0,"registrations":0,"appointments":0},{"name":"15:00","patients":0,"registrations":0,"appointments":0},{"name":"16:00","patients":0,"registrations":0,"appointments":0},{"name":"17:00","patients":0,"registrations":0,"appointments":0},{"name":"18:00","patients":0,"registrations":0,"appointments":0},{"name":"19:00","patients":0,"registrations":0,"appointments":0},{"name":"20:00","patients":0,"registrations":0,"appointments":0}],"doctorAvailability":0,"_debug":{"dateRange":{"from":"2026-01-24T00:00:00.000Z","to":"2026-01-25T00:00:00.000Z"},"rawAppointmentCount":0}}
+2026-01-24 15:16:56 [INFO]: Client disconnected: NOKh0W3lKUTBUN5FAAAK
+2026-01-24 15:16:58 [INFO]: Client connected: se0yKLqxbxC4HFvmAAAN
+2026-01-24 15:16:58 [INFO]: [ReceptionistDashboard] Fetching stats for date range: 2026-01-24T00:00:00.000Z to 2026-01-25T00:00:00.000Z
+2026-01-24 15:16:58 [INFO]: [ReceptionistDashboard] Registrations today: 2, Total patients: 29
+2026-01-24 15:16:58 [INFO]: User 6970e6e6ae32f124038cc0aa joined personal room
+2026-01-24 15:16:58 [INFO]: [ReceptionistDashboard] Raw appointments today: 0
+2026-01-24 15:16:58 [INFO]: [ReceptionistDashboard] Appointment stats by status: []
+2026-01-24 15:16:58 [INFO]: [ReceptionistDashboard] Formatted stats: {"scheduled":0,"checkedIn":0,"completed":0,"cancelled":0,"total":0}
+2026-01-24 15:16:58 [INFO]: [ReceptionistDashboard] Hourly registrations: [{"_id":9,"count":2}]
+2026-01-24 15:16:58 [INFO]: [ReceptionistDashboard] Hourly appointments: []
+2026-01-24 15:16:58 [INFO]: [ReceptionistDashboard] Final response: {"newRegistrations":2,"totalPatients":29,"appointments":{"scheduled":0,"checkedIn":0,"completed":0,"cancelled":0,"total":0},"trafficData":[{"name":"8:00","patients":0,"registrations":0,"appointments":0},{"name":"9:00","patients":2,"registrations":2,"appointments":0},{"name":"10:00","patients":0,"registrations":0,"appointments":0},{"name":"11:00","patients":0,"registrations":0,"appointments":0},{"name":"12:00","patients":0,"registrations":0,"appointments":0},{"name":"13:00","patients":0,"registrations":0,"appointments":0},{"name":"14:00","patients":0,"registrations":0,"appointments":0},{"name":"15:00","patients":0,"registrations":0,"appointments":0},{"name":"16:00","patients":0,"registrations":0,"appointments":0},{"name":"17:00","patients":0,"registrations":0,"appointments":0},{"name":"18:00","patients":0,"registrations":0,"appointments":0},{"name":"19:00","patients":0,"registrations":0,"appointments":0},{"name":"20:00","patients":0,"registrations":0,"appointments":0}],"doctorAvailability":0,"_debug":{"dateRange":{"from":"2026-01-24T00:00:00.000Z","to":"2026-01-25T00:00:00.000Z"},"rawAppointmentCount":0}}
+2026-01-24 15:16:58 [INFO]: [ReceptionistDashboard] Fetching stats for date range: 2026-01-24T00:00:00.000Z to 2026-01-25T00:00:00.000Z
+2026-01-24 15:16:58 [INFO]: [ReceptionistDashboard] Registrations today: 2, Total patients: 29
+2026-01-24 15:16:58 [INFO]: [ReceptionistDashboard] Raw appointments today: 0
+2026-01-24 15:16:58 [INFO]: [ReceptionistDashboard] Appointment stats by status: []
+2026-01-24 15:16:58 [INFO]: [ReceptionistDashboard] Formatted stats: {"scheduled":0,"checkedIn":0,"completed":0,"cancelled":0,"total":0}
+2026-01-24 15:16:58 [INFO]: [ReceptionistDashboard] Hourly registrations: [{"_id":9,"count":2}]
+2026-01-24 15:16:58 [INFO]: [ReceptionistDashboard] Hourly appointments: []
+2026-01-24 15:16:58 [INFO]: [ReceptionistDashboard] Final response: {"newRegistrations":2,"totalPatients":29,"appointments":{"scheduled":0,"checkedIn":0,"completed":0,"cancelled":0,"total":0},"trafficData":[{"name":"8:00","patients":0,"registrations":0,"appointments":0},{"name":"9:00","patients":2,"registrations":2,"appointments":0},{"name":"10:00","patients":0,"registrations":0,"appointments":0},{"name":"11:00","patients":0,"registrations":0,"appointments":0},{"name":"12:00","patients":0,"registrations":0,"appointments":0},{"name":"13:00","patients":0,"registrations":0,"appointments":0},{"name":"14:00","patients":0,"registrations":0,"appointments":0},{"name":"15:00","patients":0,"registrations":0,"appointments":0},{"name":"16:00","patients":0,"registrations":0,"appointments":0},{"name":"17:00","patients":0,"registrations":0,"appointments":0},{"name":"18:00","patients":0,"registrations":0,"appointments":0},{"name":"19:00","patients":0,"registrations":0,"appointments":0},{"name":"20:00","patients":0,"registrations":0,"appointments":0}],"doctorAvailability":0,"_debug":{"dateRange":{"from":"2026-01-24T00:00:00.000Z","to":"2026-01-25T00:00:00.000Z"},"rawAppointmentCount":0}}
+2026-01-24 15:17:09 [INFO]: Client disconnected: se0yKLqxbxC4HFvmAAAN
+2026-01-24 15:17:11 [INFO]: [ReceptionistDashboard] Fetching stats for date range: 2026-01-24T00:00:00.000Z to 2026-01-25T00:00:00.000Z
+2026-01-24 15:17:11 [INFO]: Client connected: r__u_K9LUjfXlB2aAAAQ
+2026-01-24 15:17:11 [INFO]: [ReceptionistDashboard] Registrations today: 2, Total patients: 29
+2026-01-24 15:17:11 [INFO]: [ReceptionistDashboard] Raw appointments today: 0
+2026-01-24 15:17:11 [INFO]: User 6970e6e6ae32f124038cc0aa joined personal room
+2026-01-24 15:17:11 [INFO]: [ReceptionistDashboard] Appointment stats by status: []
+2026-01-24 15:17:11 [INFO]: [ReceptionistDashboard] Formatted stats: {"scheduled":0,"checkedIn":0,"completed":0,"cancelled":0,"total":0}
+2026-01-24 15:17:11 [INFO]: [ReceptionistDashboard] Hourly registrations: [{"_id":9,"count":2}]
+2026-01-24 15:17:11 [INFO]: [ReceptionistDashboard] Hourly appointments: []
+2026-01-24 15:17:11 [INFO]: [ReceptionistDashboard] Final response: {"newRegistrations":2,"totalPatients":29,"appointments":{"scheduled":0,"checkedIn":0,"completed":0,"cancelled":0,"total":0},"trafficData":[{"name":"8:00","patients":0,"registrations":0,"appointments":0},{"name":"9:00","patients":2,"registrations":2,"appointments":0},{"name":"10:00","patients":0,"registrations":0,"appointments":0},{"name":"11:00","patients":0,"registrations":0,"appointments":0},{"name":"12:00","patients":0,"registrations":0,"appointments":0},{"name":"13:00","patients":0,"registrations":0,"appointments":0},{"name":"14:00","patients":0,"registrations":0,"appointments":0},{"name":"15:00","patients":0,"registrations":0,"appointments":0},{"name":"16:00","patients":0,"registrations":0,"appointments":0},{"name":"17:00","patients":0,"registrations":0,"appointments":0},{"name":"18:00","patients":0,"registrations":0,"appointments":0},{"name":"19:00","patients":0,"registrations":0,"appointments":0},{"name":"20:00","patients":0,"registrations":0,"appointments":0}],"doctorAvailability":0,"_debug":{"dateRange":{"from":"2026-01-24T00:00:00.000Z","to":"2026-01-25T00:00:00.000Z"},"rawAppointmentCount":0}}
+2026-01-24 15:17:11 [INFO]: [ReceptionistDashboard] Fetching stats for date range: 2026-01-24T00:00:00.000Z to 2026-01-25T00:00:00.000Z
+2026-01-24 15:17:11 [INFO]: [ReceptionistDashboard] Registrations today: 2, Total patients: 29
+2026-01-24 15:17:11 [INFO]: [ReceptionistDashboard] Raw appointments today: 0
+2026-01-24 15:17:11 [INFO]: [ReceptionistDashboard] Appointment stats by status: []
+2026-01-24 15:17:11 [INFO]: [ReceptionistDashboard] Formatted stats: {"scheduled":0,"checkedIn":0,"completed":0,"cancelled":0,"total":0}
+2026-01-24 15:17:11 [INFO]: [ReceptionistDashboard] Hourly registrations: [{"_id":9,"count":2}]
+2026-01-24 15:17:11 [INFO]: [ReceptionistDashboard] Hourly appointments: []
+2026-01-24 15:17:11 [INFO]: [ReceptionistDashboard] Final response: {"newRegistrations":2,"totalPatients":29,"appointments":{"scheduled":0,"checkedIn":0,"completed":0,"cancelled":0,"total":0},"trafficData":[{"name":"8:00","patients":0,"registrations":0,"appointments":0},{"name":"9:00","patients":2,"registrations":2,"appointments":0},{"name":"10:00","patients":0,"registrations":0,"appointments":0},{"name":"11:00","patients":0,"registrations":0,"appointments":0},{"name":"12:00","patients":0,"registrations":0,"appointments":0},{"name":"13:00","patients":0,"registrations":0,"appointments":0},{"name":"14:00","patients":0,"registrations":0,"appointments":0},{"name":"15:00","patients":0,"registrations":0,"appointments":0},{"name":"16:00","patients":0,"registrations":0,"appointments":0},{"name":"17:00","patients":0,"registrations":0,"appointments":0},{"name":"18:00","patients":0,"registrations":0,"appointments":0},{"name":"19:00","patients":0,"registrations":0,"appointments":0},{"name":"20:00","patients":0,"registrations":0,"appointments":0}],"doctorAvailability":0,"_debug":{"dateRange":{"from":"2026-01-24T00:00:00.000Z","to":"2026-01-25T00:00:00.000Z"},"rawAppointmentCount":0}}
+2026-01-24 15:17:15 [INFO]: Client disconnected: r__u_K9LUjfXlB2aAAAQ
+2026-01-24 15:17:15 [INFO]: Client connected: gaOh7MV8B9IToiZjAAAT
+2026-01-24 15:17:15 [INFO]: [ReceptionistDashboard] Fetching stats for date range: 2026-01-24T00:00:00.000Z to 2026-01-25T00:00:00.000Z
+2026-01-24 15:17:15 [INFO]: User 6970e6e6ae32f124038cc0aa joined personal room
+2026-01-24 15:17:15 [INFO]: [ReceptionistDashboard] Registrations today: 2, Total patients: 29
+2026-01-24 15:17:15 [INFO]: [ReceptionistDashboard] Raw appointments today: 0
+2026-01-24 15:17:15 [INFO]: [ReceptionistDashboard] Appointment stats by status: []
+2026-01-24 15:17:15 [INFO]: [ReceptionistDashboard] Formatted stats: {"scheduled":0,"checkedIn":0,"completed":0,"cancelled":0,"total":0}
+2026-01-24 15:17:15 [INFO]: [ReceptionistDashboard] Hourly registrations: [{"_id":9,"count":2}]
+2026-01-24 15:17:15 [INFO]: [ReceptionistDashboard] Hourly appointments: []
+2026-01-24 15:17:15 [INFO]: [ReceptionistDashboard] Final response: {"newRegistrations":2,"totalPatients":29,"appointments":{"scheduled":0,"checkedIn":0,"completed":0,"cancelled":0,"total":0},"trafficData":[{"name":"8:00","patients":0,"registrations":0,"appointments":0},{"name":"9:00","patients":2,"registrations":2,"appointments":0},{"name":"10:00","patients":0,"registrations":0,"appointments":0},{"name":"11:00","patients":0,"registrations":0,"appointments":0},{"name":"12:00","patients":0,"registrations":0,"appointments":0},{"name":"13:00","patients":0,"registrations":0,"appointments":0},{"name":"14:00","patients":0,"registrations":0,"appointments":0},{"name":"15:00","patients":0,"registrations":0,"appointments":0},{"name":"16:00","patients":0,"registrations":0,"appointments":0},{"name":"17:00","patients":0,"registrations":0,"appointments":0},{"name":"18:00","patients":0,"registrations":0,"appointments":0},{"name":"19:00","patients":0,"registrations":0,"appointments":0},{"name":"20:00","patients":0,"registrations":0,"appointments":0}],"doctorAvailability":0,"_debug":{"dateRange":{"from":"2026-01-24T00:00:00.000Z","to":"2026-01-25T00:00:00.000Z"},"rawAppointmentCount":0}}
+2026-01-24 15:17:15 [INFO]: [ReceptionistDashboard] Fetching stats for date range: 2026-01-24T00:00:00.000Z to 2026-01-25T00:00:00.000Z
+2026-01-24 15:17:15 [INFO]: [ReceptionistDashboard] Registrations today: 2, Total patients: 29
+2026-01-24 15:17:15 [INFO]: [ReceptionistDashboard] Raw appointments today: 0
+2026-01-24 15:17:15 [INFO]: [ReceptionistDashboard] Appointment stats by status: []
+2026-01-24 15:17:15 [INFO]: [ReceptionistDashboard] Formatted stats: {"scheduled":0,"checkedIn":0,"completed":0,"cancelled":0,"total":0}
+2026-01-24 15:17:16 [INFO]: [ReceptionistDashboard] Hourly registrations: [{"_id":9,"count":2}]
+2026-01-24 15:17:16 [INFO]: [ReceptionistDashboard] Hourly appointments: []
+2026-01-24 15:17:16 [INFO]: [ReceptionistDashboard] Final response: {"newRegistrations":2,"totalPatients":29,"appointments":{"scheduled":0,"checkedIn":0,"completed":0,"cancelled":0,"total":0},"trafficData":[{"name":"8:00","patients":0,"registrations":0,"appointments":0},{"name":"9:00","patients":2,"registrations":2,"appointments":0},{"name":"10:00","patients":0,"registrations":0,"appointments":0},{"name":"11:00","patients":0,"registrations":0,"appointments":0},{"name":"12:00","patients":0,"registrations":0,"appointments":0},{"name":"13:00","patients":0,"registrations":0,"appointments":0},{"name":"14:00","patients":0,"registrations":0,"appointments":0},{"name":"15:00","patients":0,"registrations":0,"appointments":0},{"name":"16:00","patients":0,"registrations":0,"appointments":0},{"name":"17:00","patients":0,"registrations":0,"appointments":0},{"name":"18:00","patients":0,"registrations":0,"appointments":0},{"name":"19:00","patients":0,"registrations":0,"appointments":0},{"name":"20:00","patients":0,"registrations":0,"appointments":0}],"doctorAvailability":0,"_debug":{"dateRange":{"from":"2026-01-24T00:00:00.000Z","to":"2026-01-25T00:00:00.000Z"},"rawAppointmentCount":0}}
+2026-01-24 15:17:22 [INFO]: Client disconnected: gaOh7MV8B9IToiZjAAAT
+2026-01-24 15:17:24 [INFO]: [ReceptionistDashboard] Fetching stats for date range: 2026-01-24T00:00:00.000Z to 2026-01-25T00:00:00.000Z
+2026-01-24 15:17:24 [INFO]: Client connected: Lmbqbj34K3zoOboLAAAW
+2026-01-24 15:17:24 [INFO]: [ReceptionistDashboard] Registrations today: 2, Total patients: 29
+2026-01-24 15:17:24 [INFO]: [ReceptionistDashboard] Raw appointments today: 0
+2026-01-24 15:17:24 [INFO]: [ReceptionistDashboard] Appointment stats by status: []
+2026-01-24 15:17:24 [INFO]: [ReceptionistDashboard] Formatted stats: {"scheduled":0,"checkedIn":0,"completed":0,"cancelled":0,"total":0}
+2026-01-24 15:17:24 [INFO]: User 6970e6e6ae32f124038cc0aa joined personal room
+2026-01-24 15:17:24 [INFO]: [ReceptionistDashboard] Hourly registrations: [{"_id":9,"count":2}]
+2026-01-24 15:17:24 [INFO]: [ReceptionistDashboard] Hourly appointments: []
+2026-01-24 15:17:24 [INFO]: [ReceptionistDashboard] Final response: {"newRegistrations":2,"totalPatients":29,"appointments":{"scheduled":0,"checkedIn":0,"completed":0,"cancelled":0,"total":0},"trafficData":[{"name":"8:00","patients":0,"registrations":0,"appointments":0},{"name":"9:00","patients":2,"registrations":2,"appointments":0},{"name":"10:00","patients":0,"registrations":0,"appointments":0},{"name":"11:00","patients":0,"registrations":0,"appointments":0},{"name":"12:00","patients":0,"registrations":0,"appointments":0},{"name":"13:00","patients":0,"registrations":0,"appointments":0},{"name":"14:00","patients":0,"registrations":0,"appointments":0},{"name":"15:00","patients":0,"registrations":0,"appointments":0},{"name":"16:00","patients":0,"registrations":0,"appointments":0},{"name":"17:00","patients":0,"registrations":0,"appointments":0},{"name":"18:00","patients":0,"registrations":0,"appointments":0},{"name":"19:00","patients":0,"registrations":0,"appointments":0},{"name":"20:00","patients":0,"registrations":0,"appointments":0}],"doctorAvailability":0,"_debug":{"dateRange":{"from":"2026-01-24T00:00:00.000Z","to":"2026-01-25T00:00:00.000Z"},"rawAppointmentCount":0}}
+2026-01-24 15:17:24 [INFO]: [ReceptionistDashboard] Fetching stats for date range: 2026-01-24T00:00:00.000Z to 2026-01-25T00:00:00.000Z
+2026-01-24 15:17:24 [INFO]: [ReceptionistDashboard] Registrations today: 2, Total patients: 29
+2026-01-24 15:17:24 [INFO]: [ReceptionistDashboard] Raw appointments today: 0
+2026-01-24 15:17:24 [INFO]: [ReceptionistDashboard] Appointment stats by status: []
+2026-01-24 15:17:24 [INFO]: [ReceptionistDashboard] Formatted stats: {"scheduled":0,"checkedIn":0,"completed":0,"cancelled":0,"total":0}
+2026-01-24 15:17:24 [INFO]: [ReceptionistDashboard] Hourly registrations: [{"_id":9,"count":2}]
+2026-01-24 15:17:24 [INFO]: [ReceptionistDashboard] Hourly appointments: []
+2026-01-24 15:17:24 [INFO]: [ReceptionistDashboard] Final response: {"newRegistrations":2,"totalPatients":29,"appointments":{"scheduled":0,"checkedIn":0,"completed":0,"cancelled":0,"total":0},"trafficData":[{"name":"8:00","patients":0,"registrations":0,"appointments":0},{"name":"9:00","patients":2,"registrations":2,"appointments":0},{"name":"10:00","patients":0,"registrations":0,"appointments":0},{"name":"11:00","patients":0,"registrations":0,"appointments":0},{"name":"12:00","patients":0,"registrations":0,"appointments":0},{"name":"13:00","patients":0,"registrations":0,"appointments":0},{"name":"14:00","patients":0,"registrations":0,"appointments":0},{"name":"15:00","patients":0,"registrations":0,"appointments":0},{"name":"16:00","patients":0,"registrations":0,"appointments":0},{"name":"17:00","patients":0,"registrations":0,"appointments":0},{"name":"18:00","patients":0,"registrations":0,"appointments":0},{"name":"19:00","patients":0,"registrations":0,"appointments":0},{"name":"20:00","patients":0,"registrations":0,"appointments":0}],"doctorAvailability":0,"_debug":{"dateRange":{"from":"2026-01-24T00:00:00.000Z","to":"2026-01-25T00:00:00.000Z"},"rawAppointmentCount":0}}
+2026-01-24 15:17:54 [INFO]: [ReceptionistDashboard] Fetching stats for date range: 2026-01-24T00:00:00.000Z to 2026-01-25T00:00:00.000Z
+2026-01-24 15:17:54 [INFO]: [ReceptionistDashboard] Registrations today: 2, Total patients: 29
+2026-01-24 15:17:54 [INFO]: [ReceptionistDashboard] Raw appointments today: 0
+2026-01-24 15:17:54 [INFO]: [ReceptionistDashboard] Appointment stats by status: []
+2026-01-24 15:17:54 [INFO]: [ReceptionistDashboard] Formatted stats: {"scheduled":0,"checkedIn":0,"completed":0,"cancelled":0,"total":0}
+2026-01-24 15:17:54 [INFO]: [ReceptionistDashboard] Hourly registrations: [{"_id":9,"count":2}]
+2026-01-24 15:17:54 [INFO]: [ReceptionistDashboard] Hourly appointments: []
+2026-01-24 15:17:54 [INFO]: [ReceptionistDashboard] Final response: {"newRegistrations":2,"totalPatients":29,"appointments":{"scheduled":0,"checkedIn":0,"completed":0,"cancelled":0,"total":0},"trafficData":[{"name":"8:00","patients":0,"registrations":0,"appointments":0},{"name":"9:00","patients":2,"registrations":2,"appointments":0},{"name":"10:00","patients":0,"registrations":0,"appointments":0},{"name":"11:00","patients":0,"registrations":0,"appointments":0},{"name":"12:00","patients":0,"registrations":0,"appointments":0},{"name":"13:00","patients":0,"registrations":0,"appointments":0},{"name":"14:00","patients":0,"registrations":0,"appointments":0},{"name":"15:00","patients":0,"registrations":0,"appointments":0},{"name":"16:00","patients":0,"registrations":0,"appointments":0},{"name":"17:00","patients":0,"registrations":0,"appointments":0},{"name":"18:00","patients":0,"registrations":0,"appointments":0},{"name":"19:00","patients":0,"registrations":0,"appointments":0},{"name":"20:00","patients":0,"registrations":0,"appointments":0}],"doctorAvailability":0,"_debug":{"dateRange":{"from":"2026-01-24T00:00:00.000Z","to":"2026-01-25T00:00:00.000Z"},"rawAppointmentCount":0}}
+2026-01-24 15:17:59 [INFO]: Client disconnected: Lmbqbj34K3zoOboLAAAW
+2026-01-24 15:21:21 [ERROR]: User role 'receptionist' is not authorized to access this route
+Error: User role 'receptionist' is not authorized to access this route
+    at C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\middleware\rbac.middleware.js:22:17
+    at Layer.handle [as handle_request] (C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:284:15
+    at param (C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:365:14)
+    at param (C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:376:14)
+    at router.process_params (C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:421:3)
+    at next (C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:280:10)
+2026-01-24 15:21:21 [ERROR]: User role 'receptionist' is not authorized to access this route
+Error: User role 'receptionist' is not authorized to access this route
+    at C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\middleware\rbac.middleware.js:22:17
+    at Layer.handle [as handle_request] (C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:284:15
+    at param (C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:365:14)
+    at param (C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:376:14)
+    at router.process_params (C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:421:3)
+    at next (C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:280:10)
+2026-01-24 15:24:16 [INFO]: MongoDB Connected: ac-3nlnfep-shard-00-02.fs2fnzl.mongodb.net
+2026-01-24 15:24:16 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 15:24:16 [INFO]:        HOSPITAL INFORMATION SYSTEM (HIS) BACKEND SERVER        
+2026-01-24 15:24:16 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 15:24:16 [INFO]: 🚀 Server running in development mode on port 5001
+2026-01-24 15:24:16 [INFO]: 📡 API Base URL: http://localhost:5001/api/v1
+2026-01-24 15:24:16 [INFO]: 🔌 WebSocket enabled
+2026-01-24 15:24:16 [INFO]: 📋 Health check: http://localhost:5001/api/health
+2026-01-24 15:24:16 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 15:24:24 [INFO]: MongoDB Connected: ac-3nlnfep-shard-00-01.fs2fnzl.mongodb.net
+2026-01-24 15:24:24 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 15:24:24 [INFO]:        HOSPITAL INFORMATION SYSTEM (HIS) BACKEND SERVER        
+2026-01-24 15:24:24 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 15:24:24 [INFO]: 🚀 Server running in development mode on port 5001
+2026-01-24 15:24:24 [INFO]: 📡 API Base URL: http://localhost:5001/api/v1
+2026-01-24 15:24:24 [INFO]: 🔌 WebSocket enabled
+2026-01-24 15:24:24 [INFO]: 📋 Health check: http://localhost:5001/api/health
+2026-01-24 15:24:24 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 15:24:32 [INFO]: Client connected: GBZNO5jSSTzu07MtAAAC
+2026-01-24 15:24:32 [INFO]: User 6970e6e6ae32f124038cc0aa joined personal room
+2026-01-24 15:24:32 [ERROR]: User role 'doctor' is not authorized to access this route
+Error: User role 'doctor' is not authorized to access this route
+    at C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\middleware\rbac.middleware.js:22:17
+    at Layer.handle [as handle_request] (C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:284:15
+    at router.process_params (C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:280:10)
+    at C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\middleware\auth.middleware.js:46:9
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-24 15:24:32 [ERROR]: User role 'doctor' is not authorized to access this route
+Error: User role 'doctor' is not authorized to access this route
+    at C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\middleware\rbac.middleware.js:22:17
+    at Layer.handle [as handle_request] (C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:284:15
+    at router.process_params (C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:280:10)
+    at C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\middleware\auth.middleware.js:46:9
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-24 15:24:50 [INFO]: Client disconnected: GBZNO5jSSTzu07MtAAAC
+2026-01-24 15:24:50 [INFO]: Client connected: pQyzzPO8dUyEQO4mAAAE
+2026-01-24 15:24:50 [INFO]: User 6970e6e6ae32f124038cc0aa joined personal room
+2026-01-24 15:24:50 [ERROR]: User role 'doctor' is not authorized to access this route
+Error: User role 'doctor' is not authorized to access this route
+    at C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\middleware\rbac.middleware.js:22:17
+    at Layer.handle [as handle_request] (C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:284:15
+    at router.process_params (C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:280:10)
+    at C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\middleware\auth.middleware.js:46:9
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-24 15:25:21 [ERROR]: User role 'doctor' is not authorized to access this route
+Error: User role 'doctor' is not authorized to access this route
+    at C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\middleware\rbac.middleware.js:22:17
+    at Layer.handle [as handle_request] (C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:284:15
+    at router.process_params (C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:280:10)
+    at C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\middleware\auth.middleware.js:46:9
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-24 15:25:51 [ERROR]: User role 'doctor' is not authorized to access this route
+Error: User role 'doctor' is not authorized to access this route
+    at C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\middleware\rbac.middleware.js:22:17
+    at Layer.handle [as handle_request] (C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:284:15
+    at router.process_params (C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:280:10)
+    at C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\middleware\auth.middleware.js:46:9
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-24 15:26:21 [ERROR]: User role 'doctor' is not authorized to access this route
+Error: User role 'doctor' is not authorized to access this route
+    at C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\middleware\rbac.middleware.js:22:17
+    at Layer.handle [as handle_request] (C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:284:15
+    at router.process_params (C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:280:10)
+    at C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\middleware\auth.middleware.js:46:9
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-24 15:26:33 [ERROR]: User role 'doctor' is not authorized to access this route
+Error: User role 'doctor' is not authorized to access this route
+    at C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\middleware\rbac.middleware.js:22:17
+    at Layer.handle [as handle_request] (C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:284:15
+    at router.process_params (C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:280:10)
+    at C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\middleware\auth.middleware.js:46:9
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-24 15:26:51 [ERROR]: User role 'doctor' is not authorized to access this route
+Error: User role 'doctor' is not authorized to access this route
+    at C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\middleware\rbac.middleware.js:22:17
+    at Layer.handle [as handle_request] (C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:284:15
+    at router.process_params (C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:280:10)
+    at C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\middleware\auth.middleware.js:46:9
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-24 15:27:17 [INFO]: Client disconnected: pQyzzPO8dUyEQO4mAAAE
+2026-01-24 15:27:18 [INFO]: [DoctorDashboard] Fetching stats for doctor 6970e6e6ae32f124038cc0a6 from 2026-01-24T00:00:00.000Z
+2026-01-24 15:27:18 [ERROR]: mongoose is not defined
+ReferenceError: mongoose is not defined
+    at C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\controllers\analytics.controller.js:367:29
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-24 15:27:18 [INFO]: Client connected: MzKTQYZoXSumy3YeAAAH
+2026-01-24 15:27:18 [INFO]: User 6970e6e6ae32f124038cc0a6 joined personal room
+2026-01-24 15:27:18 [INFO]: [DoctorDashboard] Fetching stats for doctor 6970e6e6ae32f124038cc0a6 from 2026-01-24T00:00:00.000Z
+2026-01-24 15:27:18 [ERROR]: mongoose is not defined
+ReferenceError: mongoose is not defined
+    at C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\controllers\analytics.controller.js:367:29
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-24 15:27:21 [INFO]: [DoctorDashboard] Fetching stats for doctor 6970e6e6ae32f124038cc0a6 from 2026-01-24T00:00:00.000Z
+2026-01-24 15:27:21 [ERROR]: mongoose is not defined
+ReferenceError: mongoose is not defined
+    at C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\controllers\analytics.controller.js:367:29
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-24 15:28:18 [INFO]: [DoctorDashboard] Fetching stats for doctor 6970e6e6ae32f124038cc0a6 from 2026-01-24T00:00:00.000Z
+2026-01-24 15:28:18 [ERROR]: mongoose is not defined
+ReferenceError: mongoose is not defined
+    at C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\controllers\analytics.controller.js:367:29
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-24 15:28:30 [INFO]: Client disconnected: MzKTQYZoXSumy3YeAAAH
+2026-01-24 15:28:35 [INFO]: MongoDB Connected: ac-3nlnfep-shard-00-00.fs2fnzl.mongodb.net
+2026-01-24 15:28:35 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 15:28:35 [INFO]:        HOSPITAL INFORMATION SYSTEM (HIS) BACKEND SERVER        
+2026-01-24 15:28:35 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 15:28:35 [INFO]: 🚀 Server running in development mode on port 5001
+2026-01-24 15:28:35 [INFO]: 📡 API Base URL: http://localhost:5001/api/v1
+2026-01-24 15:28:35 [INFO]: 🔌 WebSocket enabled
+2026-01-24 15:28:35 [INFO]: 📋 Health check: http://localhost:5001/api/health
+2026-01-24 15:28:35 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 15:28:46 [INFO]: MongoDB Connected: ac-3nlnfep-shard-00-02.fs2fnzl.mongodb.net
+2026-01-24 15:28:46 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 15:28:46 [INFO]:        HOSPITAL INFORMATION SYSTEM (HIS) BACKEND SERVER        
+2026-01-24 15:28:46 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 15:28:46 [INFO]: 🚀 Server running in development mode on port 5001
+2026-01-24 15:28:46 [INFO]: 📡 API Base URL: http://localhost:5001/api/v1
+2026-01-24 15:28:46 [INFO]: 🔌 WebSocket enabled
+2026-01-24 15:28:46 [INFO]: 📋 Health check: http://localhost:5001/api/health
+2026-01-24 15:28:46 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 15:29:39 [INFO]: MongoDB Connected: ac-3nlnfep-shard-00-00.fs2fnzl.mongodb.net
+2026-01-24 15:29:39 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 15:29:39 [INFO]:        HOSPITAL INFORMATION SYSTEM (HIS) BACKEND SERVER        
+2026-01-24 15:29:39 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 15:29:39 [INFO]: 🚀 Server running in development mode on port 5001
+2026-01-24 15:29:39 [INFO]: 📡 API Base URL: http://localhost:5001/api/v1
+2026-01-24 15:29:39 [INFO]: 🔌 WebSocket enabled
+2026-01-24 15:29:39 [INFO]: 📋 Health check: http://localhost:5001/api/health
+2026-01-24 15:29:39 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 15:40:44 [WARN]: MongoDB disconnected. Attempting to reconnect...
+2026-01-24 15:41:10 [INFO]: MongoDB reconnected
+2026-01-24 15:41:16 [WARN]: MongoDB disconnected. Attempting to reconnect...
+2026-01-24 15:41:23 [INFO]: MongoDB reconnected
+2026-01-24 15:52:09 [INFO]: Client connected: FDJc2u4-y58uvSGfAAAC
+2026-01-24 15:52:09 [INFO]: [ClinicalDashboard] Fetching stats for doctor 6970e6e6ae32f124038cc0a6
+2026-01-24 15:52:09 [INFO]: [ClinicalDashboard] Response: appointments=1, labs=4, critical=0
+2026-01-24 15:52:09 [INFO]: [ClinicalDashboard] Fetching stats for doctor 6970e6e6ae32f124038cc0a6
+2026-01-24 15:52:09 [INFO]: [ClinicalDashboard] Response: appointments=1, labs=4, critical=0
+2026-01-24 15:52:19 [INFO]: Client disconnected: FDJc2u4-y58uvSGfAAAC
+2026-01-24 15:52:21 [INFO]: Client connected: Y09fSczhfGewxxfdAAAF
+2026-01-24 15:52:21 [INFO]: [ClinicalDashboard] Fetching stats for doctor 6970e6e6ae32f124038cc0a6
+2026-01-24 15:52:21 [INFO]: [ClinicalDashboard] Response: appointments=1, labs=4, critical=0
+2026-01-24 15:52:21 [INFO]: [ClinicalDashboard] Fetching stats for doctor 6970e6e6ae32f124038cc0a6
+2026-01-24 15:52:21 [INFO]: [ClinicalDashboard] Response: appointments=1, labs=4, critical=0
+2026-01-24 15:52:27 [INFO]: Client disconnected: Y09fSczhfGewxxfdAAAF
+2026-01-24 15:53:23 [INFO]: Client connected: 8mQLm5Jwfcuoz7qMAAAI
+2026-01-24 15:53:23 [INFO]: Socket 8mQLm5Jwfcuoz7qMAAAI joined emergency room
+2026-01-24 15:53:27 [INFO]: Client disconnected: 8mQLm5Jwfcuoz7qMAAAI
+2026-01-24 15:55:05 [INFO]: Client connected: ZERIA5Emt51HHxsiAAAL
+2026-01-24 15:55:05 [INFO]: User 6970e6e6ae32f124038cc0aa joined personal room
+2026-01-24 15:55:12 [INFO]: Client disconnected: ZERIA5Emt51HHxsiAAAL
+2026-01-24 16:04:18 [INFO]: Client connected: AQq6NwofW-oLWTDTAAAO
+2026-01-24 16:04:18 [INFO]: User 6970e6e6ae32f124038cc0aa joined personal room
+2026-01-24 16:04:55 [INFO]: Client disconnected: AQq6NwofW-oLWTDTAAAO
+2026-01-24 16:05:13 [INFO]: Client connected: lfSo1A0t4wbcUWjEAAAR
+2026-01-24 16:05:13 [INFO]: User 6970e6e6ae32f124038cc0aa joined personal room
+2026-01-24 16:06:45 [INFO]: MongoDB Connected: ac-3nlnfep-shard-00-01.fs2fnzl.mongodb.net
+2026-01-24 16:06:45 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 16:06:45 [INFO]:        HOSPITAL INFORMATION SYSTEM (HIS) BACKEND SERVER        
+2026-01-24 16:06:45 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 16:06:45 [INFO]: 🚀 Server running in development mode on port 5001
+2026-01-24 16:06:45 [INFO]: 📡 API Base URL: http://localhost:5001/api/v1
+2026-01-24 16:06:45 [INFO]: 🔌 WebSocket enabled
+2026-01-24 16:06:45 [INFO]: 📋 Health check: http://localhost:5001/api/health
+2026-01-24 16:06:45 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 16:06:46 [INFO]: [ReceptionistDashboard] Fetching stats for date range: 2026-01-24T00:00:00.000Z to 2026-01-25T00:00:00.000Z
+2026-01-24 16:06:48 [INFO]: [ReceptionistDashboard] Registrations today: 3, Total patients: 30
+2026-01-24 16:06:50 [INFO]: Client connected: v4eNbnCkDqXv4ZHtAAAB
+2026-01-24 16:06:57 [INFO]: [ReceptionistDashboard] Fetching stats for date range: 2026-01-24T00:00:00.000Z to 2026-01-25T00:00:00.000Z
+2026-01-24 16:06:57 [INFO]: [ReceptionistDashboard] Registrations today: 3, Total patients: 30
+2026-01-24 16:06:59 [INFO]: Client disconnected: v4eNbnCkDqXv4ZHtAAAB
+2026-01-24 16:07:00 [INFO]: [ReceptionistDashboard] Fetching stats for date range: 2026-01-24T00:00:00.000Z to 2026-01-25T00:00:00.000Z
+2026-01-24 16:07:00 [INFO]: Client connected: EsMZQYUE1ObpqSXmAAAE
+2026-01-24 16:07:00 [INFO]: User 6970e6e6ae32f124038cc0aa joined personal room
+2026-01-24 16:07:00 [INFO]: [ReceptionistDashboard] Registrations today: 3, Total patients: 30
+2026-01-24 16:07:00 [INFO]: [ReceptionistDashboard] Fetching stats for date range: 2026-01-24T00:00:00.000Z to 2026-01-25T00:00:00.000Z
+2026-01-24 16:07:00 [INFO]: [ReceptionistDashboard] Registrations today: 3, Total patients: 30
+2026-01-24 16:07:13 [INFO]: Client disconnected: EsMZQYUE1ObpqSXmAAAE
+2026-01-24 16:09:27 [INFO]: [ReceptionistDashboard] Fetching stats for date range: 2026-01-24T00:00:00.000Z to 2026-01-25T00:00:00.000Z
+2026-01-24 16:09:27 [INFO]: Client connected: WRbOOe2ufbgBXWTWAAAH
+2026-01-24 16:09:27 [INFO]: User 6970e6e6ae32f124038cc0aa joined personal room
+2026-01-24 16:09:27 [INFO]: [ReceptionistDashboard] Registrations today: 3, Total patients: 30
+2026-01-24 16:09:27 [INFO]: [ReceptionistDashboard] Fetching stats for date range: 2026-01-24T00:00:00.000Z to 2026-01-25T00:00:00.000Z
+2026-01-24 16:09:27 [INFO]: [ReceptionistDashboard] Registrations today: 3, Total patients: 30
+2026-01-24 16:09:57 [INFO]: [ReceptionistDashboard] Fetching stats for date range: 2026-01-24T00:00:00.000Z to 2026-01-25T00:00:00.000Z
+2026-01-24 16:09:57 [INFO]: [ReceptionistDashboard] Registrations today: 3, Total patients: 30
+2026-01-24 16:10:27 [INFO]: [ReceptionistDashboard] Fetching stats for date range: 2026-01-24T00:00:00.000Z to 2026-01-25T00:00:00.000Z
+2026-01-24 16:10:27 [INFO]: [ReceptionistDashboard] Registrations today: 3, Total patients: 30
+2026-01-24 16:10:39 [INFO]: Client disconnected: WRbOOe2ufbgBXWTWAAAH
+2026-01-24 16:11:06 [INFO]: Client connected: oFmZNM1-QX4GQY-8AAAK
+2026-01-24 16:11:06 [INFO]: Socket oFmZNM1-QX4GQY-8AAAK joined emergency room
+2026-01-24 16:11:07 [INFO]: Client disconnected: oFmZNM1-QX4GQY-8AAAK
+2026-01-24 16:14:44 [INFO]: Client connected: uuBtLaeRmF0gP7aiAAAN
+2026-01-24 16:14:44 [INFO]: [ReceptionistDashboard] Fetching stats for date range: 2026-01-24T00:00:00.000Z to 2026-01-25T00:00:00.000Z
+2026-01-24 16:14:44 [INFO]: User 6970e6e6ae32f124038cc0aa joined personal room
+2026-01-24 16:14:44 [INFO]: [ReceptionistDashboard] Registrations today: 3, Total patients: 30
+2026-01-24 16:14:44 [INFO]: [ReceptionistDashboard] Fetching stats for date range: 2026-01-24T00:00:00.000Z to 2026-01-25T00:00:00.000Z
+2026-01-24 16:14:44 [INFO]: [ReceptionistDashboard] Registrations today: 3, Total patients: 30
+2026-01-24 16:14:49 [INFO]: Client disconnected: uuBtLaeRmF0gP7aiAAAN
+2026-01-24 16:21:15 [INFO]: Client connected: 4jwTHIog71Ng8wdcAAAQ
+2026-01-24 16:21:16 [INFO]: User 6970e6e6ae32f124038cc0aa joined personal room
+2026-01-24 16:21:16 [INFO]: [ReceptionistDashboard] Fetching stats for date range: 2026-01-24T00:00:00.000Z to 2026-01-25T00:00:00.000Z
+2026-01-24 16:21:16 [INFO]: [ReceptionistDashboard] Registrations today: 3, Total patients: 30
+2026-01-24 16:21:16 [INFO]: [ReceptionistDashboard] Fetching stats for date range: 2026-01-24T00:00:00.000Z to 2026-01-25T00:00:00.000Z
+2026-01-24 16:21:16 [INFO]: [ReceptionistDashboard] Registrations today: 3, Total patients: 30
+2026-01-24 16:21:24 [INFO]: Client disconnected: 4jwTHIog71Ng8wdcAAAQ
+2026-01-24 16:21:27 [INFO]: Client connected: o__pzMOKrps6pKiGAAAT
+2026-01-24 16:21:27 [INFO]: [ReceptionistDashboard] Fetching stats for date range: 2026-01-24T00:00:00.000Z to 2026-01-25T00:00:00.000Z
+2026-01-24 16:21:27 [INFO]: User 6970e6e6ae32f124038cc0aa joined personal room
+2026-01-24 16:21:27 [INFO]: [ReceptionistDashboard] Registrations today: 3, Total patients: 30
+2026-01-24 16:21:27 [INFO]: [ReceptionistDashboard] Fetching stats for date range: 2026-01-24T00:00:00.000Z to 2026-01-25T00:00:00.000Z
+2026-01-24 16:21:27 [INFO]: [ReceptionistDashboard] Registrations today: 3, Total patients: 30
+2026-01-24 16:21:32 [INFO]: Client disconnected: o__pzMOKrps6pKiGAAAT
+2026-01-24 16:23:14 [INFO]: Client connected: oFTcKnJdbLgK1PLkAAAW
+2026-01-24 16:23:14 [INFO]: [ReceptionistDashboard] Fetching stats for date range: 2026-01-24T00:00:00.000Z to 2026-01-25T00:00:00.000Z
+2026-01-24 16:23:14 [INFO]: User 6970e6e6ae32f124038cc0aa joined personal room
+2026-01-24 16:23:14 [INFO]: [ReceptionistDashboard] Registrations today: 3, Total patients: 30
+2026-01-24 16:23:14 [INFO]: [ReceptionistDashboard] Fetching stats for date range: 2026-01-24T00:00:00.000Z to 2026-01-25T00:00:00.000Z
+2026-01-24 16:23:14 [INFO]: [ReceptionistDashboard] Registrations today: 3, Total patients: 30
+2026-01-24 16:23:26 [INFO]: Client disconnected: oFTcKnJdbLgK1PLkAAAW
+2026-01-24 16:23:32 [INFO]: [ReceptionistDashboard] Fetching stats for date range: 2026-01-24T00:00:00.000Z to 2026-01-25T00:00:00.000Z
+2026-01-24 16:23:32 [INFO]: Client connected: xiYFjKoECuV1RB7wAAAZ
+2026-01-24 16:23:32 [INFO]: User 6970e6e6ae32f124038cc0aa joined personal room
+2026-01-24 16:23:32 [INFO]: [ReceptionistDashboard] Registrations today: 3, Total patients: 30
+2026-01-24 16:23:32 [INFO]: [ReceptionistDashboard] Fetching stats for date range: 2026-01-24T00:00:00.000Z to 2026-01-25T00:00:00.000Z
+2026-01-24 16:23:32 [INFO]: [ReceptionistDashboard] Registrations today: 3, Total patients: 30
+2026-01-24 16:23:34 [INFO]: Client disconnected: xiYFjKoECuV1RB7wAAAZ
+2026-01-24 16:26:16 [INFO]: Client connected: 7JinIt_v3d8u4BADAAAc
+2026-01-24 16:26:16 [INFO]: [ClinicalDashboard] Fetching stats for doctor 6970e6e6ae32f124038cc0a6
+2026-01-24 16:26:16 [INFO]: [ClinicalDashboard] Response: appointments=1, labs=4, critical=0
+2026-01-24 16:26:16 [INFO]: [ClinicalDashboard] Fetching stats for doctor 6970e6e6ae32f124038cc0a6
+2026-01-24 16:26:16 [INFO]: [ClinicalDashboard] Response: appointments=1, labs=4, critical=0
+2026-01-24 16:26:20 [INFO]: Client disconnected: 7JinIt_v3d8u4BADAAAc
+2026-01-24 16:40:10 [INFO]: Client connected: wWexzIFQLyWZ69xMAAAf
+2026-01-24 16:40:10 [INFO]: Socket wWexzIFQLyWZ69xMAAAf joined emergency room
+2026-01-24 16:40:11 [INFO]: Client disconnected: wWexzIFQLyWZ69xMAAAf
+2026-01-24 16:42:04 [INFO]: Client connected: akjC0N2wdgg2_iOpAAAi
+2026-01-24 16:42:04 [INFO]: [ClinicalDashboard] Fetching stats for doctor 6970e6e6ae32f124038cc0a6
+2026-01-24 16:42:05 [INFO]: [ClinicalDashboard] Response: appointments=1, labs=4, critical=0
+2026-01-24 16:42:05 [INFO]: [ClinicalDashboard] Fetching stats for doctor 6970e6e6ae32f124038cc0a6
+2026-01-24 16:42:05 [INFO]: [ClinicalDashboard] Response: appointments=1, labs=4, critical=0
+2026-01-24 16:42:06 [INFO]: Client disconnected: akjC0N2wdgg2_iOpAAAi
+2026-01-24 16:44:56 [INFO]: Client connected: g1Y9ou-E5WYStiZbAAAl
+2026-01-24 16:44:56 [INFO]: [ReceptionistDashboard] Fetching stats for date range: 2026-01-24T00:00:00.000Z to 2026-01-25T00:00:00.000Z
+2026-01-24 16:44:56 [INFO]: User 6970e6e6ae32f124038cc0aa joined personal room
+2026-01-24 16:44:56 [INFO]: [ReceptionistDashboard] Registrations today: 4, Total patients: 31
+2026-01-24 16:44:56 [INFO]: [ReceptionistDashboard] Fetching stats for date range: 2026-01-24T00:00:00.000Z to 2026-01-25T00:00:00.000Z
+2026-01-24 16:44:56 [INFO]: [ReceptionistDashboard] Registrations today: 4, Total patients: 31
+2026-01-24 16:45:04 [INFO]: Client disconnected: g1Y9ou-E5WYStiZbAAAl
+2026-01-24 16:46:44 [INFO]: Client connected: dBEQCv6wwhPsf0crAAAo
+2026-01-24 16:46:44 [INFO]: Socket dBEQCv6wwhPsf0crAAAo joined emergency room
+2026-01-24 16:47:04 [INFO]: Client disconnected: dBEQCv6wwhPsf0crAAAo
+2026-01-24 16:47:30 [INFO]: [ReceptionistDashboard] Fetching stats for date range: 2026-01-24T00:00:00.000Z to 2026-01-25T00:00:00.000Z
+2026-01-24 16:47:30 [INFO]: Client connected: vzy2inFQpgqgDta5AAAr
+2026-01-24 16:47:30 [INFO]: User 6970e6e6ae32f124038cc0aa joined personal room
+2026-01-24 16:47:30 [INFO]: [ReceptionistDashboard] Registrations today: 4, Total patients: 31
+2026-01-24 16:47:30 [INFO]: [ReceptionistDashboard] Fetching stats for date range: 2026-01-24T00:00:00.000Z to 2026-01-25T00:00:00.000Z
+2026-01-24 16:47:30 [INFO]: [ReceptionistDashboard] Registrations today: 4, Total patients: 31
+2026-01-24 16:47:34 [INFO]: Client disconnected: vzy2inFQpgqgDta5AAAr
+2026-01-24 16:54:48 [INFO]: Client connected: mPSqtox7oC_rKM5zAAAu
+2026-01-24 16:54:48 [INFO]: [ReceptionistDashboard] Fetching stats for date range: 2026-01-24T00:00:00.000Z to 2026-01-25T00:00:00.000Z
+2026-01-24 16:54:48 [INFO]: User 6970e6e6ae32f124038cc0aa joined personal room
+2026-01-24 16:54:48 [INFO]: [ReceptionistDashboard] Registrations today: 4, Total patients: 31
+2026-01-24 16:54:48 [INFO]: [ReceptionistDashboard] Fetching stats for date range: 2026-01-24T00:00:00.000Z to 2026-01-25T00:00:00.000Z
+2026-01-24 16:54:48 [INFO]: [ReceptionistDashboard] Registrations today: 4, Total patients: 31
+2026-01-24 16:54:51 [INFO]: Client disconnected: mPSqtox7oC_rKM5zAAAu
+2026-01-24 16:54:57 [INFO]: [ReceptionistDashboard] Fetching stats for date range: 2026-01-24T00:00:00.000Z to 2026-01-25T00:00:00.000Z
+2026-01-24 16:54:57 [INFO]: Client connected: asn2q1rfaw2XYEAXAAAx
+2026-01-24 16:54:57 [INFO]: User 6970e6e6ae32f124038cc0aa joined personal room
+2026-01-24 16:54:57 [INFO]: [ReceptionistDashboard] Registrations today: 4, Total patients: 31
+2026-01-24 16:54:57 [INFO]: [ReceptionistDashboard] Fetching stats for date range: 2026-01-24T00:00:00.000Z to 2026-01-25T00:00:00.000Z
+2026-01-24 16:54:57 [INFO]: [ReceptionistDashboard] Registrations today: 4, Total patients: 31
+2026-01-24 16:54:58 [INFO]: Client disconnected: asn2q1rfaw2XYEAXAAAx
+2026-01-24 16:56:23 [INFO]: Client connected: AlR5DHg_YAGPFvI9AAA0
+2026-01-24 16:56:23 [INFO]: Socket AlR5DHg_YAGPFvI9AAA0 joined emergency room
+2026-01-24 16:56:24 [INFO]: Client disconnected: AlR5DHg_YAGPFvI9AAA0
+2026-01-24 16:56:24 [ERROR]: User role 'receptionist' is not authorized to access this route
+Error: User role 'receptionist' is not authorized to access this route
+    at C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\middleware\rbac.middleware.js:22:17
+    at Layer.handle [as handle_request] (C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:284:15
+    at router.process_params (C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:280:10)
+    at C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\middleware\auth.middleware.js:46:9
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-24 16:56:24 [ERROR]: User role 'receptionist' is not authorized to access this route
+Error: User role 'receptionist' is not authorized to access this route
+    at C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\middleware\rbac.middleware.js:22:17
+    at Layer.handle [as handle_request] (C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:284:15
+    at router.process_params (C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:280:10)
+    at C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\middleware\auth.middleware.js:46:9
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-24 16:56:24 [ERROR]: User role 'receptionist' is not authorized to access this route
+Error: User role 'receptionist' is not authorized to access this route
+    at C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\middleware\rbac.middleware.js:22:17
+    at Layer.handle [as handle_request] (C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:284:15
+    at router.process_params (C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:280:10)
+    at C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\middleware\auth.middleware.js:46:9
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-24 16:56:24 [ERROR]: User role 'receptionist' is not authorized to access this route
+Error: User role 'receptionist' is not authorized to access this route
+    at C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\middleware\rbac.middleware.js:22:17
+    at Layer.handle [as handle_request] (C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:284:15
+    at router.process_params (C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\express\lib\router\index.js:280:10)
+    at C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\middleware\auth.middleware.js:46:9
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-24 16:56:25 [INFO]: Client connected: _-WBmbHlW506nj85AAA3
+2026-01-24 16:56:25 [INFO]: Socket _-WBmbHlW506nj85AAA3 joined emergency room
+2026-01-24 16:56:45 [INFO]: Client disconnected: _-WBmbHlW506nj85AAA3
+2026-01-24 16:57:06 [INFO]: Client connected: mGZKVSxHuACLPAjsAAA6
+2026-01-24 16:57:06 [INFO]: [ClinicalDashboard] Fetching stats for doctor 6970e6e6ae32f124038cc0a6
+2026-01-24 16:57:06 [INFO]: [ClinicalDashboard] Response: appointments=1, labs=4, critical=0
+2026-01-24 16:57:06 [INFO]: [ClinicalDashboard] Fetching stats for doctor 6970e6e6ae32f124038cc0a6
+2026-01-24 16:57:06 [INFO]: [ClinicalDashboard] Response: appointments=1, labs=4, critical=0
+2026-01-24 16:58:06 [INFO]: [ClinicalDashboard] Fetching stats for doctor 6970e6e6ae32f124038cc0a6
+2026-01-24 16:58:06 [INFO]: [ClinicalDashboard] Response: appointments=1, labs=4, critical=0
+2026-01-24 16:59:06 [INFO]: [ClinicalDashboard] Fetching stats for doctor 6970e6e6ae32f124038cc0a6
+2026-01-24 16:59:06 [INFO]: [ClinicalDashboard] Response: appointments=1, labs=4, critical=0
+2026-01-24 17:00:06 [INFO]: [ClinicalDashboard] Fetching stats for doctor 6970e6e6ae32f124038cc0a6
+2026-01-24 17:00:06 [INFO]: [ClinicalDashboard] Response: appointments=1, labs=4, critical=0
+2026-01-24 17:01:06 [INFO]: [ClinicalDashboard] Fetching stats for doctor 6970e6e6ae32f124038cc0a6
+2026-01-24 17:01:06 [INFO]: [ClinicalDashboard] Response: appointments=1, labs=4, critical=0
+2026-01-24 17:01:33 [INFO]: Client disconnected: mGZKVSxHuACLPAjsAAA6
+2026-01-24 17:17:23 [INFO]: [ClinicalDashboard] Fetching stats for doctor 6970e6e6ae32f124038cc0a6
+2026-01-24 17:17:23 [INFO]: Client connected: vWGwpDGw4u-_wrnhAAA9
+2026-01-24 17:17:23 [INFO]: [ClinicalDashboard] Response: appointments=1, labs=4, critical=0
+2026-01-24 17:17:23 [INFO]: [ClinicalDashboard] Fetching stats for doctor 6970e6e6ae32f124038cc0a6
+2026-01-24 17:17:23 [INFO]: [ClinicalDashboard] Response: appointments=1, labs=4, critical=0
+2026-01-24 17:17:59 [INFO]: Client disconnected: vWGwpDGw4u-_wrnhAAA9
+2026-01-24 17:22:17 [INFO]: MongoDB Connected: ac-3nlnfep-shard-00-00.fs2fnzl.mongodb.net
+2026-01-24 17:22:17 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 17:22:17 [INFO]:        HOSPITAL INFORMATION SYSTEM (HIS) BACKEND SERVER        
+2026-01-24 17:22:17 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 17:22:17 [INFO]: 🚀 Server running in development mode on port 5001
+2026-01-24 17:22:17 [INFO]: 📡 API Base URL: http://localhost:5001/api/v1
+2026-01-24 17:22:17 [INFO]: 🔌 WebSocket enabled
+2026-01-24 17:22:17 [INFO]: 📋 Health check: http://localhost:5001/api/health
+2026-01-24 17:22:17 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 17:24:16 [INFO]: MongoDB Connected: ac-3nlnfep-shard-00-00.fs2fnzl.mongodb.net
+2026-01-24 17:24:16 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 17:24:16 [INFO]:        HOSPITAL INFORMATION SYSTEM (HIS) BACKEND SERVER        
+2026-01-24 17:24:16 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 17:24:16 [INFO]: 🚀 Server running in development mode on port 5001
+2026-01-24 17:24:16 [INFO]: 📡 API Base URL: http://localhost:5001/api/v1
+2026-01-24 17:24:16 [INFO]: 🔌 WebSocket enabled
+2026-01-24 17:24:16 [INFO]: 📋 Health check: http://localhost:5001/api/health
+2026-01-24 17:24:16 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 17:24:46 [INFO]: MongoDB Connected: ac-3nlnfep-shard-00-01.fs2fnzl.mongodb.net
+2026-01-24 17:24:46 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 17:24:46 [INFO]:        HOSPITAL INFORMATION SYSTEM (HIS) BACKEND SERVER        
+2026-01-24 17:24:46 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 17:24:46 [INFO]: 🚀 Server running in development mode on port 5001
+2026-01-24 17:24:46 [INFO]: 📡 API Base URL: http://localhost:5001/api/v1
+2026-01-24 17:24:46 [INFO]: 🔌 WebSocket enabled
+2026-01-24 17:24:46 [INFO]: 📋 Health check: http://localhost:5001/api/health
+2026-01-24 17:24:46 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 17:26:10 [INFO]: Client connected: 9YHBrcUcAFDPo5jhAAAC
+2026-01-24 17:26:10 [INFO]: [ReceptionistDashboard] Fetching stats for date range: 2026-01-24T00:00:00.000Z to 2026-01-25T00:00:00.000Z
+2026-01-24 17:26:10 [INFO]: User 6970e6e6ae32f124038cc0aa joined personal room
+2026-01-24 17:26:10 [INFO]: [ReceptionistDashboard] Registrations today: 4, Total patients: 31
+2026-01-24 17:26:10 [INFO]: [ReceptionistDashboard] Fetching stats for date range: 2026-01-24T00:00:00.000Z to 2026-01-25T00:00:00.000Z
+2026-01-24 17:26:10 [INFO]: [ReceptionistDashboard] Registrations today: 4, Total patients: 31
+2026-01-24 17:26:13 [INFO]: Client disconnected: 9YHBrcUcAFDPo5jhAAAC
+2026-01-24 17:27:19 [INFO]: [PatientRegistration] New patient registered: PAT000032 - shravani daraskar
+2026-01-24 17:27:45 [INFO]: Client connected: r3aHsIRDYgqebEdjAAAF
+2026-01-24 17:27:45 [INFO]: [ReceptionistDashboard] Fetching stats for date range: 2026-01-24T00:00:00.000Z to 2026-01-25T00:00:00.000Z
+2026-01-24 17:27:45 [INFO]: User 6970e6e6ae32f124038cc0aa joined personal room
+2026-01-24 17:27:46 [INFO]: [ReceptionistDashboard] Registrations today: 5, Total patients: 32
+2026-01-24 17:27:46 [INFO]: [ReceptionistDashboard] Fetching stats for date range: 2026-01-24T00:00:00.000Z to 2026-01-25T00:00:00.000Z
+2026-01-24 17:27:46 [INFO]: [ReceptionistDashboard] Registrations today: 5, Total patients: 32
+2026-01-24 17:28:15 [INFO]: [ReceptionistDashboard] Fetching stats for date range: 2026-01-24T00:00:00.000Z to 2026-01-25T00:00:00.000Z
+2026-01-24 17:28:16 [INFO]: [ReceptionistDashboard] Registrations today: 5, Total patients: 32
+2026-01-24 17:28:45 [INFO]: [ReceptionistDashboard] Fetching stats for date range: 2026-01-24T00:00:00.000Z to 2026-01-25T00:00:00.000Z
+2026-01-24 17:28:46 [INFO]: [ReceptionistDashboard] Registrations today: 5, Total patients: 32
+2026-01-24 17:29:15 [INFO]: [ReceptionistDashboard] Fetching stats for date range: 2026-01-24T00:00:00.000Z to 2026-01-25T00:00:00.000Z
+2026-01-24 17:29:16 [INFO]: [ReceptionistDashboard] Registrations today: 5, Total patients: 32
+2026-01-24 17:29:45 [INFO]: [ReceptionistDashboard] Fetching stats for date range: 2026-01-24T00:00:00.000Z to 2026-01-25T00:00:00.000Z
+2026-01-24 17:29:46 [INFO]: [ReceptionistDashboard] Registrations today: 5, Total patients: 32
+2026-01-24 17:30:15 [INFO]: [ReceptionistDashboard] Fetching stats for date range: 2026-01-24T00:00:00.000Z to 2026-01-25T00:00:00.000Z
+2026-01-24 17:30:16 [INFO]: [ReceptionistDashboard] Registrations today: 5, Total patients: 32
+2026-01-24 17:30:45 [INFO]: [ReceptionistDashboard] Fetching stats for date range: 2026-01-24T00:00:00.000Z to 2026-01-25T00:00:00.000Z
+2026-01-24 17:30:46 [INFO]: [ReceptionistDashboard] Registrations today: 5, Total patients: 32
+2026-01-24 17:31:15 [INFO]: [ReceptionistDashboard] Fetching stats for date range: 2026-01-24T00:00:00.000Z to 2026-01-25T00:00:00.000Z
+2026-01-24 17:31:16 [INFO]: [ReceptionistDashboard] Registrations today: 5, Total patients: 32
+2026-01-24 17:31:45 [INFO]: [ReceptionistDashboard] Fetching stats for date range: 2026-01-24T00:00:00.000Z to 2026-01-25T00:00:00.000Z
+2026-01-24 17:31:46 [INFO]: [ReceptionistDashboard] Registrations today: 5, Total patients: 32
+2026-01-24 17:32:15 [INFO]: [ReceptionistDashboard] Fetching stats for date range: 2026-01-24T00:00:00.000Z to 2026-01-25T00:00:00.000Z
+2026-01-24 17:32:16 [INFO]: [ReceptionistDashboard] Registrations today: 5, Total patients: 32
+2026-01-24 17:32:45 [INFO]: [ReceptionistDashboard] Fetching stats for date range: 2026-01-24T00:00:00.000Z to 2026-01-25T00:00:00.000Z
+2026-01-24 17:32:46 [INFO]: [ReceptionistDashboard] Registrations today: 5, Total patients: 32
+2026-01-24 17:33:15 [INFO]: [ReceptionistDashboard] Fetching stats for date range: 2026-01-24T00:00:00.000Z to 2026-01-25T00:00:00.000Z
+2026-01-24 17:33:16 [INFO]: [ReceptionistDashboard] Registrations today: 5, Total patients: 32
+2026-01-24 17:33:45 [INFO]: [ReceptionistDashboard] Fetching stats for date range: 2026-01-24T00:00:00.000Z to 2026-01-25T00:00:00.000Z
+2026-01-24 17:33:46 [INFO]: [ReceptionistDashboard] Registrations today: 5, Total patients: 32
+2026-01-24 17:34:15 [INFO]: [ReceptionistDashboard] Fetching stats for date range: 2026-01-24T00:00:00.000Z to 2026-01-25T00:00:00.000Z
+2026-01-24 17:34:16 [INFO]: [ReceptionistDashboard] Registrations today: 5, Total patients: 32
+2026-01-24 17:34:45 [INFO]: [ReceptionistDashboard] Fetching stats for date range: 2026-01-24T00:00:00.000Z to 2026-01-25T00:00:00.000Z
+2026-01-24 17:34:46 [INFO]: [ReceptionistDashboard] Registrations today: 5, Total patients: 32
+2026-01-24 17:35:15 [INFO]: [ReceptionistDashboard] Fetching stats for date range: 2026-01-24T00:00:00.000Z to 2026-01-25T00:00:00.000Z
+2026-01-24 17:35:16 [INFO]: [ReceptionistDashboard] Registrations today: 5, Total patients: 32
+2026-01-24 17:35:45 [INFO]: [ReceptionistDashboard] Fetching stats for date range: 2026-01-24T00:00:00.000Z to 2026-01-25T00:00:00.000Z
+2026-01-24 17:35:46 [INFO]: [ReceptionistDashboard] Registrations today: 5, Total patients: 32
+2026-01-24 17:36:16 [INFO]: [ReceptionistDashboard] Fetching stats for date range: 2026-01-24T00:00:00.000Z to 2026-01-25T00:00:00.000Z
+2026-01-24 17:36:16 [INFO]: [ReceptionistDashboard] Registrations today: 5, Total patients: 32
+2026-01-24 17:36:45 [INFO]: [ReceptionistDashboard] Fetching stats for date range: 2026-01-24T00:00:00.000Z to 2026-01-25T00:00:00.000Z
+2026-01-24 17:36:46 [INFO]: [ReceptionistDashboard] Registrations today: 5, Total patients: 32
+2026-01-24 17:36:52 [INFO]: Client disconnected: r3aHsIRDYgqebEdjAAAF
+2026-01-24 17:37:00 [INFO]: [ReceptionistDashboard] Fetching stats for date range: 2026-01-24T00:00:00.000Z to 2026-01-25T00:00:00.000Z
+2026-01-24 17:37:00 [INFO]: Client connected: DNHy41iz4L8jSLxlAAAI
+2026-01-24 17:37:00 [INFO]: User 6970e6e6ae32f124038cc0aa joined personal room
+2026-01-24 17:37:00 [INFO]: [ReceptionistDashboard] Registrations today: 5, Total patients: 32
+2026-01-24 17:37:00 [INFO]: [ReceptionistDashboard] Fetching stats for date range: 2026-01-24T00:00:00.000Z to 2026-01-25T00:00:00.000Z
+2026-01-24 17:37:00 [INFO]: [ReceptionistDashboard] Registrations today: 5, Total patients: 32
+2026-01-24 17:37:30 [INFO]: [ReceptionistDashboard] Fetching stats for date range: 2026-01-24T00:00:00.000Z to 2026-01-25T00:00:00.000Z
+2026-01-24 17:37:30 [INFO]: [ReceptionistDashboard] Registrations today: 5, Total patients: 32
+2026-01-24 17:38:00 [INFO]: [ReceptionistDashboard] Fetching stats for date range: 2026-01-24T00:00:00.000Z to 2026-01-25T00:00:00.000Z
+2026-01-24 17:38:00 [INFO]: [ReceptionistDashboard] Registrations today: 5, Total patients: 32
+2026-01-24 17:38:30 [INFO]: [ReceptionistDashboard] Fetching stats for date range: 2026-01-24T00:00:00.000Z to 2026-01-25T00:00:00.000Z
+2026-01-24 17:38:30 [INFO]: [ReceptionistDashboard] Registrations today: 5, Total patients: 32
+2026-01-24 17:38:36 [INFO]: MongoDB Connected: ac-3nlnfep-shard-00-02.fs2fnzl.mongodb.net
+2026-01-24 17:38:36 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 17:38:36 [INFO]:        HOSPITAL INFORMATION SYSTEM (HIS) BACKEND SERVER        
+2026-01-24 17:38:36 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 17:38:36 [INFO]: 🚀 Server running in development mode on port 5001
+2026-01-24 17:38:36 [INFO]: 📡 API Base URL: http://localhost:5001/api/v1
+2026-01-24 17:38:36 [INFO]: 🔌 WebSocket enabled
+2026-01-24 17:38:36 [INFO]: 📋 Health check: http://localhost:5001/api/health
+2026-01-24 17:38:36 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 17:38:36 [INFO]: Client connected: 6GkKTnJK3Wo2bYJDAAAB
+2026-01-24 17:38:59 [INFO]: MongoDB Connected: ac-3nlnfep-shard-00-02.fs2fnzl.mongodb.net
+2026-01-24 17:38:59 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 17:38:59 [INFO]:        HOSPITAL INFORMATION SYSTEM (HIS) BACKEND SERVER        
+2026-01-24 17:38:59 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 17:38:59 [INFO]: 🚀 Server running in development mode on port 5001
+2026-01-24 17:38:59 [INFO]: 📡 API Base URL: http://localhost:5001/api/v1
+2026-01-24 17:38:59 [INFO]: 🔌 WebSocket enabled
+2026-01-24 17:38:59 [INFO]: 📋 Health check: http://localhost:5001/api/health
+2026-01-24 17:38:59 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 17:38:59 [INFO]: Client connected: c-FQQZORuNgH0CQjAAAB
+2026-01-24 17:39:01 [INFO]: [ReceptionistDashboard] Fetching stats for date range: 2026-01-24T00:00:00.000Z to 2026-01-25T00:00:00.000Z
+2026-01-24 17:39:03 [INFO]: [ReceptionistDashboard] Registrations today: 5, Total patients: 32
+2026-01-24 17:39:10 [INFO]: MongoDB Connected: ac-3nlnfep-shard-00-00.fs2fnzl.mongodb.net
+2026-01-24 17:39:10 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 17:39:10 [INFO]:        HOSPITAL INFORMATION SYSTEM (HIS) BACKEND SERVER        
+2026-01-24 17:39:10 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 17:39:10 [INFO]: 🚀 Server running in development mode on port 5001
+2026-01-24 17:39:10 [INFO]: 📡 API Base URL: http://localhost:5001/api/v1
+2026-01-24 17:39:10 [INFO]: 🔌 WebSocket enabled
+2026-01-24 17:39:10 [INFO]: 📋 Health check: http://localhost:5001/api/health
+2026-01-24 17:39:10 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 17:39:10 [INFO]: Client connected: faUdBfDHB8bJQwFiAAAB
+2026-01-24 17:39:25 [INFO]: MongoDB Connected: ac-3nlnfep-shard-00-01.fs2fnzl.mongodb.net
+2026-01-24 17:39:25 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 17:39:25 [INFO]:        HOSPITAL INFORMATION SYSTEM (HIS) BACKEND SERVER        
+2026-01-24 17:39:25 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 17:39:25 [INFO]: 🚀 Server running in development mode on port 5001
+2026-01-24 17:39:25 [INFO]: 📡 API Base URL: http://localhost:5001/api/v1
+2026-01-24 17:39:25 [INFO]: 🔌 WebSocket enabled
+2026-01-24 17:39:25 [INFO]: 📋 Health check: http://localhost:5001/api/health
+2026-01-24 17:39:25 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 17:39:25 [INFO]: Client connected: X3TUpDsrEFPXMdRhAAAB
+2026-01-24 17:39:30 [INFO]: [ReceptionistDashboard] Fetching stats for date range: 2026-01-24T00:00:00.000Z to 2026-01-25T00:00:00.000Z
+2026-01-24 17:39:30 [INFO]: [ReceptionistDashboard] Registrations today: 5, Total patients: 32
+2026-01-24 17:39:34 [INFO]: MongoDB Connected: ac-3nlnfep-shard-00-02.fs2fnzl.mongodb.net
+2026-01-24 17:39:34 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 17:39:34 [INFO]:        HOSPITAL INFORMATION SYSTEM (HIS) BACKEND SERVER        
+2026-01-24 17:39:34 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 17:39:34 [INFO]: 🚀 Server running in development mode on port 5001
+2026-01-24 17:39:34 [INFO]: 📡 API Base URL: http://localhost:5001/api/v1
+2026-01-24 17:39:34 [INFO]: 🔌 WebSocket enabled
+2026-01-24 17:39:34 [INFO]: 📋 Health check: http://localhost:5001/api/health
+2026-01-24 17:39:34 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 17:39:34 [INFO]: Client connected: UC4ZhO_OjK9ffbQJAAAB
+2026-01-24 17:39:47 [INFO]: MongoDB Connected: ac-3nlnfep-shard-00-02.fs2fnzl.mongodb.net
+2026-01-24 17:39:47 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 17:39:47 [INFO]:        HOSPITAL INFORMATION SYSTEM (HIS) BACKEND SERVER        
+2026-01-24 17:39:47 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 17:39:47 [INFO]: 🚀 Server running in development mode on port 5001
+2026-01-24 17:39:47 [INFO]: 📡 API Base URL: http://localhost:5001/api/v1
+2026-01-24 17:39:47 [INFO]: 🔌 WebSocket enabled
+2026-01-24 17:39:47 [INFO]: 📋 Health check: http://localhost:5001/api/health
+2026-01-24 17:39:47 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 17:39:48 [INFO]: Client connected: RobMWQtZRxNSioJNAAAB
+2026-01-24 17:40:00 [INFO]: [ReceptionistDashboard] Fetching stats for date range: 2026-01-24T00:00:00.000Z to 2026-01-25T00:00:00.000Z
+2026-01-24 17:40:00 [INFO]: [ReceptionistDashboard] Registrations today: 5, Total patients: 32
+2026-01-24 17:40:06 [INFO]: MongoDB Connected: ac-3nlnfep-shard-00-02.fs2fnzl.mongodb.net
+2026-01-24 17:40:06 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 17:40:06 [INFO]:        HOSPITAL INFORMATION SYSTEM (HIS) BACKEND SERVER        
+2026-01-24 17:40:06 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 17:40:06 [INFO]: 🚀 Server running in development mode on port 5001
+2026-01-24 17:40:06 [INFO]: 📡 API Base URL: http://localhost:5001/api/v1
+2026-01-24 17:40:06 [INFO]: 🔌 WebSocket enabled
+2026-01-24 17:40:06 [INFO]: 📋 Health check: http://localhost:5001/api/health
+2026-01-24 17:40:06 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 17:40:07 [INFO]: Client connected: wcc3g696M7-Ctr-vAAAB
+2026-01-24 17:41:00 [INFO]: [ReceptionistDashboard] Fetching stats for date range: 2026-01-24T00:00:00.000Z to 2026-01-25T00:00:00.000Z
+2026-01-24 17:41:00 [INFO]: [ReceptionistDashboard] Registrations today: 5, Total patients: 32
+2026-01-24 17:42:00 [INFO]: [ReceptionistDashboard] Fetching stats for date range: 2026-01-24T00:00:00.000Z to 2026-01-25T00:00:00.000Z
+2026-01-24 17:42:00 [INFO]: [ReceptionistDashboard] Registrations today: 5, Total patients: 32
+2026-01-24 17:43:00 [INFO]: [ReceptionistDashboard] Fetching stats for date range: 2026-01-24T00:00:00.000Z to 2026-01-25T00:00:00.000Z
+2026-01-24 17:43:00 [INFO]: [ReceptionistDashboard] Registrations today: 5, Total patients: 32
+2026-01-24 17:43:30 [INFO]: [ReceptionistDashboard] Fetching stats for date range: 2026-01-24T00:00:00.000Z to 2026-01-25T00:00:00.000Z
+2026-01-24 17:43:30 [INFO]: [ReceptionistDashboard] Registrations today: 5, Total patients: 32
+2026-01-24 17:43:31 [INFO]: Client disconnected: wcc3g696M7-Ctr-vAAAB
+2026-01-24 17:43:34 [INFO]: Client connected: fwA3D4KS49l-NEhxAAAE
+2026-01-24 17:43:34 [INFO]: [ReceptionistDashboard] Fetching stats for date range: 2026-01-24T00:00:00.000Z to 2026-01-25T00:00:00.000Z
+2026-01-24 17:43:34 [INFO]: User 6970e6e6ae32f124038cc0aa joined personal room
+2026-01-24 17:43:34 [INFO]: [ReceptionistDashboard] Registrations today: 5, Total patients: 32
+2026-01-24 17:43:34 [INFO]: [ReceptionistDashboard] Fetching stats for date range: 2026-01-24T00:00:00.000Z to 2026-01-25T00:00:00.000Z
+2026-01-24 17:43:34 [INFO]: [ReceptionistDashboard] Registrations today: 5, Total patients: 32
+2026-01-24 17:43:37 [INFO]: Client disconnected: fwA3D4KS49l-NEhxAAAE
+2026-01-24 17:44:11 [ERROR]: E11000 duplicate key error collection: test.systemsettings index: settingsId_1 dup key: { settingsId: "HOSPITAL_SETTINGS" }
+MongoServerError: E11000 duplicate key error collection: test.systemsettings index: settingsId_1 dup key: { settingsId: "HOSPITAL_SETTINGS" }
+    at C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\mongodb\lib\operations\insert.js:50:33
+    at C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\node_modules\mongodb\lib\operations\command.js:84:64
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-24 17:44:13 [INFO]: [SystemSettings] Clinical Coding toggled: false → true by user 6970e6e6ae32f124038cc0a3
+2026-01-24 17:44:16 [INFO]: [SystemSettings] Clinical Coding FORCE toggled: true → false by user 6970e6e6ae32f124038cc0a3
+2026-01-24 17:45:37 [ERROR]: Invalid credentials
+Error: Invalid credentials
+    at C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\controllers\auth.controller.js:24:21
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-24 17:45:38 [ERROR]: Invalid credentials
+Error: Invalid credentials
+    at C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\controllers\auth.controller.js:24:21
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-24 17:45:44 [ERROR]: Invalid credentials
+Error: Invalid credentials
+    at C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\controllers\auth.controller.js:24:21
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-24 17:45:45 [ERROR]: Invalid credentials
+Error: Invalid credentials
+    at C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\controllers\auth.controller.js:24:21
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-24 17:45:48 [ERROR]: Invalid credentials
+Error: Invalid credentials
+    at C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\controllers\auth.controller.js:24:21
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-24 17:46:18 [ERROR]: Invalid credentials
+Error: Invalid credentials
+    at C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\controllers\auth.controller.js:36:21
+2026-01-24 17:46:54 [INFO]: [ClinicalDashboard] Fetching stats for doctor 6970e6e6ae32f124038cc0a6
+2026-01-24 17:46:54 [INFO]: Client connected: ImWvKBdFH8QCu7ljAAAH
+2026-01-24 17:46:54 [INFO]: [ClinicalDashboard] Response: appointments=1, labs=4, critical=0
+2026-01-24 17:46:54 [INFO]: [ClinicalDashboard] Fetching stats for doctor 6970e6e6ae32f124038cc0a6
+2026-01-24 17:46:54 [INFO]: [ClinicalDashboard] Response: appointments=1, labs=4, critical=0
+2026-01-24 17:46:57 [INFO]: Client disconnected: ImWvKBdFH8QCu7ljAAAH
+2026-01-24 17:47:01 [INFO]: Client connected: eUSXIUmJnq6KuMPOAAAK
+2026-01-24 17:47:01 [INFO]: Socket eUSXIUmJnq6KuMPOAAAK joined emergency room
+2026-01-24 17:47:04 [INFO]: Client disconnected: eUSXIUmJnq6KuMPOAAAK
+2026-01-24 17:53:16 [INFO]: MongoDB Connected: ac-3nlnfep-shard-00-00.fs2fnzl.mongodb.net
+2026-01-24 17:53:16 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 17:53:16 [INFO]:        HOSPITAL INFORMATION SYSTEM (HIS) BACKEND SERVER        
+2026-01-24 17:53:16 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 17:53:16 [INFO]: 🚀 Server running in development mode on port 5001
+2026-01-24 17:53:16 [INFO]: 📡 API Base URL: http://localhost:5001/api/v1
+2026-01-24 17:53:16 [INFO]: 🔌 WebSocket enabled
+2026-01-24 17:53:16 [INFO]: 📋 Health check: http://localhost:5001/api/health
+2026-01-24 17:53:16 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 17:55:14 [ERROR]: Invalid credentials
+Error: Invalid credentials
+    at C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\controllers\auth.controller.js:36:21
+2026-01-24 17:55:24 [INFO]: [SystemSettings] Clinical Coding toggled: false → true by user 6970e6e6ae32f124038cc0a3
+2026-01-24 17:55:53 [ERROR]: Invalid credentials
+Error: Invalid credentials
+    at C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\controllers\auth.controller.js:24:21
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-24 17:56:01 [INFO]: [ClinicalDashboard] Fetching stats for doctor 6970e6e6ae32f124038cc0a6
+2026-01-24 17:56:01 [INFO]: Client connected: s-k7GXkvl_fHHPAyAAAC
+2026-01-24 17:56:01 [INFO]: [ClinicalDashboard] Response: appointments=1, labs=4, critical=0
+2026-01-24 17:56:01 [INFO]: [ClinicalDashboard] Fetching stats for doctor 6970e6e6ae32f124038cc0a6
+2026-01-24 17:56:01 [INFO]: [ClinicalDashboard] Response: appointments=1, labs=4, critical=0
+2026-01-24 17:56:05 [INFO]: Client disconnected: s-k7GXkvl_fHHPAyAAAC
+2026-01-24 17:57:05 [INFO]: [SystemSettings] Clinical Coding FORCE toggled: true → false by user 6970e6e6ae32f124038cc0a3
+2026-01-24 17:58:00 [ERROR]: Invalid credentials
+Error: Invalid credentials
+    at C:\Users\shrav\OneDrive\Desktop\HIS 3\HIS_Quasar\hospital-his-backend\controllers\auth.controller.js:24:21
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+2026-01-24 17:58:31 [INFO]: Client connected: _Jxha0dCPqNybxRtAAAF
+2026-01-24 17:58:31 [INFO]: [ClinicalDashboard] Fetching stats for doctor 6970e6e6ae32f124038cc0a6
+2026-01-24 17:58:31 [INFO]: [ClinicalDashboard] Response: appointments=1, labs=4, critical=0
+2026-01-24 17:58:31 [INFO]: [ClinicalDashboard] Fetching stats for doctor 6970e6e6ae32f124038cc0a6
+2026-01-24 17:58:31 [INFO]: [ClinicalDashboard] Response: appointments=1, labs=4, critical=0
+2026-01-24 17:58:39 [INFO]: Client disconnected: _Jxha0dCPqNybxRtAAAF
+2026-01-24 18:12:17 [INFO]: MongoDB Connected: ac-3nlnfep-shard-00-01.fs2fnzl.mongodb.net
+2026-01-24 18:12:17 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 18:12:17 [INFO]:        HOSPITAL INFORMATION SYSTEM (HIS) BACKEND SERVER        
+2026-01-24 18:12:17 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 18:12:17 [INFO]: 🚀 Server running in development mode on port 5001
+2026-01-24 18:12:17 [INFO]: 📡 API Base URL: http://localhost:5001/api/v1
+2026-01-24 18:12:17 [INFO]: 🔌 WebSocket enabled
+2026-01-24 18:12:17 [INFO]: 📋 Health check: http://localhost:5001/api/health
+2026-01-24 18:12:17 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 18:12:27 [INFO]: MongoDB Connected: ac-3nlnfep-shard-00-02.fs2fnzl.mongodb.net
+2026-01-24 18:12:27 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 18:12:27 [INFO]:        HOSPITAL INFORMATION SYSTEM (HIS) BACKEND SERVER        
+2026-01-24 18:12:27 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 18:12:27 [INFO]: 🚀 Server running in development mode on port 5001
+2026-01-24 18:12:27 [INFO]: 📡 API Base URL: http://localhost:5001/api/v1
+2026-01-24 18:12:27 [INFO]: 🔌 WebSocket enabled
+2026-01-24 18:12:27 [INFO]: 📋 Health check: http://localhost:5001/api/health
+2026-01-24 18:12:27 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 18:12:36 [INFO]: MongoDB Connected: ac-3nlnfep-shard-00-00.fs2fnzl.mongodb.net
+2026-01-24 18:12:36 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 18:12:36 [INFO]:        HOSPITAL INFORMATION SYSTEM (HIS) BACKEND SERVER        
+2026-01-24 18:12:36 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 18:12:36 [INFO]: 🚀 Server running in development mode on port 5001
+2026-01-24 18:12:36 [INFO]: 📡 API Base URL: http://localhost:5001/api/v1
+2026-01-24 18:12:36 [INFO]: 🔌 WebSocket enabled
+2026-01-24 18:12:36 [INFO]: 📋 Health check: http://localhost:5001/api/health
+2026-01-24 18:12:36 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 18:12:48 [INFO]: MongoDB Connected: ac-3nlnfep-shard-00-01.fs2fnzl.mongodb.net
+2026-01-24 18:12:48 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 18:12:48 [INFO]:        HOSPITAL INFORMATION SYSTEM (HIS) BACKEND SERVER        
+2026-01-24 18:12:48 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 18:12:48 [INFO]: 🚀 Server running in development mode on port 5001
+2026-01-24 18:12:48 [INFO]: 📡 API Base URL: http://localhost:5001/api/v1
+2026-01-24 18:12:48 [INFO]: 🔌 WebSocket enabled
+2026-01-24 18:12:48 [INFO]: 📋 Health check: http://localhost:5001/api/health
+2026-01-24 18:12:48 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 18:13:09 [INFO]: MongoDB Connected: ac-3nlnfep-shard-00-00.fs2fnzl.mongodb.net
+2026-01-24 18:13:09 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 18:13:09 [INFO]:        HOSPITAL INFORMATION SYSTEM (HIS) BACKEND SERVER        
+2026-01-24 18:13:09 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 18:13:09 [INFO]: 🚀 Server running in development mode on port 5001
+2026-01-24 18:13:09 [INFO]: 📡 API Base URL: http://localhost:5001/api/v1
+2026-01-24 18:13:09 [INFO]: 🔌 WebSocket enabled
+2026-01-24 18:13:09 [INFO]: 📋 Health check: http://localhost:5001/api/health
+2026-01-24 18:13:09 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 18:14:04 [INFO]: MongoDB Connected: ac-3nlnfep-shard-00-02.fs2fnzl.mongodb.net
+2026-01-24 18:14:04 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 18:14:04 [INFO]:        HOSPITAL INFORMATION SYSTEM (HIS) BACKEND SERVER        
+2026-01-24 18:14:04 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 18:14:04 [INFO]: 🚀 Server running in development mode on port 5001
+2026-01-24 18:14:04 [INFO]: 📡 API Base URL: http://localhost:5001/api/v1
+2026-01-24 18:14:04 [INFO]: 🔌 WebSocket enabled
+2026-01-24 18:14:04 [INFO]: 📋 Health check: http://localhost:5001/api/health
+2026-01-24 18:14:04 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 18:14:34 [INFO]: MongoDB Connected: ac-3nlnfep-shard-00-02.fs2fnzl.mongodb.net
+2026-01-24 18:14:34 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 18:14:34 [INFO]:        HOSPITAL INFORMATION SYSTEM (HIS) BACKEND SERVER        
+2026-01-24 18:14:34 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 18:14:34 [INFO]: 🚀 Server running in development mode on port 5001
+2026-01-24 18:14:34 [INFO]: 📡 API Base URL: http://localhost:5001/api/v1
+2026-01-24 18:14:34 [INFO]: 🔌 WebSocket enabled
+2026-01-24 18:14:34 [INFO]: 📋 Health check: http://localhost:5001/api/health
+2026-01-24 18:14:34 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 18:14:47 [INFO]: MongoDB Connected: ac-3nlnfep-shard-00-00.fs2fnzl.mongodb.net
+2026-01-24 18:14:47 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 18:14:47 [INFO]:        HOSPITAL INFORMATION SYSTEM (HIS) BACKEND SERVER        
+2026-01-24 18:14:47 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 18:14:47 [INFO]: 🚀 Server running in development mode on port 5001
+2026-01-24 18:14:47 [INFO]: 📡 API Base URL: http://localhost:5001/api/v1
+2026-01-24 18:14:47 [INFO]: 🔌 WebSocket enabled
+2026-01-24 18:14:47 [INFO]: 📋 Health check: http://localhost:5001/api/health
+2026-01-24 18:14:47 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 18:23:56 [INFO]: MongoDB Connected: ac-3nlnfep-shard-00-02.fs2fnzl.mongodb.net
+2026-01-24 18:23:56 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 18:23:56 [INFO]:        HOSPITAL INFORMATION SYSTEM (HIS) BACKEND SERVER        
+2026-01-24 18:23:56 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 18:23:56 [INFO]: 🚀 Server running in development mode on port 5001
+2026-01-24 18:23:56 [INFO]: 📡 API Base URL: http://localhost:5001/api/v1
+2026-01-24 18:23:56 [INFO]: 🔌 WebSocket enabled
+2026-01-24 18:23:56 [INFO]: 📋 Health check: http://localhost:5001/api/health
+2026-01-24 18:23:56 [INFO]: ═══════════════════════════════════════════════════════════════
+2026-01-24 18:24:44 [INFO]: MongoDB Connected: ac-3nlnfep-shard-00-02.fs2fnzl.mongodb.net
+2026-01-24 18:27:32 [INFO]: Client connected: ZsFD3T2aDwPOVUsNAAAC
+2026-01-24 18:27:32 [INFO]: [ClinicalDashboard] Fetching stats for doctor 6970e6e6ae32f124038cc0a6
+2026-01-24 18:27:32 [INFO]: [ClinicalDashboard] Response: appointments=1, labs=4, critical=0
+2026-01-24 18:27:32 [INFO]: [ClinicalDashboard] Fetching stats for doctor 6970e6e6ae32f124038cc0a6
+2026-01-24 18:27:32 [INFO]: [ClinicalDashboard] Response: appointments=1, labs=4, critical=0
+2026-01-24 18:27:34 [INFO]: Client disconnected: ZsFD3T2aDwPOVUsNAAAC

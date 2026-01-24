@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FlaskConical, Clock, CheckCircle, AlertCircle, AlertTriangle, User, TestTube, X, Check, Loader } from 'lucide-react';
+import { FlaskConical, Clock, CheckCircle, AlertCircle, AlertTriangle, User, TestTube, X, Check, Loader, Receipt, Loader2 } from 'lucide-react';
 import labService from '../../services/lab.service';
+import departmentBillingService from '../../services/departmentBilling.service';
+import toast from 'react-hot-toast';
 
 const Laboratory = () => {
     const [activeTab, setActiveTab] = useState('queue');
@@ -16,9 +18,29 @@ const Laboratory = () => {
     const [pdfFile, setPdfFile] = useState(null);
     const [uploading, setUploading] = useState(false);
 
+    // Billing state
+    const [unbilledOrders, setUnbilledOrders] = useState([]);
+    const [selectedForBilling, setSelectedForBilling] = useState([]);
+    const [generatingBill, setGeneratingBill] = useState(false);
+
     useEffect(() => {
         fetchData();
     }, []);
+
+    useEffect(() => {
+        if (activeTab === 'billing') {
+            fetchUnbilledOrders();
+        }
+    }, [activeTab]);
+
+    const fetchUnbilledOrders = async () => {
+        try {
+            const orders = await departmentBillingService.getUnbilledOrders('laboratory');
+            setUnbilledOrders(orders || []);
+        } catch (error) {
+            console.error('Error fetching unbilled orders:', error);
+        }
+    };
 
     const fetchData = async () => {
         setLoading(true);
@@ -119,15 +141,45 @@ const Laboratory = () => {
         setSubmitting(true);
         try {
             await labService.enterResults(selectedOrder._id, resultData, remarks);
-            alert("Results saved successfully!");
+            toast.success('Results saved successfully!');
             setShowResultModal(false);
             setPdfFile(null);
             fetchData();
         } catch (error) {
             console.error("Error saving results", error);
-            alert("Failed to save results");
+            toast.error('Failed to save results');
         } finally {
             setSubmitting(false);
+        }
+    };
+
+    const handleGenerateBill = async () => {
+        if (selectedForBilling.length === 0) {
+            toast.error('Select at least one order');
+            return;
+        }
+
+        setGeneratingBill(true);
+        try {
+            const firstOrder = unbilledOrders.find(o => selectedForBilling.includes(o._id));
+            const encounterId = firstOrder?.visit;
+            const encounterModel = firstOrder?.visitModel || 'Appointment';
+            const patientId = firstOrder?.patient?._id;
+
+            const result = await departmentBillingService.generateLabBill(
+                selectedForBilling,
+                encounterId,
+                encounterModel,
+                patientId
+            );
+
+            toast.success(`Bill ${result.data?.billNumber} generated successfully!`);
+            setSelectedForBilling([]);
+            fetchUnbilledOrders();
+        } catch (error) {
+            toast.error(error.response?.data?.error || 'Failed to generate bill');
+        } finally {
+            setGeneratingBill(false);
         }
     };
 
@@ -179,254 +231,395 @@ const Laboratory = () => {
                         <p className="text-gray-500 text-sm">Lab Test Management</p>
                     </div>
                 </div>
-            </div>
 
-            {/* Stats Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-                <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm">
-                    <div className="flex items-center gap-3">
-                        <div className="p-2 bg-blue-50 rounded-lg text-blue-500"><Clock size={20} /></div>
-                        <div>
-                            <div className="text-2xl font-bold text-slate-800">{stats.pending}</div>
-                            <div className="text-xs text-gray-500">Pending Tests</div>
-                        </div>
-                    </div>
-                </div>
-                <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm">
-                    <div className="flex items-center gap-3">
-                        <div className="p-2 bg-emerald-50 rounded-lg text-emerald-500"><CheckCircle size={20} /></div>
-                        <div>
-                            <div className="text-2xl font-bold text-slate-800">{stats.completedToday}</div>
-                            <div className="text-xs text-gray-500">Completed Today</div>
-                        </div>
-                    </div>
-                </div>
-                <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm">
-                    <div className="flex items-center gap-3">
-                        <div className="p-2 bg-amber-50 rounded-lg text-amber-500"><AlertCircle size={20} /></div>
-                        <div>
-                            <div className="text-2xl font-bold text-slate-800">{queue.filter(q => q.status === 'ordered').length}</div>
-                            <div className="text-xs text-gray-500">Awaiting Sample</div>
-                        </div>
-                    </div>
+                {/* Tab Switcher */}
+                <div className="flex p-1 bg-gray-100 rounded-xl">
+                    <button
+                        onClick={() => setActiveTab('queue')}
+                        className={`px-4 py-2 rounded-lg text-sm font-bold transition-all flex items-center gap-2 ${activeTab === 'queue' ? 'bg-white text-purple-600 shadow-sm' : 'text-gray-500 hover:text-gray-700'
+                            }`}
+                    >
+                        <Clock size={16} /> Work Queue
+                    </button>
+                    <button
+                        onClick={() => setActiveTab('billing')}
+                        className={`px-4 py-2 rounded-lg text-sm font-bold transition-all flex items-center gap-2 ${activeTab === 'billing' ? 'bg-white text-purple-600 shadow-sm' : 'text-gray-500 hover:text-gray-700'
+                            }`}
+                    >
+                        <Receipt size={16} /> Generate Bill
+                    </button>
                 </div>
             </div>
 
-            {/* Work Queue Table */}
-            <div className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
-                <div className="p-4 border-b border-gray-100 flex items-center justify-between">
-                    <h2 className="font-bold text-slate-800">Work Queue</h2>
-                    <button onClick={fetchData} className="text-sm text-gray-500 hover:text-primary">Refresh</button>
-                </div>
-
-                <div className="overflow-x-auto">
-                    <table className="w-full text-left">
-                        <thead className="bg-gray-50 text-gray-500 text-xs uppercase font-semibold">
-                            <tr>
-                                <th className="px-6 py-4">Test #</th>
-                                <th className="px-6 py-4">Patient</th>
-                                <th className="px-6 py-4">Test Name</th>
-                                <th className="px-6 py-4">Status</th>
-                                <th className="px-6 py-4">Ordered</th>
-                                <th className="px-6 py-4 text-right">Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody className="divide-y divide-gray-100">
-                            {loading ? (
-                                <tr><td colSpan="6" className="text-center py-10 text-gray-400">Loading queue...</td></tr>
-                            ) : queue.length === 0 ? (
-                                <tr><td colSpan="6" className="text-center py-10 text-gray-400">No pending tests in queue.</td></tr>
-                            ) : (
-                                queue.map((order) => (
-                                    <tr key={order._id} className="hover:bg-gray-50/50 transition-colors">
-                                        <td className="px-6 py-4 font-mono text-sm text-slate-600">{order.testNumber}</td>
-                                        <td className="px-6 py-4">
-                                            <div className="flex items-center gap-2">
-                                                <div className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-xs font-bold text-slate-500">
-                                                    {order.patient?.firstName?.[0]}{order.patient?.lastName?.[0]}
-                                                </div>
-                                                <div>
-                                                    <div className="font-medium text-slate-700">{order.patient?.firstName} {order.patient?.lastName}</div>
-                                                    <div className="text-xs text-gray-400">{order.patient?.patientId}</div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td className="px-6 py-4 font-medium text-slate-700">{order.test?.testName || 'Unknown Test'}</td>
-                                        <td className="px-6 py-4">{getStatusBadge(order.status)}</td>
-                                        <td className="px-6 py-4 text-sm text-gray-500">{new Date(order.createdAt).toLocaleDateString()}</td>
-                                        <td className="px-6 py-4 text-right">
-                                            {order.status === 'ordered' && (
-                                                <button
-                                                    onClick={() => handleCollectSample(order._id)}
-                                                    className="px-3 py-1.5 bg-amber-500 text-white text-xs font-medium rounded-lg hover:bg-amber-600 transition-colors"
-                                                >
-                                                    Collect Sample
-                                                </button>
-                                            )}
-                                            {order.status === 'sample-collected' && (
-                                                <button
-                                                    onClick={() => openResultEntry(order)}
-                                                    className="px-3 py-1.5 bg-purple-500 text-white text-xs font-medium rounded-lg hover:bg-purple-600 transition-colors"
-                                                >
-                                                    Enter Results
-                                                </button>
-                                            )}
-                                        </td>
-                                    </tr>
-                                ))
-                            )}
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            {/* Result Entry Modal */}
-            <AnimatePresence>
-                {showResultModal && selectedOrder && (
-                    <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-                        <motion.div
-                            initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-                            className="absolute inset-0 bg-black/40 backdrop-blur-sm" onClick={() => setShowResultModal(false)}
-                        />
-                        <motion.div
-                            initial={{ scale: 0.95, y: 20 }} animate={{ scale: 1, y: 0 }} exit={{ scale: 0.95, y: 20 }}
-                            className="bg-white rounded-2xl shadow-xl w-full max-w-2xl relative z-10 overflow-hidden max-h-[90vh] overflow-y-auto"
-                        >
-                            <div className="bg-purple-600 p-6 text-white flex justify-between items-center sticky top-0 z-10">
+            {activeTab === 'queue' && (
+                <>
+                    {/* Stats Cards */}
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                        <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm">
+                            <div className="flex items-center gap-3">
+                                <div className="p-2 bg-blue-50 rounded-lg text-blue-500"><Clock size={20} /></div>
                                 <div>
-                                    <h2 className="text-xl font-bold flex items-center gap-2">
-                                        <TestTube size={24} /> Enter Lab Results
-                                    </h2>
-                                    <p className="text-purple-200 text-sm mt-1">{selectedOrder.test?.testName} • {selectedOrder.testNumber}</p>
+                                    <div className="text-2xl font-bold text-slate-800">{stats.pending}</div>
+                                    <div className="text-xs text-gray-500">Pending Tests</div>
                                 </div>
-                                <button onClick={() => setShowResultModal(false)} className="hover:bg-white/20 p-2 rounded-lg transition-colors">
-                                    <X size={20} />
-                                </button>
                             </div>
-
-                            <div className="p-6">
-                                {/* Patient Info */}
-                                <div className="flex items-center gap-3 mb-6 p-4 bg-slate-50 rounded-xl">
-                                    <div className="w-12 h-12 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold">
-                                        {selectedOrder.patient?.firstName?.[0]}{selectedOrder.patient?.lastName?.[0]}
-                                    </div>
-                                    <div>
-                                        <div className="font-bold text-slate-800">{selectedOrder.patient?.firstName} {selectedOrder.patient?.lastName}</div>
-                                        <div className="text-sm text-gray-500">{selectedOrder.patient?.patientId}</div>
-                                    </div>
+                        </div>
+                        <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm">
+                            <div className="flex items-center gap-3">
+                                <div className="p-2 bg-emerald-50 rounded-lg text-emerald-500"><CheckCircle size={20} /></div>
+                                <div>
+                                    <div className="text-2xl font-bold text-slate-800">{stats.completedToday}</div>
+                                    <div className="text-xs text-gray-500">Completed Today</div>
                                 </div>
+                            </div>
+                        </div>
+                        <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm">
+                            <div className="flex items-center gap-3">
+                                <div className="p-2 bg-amber-50 rounded-lg text-amber-500"><AlertCircle size={20} /></div>
+                                <div>
+                                    <div className="text-2xl font-bold text-slate-800">{queue.filter(q => q.status === 'ordered').length}</div>
+                                    <div className="text-xs text-gray-500">Awaiting Sample</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-                                {/* Parameters Form */}
-                                <div className="space-y-4 mb-6">
-                                    <h3 className="font-bold text-slate-700 text-sm uppercase tracking-wider">Test Parameters</h3>
-                                    {resultData.length === 0 ? (
-                                        <p className="text-gray-500 text-sm">No parameters defined for this test. Please add manually.</p>
+                    {/* Work Queue Table */}
+                    <div className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+                        <div className="p-4 border-b border-gray-100 flex items-center justify-between">
+                            <h2 className="font-bold text-slate-800">Work Queue</h2>
+                            <button onClick={fetchData} className="text-sm text-gray-500 hover:text-primary">Refresh</button>
+                        </div>
+
+                        <div className="overflow-x-auto">
+                            <table className="w-full text-left">
+                                <thead className="bg-gray-50 text-gray-500 text-xs uppercase font-semibold">
+                                    <tr>
+                                        <th className="px-6 py-4">Test #</th>
+                                        <th className="px-6 py-4">Patient</th>
+                                        <th className="px-6 py-4">Test Name</th>
+                                        <th className="px-6 py-4">Status</th>
+                                        <th className="px-6 py-4">Ordered</th>
+                                        <th className="px-6 py-4 text-right">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody className="divide-y divide-gray-100">
+                                    {loading ? (
+                                        <tr><td colSpan="6" className="text-center py-10 text-gray-400">Loading queue...</td></tr>
+                                    ) : queue.length === 0 ? (
+                                        <tr><td colSpan="6" className="text-center py-10 text-gray-400">No pending tests in queue.</td></tr>
                                     ) : (
-                                        resultData.map((param, idx) => (
-                                            <div key={idx} className={`grid grid-cols-12 gap-3 items-center p-3 rounded-lg border transition-all duration-300 ${param.isCritical ? 'bg-red-100 border-red-300 shadow-[0_0_10px_rgba(239,68,68,0.3)]' :
-                                                    param.isAbnormal ? 'bg-amber-50 border-amber-200' :
-                                                        'bg-gray-50 border-gray-100'
-                                                }`}>
-                                                <div className="col-span-4">
-                                                    <div className={`font-medium ${param.isCritical ? 'text-red-700 font-bold' : 'text-slate-700'}`}>
-                                                        {param.parameter}
-                                                    </div>
-                                                    <div className="text-xs text-gray-400">Normal: {param.normalRange || 'N/A'}</div>
-                                                    {(param.criticalLow || param.criticalHigh) && (
-                                                        <div className="text-[10px] text-red-500 font-bold">
-                                                            Critical: {param.criticalLow ? `<${param.criticalLow}` : ''} {param.criticalHigh ? `>${param.criticalHigh}` : ''}
+                                        queue.map((order) => (
+                                            <tr key={order._id} className="hover:bg-gray-50/50 transition-colors">
+                                                <td className="px-6 py-4 font-mono text-sm text-slate-600">{order.testNumber}</td>
+                                                <td className="px-6 py-4">
+                                                    <div className="flex items-center gap-2">
+                                                        <div className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-xs font-bold text-slate-500">
+                                                            {order.patient?.firstName?.[0]}{order.patient?.lastName?.[0]}
                                                         </div>
-                                                    )}
-                                                </div>
-                                                <div className="col-span-5">
-                                                    <input
-                                                        type="text"
-                                                        className={`w-full px-3 py-2 border rounded-lg focus:ring-2 outline-none ${param.isCritical ? 'border-red-300 focus:ring-red-500/20 focus:border-red-500 text-red-700 font-bold' :
-                                                                'border-gray-200 focus:ring-purple-500/20 focus:border-purple-500'
-                                                            }`}
-                                                        placeholder="Enter value"
-                                                        value={param.value}
-                                                        onChange={(e) => handleResultChange(idx, e.target.value)}
-                                                    />
-                                                </div>
-                                                <div className="col-span-2 text-sm text-gray-500">{param.unit}</div>
-                                                <div className="col-span-1 flex justify-center">
-                                                    {param.isCritical ? (
-                                                        <motion.div
-                                                            animate={{ scale: [1, 1.2, 1] }}
-                                                            transition={{ repeat: Infinity, duration: 1.5 }}
-                                                            className="text-red-600 bg-white rounded-full p-1 shadow-sm"
-                                                            title="Critical Value!"
+                                                        <div>
+                                                            <div className="font-medium text-slate-700">{order.patient?.firstName} {order.patient?.lastName}</div>
+                                                            <div className="text-xs text-gray-400">{order.patient?.patientId}</div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td className="px-6 py-4 font-medium text-slate-700">{order.test?.testName || 'Unknown Test'}</td>
+                                                <td className="px-6 py-4">{getStatusBadge(order.status)}</td>
+                                                <td className="px-6 py-4 text-sm text-gray-500">{new Date(order.createdAt).toLocaleDateString()}</td>
+                                                <td className="px-6 py-4 text-right">
+                                                    {order.status === 'ordered' && (
+                                                        <button
+                                                            onClick={() => handleCollectSample(order._id)}
+                                                            className="px-3 py-1.5 bg-amber-500 text-white text-xs font-medium rounded-lg hover:bg-amber-600 transition-colors"
                                                         >
-                                                            <AlertTriangle size={20} fill="#fee2e2" />
-                                                        </motion.div>
-                                                    ) : param.isAbnormal ? (
-                                                        <span className="text-amber-500" title="Abnormal"><AlertCircle size={20} /></span>
-                                                    ) : null}
-                                                </div>
-                                            </div>
+                                                            Collect Sample
+                                                        </button>
+                                                    )}
+                                                    {order.status === 'sample-collected' && (
+                                                        <button
+                                                            onClick={() => openResultEntry(order)}
+                                                            className="px-3 py-1.5 bg-purple-500 text-white text-xs font-medium rounded-lg hover:bg-purple-600 transition-colors"
+                                                        >
+                                                            Enter Results
+                                                        </button>
+                                                    )}
+                                                </td>
+                                            </tr>
                                         ))
                                     )}
-                                </div>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
 
-                                {/* Remarks */}
-                                <div className="mb-6">
-                                    <label className="block text-sm font-medium text-gray-700 mb-1">Remarks / Notes</label>
-                                    <textarea
-                                        className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-purple-500/20 focus:border-purple-500 outline-none"
-                                        rows="3"
-                                        value={remarks}
-                                        onChange={(e) => setRemarks(e.target.value)}
-                                        placeholder="Any additional observations..."
-                                    ></textarea>
-                                </div>
-
-                                {/* PDF Upload Section */}
-                                <div className="mb-6 p-4 bg-blue-50 rounded-xl border border-blue-100">
-                                    <h3 className="font-bold text-blue-800 text-sm uppercase tracking-wider mb-3">📄 Upload Report PDF</h3>
-                                    <div className="flex items-center gap-3">
-                                        <input
-                                            type="file"
-                                            accept=".pdf"
-                                            onChange={(e) => setPdfFile(e.target.files[0])}
-                                            className="flex-1 text-sm text-gray-600 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:bg-blue-500 file:text-white file:font-medium hover:file:bg-blue-600 file:cursor-pointer"
-                                        />
-                                        <button
-                                            onClick={handleUploadPdf}
-                                            disabled={!pdfFile || uploading}
-                                            className="px-4 py-2 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
-                                        >
-                                            {uploading ? <Loader size={16} className="animate-spin" /> : null}
-                                            {uploading ? 'Uploading...' : 'Upload & Summarize'}
+                    {/* Result Entry Modal */}
+                    <AnimatePresence>
+                        {showResultModal && selectedOrder && (
+                            <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+                                <motion.div
+                                    initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+                                    className="absolute inset-0 bg-black/40 backdrop-blur-sm" onClick={() => setShowResultModal(false)}
+                                />
+                                <motion.div
+                                    initial={{ scale: 0.95, y: 20 }} animate={{ scale: 1, y: 0 }} exit={{ scale: 0.95, y: 20 }}
+                                    className="bg-white rounded-2xl shadow-xl w-full max-w-2xl relative z-10 overflow-hidden max-h-[90vh] overflow-y-auto"
+                                >
+                                    <div className="bg-purple-600 p-6 text-white flex justify-between items-center sticky top-0 z-10">
+                                        <div>
+                                            <h2 className="text-xl font-bold flex items-center gap-2">
+                                                <TestTube size={24} /> Enter Lab Results
+                                            </h2>
+                                            <p className="text-purple-200 text-sm mt-1">{selectedOrder.test?.testName} • {selectedOrder.testNumber}</p>
+                                        </div>
+                                        <button onClick={() => setShowResultModal(false)} className="hover:bg-white/20 p-2 rounded-lg transition-colors">
+                                            <X size={20} />
                                         </button>
                                     </div>
-                                    <p className="text-xs text-blue-600 mt-2">AI will extract key findings and generate a clinical summary.</p>
+
+                                    <div className="p-6">
+                                        {/* Patient Info */}
+                                        <div className="flex items-center gap-3 mb-6 p-4 bg-slate-50 rounded-xl">
+                                            <div className="w-12 h-12 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold">
+                                                {selectedOrder.patient?.firstName?.[0]}{selectedOrder.patient?.lastName?.[0]}
+                                            </div>
+                                            <div>
+                                                <div className="font-bold text-slate-800">{selectedOrder.patient?.firstName} {selectedOrder.patient?.lastName}</div>
+                                                <div className="text-sm text-gray-500">{selectedOrder.patient?.patientId}</div>
+                                            </div>
+                                        </div>
+
+                                        {/* Parameters Form */}
+                                        <div className="space-y-4 mb-6">
+                                            <h3 className="font-bold text-slate-700 text-sm uppercase tracking-wider">Test Parameters</h3>
+                                            {resultData.length === 0 ? (
+                                                <p className="text-gray-500 text-sm">No parameters defined for this test. Please add manually.</p>
+                                            ) : (
+                                                resultData.map((param, idx) => (
+                                                    <div key={idx} className={`grid grid-cols-12 gap-3 items-center p-3 rounded-lg border transition-all duration-300 ${param.isCritical ? 'bg-red-100 border-red-300 shadow-[0_0_10px_rgba(239,68,68,0.3)]' :
+                                                        param.isAbnormal ? 'bg-amber-50 border-amber-200' :
+                                                            'bg-gray-50 border-gray-100'
+                                                        }`}>
+                                                        <div className="col-span-4">
+                                                            <div className={`font-medium ${param.isCritical ? 'text-red-700 font-bold' : 'text-slate-700'}`}>
+                                                                {param.parameter}
+                                                            </div>
+                                                            <div className="text-xs text-gray-400">Normal: {param.normalRange || 'N/A'}</div>
+                                                            {(param.criticalLow || param.criticalHigh) && (
+                                                                <div className="text-[10px] text-red-500 font-bold">
+                                                                    Critical: {param.criticalLow ? `<${param.criticalLow}` : ''} {param.criticalHigh ? `>${param.criticalHigh}` : ''}
+                                                                </div>
+                                                            )}
+                                                        </div>
+                                                        <div className="col-span-5">
+                                                            <input
+                                                                type="text"
+                                                                className={`w-full px-3 py-2 border rounded-lg focus:ring-2 outline-none ${param.isCritical ? 'border-red-300 focus:ring-red-500/20 focus:border-red-500 text-red-700 font-bold' :
+                                                                    'border-gray-200 focus:ring-purple-500/20 focus:border-purple-500'
+                                                                    }`}
+                                                                placeholder="Enter value"
+                                                                value={param.value}
+                                                                onChange={(e) => handleResultChange(idx, e.target.value)}
+                                                            />
+                                                        </div>
+                                                        <div className="col-span-2 text-sm text-gray-500">{param.unit}</div>
+                                                        <div className="col-span-1 flex justify-center">
+                                                            {param.isCritical ? (
+                                                                <motion.div
+                                                                    animate={{ scale: [1, 1.2, 1] }}
+                                                                    transition={{ repeat: Infinity, duration: 1.5 }}
+                                                                    className="text-red-600 bg-white rounded-full p-1 shadow-sm"
+                                                                    title="Critical Value!"
+                                                                >
+                                                                    <AlertTriangle size={20} fill="#fee2e2" />
+                                                                </motion.div>
+                                                            ) : param.isAbnormal ? (
+                                                                <span className="text-amber-500" title="Abnormal"><AlertCircle size={20} /></span>
+                                                            ) : null}
+                                                        </div>
+                                                    </div>
+                                                ))
+                                            )}
+                                        </div>
+
+                                        {/* Remarks */}
+                                        <div className="mb-6">
+                                            <label className="block text-sm font-medium text-gray-700 mb-1">Remarks / Notes</label>
+                                            <textarea
+                                                className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-purple-500/20 focus:border-purple-500 outline-none"
+                                                rows="3"
+                                                value={remarks}
+                                                onChange={(e) => setRemarks(e.target.value)}
+                                                placeholder="Any additional observations..."
+                                            ></textarea>
+                                        </div>
+
+                                        {/* PDF Upload Section */}
+                                        <div className="mb-6 p-4 bg-blue-50 rounded-xl border border-blue-100">
+                                            <h3 className="font-bold text-blue-800 text-sm uppercase tracking-wider mb-3">📄 Upload Report PDF</h3>
+                                            <div className="flex items-center gap-3">
+                                                <input
+                                                    type="file"
+                                                    accept=".pdf"
+                                                    onChange={(e) => setPdfFile(e.target.files[0])}
+                                                    className="flex-1 text-sm text-gray-600 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:bg-blue-500 file:text-white file:font-medium hover:file:bg-blue-600 file:cursor-pointer"
+                                                />
+                                                <button
+                                                    onClick={handleUploadPdf}
+                                                    disabled={!pdfFile || uploading}
+                                                    className="px-4 py-2 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+                                                >
+                                                    {uploading ? <Loader size={16} className="animate-spin" /> : null}
+                                                    {uploading ? 'Uploading...' : 'Upload & Summarize'}
+                                                </button>
+                                            </div>
+                                            <p className="text-xs text-blue-600 mt-2">AI will extract key findings and generate a clinical summary.</p>
+                                        </div>
+
+                                        {/* Actions */}
+                                        <div className="flex justify-end gap-3">
+                                            <button
+                                                onClick={() => setShowResultModal(false)}
+                                                className="px-6 py-2.5 rounded-xl border border-gray-200 text-gray-600 font-medium hover:bg-gray-50 transition-colors"
+                                            >
+                                                Cancel
+                                            </button>
+                                            <button
+                                                onClick={handleSubmitResults}
+                                                disabled={submitting}
+                                                className="px-8 py-2.5 rounded-xl bg-purple-600 text-white font-bold hover:bg-purple-700 shadow-md shadow-purple-200 transition-all flex items-center gap-2 disabled:opacity-50"
+                                            >
+                                                {submitting ? <Loader size={18} className="animate-spin" /> : <Check size={18} />}
+                                                Save Results
+                                            </button>
+                                        </div>
+                                    </div>
+                                </motion.div>
+                            </div>
+                        )}
+                    </AnimatePresence>
+                </>
+            )}
+
+            {/* Billing Tab */}
+            {activeTab === 'billing' && (
+                <div className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+                    <div className="p-6 border-b border-gray-100 bg-gradient-to-r from-purple-50 to-blue-50">
+                        <h2 className="text-xl font-bold text-slate-800 flex items-center gap-2">
+                            <Receipt className="text-purple-500" />
+                            Generate Lab Bill
+                        </h2>
+                        <p className="text-sm text-gray-500 mt-1">
+                            Select completed lab tests to generate a bill
+                        </p>
+                    </div>
+
+                    {unbilledOrders.length === 0 ? (
+                        <div className="p-12 text-center">
+                            <CheckCircle size={48} className="mx-auto text-emerald-200 mb-4" />
+                            <h3 className="text-lg font-bold text-slate-400">All Billed</h3>
+                            <p className="text-gray-400">No unbilled lab tests at the moment.</p>
+                        </div>
+                    ) : (
+                        <>
+                            <div className="p-6">
+                                <div className="flex items-center justify-between mb-4">
+                                    <span className="text-sm font-medium text-gray-500">
+                                        {unbilledOrders.length} unbilled test(s)
+                                    </span>
+                                    <button
+                                        onClick={() => {
+                                            if (selectedForBilling.length === unbilledOrders.length) {
+                                                setSelectedForBilling([]);
+                                            } else {
+                                                setSelectedForBilling(unbilledOrders.map(o => o._id));
+                                            }
+                                        }}
+                                        className="text-sm text-purple-600 font-medium hover:underline"
+                                    >
+                                        {selectedForBilling.length === unbilledOrders.length ? 'Deselect All' : 'Select All'}
+                                    </button>
                                 </div>
 
-                                {/* Actions */}
-                                <div className="flex justify-end gap-3">
-                                    <button
-                                        onClick={() => setShowResultModal(false)}
-                                        className="px-6 py-2.5 rounded-xl border border-gray-200 text-gray-600 font-medium hover:bg-gray-50 transition-colors"
-                                    >
-                                        Cancel
-                                    </button>
-                                    <button
-                                        onClick={handleSubmitResults}
-                                        disabled={submitting}
-                                        className="px-8 py-2.5 rounded-xl bg-purple-600 text-white font-bold hover:bg-purple-700 shadow-md shadow-purple-200 transition-all flex items-center gap-2 disabled:opacity-50"
-                                    >
-                                        {submitting ? <Loader size={18} className="animate-spin" /> : <Check size={18} />}
-                                        Save Results
-                                    </button>
+                                <div className="space-y-3">
+                                    {unbilledOrders.map((order) => {
+                                        const isSelected = selectedForBilling.includes(order._id);
+                                        return (
+                                            <div
+                                                key={order._id}
+                                                onClick={() => {
+                                                    setSelectedForBilling(prev =>
+                                                        prev.includes(order._id)
+                                                            ? prev.filter(id => id !== order._id)
+                                                            : [...prev, order._id]
+                                                    );
+                                                }}
+                                                className={`flex items-center gap-4 p-4 rounded-xl border cursor-pointer transition-colors ${isSelected
+                                                        ? 'bg-purple-50 border-purple-200'
+                                                        : 'bg-white border-gray-100 hover:bg-gray-50'
+                                                    }`}
+                                            >
+                                                <div className={`w-5 h-5 rounded border-2 flex items-center justify-center ${isSelected ? 'bg-purple-500 border-purple-500' : 'border-gray-300'
+                                                    }`}>
+                                                    {isSelected && <Check size={12} className="text-white" />}
+                                                </div>
+
+                                                <div className="flex-1">
+                                                    <div className="flex items-center gap-2">
+                                                        <span className="font-mono text-sm text-purple-600 font-bold">
+                                                            {order.testNumber}
+                                                        </span>
+                                                        <span className="text-sm text-gray-400">•</span>
+                                                        <span className="text-sm text-gray-600">
+                                                            {order.patient?.firstName} {order.patient?.lastName}
+                                                        </span>
+                                                    </div>
+                                                    <p className="text-sm text-slate-700 font-medium mt-1">
+                                                        {order.test?.testName || 'Lab Test'}
+                                                    </p>
+                                                </div>
+
+                                                <div className="text-right">
+                                                    <p className="font-bold text-slate-800">₹{order.test?.price || 0}</p>
+                                                </div>
+                                            </div>
+                                        );
+                                    })}
                                 </div>
                             </div>
-                        </motion.div>
-                    </div>
-                )}
-            </AnimatePresence>
+
+                            {selectedForBilling.length > 0 && (
+                                <div className="p-6 border-t border-gray-100 bg-gray-50 flex justify-between items-center">
+                                    <div>
+                                        <p className="font-bold text-slate-800">
+                                            {selectedForBilling.length} test(s) selected
+                                        </p>
+                                        <p className="text-sm text-gray-500">
+                                            Total: ₹{unbilledOrders
+                                                .filter(o => selectedForBilling.includes(o._id))
+                                                .reduce((sum, o) => sum + (o.test?.price || 0), 0)}
+                                        </p>
+                                    </div>
+                                    <button
+                                        onClick={handleGenerateBill}
+                                        disabled={generatingBill}
+                                        className="px-6 py-3 bg-purple-600 text-white font-bold rounded-xl hover:bg-purple-700 shadow-lg shadow-purple-200 flex items-center gap-2 disabled:opacity-50"
+                                    >
+                                        {generatingBill ? (
+                                            <Loader2 size={20} className="animate-spin" />
+                                        ) : (
+                                            <Receipt size={20} />
+                                        )}
+                                        {generatingBill ? 'Generating...' : 'Generate Bill'}
+                                    </button>
+                                </div>
+                            )}
+                        </>
+                    )}
+                </div>
+            )}
         </div>
     );
 };
 
 export default Laboratory;
+

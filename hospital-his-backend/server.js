@@ -53,6 +53,8 @@ const adminBreakGlassRoutes = require('./routes/adminBreakGlass.routes');
 const inventoryManagerRoutes = require('./routes/inventoryManager.routes');
 const clinicalCodingRoutes = require('./routes/clinicalCoding.routes');
 const incidentRoutes = require('./routes/incident.routes');
+const systemSettingsRoutes = require('./routes/systemSettings.routes');
+const departmentBillingRoutes = require('./routes/departmentBilling.routes');
 
 // Initialize Express app
 const app = express();
@@ -98,9 +100,9 @@ const limiter = rateLimit({
 });
 app.use('/api/', limiter);
 
-// Body parser
-app.use(express.json({ limit: '10mb' }));
-app.use(express.urlencoded({ extended: true, limit: '10mb' }));
+// Body parser (increased limit for ID document images)
+app.use(express.json({ limit: '20mb' }));
+app.use(express.urlencoded({ extended: true, limit: '20mb' }));
 
 // Static file serving for uploads (lab reports, etc.)
 const path = require('path');
@@ -171,6 +173,8 @@ app.use(`${API_PREFIX}/admin/break-glass`, adminBreakGlassRoutes);
 app.use(`${API_PREFIX}/inventory-manager`, inventoryManagerRoutes);
 app.use(`${API_PREFIX}/clinical-coding`, clinicalCodingRoutes);
 app.use(`${API_PREFIX}/incidents`, incidentRoutes);
+app.use(`${API_PREFIX}/system-settings`, systemSettingsRoutes);
+app.use(`${API_PREFIX}/department-billing`, departmentBillingRoutes);
 app.use(`${API_PREFIX}/nursing`, nursingRoutes);
 
 // 404 handler for undefined routes

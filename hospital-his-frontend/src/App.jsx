@@ -40,6 +40,7 @@ import Compliance from './pages/admin/Compliance';
 import MasterData from './pages/admin/MasterData';
 import Departments from './pages/admin/Departments';
 import SystemHealth from './pages/admin/SystemHealth';
+import SystemSettingsPage from './pages/admin/SystemSettingsPage';
 
 import AdminGuard from './components/guards/AdminGuard';
 import ClinicalGuard from './components/guards/ClinicalGuard';
@@ -132,6 +133,7 @@ function App() {
             <Route path="master-data" element={<MasterData />} />
             <Route path="departments" element={<Departments />} />
             <Route path="system" element={<SystemHealth />} />
+            <Route path="settings" element={<SystemSettingsPage />} />
           </Route>
 
           {/* Inventory Manager Routes */}

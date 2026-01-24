@@ -10,9 +10,13 @@ const clinicalCodingController = require('../controllers/clinicalCoding.controll
 const { authenticate } = require('../middleware/auth.middleware');
 const { authorize, hasPermission } = require('../middleware/rbac.middleware');
 const { auditLog, AUDIT_ACTIONS, RESOURCE_TYPES } = require('../middleware/audit.middleware');
+const { checkClinicalCodingEnabled, attachCodingStatus } = require('../middleware/clinicalCoding.middleware');
 
 // All routes require authentication
 router.use(authenticate);
+
+// Attach coding status to all requests (for UI awareness)
+router.use(attachCodingStatus);
 
 // ═══════════════════════════════════════════════════════════════════════════════
 // PROCEDURE CODES (Master Data)

@@ -17,6 +17,18 @@ exports.createAppointment = asyncHandler(async (req, res, next) => {
     const appointment = await Appointment.create(req.body);
     await appointment.populate(['patient', 'doctor', 'department']);
 
+    // Emit socket event for real-time dashboard updates
+    const io = req.app.get('io');
+    if (io) {
+        io.emit('appointment-updated', {
+            id: appointment._id,
+            status: appointment.status,
+            type: 'new',
+            time: new Date()
+        });
+        console.log(`[OPD] Emitted appointment-updated event for new appointment ${appointment._id}`);
+    }
+
     res.status(201).json({
         success: true,
         data: appointment,
@@ -220,6 +232,17 @@ exports.updateAppointment = asyncHandler(async (req, res, next) => {
         }
     }
 
+    // Emit socket event for real-time dashboard updates
+    const io = req.app.get('io');
+    if (io) {
+        io.emit('appointment-updated', {
+            id: appointment._id,
+            status: appointment.status,
+            time: new Date()
+        });
+        console.log(`[OPD] Emitted appointment-updated event for ${appointment._id}`);
+    }
+
     res.status(200).json({
         success: true,
         data: appointment,
@@ -269,6 +292,16 @@ exports.checkInPatient = asyncHandler(async (req, res, next) => {
     appointment.status = APPOINTMENT_STATUS.CHECKED_IN;
     appointment.tokenNumber = tokenCount + 1;
     await appointment.save();
+
+    // Emit socket event for real-time dashboard updates
+    const io = req.app.get('io');
+    if (io) {
+        io.emit('appointment-updated', {
+            id: appointment._id,
+            status: appointment.status,
+            time: new Date()
+        });
+    }
 
     res.status(200).json({
         success: true,

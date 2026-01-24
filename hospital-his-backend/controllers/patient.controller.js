@@ -4,13 +4,69 @@ const Appointment = require('../models/Appointment');
 const Admission = require('../models/Admission');
 const asyncHandler = require('../utils/asyncHandler');
 const ErrorResponse = require('../utils/errorResponse');
+const fs = require('fs');
+const path = require('path');
+const logger = require('../utils/logger');
 
 /**
  * @desc    Create a new patient
  * @route   POST /api/patients
  */
 exports.createPatient = asyncHandler(async (req, res, next) => {
-    const patient = await Patient.create(req.body);
+    const patientData = { ...req.body };
+
+    // Handle ID Document Image Upload
+    if (req.body.idDocumentImage) {
+        try {
+            // Extract base64 data
+            const base64Data = req.body.idDocumentImage.replace(/^data:image\/\w+;base64,/, '');
+            const buffer = Buffer.from(base64Data, 'base64');
+
+            // Create unique filename
+            const timestamp = Date.now();
+            const filename = `id_${timestamp}.jpg`;
+            const uploadDir = path.join(__dirname, '..', 'uploads', 'id-documents');
+
+            // Ensure directory exists
+            if (!fs.existsSync(uploadDir)) {
+                fs.mkdirSync(uploadDir, { recursive: true });
+            }
+
+            const filePath = path.join(uploadDir, filename);
+            fs.writeFileSync(filePath, buffer);
+
+            // Set idDocument fields
+            patientData.idDocument = {
+                hasOptedIn: true,
+                imagePath: `uploads/id-documents/${filename}`,
+                capturedAt: new Date(),
+                capturedBy: req.user?.id || null,
+                disclaimer: 'For identification assistance only. Not government authentication.'
+            };
+
+            logger.info(`[PatientRegistration] ID Document captured for new patient by user ${req.user?.id}`);
+        } catch (err) {
+            logger.error(`[PatientRegistration] Failed to save ID document: ${err.message}`);
+            // Don't block registration if ID save fails
+        }
+
+        // Remove base64 from data being saved to DB
+        delete patientData.idDocumentImage;
+    }
+
+    const patient = await Patient.create(patientData);
+
+    // Emit socket event
+    const io = req.app.get('io');
+    if (io) {
+        io.emit('patient-registered', {
+            id: patient._id,
+            name: `${patient.firstName} ${patient.lastName}`,
+            time: new Date()
+        });
+    }
+
+    logger.info(`[PatientRegistration] New patient registered: ${patient.patientId} - ${patient.firstName} ${patient.lastName}`);
 
     res.status(201).json({
         success: true,

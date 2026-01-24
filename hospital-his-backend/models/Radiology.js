@@ -69,6 +69,15 @@ const radiologySchema = new mongoose.Schema(
         reportUrl: {
             type: String,
         },
+        isBilled: {
+            type: Boolean,
+            default: false,
+        },
+        // Department billing link
+        departmentBill: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'DepartmentBill',
+        },
     },
     {
         timestamps: true,

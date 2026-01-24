@@ -95,6 +95,11 @@ const labTestSchema = new mongoose.Schema(
             type: Boolean,
             default: false,
         },
+        // Department billing link
+        departmentBill: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'DepartmentBill',
+        },
     },
     {
         timestamps: true,

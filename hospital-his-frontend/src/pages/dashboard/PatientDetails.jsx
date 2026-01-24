@@ -116,6 +116,42 @@ const PatientDetails = () => {
                             <MapPin size={16} className="text-gray-400" /> {patient.address?.city || 'Unknown City'}
                         </div>
                     </div>
+
+                    {/* Identification Mark - visible to all */}
+                    {patient.identificationMark && (
+                        <div className="mt-4 p-3 bg-amber-50 border border-amber-100 rounded-xl">
+                            <div className="flex items-start gap-2">
+                                <span className="text-amber-500 mt-0.5">🔖</span>
+                                <div>
+                                    <div className="text-xs font-bold text-amber-700 uppercase tracking-wider mb-0.5">Identification Mark</div>
+                                    <div className="text-sm text-amber-900">{patient.identificationMark}</div>
+                                </div>
+                            </div>
+                        </div>
+                    )}
+
+                    {/* ID Document indicator - read-only for doctors */}
+                    {patient.idDocument?.hasOptedIn && patient.idDocument?.imagePath && (
+                        <div className="mt-4 p-3 bg-blue-50 border border-blue-100 rounded-xl">
+                            <div className="flex items-center gap-2">
+                                <span className="text-blue-500">🪪</span>
+                                <div className="flex-1">
+                                    <div className="text-xs font-bold text-blue-700 uppercase tracking-wider">ID Document on File</div>
+                                    <div className="text-[10px] text-blue-500 mt-0.5">{patient.idDocument.disclaimer}</div>
+                                </div>
+                                {!isDoctor && (
+                                    <a
+                                        href={`http://localhost:5001/${patient.idDocument.imagePath}`}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="px-3 py-1.5 bg-blue-100 text-blue-600 text-xs font-medium rounded-lg hover:bg-blue-200"
+                                    >
+                                        View ID
+                                    </a>
+                                )}
+                            </div>
+                        </div>
+                    )}
                 </div>
             </div>
 

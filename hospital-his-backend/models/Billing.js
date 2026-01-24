@@ -146,6 +146,29 @@ const billingSchema = new mongoose.Schema(
             enum: ['none', 'pending', 'submitted', 'approved', 'rejected', 'settled'],
             default: 'none',
         },
+        // Department Bills Tracking (for central billing reconciliation)
+        departmentBills: [{
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'DepartmentBill',
+        }],
+        // Department-wise payment summary (auto-calculated)
+        departmentPayments: {
+            pharmacy: {
+                total: { type: Number, default: 0 },
+                paid: { type: Number, default: 0 },
+                status: { type: String, enum: ['none', 'pending', 'partial', 'paid'], default: 'none' },
+            },
+            laboratory: {
+                total: { type: Number, default: 0 },
+                paid: { type: Number, default: 0 },
+                status: { type: String, enum: ['none', 'pending', 'partial', 'paid'], default: 'none' },
+            },
+            radiology: {
+                total: { type: Number, default: 0 },
+                paid: { type: Number, default: 0 },
+                status: { type: String, enum: ['none', 'pending', 'partial', 'paid'], default: 'none' },
+            },
+        },
         // Discount Approval Workflow
         discountRequest: {
             amount: { type: Number, default: 0 },

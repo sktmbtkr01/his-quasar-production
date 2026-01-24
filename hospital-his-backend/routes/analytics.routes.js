@@ -31,6 +31,12 @@ router.get('/financial', authorize('billing', 'admin'), analyticsController.getF
 router.get('/operational', authorize('admin'), analyticsController.getOperationalAnalytics);
 
 /**
+ * @route   GET /api/analytics/reception
+ * @desc    Get receptionist dashboard analytics
+ */
+router.get('/reception', authorize('receptionist', 'admin'), analyticsController.getReceptionistAnalytics);
+
+/**
  * @route   GET /api/analytics/reports
  * @desc    Get available reports
  */
