@@ -36,6 +36,23 @@ exports.login = asyncHandler(async (req, res, next) => {
         return next(new ErrorResponse('Invalid credentials', 401));
     }
 
+    // Check if account is pending approval
+    if (user.accountStatus === 'pending_approval') {
+        return res.status(200).json({
+            success: true,
+            pendingApproval: true,
+            message: 'Your account is awaiting approval from the administrator.',
+            user: {
+                id: user._id,
+                username: user.username,
+                email: user.email,
+                role: user.role,
+                accountStatus: user.accountStatus,
+                profile: user.profile,
+            },
+        });
+    }
+
     // Update last login
     user.lastLogin = new Date();
     await user.save();

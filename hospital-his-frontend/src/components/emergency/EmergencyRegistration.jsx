@@ -123,6 +123,12 @@ const EmergencyRegistration = ({ onClose }) => {
         if (!validate()) return;
 
         // Create the case object
+        // clean vitals - remove empty strings to avoid CastErrors
+        const cleanedVitals = Object.fromEntries(
+            Object.entries(formData.vitals).filter(([_, v]) => v !== '' && v !== null && v !== undefined)
+        );
+
+        // Create the case object
         const caseData = {
             patient: registrationMode === 'existing' ? selectedPatient._id : {
                 firstName: formData.firstName,
@@ -136,9 +142,7 @@ const EmergencyRegistration = ({ onClose }) => {
             triageLevel: formData.triageLevel,
             status: 'registered',
             arrivalTime: new Date().toISOString(),
-            vitals: {
-                ...formData.vitals
-            }
+            vitals: cleanedVitals
         };
 
         const resultAction = await dispatch(createEmergencyCase(caseData));

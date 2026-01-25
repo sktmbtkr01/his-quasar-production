@@ -1,21 +1,29 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { logout, reset } from '../../features/auth/authSlice';
-import { Menu, Bell, User, LogOut, ChevronDown, Search } from 'lucide-react';
+import { fetchDashboardStats } from '../../features/emergency/emergencySlice';
+import { Menu, Bell, User, LogOut, ChevronDown, Search, Ambulance } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Header = ({ toggleSidebar }) => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const { user } = useSelector((state) => state.auth);
+    const { dashboardStats } = useSelector((state) => state.emergency);
     const [showProfileMenu, setShowProfileMenu] = useState(false);
+
+    useEffect(() => {
+        dispatch(fetchDashboardStats());
+    }, [dispatch]);
 
     const handleLogout = () => {
         dispatch(logout());
         dispatch(reset());
         navigate('/login');
     };
+
+    const activeEmergencyCount = dashboardStats?.activeCount || 0;
 
     return (
         <header className="h-16 bg-white border-b border-gray-200 flex items-center justify-between px-4 md:px-6 sticky top-0 z-30">
@@ -47,10 +55,26 @@ const Header = ({ toggleSidebar }) => {
 
             {/* Right: Actions */}
             <div className="flex items-center gap-3 md:gap-4">
+                {/* Emergency Alert Badge - Only for clinical staff */}
+                {activeEmergencyCount > 0 && ['doctor', 'nurse', 'head_nurse', 'receptionist'].includes(user?.role) && (
+                    <motion.button
+                        initial={{ scale: 0.8, opacity: 0 }}
+                        animate={{ scale: 1, opacity: 1 }}
+                        onClick={() => navigate('/dashboard/emergency')}
+                        className="flex items-center gap-2 px-3 py-1.5 bg-red-50 text-red-600 rounded-full border border-red-100 hover:bg-red-100 transition-colors mr-1"
+                    >
+                        <span className="relative flex h-2 w-2">
+                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                            <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
+                        </span>
+                        <span className="text-xs font-bold">ER: {activeEmergencyCount}</span>
+                    </motion.button>
+                )}
+
                 {/* Notifications */}
                 <button className="relative p-2 rounded-lg text-gray-500 hover:bg-slate-50 hover:text-primary transition-colors">
                     <Bell size={20} />
-                    <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-red-500 rounded-full border border-white"></span>
+                    {/* <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-red-500 rounded-full border border-white"></span> */}
                 </button>
 
                 {/* Profile Dropdown */}

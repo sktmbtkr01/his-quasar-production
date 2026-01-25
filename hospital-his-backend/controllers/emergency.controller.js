@@ -29,7 +29,7 @@ exports.createEmergencyCase = asyncHandler(async (req, res, next) => {
             lastName: patientData.lastName,
             dateOfBirth: patientData.dateOfBirth || (patientData.age ? new Date(new Date().setFullYear(new Date().getFullYear() - patientData.age)) : null),
             gender: normalizedGender,
-            phone: patientData.contactNumber, // Mapping contactNumber to phone
+            phone: patientData.contactNumber || '0000000000', // Mapping contactNumber to phone with fallback
             email: patientData.email,
             address: {
                 street: patientData.address || '',

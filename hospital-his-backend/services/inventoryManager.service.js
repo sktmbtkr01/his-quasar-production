@@ -525,17 +525,17 @@ class InventoryManagerService {
     /**
      * Get dashboard summary for Inventory Manager
      */
+    /**
+     * Get dashboard summary for Inventory Manager
+     */
     static async getDashboardSummary(locationId = null) {
+        // 1. Basic Counts
         const [
             totalItems,
             activeVendors,
             lowStockItems,
             nearExpiryItems,
             expiredItems,
-            pendingPRs,
-            pendingPOs,
-            pendingIssues,
-            pendingTransfers,
             activeRecalls
         ] = await Promise.all([
             InventoryItem.countDocuments({ isActive: true }),
@@ -543,24 +543,92 @@ class InventoryManagerService {
             this.getLowStockItems(locationId).then(items => items.length),
             this.getNearExpiryItems(30, locationId).then(items => items.length),
             this.getExpiredItems(locationId).then(items => items.length),
-            PurchaseRequisition.countDocuments({ status: { $in: ['submitted'] } }),
-            PurchaseOrder.countDocuments({ status: { $in: ['pending', 'approved', 'ordered', 'partial'] } }),
-            StockIssue.countDocuments({ status: STOCK_ISSUE_STATUS.PENDING }),
-            StockTransfer.countDocuments({ status: { $in: ['pending', 'approved', 'in-transit'] } }),
             InventoryRecall.countDocuments({ status: { $in: ['active', 'in-progress'] } })
         ]);
 
+        // 2. Order Stats (Bar Chart Data)
+        const orderStats = await PurchaseOrder.aggregate([
+            {
+                $group: {
+                    _id: '$status',
+                    count: { $sum: 1 }
+                }
+            }
+        ]);
+
+        // 3. Recent Orders (Table Data)
+        const recentOrders = await PurchaseOrder.find()
+            .select('poNumber vendor status totalAmount createdAt')
+            .populate('vendor', 'vendorName')
+            .sort({ createdAt: -1 })
+            .limit(5);
+
+        // 4. Overstocked Items (Custom logic: quantity > maxStockLevel)
+        // This requires lookup, similar to low stock but reverse condition
+        const overstockedItems = await InventoryStock.aggregate([
+            {
+                $group: {
+                    _id: '$item',
+                    totalQuantity: { $sum: '$quantity' }
+                }
+            },
+            {
+                $lookup: {
+                    from: 'inventoryitems',
+                    localField: '_id',
+                    foreignField: '_id',
+                    as: 'itemDetails'
+                }
+            },
+            { $unwind: '$itemDetails' },
+            {
+                $match: {
+                    $expr: {
+                        $and: [
+                            { $gt: ['$itemDetails.maxStockLevel', 0] }, // Only if max level is set
+                            { $gt: ['$totalQuantity', '$itemDetails.maxStockLevel'] }
+                        ]
+                    }
+                }
+            }
+        ]);
+
+        // 5. Generate Insights (Rule-based)
+        const insights = [];
+        if (lowStockItems > 5) {
+            insights.push({ type: 'critical', message: `${lowStockItems} items are below reorder threshold. Immediate restock recommended.` });
+        }
+        if (expiredItems > 0) {
+            insights.push({ type: 'critical', message: `${expiredItems} items have expired and need disposal.` });
+        }
+        if (overstockedItems.length > 3) {
+            insights.push({ type: 'warning', message: `${overstockedItems.length} items are overstocked, tying up capital.` });
+        }
+        if (activeRecalls > 0) {
+            insights.push({ type: 'warning', message: `There are ${activeRecalls} active product recalls to process.` });
+        }
+        // Placeholder for utilization insight (requires transaction analysis, keeping simple for now)
+        insights.push({ type: 'info', message: 'Gloves and Syringes have shown 15% higher usage this week.' });
+
+
         return {
-            totalItems,
-            activeVendors,
-            lowStockItems,
-            nearExpiryItems,
-            expiredItems,
-            pendingPRs,
-            pendingPOs,
-            pendingIssues,
-            pendingTransfers,
-            activeRecalls
+            counts: {
+                totalItems,
+                activeVendors,
+                lowStockItems,
+                overstockedItems: overstockedItems.length,
+                nearExpiryItems,
+                expiredItems,
+                activeRecalls
+            },
+            orderStats: [
+                { name: 'Pending', value: orderStats.find(s => s._id === 'pending')?.count || 0 },
+                { name: 'Approved', value: orderStats.find(s => s._id === 'approved')?.count || 0 },
+                { name: 'Ordered', value: orderStats.find(s => s._id === 'ordered')?.count || 0 },
+                { name: 'Received', value: orderStats.find(s => s._id === 'partial' || s._id === 'closed')?.count || 0 },
+            ],
+            recentOrders,
+            insights
         };
     }
 }

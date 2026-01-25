@@ -29,6 +29,9 @@ const auditLogSchema = new mongoose.Schema(
                 'handover_create', 'handover_acknowledge',
                 'alert_acknowledge', 'alert_resolve', 'alert_escalate',
                 'shift_assign',
+                // Onboarding operations
+                'onboarding_id_generate', 'onboarding_id_use',
+                'user_signup', 'user_approve', 'user_reject',
                 // Other
                 'other'
             ],

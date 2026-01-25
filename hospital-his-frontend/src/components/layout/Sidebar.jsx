@@ -6,13 +6,15 @@ import {
     FlaskConical, Pill, FileText, Settings,
     Menu, X, Activity, ShieldCheck, Database,
     Banknote, ScanLine, Siren, Scissors, ClipboardList, BedDouble, Ambulance,
-    FileCode, CheckSquare, AlertCircle
+    FileCode, CheckSquare, AlertCircle, UserPlus, Package, Moon, Sun
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useTheme } from '../../context/ThemeContext';
 import systemSettingsService from '../../services/systemSettings.service';
 
 const Sidebar = ({ isOpen, toggleSidebar }) => {
     const { user } = useSelector((state) => state.auth);
+    const { theme, toggleTheme } = useTheme();
     const role = user?.role || 'guest';
     const [clinicalCodingEnabled, setClinicalCodingEnabled] = useState(true);
 
@@ -42,7 +44,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
             title: 'Dashboard',
             path: '/dashboard',
             icon: <LayoutDashboard size={20} />,
-            roles: ['doctor', 'nurse', 'receptionist', 'pharmacist', 'lab_tech', 'billing', 'head_nurse'] // REMOVED 'admin'
+            roles: ['doctor', 'nurse', 'receptionist', 'pharmacist', 'lab_tech', 'radiologist', 'billing', 'head_nurse'] // REMOVED 'admin'
         },
         {
             title: 'Patients',
@@ -145,7 +147,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
             title: 'Billing',
             path: '/dashboard/billing',
             icon: <Banknote size={20} />,
-            roles: ['billing', 'receptionist']
+            roles: ['billing']
         },
         {
             title: 'Insurance',
@@ -170,6 +172,34 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
             path: '/dashboard/department-incidents',
             icon: <Database size={20} />,
             roles: ['head_nurse', 'compliance', 'admin']
+        },
+
+        // -------------------------------------------------------------------------
+        // INVENTORY MANAGER (Inventory Manager Only)
+        // -------------------------------------------------------------------------
+        {
+            title: 'Inventory Dashboard',
+            path: '/inventory',
+            icon: <LayoutDashboard size={20} />,
+            roles: ['inventory_manager']
+        },
+        {
+            title: 'Inventory Items',
+            path: '/inventory/items',
+            icon: <Package size={20} />,
+            roles: ['inventory_manager']
+        },
+        {
+            title: 'Purchase Orders',
+            path: '/inventory/purchase-orders',
+            icon: <ClipboardList size={20} />,
+            roles: ['inventory_manager']
+        },
+        {
+            title: 'Stock Operations',
+            path: '/inventory/stock-issues',
+            icon: <Activity size={20} />,
+            roles: ['inventory_manager']
         },
 
         // -------------------------------------------------------------------------
@@ -217,6 +247,12 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
             title: 'User Management',
             path: '/admin/users',
             icon: <Users size={20} />,
+            roles: ['admin']
+        },
+        {
+            title: 'Staff Onboarding',
+            path: '/admin/staff-onboarding',
+            icon: <UserPlus size={20} />,
             roles: ['admin']
         },
         {
@@ -303,25 +339,25 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
 
             {/* Sidebar Container */}
             <motion.aside
-                className={`fixed left-0 top-0 bottom-0 z-50 bg-white border-r border-gray-200 w-64 shadow-xl md:shadow-none md:translate-x-0 transition-transform duration-300 ${isOpen ? 'translate-x-0' : '-translate-x-full'
+                className={`fixed left-0 top-0 bottom-0 z-50 bg-surface dark:bg-stone-900 border-r border-slate-200 dark:border-stone-800 w-64 shadow-xl md:shadow-none md:translate-x-0 transition-all duration-300 ${isOpen ? 'translate-x-0' : '-translate-x-full'
                     }`}
             >
                 <div className="h-full flex flex-col">
                     {/* Logo */}
-                    <div className="h-16 flex items-center px-6 border-b border-gray-100">
+                    <div className="h-16 flex items-center px-6 border-b border-slate-200 dark:border-stone-800">
                         <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-white mr-3">
                             <Activity size={18} />
                         </div>
-                        <span className="font-bold text-lg text-secondary-dark tracking-tight">HIS Quasar</span>
-                        <button onClick={toggleSidebar} className="ml-auto md:hidden text-gray-500">
+                        <span className="font-bold text-lg text-textPrimary tracking-tight">HIS Quasar</span>
+                        <button onClick={toggleSidebar} className="ml-auto md:hidden text-textSecondary">
                             <X size={20} />
                         </button>
                     </div>
 
                     {/* User Role Badge */}
-                    <div className="px-6 py-4 bg-slate-50 border-b border-gray-100">
-                        <p className="text-xs uppercase tracking-wider text-gray-400 font-bold mb-1">Signed in as</p>
-                        <p className="font-semibold text-secondary-dark capitalize">{role.replace('_', ' ')}</p>
+                    <div className="px-6 py-4 bg-slate-50 dark:bg-stone-800 border-b border-slate-200 dark:border-stone-800">
+                        <p className="text-xs uppercase tracking-wider text-textSecondary font-bold mb-1">Signed in as</p>
+                        <p className="font-semibold text-textPrimary capitalize">{role.replace('_', ' ')}</p>
                     </div>
 
                     {/* Navigation */}
@@ -335,7 +371,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
                   flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-200
                   ${isActive
                                         ? 'bg-primary/10 text-primary shadow-sm'
-                                        : 'text-secondary hover:bg-slate-50 hover:text-secondary-dark'
+                                        : 'text-textSecondary hover:bg-slate-50 dark:hover:bg-stone-800 hover:text-textPrimary'
                                     }
                 `}
                             >
@@ -345,9 +381,24 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
                         ))}
                     </nav>
 
-                    {/* Footer Info */}
-                    <div className="p-4 border-t border-gray-100 text-xs text-center text-gray-400">
-                        v1.0.0 • HIS Quasar
+                    {/* Theme Toggle & Footer */}
+                    <div className="p-4 border-t border-slate-200 dark:border-stone-800 flex flex-col gap-4">
+                        <button
+                            onClick={toggleTheme}
+                            className="flex items-center justify-between px-3 py-2 rounded-lg bg-slate-50 dark:bg-stone-800 hover:bg-slate-100 dark:hover:bg-stone-700 transition-colors text-sm font-medium text-textSecondary"
+                        >
+                            <span className="flex items-center gap-2">
+                                {theme === 'dark' ? <Moon size={16} /> : <Sun size={16} />}
+                                {theme === 'dark' ? 'Night Mode' : 'Day Mode'}
+                            </span>
+                            <div className={`w-8 h-4 rounded-full p-0.5 transition-colors ${theme === 'dark' ? 'bg-indigo-500' : 'bg-slate-300'}`}>
+                                <div className={`w-3 h-3 bg-white rounded-full shadow-sm transition-transform ${theme === 'dark' ? 'translate-x-4' : 'translate-x-0'}`} />
+                            </div>
+                        </button>
+
+                        <div className="text-xs text-center text-textSecondary">
+                            v1.0.0 • HIS Quasar
+                        </div>
                     </div>
                 </div>
             </motion.aside>

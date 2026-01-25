@@ -4,7 +4,7 @@ import { getClinicalStats } from '../../features/analytics/analyticsSlice';
 import {
     Users, Calendar, Clock, Activity, TrendingUp, RefreshCw,
     AlertTriangle, FileText, Stethoscope, ChevronRight, Bell,
-    BedDouble, ExternalLink
+    BedDouble, ExternalLink, CheckCircle
 } from 'lucide-react';
 import { format, formatDistanceToNow } from 'date-fns';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -35,52 +35,63 @@ const CountUp = ({ value, duration = 800 }) => {
     return <span>{count}</span>;
 };
 
-// Enhanced StatCard with click-through behavior
-const StatCard = ({ title, value, subtext, icon: Icon, color, onClick, isLoading, delay = 0, highlight }) => (
-    <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay }}
-        whileHover={{ y: -4, boxShadow: "0 12px 30px -8px rgba(0, 0, 0, 0.15)" }}
-        onClick={onClick}
-        className={`bg-white p-6 rounded-2xl border shadow-sm transition-all relative overflow-hidden group ${onClick ? 'cursor-pointer' : ''} ${highlight ? 'border-amber-200 ring-2 ring-amber-100' : 'border-gray-100'}`}
-    >
-        {highlight && (
-            <div className="absolute top-3 right-3">
-                <span className="flex h-2 w-2">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
-                </span>
-            </div>
-        )}
-        <div className={`absolute top-0 right-0 w-28 h-28 ${color} bg-opacity-5 rounded-bl-[80px] -mr-8 -mt-8 transition-transform group-hover:scale-110 duration-500`} />
+// Enhanced StatCard with click-through behavior and subtle styling
+const StatCard = ({ title, value, subtext, icon: Icon, color, onClick, isLoading, delay = 0, highlight }) => {
+    // Determine gradient/border styles based on base color (e.g., bg-blue-500)
+    const baseColorName = color.split('-')[1]; // 'blue', 'purple', 'orange', 'red'
+    const borderColor = `border-${baseColorName}-100`;
+    const hoverBorder = `hover:border-${baseColorName}-200`;
+    const shadowColor = `shadow-${baseColorName}-100`;
+    const bgGradient = `bg-gradient-to-br from-${baseColorName}-50 to-white`;
 
-        <div className="relative z-10">
-            <div className="flex items-start justify-between mb-3">
+    return (
+        <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay, duration: 0.4 }}
+            whileHover={{ y: -4, boxShadow: "0 10px 30px -10px rgba(0, 0, 0, 0.1)" }}
+            onClick={onClick}
+            className={`relative p-6 rounded-2xl border ${borderColor} ${bgGradient} ${hoverBorder} shadow-sm transition-all group ${onClick ? 'cursor-pointer' : ''} ${highlight ? `ring-2 ring-${baseColorName}-200` : ''}`}
+        >
+            {highlight && (
+                <div className="absolute top-3 right-3">
+                    <span className="flex h-2.5 w-2.5">
+                        <span className={`animate-ping absolute inline-flex h-full w-full rounded-full bg-${baseColorName}-400 opacity-75`}></span>
+                        <span className={`relative inline-flex rounded-full h-2.5 w-2.5 bg-${baseColorName}-500`}></span>
+                    </span>
+                </div>
+            )}
+
+            <div className="relative z-10 flex justify-between items-start">
                 <div>
-                    <p className="text-gray-500 text-xs font-semibold tracking-wider uppercase mb-2">{title}</p>
-                    <h3 className="text-3xl font-extrabold text-slate-800 tracking-tight">
-                        {isLoading ? <div className="h-9 w-16 bg-gray-100 animate-pulse rounded"></div> : <CountUp value={value} />}
+                    <div className={`p-3 rounded-xl mb-4 inline-block ${color} bg-opacity-10 shadow-sm`}>
+                        <Icon size={24} className={color.replace('bg-', 'text-')} />
+                    </div>
+                    <p className="text-slate-500 text-xs font-bold tracking-wider uppercase mb-1">{title}</p>
+                    <h3 className="text-4xl font-extrabold text-slate-800 tracking-tight mb-2">
+                        {isLoading ? <div className="h-9 w-20 bg-gray-200/50 animate-pulse rounded"></div> : <CountUp value={value} />}
                     </h3>
-                </div>
-                <div className={`p-3 rounded-xl ${color} bg-opacity-10`}>
-                    <Icon size={22} className={color.replace('bg-', 'text-')} />
+                    <div className="flex items-center text-xs font-medium text-slate-500">
+                        {subtext}
+                        {onClick && <ChevronRight size={14} className="ml-1 opacity-50 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all" />}
+                    </div>
                 </div>
             </div>
-            <div className="flex items-center justify-between text-xs">
-                <span className="text-gray-400">{subtext}</span>
-                {onClick && <ChevronRight size={14} className="text-gray-300 group-hover:text-gray-500 group-hover:translate-x-1 transition-all" />}
-            </div>
-        </div>
-    </motion.div>
-);
 
-// Priority Badge
+            {/* Decorative Background Icon */}
+            <Icon
+                className={`absolute -bottom-4 -right-4 w-32 h-32 opacity-[0.03] text-${baseColorName}-600 transform group-hover:scale-110 group-hover:rotate-[-10deg] transition-all duration-700 pointer-events-none`}
+            />
+        </motion.div>
+    );
+};
+
+// Priority Badge with clearer contrast
 const PriorityBadge = ({ priority }) => {
     const styles = {
-        critical: 'bg-red-100 text-red-700 border-red-200',
-        important: 'bg-amber-100 text-amber-700 border-amber-200',
-        normal: 'bg-slate-100 text-slate-600 border-slate-200'
+        critical: 'bg-red-50 text-red-700 border-red-200 ring-1 ring-red-100',
+        important: 'bg-amber-50 text-amber-700 border-amber-200 ring-1 ring-amber-100',
+        normal: 'bg-slate-50 text-slate-600 border-slate-200 ring-1 ring-slate-100'
     };
     const labels = {
         critical: 'Critical',
@@ -88,42 +99,58 @@ const PriorityBadge = ({ priority }) => {
         normal: 'Normal'
     };
     return (
-        <span className={`text-[10px] font-bold uppercase tracking-wide px-2 py-0.5 rounded-full border ${styles[priority]}`}>
+        <span className={`text-[10px] font-bold uppercase tracking-wide px-2.5 py-1 rounded-full border ${styles[priority]}`}>
             {labels[priority]}
         </span>
     );
 };
 
-// Needs Attention Item
+// Needs Attention Item with Left Accent Border
 const AttentionItem = ({ item, onClick }) => {
-    const icons = {
-        critical_lab: <AlertTriangle size={16} className="text-red-500" />,
-        abnormal_lab: <FileText size={16} className="text-amber-500" />,
-        waiting_patient: <Users size={16} className="text-blue-500" />
+    const accents = {
+        critical: 'border-l-red-500 bg-red-50/30',
+        important: 'border-l-amber-500 bg-amber-50/30',
+        normal: 'border-l-blue-500 bg-blue-50/30'
     };
+
+    // Fallback if priority is missing or unknown
+    const priority = item.priority || 'normal';
+    const accentClass = accents[priority] || accents.normal;
 
     return (
         <motion.div
-            initial={{ opacity: 0, x: -20 }}
+            initial={{ opacity: 0, x: -10 }}
             animate={{ opacity: 1, x: 0 }}
+            whileHover={{ scale: 1.01 }}
             onClick={onClick}
-            className="flex items-start gap-3 p-4 bg-white rounded-xl border border-gray-100 hover:border-gray-200 hover:shadow-md cursor-pointer transition-all group"
+            className={`flex items-start gap-4 p-4 mb-3 bg-white rounded-r-xl border-l-4 border-y border-r border-gray-100 hover:shadow-md cursor-pointer transition-all group ${accentClass}`}
         >
-            <div className={`p-2 rounded-lg ${item.priority === 'critical' ? 'bg-red-50' : item.priority === 'important' ? 'bg-amber-50' : 'bg-blue-50'}`}>
-                {icons[item.type]}
-            </div>
             <div className="flex-1 min-w-0">
-                <div className="flex items-center gap-2 mb-1">
-                    <span className="font-semibold text-sm text-slate-800 truncate">{item.title}</span>
-                    <PriorityBadge priority={item.priority} />
+                <div className="flex items-center justify-between mb-1">
+                    <span className="font-semibold text-sm text-slate-800 truncate pr-2">{item.title}</span>
+                    <div className="flex-shrink-0">
+                        <PriorityBadge priority={priority} />
+                    </div>
                 </div>
-                <p className="text-xs text-slate-500 truncate">{item.description}</p>
-                {item.time && <p className="text-[10px] text-slate-400 mt-1">{formatDistanceToNow(new Date(item.time), { addSuffix: true })}</p>}
+                <p className="text-xs text-slate-500 line-clamp-2 mb-2 leading-relaxed">{item.description}</p>
+
+                <div className="flex items-center justify-between mt-2 pt-2 border-t border-dashed border-gray-100">
+                    {item.time && (
+                        <div className="flex items-center text-[10px] text-slate-400 font-medium">
+                            <Clock size={10} className="mr-1" />
+                            {formatDistanceToNow(new Date(item.time), { addSuffix: true })}
+                        </div>
+                    )}
+                    <span className="text-[10px] text-blue-600 font-semibold group-hover:underline flex items-center">
+                        Take Action
+                        <ChevronRight size={10} className="ml-0.5" />
+                    </span>
+                </div>
             </div>
-            <ChevronRight size={16} className="text-gray-300 group-hover:text-gray-500 mt-1 transition-colors" />
         </motion.div>
     );
 };
+
 
 const ClinicalDashboard = () => {
     const dispatch = useDispatch();
@@ -306,42 +333,38 @@ const ClinicalDashboard = () => {
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-
                 {/* Needs Attention Panel */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.4 }}
-                    className="lg:col-span-1 order-2 lg:order-1"
+                    className="lg:col-span-1 order-2 lg:order-1 flex flex-col h-full"
                 >
-                    <div className="bg-gradient-to-br from-slate-50 to-white rounded-3xl border border-gray-100 p-6 shadow-lg shadow-slate-200/50">
-                        <div className="flex items-center justify-between mb-6">
+                    <div className="bg-white rounded-3xl border border-gray-100 p-6 shadow-sm h-full max-h-[500px] flex flex-col">
+                        <div className="flex items-center justify-between mb-6 pb-4 border-b border-gray-50">
                             <div>
-                                <h3 className="font-bold text-lg text-slate-800">Needs Attention</h3>
-                                <p className="text-xs text-gray-500">Sorted by urgency</p>
+                                <h3 className="font-bold text-lg text-slate-800 flex items-center gap-2">
+                                    <AlertTriangle size={18} className="text-amber-500" />
+                                    Needs Attention
+                                </h3>
                             </div>
-                            <div className="flex items-center gap-1 text-xs text-gray-400">
-                                <Bell size={12} />
-                                <span>{needsAttention.length} items</span>
-                            </div>
+                            <span className="bg-slate-100 text-slate-600 text-xs font-bold px-2 py-1 rounded-md">
+                                {needsAttention.length} Pending
+                            </span>
                         </div>
 
-                        <div className="space-y-3 max-h-[400px] overflow-y-auto pr-1 custom-scrollbar">
+                        <div className="flex-1 overflow-y-auto pr-2 custom-scrollbar -mr-2">
                             <AnimatePresence>
                                 {needsAttention.length === 0 ? (
-                                    <motion.div
-                                        initial={{ opacity: 0 }}
-                                        animate={{ opacity: 1 }}
-                                        className="text-center py-12 border-2 border-dashed border-slate-100 rounded-2xl"
-                                    >
-                                        <div className="w-12 h-12 bg-emerald-50 rounded-full flex items-center justify-center mx-auto mb-3">
-                                            <Activity size={20} className="text-emerald-500" />
+                                    <div className="h-full flex flex-col items-center justify-center text-center py-8">
+                                        <div className="w-16 h-16 bg-emerald-50 rounded-full flex items-center justify-center mb-3">
+                                            <CheckCircle className="text-emerald-500 w-8 h-8" />
                                         </div>
-                                        <p className="text-slate-600 font-medium text-sm">You're all caught up! ✨</p>
-                                        <p className="text-slate-400 text-xs mt-1">No pending items require your attention.</p>
-                                    </motion.div>
+                                        <p className="text-slate-600 font-medium text-sm">All Caught Up!</p>
+                                        <p className="text-slate-400 text-xs mt-1">No pending alerts</p>
+                                    </div>
                                 ) : (
-                                    needsAttention.map((item, idx) => (
+                                    needsAttention.map((item) => (
                                         <AttentionItem
                                             key={item.id}
                                             item={item}
@@ -359,52 +382,70 @@ const ClinicalDashboard = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.5 }}
-                    className="lg:col-span-2 order-1 lg:order-2 bg-white p-8 rounded-3xl border border-gray-100 shadow-xl shadow-slate-200/50"
+                    className="lg:col-span-2 order-1 lg:order-2 bg-white p-8 rounded-3xl border border-gray-100 shadow-sm"
                 >
-                    <div className="flex items-center justify-between mb-8">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-8 gap-4">
                         <div>
                             <h3 className="font-bold text-xl text-slate-800">My OPD Schedule</h3>
-                            <p className="text-sm text-gray-500">Today's patient load by hour</p>
+                            <p className="text-sm text-gray-400 font-medium">Patient load distribution (Today)</p>
                         </div>
-                        <div className="flex items-center gap-4 text-xs font-semibold text-gray-500">
-                            <div className="flex items-center gap-2">
-                                <span className="w-3 h-3 rounded-sm bg-blue-500"></span> Scheduled
+                        <div className="flex items-center gap-6">
+                            <div className="flex items-center gap-2 text-xs font-semibold text-gray-500">
+                                <span className="w-3 h-3 rounded-sm bg-blue-500/20 border border-blue-500"></span>
+                                Scheduled
+                            </div>
+                            <div className="flex items-center gap-2 text-xs font-semibold text-gray-500">
+                                <span className="w-3 h-3 rounded-sm bg-blue-600 shadow-sm"></span>
+                                Current Loading
                             </div>
                         </div>
                     </div>
 
-                    <div className="h-[320px] w-full">
-                        {trafficData.length > 0 && trafficData.some(d => d.patients > 0) ? (
+                    <div className="h-[320px] w-full bg-slate-50/50 rounded-2xl p-4 border border-slate-100/50">
+                        {trafficData.length > 0 ? (
                             <ResponsiveContainer width="100%" height="100%">
-                                <BarChart data={trafficData} barGap={8}>
-                                    <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#F1F5F9" />
+                                <BarChart data={trafficData} barGap={4} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
+                                    <defs>
+                                        <linearGradient id="barGradient" x1="0" y1="0" x2="0" y2="1">
+                                            <stop offset="0%" stopColor="#3B82F6" stopOpacity={0.8} />
+                                            <stop offset="100%" stopColor="#3B82F6" stopOpacity={0.4} />
+                                        </linearGradient>
+                                    </defs>
+                                    <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#E2E8F0" />
                                     <XAxis
                                         dataKey="name"
                                         axisLine={false}
                                         tickLine={false}
-                                        tick={{ fill: '#94A3B8', fontSize: 11 }}
-                                        dy={10}
+                                        tick={{ fill: '#64748B', fontSize: 11, fontWeight: 500 }}
+                                        dy={12}
                                     />
                                     <YAxis
                                         axisLine={false}
                                         tickLine={false}
-                                        tick={{ fill: '#94A3B8', fontSize: 11 }}
+                                        tick={{ fill: '#64748B', fontSize: 11, fontWeight: 500 }}
                                         allowDecimals={false}
                                     />
-                                    <Tooltip content={<CustomTooltip />} cursor={{ fill: '#F8FAFC' }} />
+                                    <Tooltip
+                                        cursor={{ fill: 'rgba(59, 130, 246, 0.05)', radius: 8 }}
+                                        contentStyle={{ backgroundColor: '#1E293B', color: '#fff', border: 'none', borderRadius: '12px', boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)' }}
+                                        itemStyle={{ color: '#fff' }}
+                                    />
                                     {currentHourIndex >= 0 && (
                                         <ReferenceLine
                                             x={trafficData[currentHourIndex]?.name}
                                             stroke="#3B82F6"
                                             strokeDasharray="4 4"
-                                            strokeWidth={2}
+                                            strokeWidth={1.5}
+                                            label={{ position: 'top', value: 'NOW', fill: '#3B82F6', fontSize: 10, fontWeight: 'bold' }}
                                         />
                                     )}
-                                    <Bar dataKey="patients" radius={[6, 6, 6, 6]} barSize={20} animationDuration={1200}>
+                                    <Bar dataKey="patients" radius={[6, 6, 6, 6]} barSize={28} animationDuration={1000}>
                                         {trafficData.map((entry, index) => (
                                             <Cell
                                                 key={`cell-${index}`}
-                                                fill={entry.isCurrentHour ? '#3B82F6' : '#CBD5E1'}
+                                                fill={entry.isCurrentHour ? '#2563EB' : 'url(#barGradient)'}
+                                                stroke={entry.isCurrentHour ? '#1D4ED8' : 'transparent'}
+                                                opacity={entry.patients === 0 ? 0.3 : 1}
                                             />
                                         ))}
                                     </Bar>
@@ -412,9 +453,8 @@ const ClinicalDashboard = () => {
                             </ResponsiveContainer>
                         ) : (
                             <div className="h-full flex flex-col items-center justify-center text-gray-300">
-                                <Calendar size={48} className="mb-4 opacity-30" />
-                                <p className="text-slate-500 font-medium">No OPD activity yet today</p>
-                                <p className="text-slate-400 text-sm mt-1">You're all caught up! 🎉</p>
+                                <Calendar size={48} className="mb-4 opacity-20" />
+                                <p className="text-slate-400 font-medium">No schedule activity recorded yet</p>
                             </div>
                         )}
                     </div>

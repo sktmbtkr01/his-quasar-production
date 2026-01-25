@@ -362,6 +362,50 @@ export const getComplianceReports = async () => {
     return response.data;
 };
 
+// ═══════════════════════════════════════════════════════════════════════════════
+// STAFF ONBOARDING
+// ═══════════════════════════════════════════════════════════════════════════════
+
+export const getOnboardingStats = async () => {
+    const response = await api.get('/admin/onboarding/stats');
+    return response.data;
+};
+
+export const getOnboardingIds = async (params = {}) => {
+    const response = await api.get('/admin/onboarding', { params });
+    return response.data;
+};
+
+export const generateOnboardingId = async (data) => {
+    const response = await api.post('/admin/onboarding/generate', data);
+    return response.data;
+};
+
+export const bulkGenerateOnboardingIds = async (data) => {
+    const response = await api.post('/admin/onboarding/generate-bulk', data);
+    return response.data;
+};
+
+export const revokeOnboardingId = async (id, reason) => {
+    const response = await api.post(`/admin/onboarding/${id}/revoke`, { reason });
+    return response.data;
+};
+
+export const getPendingApprovals = async (params = {}) => {
+    const response = await api.get('/admin/onboarding/pending-approvals', { params });
+    return response.data;
+};
+
+export const approveUserOnboarding = async (userId) => {
+    const response = await api.post(`/admin/onboarding/approve/${userId}`);
+    return response.data;
+};
+
+export const rejectUserOnboarding = async (userId, reason) => {
+    const response = await api.post(`/admin/onboarding/reject/${userId}`, { reason });
+    return response.data;
+};
+
 export default {
     // Dashboard
     getDashboard,
@@ -431,4 +475,13 @@ export default {
     // Audit
     getAuditLogs,
     getComplianceReports,
+    // Staff Onboarding
+    getOnboardingStats,
+    getOnboardingIds,
+    generateOnboardingId,
+    bulkGenerateOnboardingIds,
+    revokeOnboardingId,
+    getPendingApprovals,
+    approveUserOnboarding,
+    rejectUserOnboarding,
 };

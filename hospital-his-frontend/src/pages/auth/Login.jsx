@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Activity, Lock, Mail, ArrowRight, AlertCircle } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { Activity, Lock, Mail, ArrowRight, AlertCircle, UserPlus } from 'lucide-react';
+import { useNavigate, Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { login, reset } from '../../features/auth/authSlice';
 
@@ -10,6 +10,7 @@ const Login = () => {
         email: '',
         password: '',
     });
+    const [pendingApproval, setPendingApproval] = useState(null);
 
     const { email, password } = formData;
 
@@ -23,7 +24,6 @@ const Login = () => {
     // Error handling effect
     useEffect(() => {
         if (isError) {
-            // toast.error(message);
             dispatch(reset());
         }
     }, [isError, message, dispatch]);
@@ -31,13 +31,20 @@ const Login = () => {
     // Success/Navigation effect
     useEffect(() => {
         if (isSuccess || user) {
+            // Check if this is a pending approval response
+            if (user?.pendingApproval) {
+                setPendingApproval(user);
+                dispatch(reset());
+                return;
+            }
+
             if (user?.role === 'admin') {
                 navigate('/admin');
             } else {
                 navigate('/dashboard');
             }
         }
-    }, [user, isSuccess, navigate]);
+    }, [user, isSuccess, navigate, dispatch]);
 
     // Cleanup effect
     useEffect(() => {
@@ -55,12 +62,51 @@ const Login = () => {
 
     const onSubmit = (e) => {
         e.preventDefault();
+        setPendingApproval(null);
         const userData = {
             email,
             password,
         };
         dispatch(login(userData));
     };
+
+    // Show pending approval screen
+    if (pendingApproval) {
+        return (
+            <div className="min-h-screen bg-slate-50 flex items-center justify-center p-4">
+                <motion.div
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    className="bg-white rounded-3xl shadow-xl overflow-hidden max-w-md w-full p-12 text-center"
+                >
+                    <div className="w-20 h-20 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <span className="text-4xl">⏳</span>
+                    </div>
+                    <h1 className="text-2xl font-bold text-slate-800 mb-4">Approval Pending</h1>
+                    <p className="text-slate-500 mb-6">
+                        Your account is awaiting approval from the administrator. You will be able to access the system once your account is approved.
+                    </p>
+                    <div className="bg-slate-50 rounded-xl p-4 mb-6">
+                        <div className="text-sm text-slate-500 mb-1">Logged in as</div>
+                        <div className="font-semibold text-slate-800">{pendingApproval.user?.email}</div>
+                        <div className="text-sm text-slate-500 mt-2 mb-1">Role</div>
+                        <div className="inline-block px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium capitalize">
+                            {pendingApproval.user?.role?.replace('_', ' ')}
+                        </div>
+                    </div>
+                    <p className="text-sm text-slate-400 mb-6">
+                        Please contact your administrator if you have been waiting for more than 24 hours.
+                    </p>
+                    <button
+                        onClick={() => setPendingApproval(null)}
+                        className="w-full py-3 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg font-semibold transition-all"
+                    >
+                        Back to Login
+                    </button>
+                </motion.div>
+            </div>
+        );
+    }
 
     return (
         <div className="min-h-screen bg-slate-50 flex items-center justify-center p-4">
@@ -137,6 +183,20 @@ const Login = () => {
                             )}
                         </button>
                     </form>
+
+                    {/* Onboarding Signup Link */}
+                    <div className="mt-6 pt-6 border-t border-slate-100">
+                        <Link
+                            to="/signup"
+                            className="flex items-center justify-center gap-2 w-full py-3 bg-slate-50 hover:bg-slate-100 text-slate-700 rounded-lg font-medium transition-all"
+                        >
+                            <UserPlus size={18} />
+                            Create Account with Onboarding ID
+                        </Link>
+                        <p className="text-xs text-center text-slate-400 mt-3">
+                            New staff? Get your onboarding ID from the administrator.
+                        </p>
+                    </div>
                 </div>
 
                 {/* Right Side - Image/Info */}
@@ -162,3 +222,4 @@ const Login = () => {
 };
 
 export default Login;
+

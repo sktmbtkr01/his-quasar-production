@@ -59,6 +59,13 @@ router.get('/', patientController.getAllPatients);
 router.get('/search', patientController.searchPatients);
 
 /**
+ * @route   GET /api/patients/referral-stats
+ * @desc    Get patient referral statistics
+ * @access  Admin, Receptionist
+ */
+router.get('/referral-stats', authorize('admin', 'receptionist'), patientController.getReferralStats);
+
+/**
  * @route   GET /api/patients/:id
  * @desc    Get patient by ID
  */

@@ -63,13 +63,43 @@ exports.getItems = asyncHandler(async (req, res, next) => {
         .populate('defaultLocation', 'locationName')
         .skip((page - 1) * limit)
         .limit(parseInt(limit))
-        .sort({ itemName: 1 });
+        .sort({ itemName: 1 })
+        .lean(); // Use lean to allow modification
 
     const total = await InventoryItem.countDocuments(query);
 
+    // Fetch stock quantities for these items
+    const itemIds = items.map(i => i._id);
+    const stockMap = {};
+
+    if (itemIds.length > 0) {
+        const stocks = await InventoryStock.aggregate([
+            { $match: { item: { $in: itemIds } } },
+            {
+                $group: {
+                    _id: '$item',
+                    totalQuantity: { $sum: '$quantity' },
+                    availableQuantity: { $sum: '$availableQuantity' }
+                }
+            }
+        ]);
+
+        stocks.forEach(s => {
+            stockMap[s._id.toString()] = s;
+        });
+    }
+
+    // Attach stock info and lastUpdated (using updatedAt from item)
+    const enhancedItems = items.map(item => ({
+        ...item,
+        totalQuantity: stockMap[item._id.toString()]?.totalQuantity || 0,
+        availableQuantity: stockMap[item._id.toString()]?.availableQuantity || 0,
+        lastUpdated: item.updatedAt
+    }));
+
     res.status(200).json({
         success: true,
-        data: items,
+        data: enhancedItems,
         pagination: { page: parseInt(page), limit: parseInt(limit), total }
     });
 });

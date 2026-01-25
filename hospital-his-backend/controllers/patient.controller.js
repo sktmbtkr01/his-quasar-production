@@ -2,9 +2,11 @@ const Patient = require('../models/Patient');
 const EMR = require('../models/EMR');
 const Appointment = require('../models/Appointment');
 const Admission = require('../models/Admission');
+const User = require('../models/User');
 const asyncHandler = require('../utils/asyncHandler');
 const ErrorResponse = require('../utils/errorResponse');
 const aiOcrService = require('../services/aiOcr.service');
+const emailService = require('../services/email.service');
 
 /**
  * @desc    Scan government ID card and extract patient details
@@ -100,7 +102,84 @@ exports.createPatient = asyncHandler(async (req, res, next) => {
         delete patientData.idDocumentImage;
     }
 
+    // Handle Referral Information (Optional)
+    if (req.body.referral && (req.body.referral.doctorName || req.body.referral.doctorId)) {
+        try {
+            const referralData = {
+                type: req.body.referral.type || 'EXTERNAL',
+                doctorName: req.body.referral.doctorName,
+                clinicName: req.body.referral.clinicName || null,
+                email: req.body.referral.email || null,
+                phone: req.body.referral.phone || null,
+                recordedBy: req.user?.id || null,
+                recordedAt: new Date(),
+            };
+
+            // For INTERNAL referrals, fetch doctor email from User model
+            if (req.body.referral.type === 'INTERNAL' && req.body.referral.doctorId) {
+                const doctor = await User.findById(req.body.referral.doctorId).select('email profile');
+                if (doctor) {
+                    referralData.doctorId = doctor._id;
+                    referralData.email = doctor.email;
+                    referralData.doctorName = `${doctor.profile?.firstName || ''} ${doctor.profile?.lastName || ''}`.trim();
+                }
+            }
+
+            patientData.referral = referralData;
+            logger.info(`[PatientRegistration] Referral recorded: ${referralData.type} - ${referralData.doctorName}`);
+        } catch (err) {
+            logger.error(`[PatientRegistration] Failed to process referral: ${err.message}`);
+            // Don't block registration if referral processing fails
+        }
+    }
+
     const patient = await Patient.create(patientData);
+
+    // Send referral notification email (async - don't block response)
+    if (patient.referral?.email) {
+        // Calculate patient age
+        const calculateAge = (dob) => {
+            if (!dob) return 'N/A';
+            const today = new Date();
+            const birthDate = new Date(dob);
+            let age = today.getFullYear() - birthDate.getFullYear();
+            const m = today.getMonth() - birthDate.getMonth();
+            if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+                age--;
+            }
+            return age;
+        };
+
+        // Send email asynchronously (non-blocking)
+        emailService.sendReferralNotification({
+            doctorEmail: patient.referral.email,
+            doctorName: patient.referral.doctorName,
+            patientName: `${patient.firstName} ${patient.lastName}`,
+            patientAge: calculateAge(patient.dateOfBirth),
+            patientGender: patient.gender,
+            patientId: patient.patientId,
+            registrationTime: new Date(),
+            referralType: patient.referral.type,
+        }).then(async (result) => {
+            // Update patient record with email status (async)
+            try {
+                await Patient.findByIdAndUpdate(patient._id, {
+                    'referral.emailSent': result.success,
+                    'referral.emailSentAt': result.success ? result.sentAt : null,
+                    'referral.emailError': result.success ? null : result.error,
+                });
+                if (result.success) {
+                    logger.info(`[PatientRegistration] Referral email sent for patient ${patient.patientId}`);
+                } else {
+                    logger.warn(`[PatientRegistration] Referral email failed for patient ${patient.patientId}: ${result.error}`);
+                }
+            } catch (updateErr) {
+                logger.error(`[PatientRegistration] Failed to update email status: ${updateErr.message}`);
+            }
+        }).catch((err) => {
+            logger.error(`[PatientRegistration] Email service error: ${err.message}`);
+        });
+    }
 
     // Emit socket event
     const io = req.app.get('io');
@@ -108,11 +187,12 @@ exports.createPatient = asyncHandler(async (req, res, next) => {
         io.emit('patient-registered', {
             id: patient._id,
             name: `${patient.firstName} ${patient.lastName}`,
-            time: new Date()
+            time: new Date(),
+            hasReferral: !!patient.referral?.doctorName,
         });
     }
 
-    logger.info(`[PatientRegistration] New patient registered: ${patient.patientId} - ${patient.firstName} ${patient.lastName}`);
+    logger.info(`[PatientRegistration] New patient registered: ${patient.patientId} - ${patient.firstName} ${patient.lastName}${patient.referral?.doctorName ? ` (Referred by: ${patient.referral.doctorName})` : ''}`);
 
     res.status(201).json({
         success: true,
@@ -267,3 +347,76 @@ exports.getPatientEMR = asyncHandler(async (req, res, next) => {
     });
 });
 
+
+/**
+ * @desc    Get referral statistics
+ * @route   GET /api/patients/referral-stats
+ */
+exports.getReferralStats = asyncHandler(async (req, res, next) => {
+    // 1. Overall stats (Internal vs External vs None)
+    const overallStats = await Patient.aggregate([
+        {
+            $group: {
+                _id: "$referral.type",
+                count: { $sum: 1 }
+            }
+        }
+    ]);
+
+    // 2. Top Internal Doctors
+    const topInternal = await Patient.aggregate([
+        { $match: { "referral.type": "INTERNAL" } },
+        {
+            $group: {
+                _id: "$referral.doctorId",
+                name: { $first: "$referral.doctorName" },
+                count: { $sum: 1 }
+            }
+        },
+        { $sort: { count: -1 } },
+        { $limit: 5 }
+    ]);
+
+    // 3. Top External Clinics/Doctors
+    const topExternal = await Patient.aggregate([
+        { $match: { "referral.type": "EXTERNAL" } },
+        {
+            $group: {
+                _id: { name: "$referral.doctorName", clinic: "$referral.clinicName" },
+                count: { $sum: 1 }
+            }
+        },
+        { $sort: { count: -1 } },
+        { $limit: 5 }
+    ]);
+
+    // 4. Recent Referrals (Last 30 days)
+    const thirtyDaysAgo = new Date();
+    thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
+
+    const recentTrend = await Patient.aggregate([
+        {
+            $match: {
+                createdAt: { $gte: thirtyDaysAgo },
+                "referral.type": { $in: ["INTERNAL", "EXTERNAL"] }
+            }
+        },
+        {
+            $group: {
+                _id: { $dateToString: { format: "%Y-%m-%d", date: "$createdAt" } },
+                count: { $sum: 1 }
+            }
+        },
+        { $sort: { _id: 1 } }
+    ]);
+
+    res.status(200).json({
+        success: true,
+        data: {
+            overall: overallStats,
+            topInternal,
+            topExternal,
+            recentTrend
+        }
+    });
+});

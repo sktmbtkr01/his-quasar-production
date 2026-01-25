@@ -4,22 +4,32 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
+  darkMode: 'class',
   theme: {
     extend: {
       colors: {
-        background: '#F8FAFC', // Soft off-white
+        // Semantic Colors (Mapped to CSS Variables)
+        background: 'rgb(var(--color-background) / <alpha-value>)',
+        surface: 'rgb(var(--color-surface) / <alpha-value>)',
+        'surface-highlight': 'rgb(var(--color-surface-highlight) / <alpha-value>)',
+
         primary: {
-          DEFAULT: '#14B8A6', // Main Brand Teal
-          dark: '#0D9488',    // Darker teal for hover
-          light: '#5EEAD4',   // Light teal for accents
+          DEFAULT: 'rgb(var(--color-primary) / <alpha-value>)',
+          foreground: 'rgb(var(--color-primary-foreground) / <alpha-value>)',
+          dark: '#0D9488',
+          light: '#5EEAD4',
         },
         secondary: {
-          DEFAULT: '#64748B', // Gray for text
-          dark: '#0F172A',    // Near black
+          DEFAULT: '#64748B',
+          dark: '#0F172A',
           muted: '#94A3B8',
         },
+        textPrimary: 'rgb(var(--color-text-primary) / <alpha-value>)',
+        textSecondary: 'rgb(var(--color-text-secondary) / <alpha-value>)',
+
+        // Keep existing mainly for backward capability until refactored
         card: {
-          DEFAULT: '#FFFFFF',
+          DEFAULT: 'rgb(var(--color-surface) / <alpha-value>)',
         }
       },
       fontFamily: {

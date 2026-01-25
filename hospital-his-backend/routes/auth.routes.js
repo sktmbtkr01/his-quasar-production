@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const authController = require('../controllers/auth.controller');
+const onboardingController = require('../controllers/onboarding.controller');
 const { authenticate } = require('../middleware/auth.middleware');
 
 /**
@@ -51,5 +52,23 @@ router.put('/change-password', authenticate, authController.changePassword);
  * @access  Private
  */
 router.get('/me', authenticate, authController.getMe);
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// PUBLIC ONBOARDING ROUTES - Staff Signup Flow
+// ═══════════════════════════════════════════════════════════════════════════════
+
+/**
+ * @route   POST /api/auth/validate-onboarding-id
+ * @desc    Validate an onboarding ID (first step of signup)
+ * @access  Public
+ */
+router.post('/validate-onboarding-id', onboardingController.validateOnboardingId);
+
+/**
+ * @route   POST /api/auth/signup-with-onboarding
+ * @desc    Create account using onboarding ID
+ * @access  Public
+ */
+router.post('/signup-with-onboarding', onboardingController.signupWithOnboarding);
 
 module.exports = router;

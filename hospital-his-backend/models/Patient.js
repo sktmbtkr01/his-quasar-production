@@ -98,6 +98,64 @@ const patientSchema = new mongoose.Schema(
             trim: true,
             // Path to the masked ID card image
         },
+
+        // ═══════════════════════════════════════════════════════════════════════════════
+        // REFERRAL INFORMATION (Optional)
+        // ═══════════════════════════════════════════════════════════════════════════════
+        referral: {
+            // Type of referral: INTERNAL (from staff database) or EXTERNAL (manual entry)
+            type: {
+                type: String,
+                enum: ['INTERNAL', 'EXTERNAL', null],
+                default: null,
+            },
+            // For INTERNAL referrals - reference to User (doctor)
+            doctorId: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: 'User',
+            },
+            // Doctor name (stored for both types - for quick display)
+            doctorName: {
+                type: String,
+                trim: true,
+            },
+            // For EXTERNAL referrals - clinic/hospital name
+            clinicName: {
+                type: String,
+                trim: true,
+            },
+            // Email for notification (required for email notification)
+            email: {
+                type: String,
+                trim: true,
+                lowercase: true,
+                match: [/^\S+@\S+\.\S+$/, 'Please provide a valid email'],
+            },
+            // Phone (optional - for follow-up)
+            phone: {
+                type: String,
+                trim: true,
+            },
+            // Notification status
+            emailSent: {
+                type: Boolean,
+                default: false,
+            },
+            emailSentAt: {
+                type: Date,
+            },
+            emailError: {
+                type: String,
+            },
+            // Audit info
+            recordedBy: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: 'User',
+            },
+            recordedAt: {
+                type: Date,
+            },
+        },
     },
     {
         timestamps: true,

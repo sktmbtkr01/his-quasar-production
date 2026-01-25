@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
     Activity, ArrowRight, ShieldCheck, Clock,
-    Users, Database, FileText, Lock, ChevronRight, CheckCircle, ChevronLeft
+    Users, Database, FileText, Lock, ChevronRight, CheckCircle, ChevronLeft,
+    Stethoscope, BedDouble, Pill, Banknote, FlaskConical, ScanLine, UserCog
 } from 'lucide-react';
 import { clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
@@ -168,7 +169,82 @@ function Landing() {
                 </div>
             </motion.section>
 
-            {/* 4. 3D Carousel Departments */}
+            {/* 4. How It Works (Timeline inside Glass Card) */}
+            <section className="py-24 bg-background relative overflow-hidden">
+                <div className="max-w-7xl mx-auto px-6 relative z-10">
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8 }}
+                        className="text-center mb-16"
+                    >
+                        <h2 className="text-4xl font-bold text-secondary-dark mb-4">Streamlined Workflow</h2>
+                        <p className="text-secondary max-w-xl mx-auto">From registration to discharge, experience a seamless healthcare journey.</p>
+                    </motion.div>
+
+                    {/* Timeline Card */}
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8, delay: 0.2 }}
+                        className="bg-white/60 backdrop-blur-xl border border-white/40 shadow-glass-lg rounded-3xl p-8 md:p-12 relative overflow-hidden"
+                    >
+                        {/* Decorative background gradients */}
+                        <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+                        <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-500/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
+
+                        {/* Timeline Container */}
+                        <div className="relative mt-8 mb-4">
+                            {/* Base Line */}
+                            <div className="absolute top-1/2 left-0 w-full h-1 bg-gray-200 rounded-full -translate-y-1/2 z-0 hidden md:block"></div>
+
+                            {/* Animated Progress Line */}
+                            <motion.div
+                                initial={{ scaleX: 0 }}
+                                whileInView={{ scaleX: 1 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 1.5, ease: "easeInOut", delay: 0.5 }}
+                                className="absolute top-1/2 left-0 w-full h-1 bg-gradient-to-r from-primary to-blue-600 rounded-full -translate-y-1/2 z-0 origin-left hidden md:block" // Hidden on mobile
+                            ></motion.div>
+
+                            {/* Steps Grid */}
+                            <div className="grid grid-cols-1 md:grid-cols-4 gap-8 relative z-10">
+                                <TimelineStep
+                                    number="01"
+                                    title="Quick Registration"
+                                    desc="AI-powered check-in reduces wait times."
+                                    delay={0.6}
+                                    icon={<UserCog size={24} className="text-white" />}
+                                />
+                                <TimelineStep
+                                    number="02"
+                                    title="Smart Triage"
+                                    desc="Auto-priority assignment based on vitals."
+                                    delay={0.9}
+                                    icon={<Activity size={24} className="text-white" />}
+                                />
+                                <TimelineStep
+                                    number="03"
+                                    title="Care & Diagnostics"
+                                    desc="Integrated labs, imaging, and prescriptions."
+                                    delay={1.2}
+                                    icon={<FlaskConical size={24} className="text-white" />}
+                                />
+                                <TimelineStep
+                                    number="04"
+                                    title="Billing & Discharge"
+                                    desc="Seamless insurance claim and automated billing."
+                                    delay={1.5}
+                                    icon={<Banknote size={24} className="text-white" />}
+                                />
+                            </div>
+                        </div>
+                    </motion.div>
+                </div>
+            </section>
+
             <section id="departments" className="py-24 bg-gray-50 overflow-hidden relative">
                 <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent"></div>
                 <motion.div
@@ -314,13 +390,13 @@ function FooterColumn({ title, links }) {
 
 function Carousel3D() {
     const cards = [
-        { title: "OPD", desc: "Out-Patient Department", color: "from-blue-400 to-blue-600" },
-        { title: "IPD", desc: "In-Patient Care", color: "from-teal-400 to-teal-600" },
-        { title: "Pharmacy", desc: "Inventory & Medicine", color: "from-emerald-400 to-emerald-600" },
-        { title: "Billing", desc: "Invoices & Insurance", color: "from-orange-400 to-orange-600" },
-        { title: "Pathology", desc: "Lab & Diagnostics", color: "from-purple-400 to-purple-600" },
-        { title: "Radiology", desc: "Imaging & Reports", color: "from-indigo-400 to-indigo-600" },
-        { title: "Admin", desc: "HR & Analytics", color: "from-rose-400 to-rose-600" },
+        { title: "OPD", desc: "Out-Patient Department", color: "from-blue-400 to-blue-600", icon: <Stethoscope size={36} /> },
+        { title: "IPD", desc: "In-Patient Care", color: "from-teal-400 to-teal-600", icon: <BedDouble size={36} /> },
+        { title: "Pharmacy", desc: "Inventory & Medicine", color: "from-emerald-400 to-emerald-600", icon: <Pill size={36} /> },
+        { title: "Billing", desc: "Invoices & Insurance", color: "from-orange-400 to-orange-600", icon: <Banknote size={36} /> },
+        { title: "Pathology", desc: "Lab & Diagnostics", color: "from-purple-400 to-purple-600", icon: <FlaskConical size={36} /> },
+        { title: "Radiology", desc: "Imaging & Reports", color: "from-indigo-400 to-indigo-600", icon: <ScanLine size={36} /> },
+        { title: "Admin", desc: "HR & Analytics", color: "from-rose-400 to-rose-600", icon: <UserCog size={36} /> },
     ];
 
     const [active, setActive] = useState(0);
@@ -361,11 +437,11 @@ function Carousel3D() {
                                 rotateY: normOffset * -10
                             }}
                             transition={{ duration: 0.7, ease: "easeOut" }}
-                            className="absolute w-[350px] md:w-[400px] h-[280px] p-10 rounded-3xl bg-white/90 backdrop-blur-md border border-white/50 shadow-soft-xl flex flex-col items-center justify-center text-center cursor-pointer hover:bg-white transition-colors"
+                            className="absolute w-[350px] md:w-[400px] h-[280px] p-10 rounded-3xl bg-white/90 backdrop-blur-md border border-slate-200 shadow-soft-xl flex flex-col items-center justify-center text-center cursor-pointer hover:bg-white transition-colors"
                             onClick={() => setActive(index)}
                         >
                             <div className={`w-20 h-20 rounded-2xl bg-gradient-to-br ${card.color} mb-6 flex items-center justify-center text-white text-3xl font-bold shadow-lg transform group-hover:scale-110 transition-transform`}>
-                                {card.title.charAt(0)}
+                                {card.icon}
                             </div>
                             <h3 className="text-3xl font-bold text-slate-800 mb-3">{card.title}</h3>
                             <p className="text-slate-500 font-medium text-lg">{card.desc}</p>
@@ -374,6 +450,27 @@ function Carousel3D() {
                 })}
             </AnimatePresence>
         </div>
+    );
+}
+
+function TimelineStep({ number, title, desc, delay, icon }) {
+    return (
+        <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: delay }}
+            className="flex flex-col items-center text-center group"
+        >
+            {/* Circle Node */}
+            <div className="w-14 h-14 rounded-full bg-gradient-to-br from-primary to-primary-dark shadow-lg shadow-primary/30 flex items-center justify-center mb-6 relative z-10 group-hover:scale-110 transition-transform duration-300 ring-4 ring-white">
+                {icon}
+            </div>
+
+            <span className="text-xs font-bold text-primary/60 tracking-wider mb-2 uppercase">Step {number}</span>
+            <h3 className="text-lg font-bold text-secondary-dark mb-2">{title}</h3>
+            <p className="text-sm text-secondary leading-relaxed max-w-[200px] mx-auto">{desc}</p>
+        </motion.div>
     );
 }
 
