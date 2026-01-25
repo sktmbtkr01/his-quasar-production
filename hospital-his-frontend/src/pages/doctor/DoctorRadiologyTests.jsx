@@ -4,7 +4,7 @@ import { ScanLine, Eye, X, FileText, Image, RefreshCw, Shield, Loader, CheckCirc
 import axios from 'axios';
 import toast from 'react-hot-toast';
 
-const API_URL = 'http://localhost:5001/api/v1/';
+const API_URL = '/api/v1/';
 const getConfig = () => {
     const user = JSON.parse(localStorage.getItem('user'));
     return { headers: { Authorization: `Bearer ${user?.token}` } };
@@ -88,7 +88,7 @@ const DoctorRadiologyTests = () => {
             const imagePath = selectedTest.scanImage.startsWith('/')
                 ? selectedTest.scanImage
                 : '/' + selectedTest.scanImage;
-            return `http://localhost:5001${imagePath}`;
+            return `${import.meta.env.VITE_API_URL.replace('/api/v1', '')}${imagePath}`;
         }
         return null;
     };
@@ -98,7 +98,7 @@ const DoctorRadiologyTests = () => {
             const reportPath = selectedTest.reportUrl.startsWith('/')
                 ? selectedTest.reportUrl
                 : '/' + selectedTest.reportUrl;
-            return `http://localhost:5001${reportPath}`;
+            return `${import.meta.env.VITE_API_URL.replace('/api/v1', '')}${reportPath}`;
         }
         return null;
     };

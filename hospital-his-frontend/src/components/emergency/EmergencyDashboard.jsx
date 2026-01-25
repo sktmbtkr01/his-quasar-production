@@ -68,7 +68,7 @@ const EmergencyDashboard = () => {
 
     // Socket connection
     useEffect(() => {
-        const socketInstance = io('http://localhost:5001', {
+        const socketInstance = io('', {
             withCredentials: true,
         });
 

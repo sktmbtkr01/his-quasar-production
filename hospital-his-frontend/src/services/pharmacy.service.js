@@ -1,8 +1,8 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5001/api/v1/pharmacy';
-const APPOINTMENT_URL = 'http://localhost:5001/api/v1/opd/appointments';
-const PRESCRIPTION_URL = 'http://localhost:5001/api/v1/prescriptions';
+const API_URL = '/api/v1/pharmacy';
+const APPOINTMENT_URL = '/api/v1/opd/appointments';
+const PRESCRIPTION_URL = '/api/v1/prescriptions';
 
 const getConfig = () => {
     const user = JSON.parse(localStorage.getItem('user'));

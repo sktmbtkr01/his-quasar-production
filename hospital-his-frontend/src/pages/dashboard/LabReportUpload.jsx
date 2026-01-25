@@ -23,7 +23,7 @@ const LabReportUpload = () => {
     const fetchPatients = async () => {
         try {
             const user = JSON.parse(localStorage.getItem('user'));
-            const response = await axios.get('http://localhost:5001/api/v1/patients', {
+            const response = await axios.get('/api/v1/patients', {
                 headers: { Authorization: `Bearer ${user?.token}` }
             });
             setPatients(response.data.data || []);

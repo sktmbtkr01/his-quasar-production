@@ -60,3 +60,4 @@ build/
 # ===== Misc =====
 coverage/
 .cache/
+.vercel

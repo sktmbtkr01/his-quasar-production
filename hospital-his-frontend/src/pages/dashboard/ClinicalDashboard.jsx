@@ -12,7 +12,7 @@ import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGri
 import { useNavigate } from 'react-router-dom';
 import io from 'socket.io-client';
 
-const SOCKET_URL = 'http://localhost:5001';
+const SOCKET_URL = '';
 const POLLING_INTERVAL = 60000; // 1 minute
 
 // Animated CountUp

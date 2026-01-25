@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import toast from 'react-hot-toast';
 
-const API_RES_URL = 'http://localhost:5001/api/v1/';
+const API_RES_URL = '/api/v1/';
 const getConfig = () => {
     const user = JSON.parse(localStorage.getItem('user'));
     return { headers: { Authorization: `Bearer ${user?.token}` } };

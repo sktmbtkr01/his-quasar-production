@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # =======================
 # Node.js
 # =======================
@@ -6,6 +5,8 @@ node_modules/
 hospital-his-frontend/node_modules/
 hospital-his-backend/node_modules/
 hospital-his-backend/uploads/
+**/*.traineddata
+
 
 # =======================
 # Python Virtual Envs
@@ -32,7 +33,6 @@ __pycache__/
 # =======================
 .DS_Store
 .vscode/
-=======
 # Python
 __pycache__/
 *.py[cod]
@@ -82,4 +82,4 @@ env/
 
 # Uploaded lab reports (large files)
 hospital-his-backend/uploads/lab-reports/*.pdf
->>>>>>> origin/Before-Presentation
+

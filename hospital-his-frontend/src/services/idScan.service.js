@@ -7,7 +7,7 @@
 
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5001/api/v1/patients/';
+const API_URL = '/api/v1/patients/';
 
 /**
  * Get authorization config from localStorage

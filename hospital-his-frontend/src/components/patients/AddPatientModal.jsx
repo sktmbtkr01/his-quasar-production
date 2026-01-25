@@ -7,7 +7,7 @@ import ScanIDModal from '../idScan/ScanIDModal';
 
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5001/api/v1';
+const API_URL = '/api/v1';
 
 const AddPatientModal = ({ isOpen, onClose }) => {
     const dispatch = useDispatch();

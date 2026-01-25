@@ -5,7 +5,7 @@ import labService from '../../services/lab.service';
 import axios from 'axios';
 import toast from 'react-hot-toast';
 
-const API_URL = 'http://localhost:5001/api/v1/';
+const API_URL = '/api/v1/';
 const getConfig = () => {
     const user = JSON.parse(localStorage.getItem('user'));
     return { headers: { Authorization: `Bearer ${user?.token}` } };
@@ -129,7 +129,7 @@ const DoctorLabTests = () => {
             const pdfPath = selectedTest.reportPdf.startsWith('/')
                 ? selectedTest.reportPdf
                 : '/' + selectedTest.reportPdf;
-            return `http://localhost:5001${pdfPath}`;
+            return `${import.meta.env.VITE_API_URL.replace('/api/v1', '')}${pdfPath}`;
         }
         return null;
     };
@@ -514,8 +514,8 @@ const DoctorLabTests = () => {
                                             onClick={handleSetRiskLevel}
                                             disabled={riskLoading || selectedRiskLevel === savedRiskLevel}
                                             className={`px-5 py-2 rounded-lg font-medium flex items-center gap-2 ${selectedRiskLevel === savedRiskLevel
-                                                    ? 'bg-green-100 text-green-700 cursor-default'
-                                                    : 'bg-purple-600 hover:bg-purple-700 text-white disabled:opacity-50'
+                                                ? 'bg-green-100 text-green-700 cursor-default'
+                                                : 'bg-purple-600 hover:bg-purple-700 text-white disabled:opacity-50'
                                                 }`}
                                         >
                                             {riskLoading ? <Loader size={16} className="animate-spin" /> :

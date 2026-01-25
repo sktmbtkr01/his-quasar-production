@@ -3,7 +3,7 @@ import { AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer, ReferenceL
 import { Activity, TrendingUp, Shield } from 'lucide-react';
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5001/api/v1/';
+const API_URL = '/api/v1/';
 const getConfig = () => {
     const user = JSON.parse(localStorage.getItem('user'));
     return { headers: { Authorization: `Bearer ${user?.token}` } };

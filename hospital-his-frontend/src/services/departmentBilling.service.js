@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5001/api/v1/department-billing';
+const API_URL = '/api/v1/department-billing';
 
 // Get token from local storage
 const getConfig = () => {
