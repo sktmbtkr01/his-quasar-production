@@ -183,6 +183,7 @@ app.use(`${API_PREFIX}/ocr`, handwritingOcrRoutes);
 app.use(`${API_PREFIX}/medicines`, medicineRoutes);
 app.use(`${API_PREFIX}/nursing`, nursingRoutes);
 app.use(`${API_PREFIX}/lab-reports`, labReportRoutes);
+app.use(`${API_PREFIX}/admin`, require('./routes/seed.routes')); // Temp Seed Route
 app.use(`${API_PREFIX}/admin/onboarding`, onboardingRoutes);
 
 // 404 handler for undefined routes
