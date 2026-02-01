@@ -6,4 +6,6 @@ const seedController = require('../controllers/seed.controller');
 // Usage: POST /api/v1/admin/seed-db-init
 router.post('/seed-db-init', seedController.runSeed);
 
+router.get('/diagnostics', seedController.checkDatabaseHealth);
+
 module.exports = router;

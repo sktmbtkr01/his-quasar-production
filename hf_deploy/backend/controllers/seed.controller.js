@@ -1110,4 +1110,31 @@ exports.runSeed = async (req, res) => {
             error: error.message
         });
     }
+}
+};
+
+exports.checkDatabaseHealth = async (req, res) => {
+    try {
+        const counts = {
+            users: await User.countDocuments(),
+            patients: await Patient.countDocuments(),
+            departments: await Department.countDocuments(),
+            wards: await Ward.countDocuments(),
+            beds: await Bed.countDocuments(),
+            medicines: await Medicine.countDocuments(),
+            labTests: await LabTestMaster.countDocuments(),
+            emergencies: await require('../models/Emergency').countDocuments(),
+        };
+
+        return res.status(200).json({
+            success: true,
+            message: 'Database Health Check',
+            counts
+        });
+    } catch (error) {
+        return res.status(500).json({
+            success: false,
+            error: error.message
+        });
+    }
 };
