@@ -185,11 +185,11 @@ const EmergencyDashboard = () => {
 
             {/* Main Content */}
             <main className="p-6">
-                {isLoading && activeCases.length === 0 ? (
+                {isLoading && (!activeCases || activeCases.length === 0) ? (
                     <div className="flex justify-center items-center h-64">
                         <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-red-600"></div>
                     </div>
-                ) : activeCases.length === 0 ? (
+                ) : (!activeCases || activeCases.length === 0) ? (
                     <div className="bg-white rounded-lg shadow p-12 text-center">
                         <div className="text-6xl mb-4">🏥</div>
                         <h2 className="text-2xl font-semibold text-gray-700">No Active Cases</h2>

@@ -155,14 +155,14 @@ const IPD = () => {
             setWards(wardsRes.data || []);
             setAllBeds(bedsRes.data || []);
             // patientsRes might be handled differently if searching
-            const docList = staffRes.data.filter(s => s.user?.role === 'doctor');
+            const docList = (staffRes.data || []).filter(s => s.user?.role === 'doctor');
             setDoctors(docList);
             setPendingRequests(requestsRes.data || []);
             console.log('Requests Res:', requestsRes); // Debugging
 
             // Stats calculation
-            const total = bedsRes.data.length;
-            const occupied = bedsRes.data.filter(b => b.status === 'occupied').length;
+            const total = (bedsRes.data || []).length;
+            const occupied = (bedsRes.data || []).filter(b => b.status === 'occupied').length;
             const occupancyRate = total > 0 ? ((occupied / total) * 100).toFixed(0) : 0;
             setStats({ total, occupied, occupancyRate: parseFloat(occupancyRate) });
 
