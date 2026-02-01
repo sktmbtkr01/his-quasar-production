@@ -11,6 +11,7 @@ const bcrypt = require('bcryptjs');
 
 // Import Models
 const User = require('../models/User');
+const Patient = require('../models/Patient');
 const Department = require('../models/Department');
 const Ward = require('../models/Ward');
 const Bed = require('../models/Bed');
