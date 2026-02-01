@@ -7,6 +7,12 @@ const mongoose = require('mongoose');
 
 const medicineSchema = new mongoose.Schema(
     {
+        medicineCode: {
+            type: String,
+            required: [true, 'Medicine code is required'],
+            unique: true,
+            trim: true
+        },
         name: {
             type: String,
             required: [true, 'Medicine name is required'],
