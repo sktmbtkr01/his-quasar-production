@@ -1111,7 +1111,6 @@ exports.runSeed = async (req, res) => {
             error: error.message
         });
     }
-}
 };
 
 exports.checkDatabaseHealth = async (req, res) => {
