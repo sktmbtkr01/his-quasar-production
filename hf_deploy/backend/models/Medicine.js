@@ -46,6 +46,11 @@ const medicineSchema = new mongoose.Schema(
                 'Sedative',
                 'Steroid',
                 'Vitamin',
+                'Analgesic/Antipyretic', // Added for seed compatibility
+                'Antacid/PPI',           // Added for seed compatibility
+                'Lipid Lowering',        // Added for seed compatibility
+                'Anti-asthmatic',        // Added for seed compatibility
+                'IV Fluid',              // Added for seed compatibility
                 'Other'
             ],
             default: 'Other'
@@ -56,7 +61,7 @@ const medicineSchema = new mongoose.Schema(
         },
         form: {
             type: String,
-            enum: ['Tablet', 'Capsule', 'Syrup', 'Injection', 'Cream', 'Ointment', 'Drops', 'Inhaler', 'Powder', 'Gel', 'Patch', 'Suspension', 'Other'],
+            enum: ['Tablet', 'Capsule', 'Syrup', 'Injection', 'Cream', 'Ointment', 'Drops', 'Inhaler', 'Powder', 'Gel', 'Patch', 'Suspension', 'tablet', 'capsule', 'injection', 'Other'],
             default: 'Tablet'
         },
         manufacturer: {
