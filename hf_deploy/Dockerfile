@@ -47,7 +47,6 @@ RUN chmod +x start.sh
 ENV PREDICTIVE_ML_URL="http://127.0.0.1:5002"
 ENV OCR_SERVICE_URL="http://127.0.0.1:8000"
 ENV PORT=7860
-ENV MONGODB_URI="mongodb+srv://shravanibaraskar_db_user:R12COy0mdrk1I1l4@cluster2.fs2fnzl.mongodb.net/?retryWrites=true&w=majority"
 ENV NODE_ENV="production"
 
 # Expose the HF Space port

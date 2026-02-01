@@ -83,3 +83,4 @@ env/
 # Uploaded lab reports (large files)
 hospital-his-backend/uploads/lab-reports/*.pdf
 
+.vercel

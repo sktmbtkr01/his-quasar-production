@@ -1,0 +1,43 @@
+name: Deploy to Hugging Face Space
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'hf_deploy/**'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          lfs: true
+
+      - name: Push to Hub
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: |
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "github-actions[bot]"
+          
+          # 1. Switch to the 'hf_deploy' subdirectory
+          # We use `git subtree push` strategy or a manual copy strategy. 
+          # Manual strategy is often more reliable for specific subfolder deployment.
+          
+          # Clone the HF Space repo into a temp folder
+          # REPLACE 'YOUR_HF_USERNAME' and 'YOUR_SPACE_NAME' with environment variables or inputs if preferred, 
+          # but typically we relies on the secret. 
+          # WAIT: We don't know the remote space name yet. 
+          # FIX: I will use a generic sync action or a flexible script.
+          # The standard `huggingface_hub` action is good but often expects root.
+          # Let's use a force push script.
+          
+          echo "Deploying to Hugging Face Space..."
+          
+          # We will push the CONTENTS of hf_deploy to the remote root.
+          # Using git subtree split is a clean way to do this.
+          
+          git subtree split --prefix hf_deploy -b deploy-branch
+          git push https://sacred-bot:$HF_TOKEN@huggingface.co/spaces/${{ secrets.HF_NAMESPACE }}/${{ secrets.HF_SPACE_NAME }} deploy-branch:main --force
